@@ -75,6 +75,10 @@
     gap: 4px;
 }
 
+.addTaskButton:hover {
+    background: rgba(41, 171, 226, 1);
+}
+
 .h1Board {
     padding-bottom: 0;
 }
