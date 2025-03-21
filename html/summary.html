@@ -1,13 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Join/Summary</title>
-    <link rel="icon" type="image/x-icon" href="../assets/img/join_logo_dark.svg"/>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Join/Summary</title>
+        <link rel="icon" type="image/x-icon" href="../assets/img/join_logo_dark.svg" />
+
+        <link rel="stylesheet" href="../styles/standard.css" />
+        <link rel="stylesheet" href="../styles/add_task.css" />
+        <link rel="icon" type="image/x-icon" href="../assets/img/join_logo_dark.svg"/>
+        <link rel="stylesheet" href="../styles/board.css">
+        <link rel="stylesheet" href="../styles/summary.css">
+
+        <script src="../script.js"></script> 
+    </head>
+    <body>
+        <div class="d_flex">
+            <div w3-include-html="./html/navBar.html"></div>
+            <div class="collumn">
+                <div w3-include-html="./html/header.html"></div>
+            
+                <main class="main_content">
+                    <div class="headBoard">
+                        <div class="headSummaryPosition">
+                            <h1 class="h1Board">Join 360</h1>
+                            <div class="blueLine"></div>
+                            <div class="h2Summary">Key Metrics at a Glance</div> 
+                        </div>
+                        <div class="summary_content">
+                            <div class="summary_cards">
+                                <div class="summary_line">
+                                    <div class="summary_card">
+                                        <img class="summary_card_icon" src="../assets/img/icons/pen_grey.svg" alt="To-do" />
+                                        <div class="summary_card_content">
+                                            <div class="summary_card_number">1</div>
+                                            <div class="summary_card_title">To-do</div>
+                                        </div>
+                                    </div>
+                                    <div class="summary_card">
+                                        <img class="summary_card_icon" src="../assets/img/icons/check_grey.svg" alt="Done" />
+                                        <div class="summary_card_content">
+                                            <div class="summary_card_number">1</div>
+                                            <div class="summary_card_title">Done</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="summary_line2">
+                                    <img class="summary_card_icon" src="../assets/img/icons/priority_urgent_red_circle.svg" alt="Urgent" />
+                                    <div class="summary_card_content">
+                                        <div class="summary_card_number">1</div>
+                                        <div class="summary_card_title">Urgent</div>
+                                    </div>
+                                    <div class="greyLine"></div>
+                                    <div class="summary_card_content">
+                                        <div class="summary_card_deadline">October 16, 2022</div>
+                                        <div class="summary_card_title2">Upcoming Deadline</div>
+                                    </div>
+                                </div>
+                                <div class="summary_line">
+                                    <div class="summary_card_small">
+                                        <div class="summary_card_content">
+                                            <div class="summary_card_number">5</div>
+                                            <div class="summary_card_title">Tasks in Board</div>
+                                        </div>
+                                    </div>
+                                    <div class="summary_card_small">
+                                        <div class="summary_card_content">
+                                            <div class="summary_card_number">2</div>
+                                            <div class="summary_card_title">Tasks in Progress</div>
+                                        </div>
+                                    </div>
+                                    <div class="summary_card_small">
+                                        <div class="summary_card_content">
+                                            <div class="summary_card_number">2</div>
+                                            <div class="summary_card_title">Awaiting Feedback</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                    
+                            </div>
+                            <div class="summary_greeting">
+                                <div class="summary_greeting_text">Good morning,</div> 
+                                <div class="summary_greeting_name">Sofia Müller</div>
+                            </div>
+                        </div>
+                    </div>
+                </main> 
+            </div>
+        </div>
+    </body>
 </html>
