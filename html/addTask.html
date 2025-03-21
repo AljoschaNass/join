@@ -1,67 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="../styles/standard.css">
-    <link rel="stylesheet" href="../styles/add_task.css">
+    <link rel="stylesheet" href="../styles/standard.css" />
+    <link rel="stylesheet" href="../styles/add_task.css" />
 
     <title>Join/Add Task</title>
-    <link rel="icon" type="image/x-icon" href="../assets/img/join_logo_dark.svg"/>
-</head>
-<body>
-
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="../assets/img/join_logo_dark.svg"
+    />
+  </head>
+  <body>
     <div class="d_flex">
-        <nav class="main_nav_bar">
-            <img class="nav_bar_logo" src="../assets/img/join_logo.svg" alt="join-logo">
+      <nav class="main_nav_bar">
+        <img
+          class="nav_bar_logo"
+          src="../assets/img/join_logo.svg"
+          alt="join-logo"
+        />
 
-            <div class="quick_links">
+        <div class="quick_links">
+          <a class="quick_link_row" href="./summary.html">
+            <img
+              class="quick_links_icons"
+              src="../assets/img/icons/nav_summary_icon.svg"
+              alt="summary-icon"
+            />
+            <p class="quick_link">Summary</p>
+          </a>
 
-                <a class="quick_link_row" href="./summary.html">
-                    <img class="quick_links_icons" src="../assets/img/icons/nav_summary_icon.svg" alt="summary-icon">
-                    <p class="quick_link">Summary</p>
-                </a>
+          <a class="quick_link_row" href="./addTask.html">
+            <img
+              class="quick_links_icons"
+              src="../assets/img/icons/nav_add_task_icon.svg"
+              alt="task-icon"
+            />
+            <p class="quick_link">Add Task</p>
+          </a>
 
-                <a class="quick_link_row" href="./addTask.html">
-                    <img class="quick_links_icons" src="../assets/img/icons/nav_add_task_icon.svg" alt="task-icon">
-                    <p class="quick_link">Add Task</p>
-                </a>
+          <a class="quick_link_row" href="./board.html">
+            <img
+              class="quick_links_icons"
+              src="../assets/img/icons/nav_board_icon.svg"
+              alt="board-icon"
+            />
+            <p class="quick_link">Board</p>
+          </a>
 
-                <a class="quick_link_row" href="./board.html">
-                    <img class="quick_links_icons" src="../assets/img/icons/nav_board_icon.svg" alt="board-icon">
-                    <p class="quick_link">Board</p>
-                </a>
-            
-                <a class="quick_link_row" href="./contacts.html">
-                    <img class="quick_links_icons" src="../assets/img/icons/nav_contacts_icon.svg" alt="contact-icon">
-                    <p class="quick_link">Contacts</p>
-                </a>
-            </div>
-
-            <div class="footer_links">
-                <a class="footer_link" href="./privacyPolice.html">Privacy Police</a>
-                <a class="footer_link" href="./legalNotice.html">Legal notice</a>
-            </div>
-            
-        </nav>
-        <div class="collumn">
-            <header class="main_header">
-                <p>Kanban Project Management Tool</p>
-                <div class="header_right">
-                    <a href="../html/help.html">
-                        <img class="header_help_icon" src="../assets/img/icons/header_help_icon.svg" alt="help-icon">
-                    </a>
-                    <div class="header_user_profile">SM</div>
-                </div>
-            </header>
-    
-            <main class="main_content">
-    
-            </main>
+          <a class="quick_link_row" href="./contacts.html">
+            <img
+              class="quick_links_icons"
+              src="../assets/img/icons/nav_contacts_icon.svg"
+              alt="contact-icon"
+            />
+            <p class="quick_link">Contacts</p>
+          </a>
         </div>
+
+        <div class="footer_links">
+          <a class="footer_link" href="./privacyPolice.html">Privacy Police</a>
+          <a class="footer_link" href="./legalNotice.html">Legal notice</a>
+        </div>
+      </nav>
+      <div class="collumn">
+        <header class="main_header">
+          <p>Kanban Project Management Tool</p>
+          <div class="header_right">
+            <a href="../html/help.html">
+              <img
+                class="header_help_icon"
+                src="../assets/img/icons/header_help_icon.svg"
+                alt="help-icon"
+              />
+            </a>
+            <div class="header_user_profile">SM</div>
+          </div>
+        </header>
+
+        <main class="main_content">
+            <h1>Add Task</h1>
+            <div>
+                <form class="add_task_section" action="">
+                    <div class="add_task_left">
+                        <label for="add_task_title">Title</label>
+                        <input id="add_task_title" class="add_task_input" type="text" placeholder="Enter a title" required>
+                        <p class="add_task_required">This field is required</p>
+
+                        <label for="add_task_description">Description</label>
+                        <textarea name="" id="add_task_description" class="add_task_input" placeholder="Enter a Description"></textarea>
+                        <p class="add_task_required"></p>
+
+                        <label for="add_task_date">Due date</label>
+                        <input id="add_task_date" class="add_task_input" type="date" required>
+                        <p class="add_task_required">This field is required</p>
+                    </div>
+                    <div class="seperator"></div>
+                    <div class="add_task_left">
+                        <label for="">Priority</label>
+                        <div>
+                            <button></button><button></button><button></button>
+                        </div>
+
+                        <label for="add_task_assigned_to">Assigned to</label>
+                        <input id="add_task_assigned_to" class="add_task_input" type="text">
+                        <p class="add_task_required"></p>
+
+                        <label for="add_task_category">Category</label>
+                        <input id="add_task_category" class="add_task_input" type="text" required>
+                        <p class="add_task_required">This field is required</p>
+
+                        <label for="add_task_subtask">Subtask</label>
+                        <input id="add_task_subtask" class="add_task_input" type="text">
+                        <p class="add_task_required"></p>
+
+                        <div class="add_task_btn_section">
+                            <button id="btn_add_task_clear" class="btn_add_task btn_clear">Clear X</button>
+                            <button id="btn_add_task_create_task" class="btn_add_task btn_create">Create Task
+                                <img src="../assets/img/icons/add_task_btn_check.svg" alt="check">
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+      </div>
     </div>
-    
-    
-</body>
+  </body>
 </html>

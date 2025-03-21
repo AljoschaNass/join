@@ -1,9 +1,14 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
+}
+
+h1{
+    padding-bottom: 40px;
+    font-size: 61px;
 }
