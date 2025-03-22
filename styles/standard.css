@@ -3,6 +3,11 @@
   src: url(../assets/fonts/Inter/Inter-VariableFont_opsz\,wght.ttf);
 }
 
+@font-face {
+  font-family: "Open Sans";
+  src: url(../assets/fonts/Open_Sans/OpenSans-VariableFont_wdth\,wght.ttf);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;

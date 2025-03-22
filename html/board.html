@@ -11,63 +11,29 @@
     <link rel="stylesheet" href="../styles/add_task.css" />
     <link rel="icon" type="image/x-icon" href="../assets/img/join_logo_dark.svg"/>
     <link rel="stylesheet" href="../styles/board.css">
+    <link rel="stylesheet" href="../styles/summary.css">
+
+    <script src="../script.js"></script>
+
 </head>
 
-<body>
+<body onload="init()">
     <div class="d_flex">
-        <nav class="main_nav_bar">
-            <img class="nav_bar_logo" src="../assets/img/join_logo.svg" alt="join-logo" />
-
-            <div class="quick_links">
-                <a class="quick_link_row" href="./summary.html">
-                    <img class="quick_links_icons" src="../assets/img/icons/nav_summary_icon.svg" alt="summary-icon" />
-                    <p class="quick_link">Summary</p>
-                </a>
-
-                <a class="quick_link_row" href="./addTask.html">
-                    <img class="quick_links_icons" src="../assets/img/icons/nav_add_task_icon.svg" alt="task-icon" />
-                    <p class="quick_link">Add Task</p>
-                </a>
-
-                <a class="quick_link_row" href="./board.html">
-                    <img class="quick_links_icons" src="../assets/img/icons/nav_board_icon.svg" alt="board-icon" />
-                    <p class="quick_link">Board</p>
-                </a>
-
-                <a class="quick_link_row" href="./contacts.html">
-                    <img class="quick_links_icons" src="../assets/img/icons/nav_contacts_icon.svg" alt="contact-icon" />
-                    <p class="quick_link">Contacts</p>
-                </a>
-            </div>
-
-            <div class="footer_links">
-                <a class="footer_link" href="./privacyPolice.html">Privacy Police</a>
-                <a class="footer_link" href="./legalNotice.html">Legal notice</a>
-            </div>
-        </nav>
+        <div w3-include-html="navBar.html"></div>
         <div class="collumn">
-            <header class="main_header">
-                <p>Kanban Project Management Tool</p>
-                <div class="header_right">
-                    <a href="../html/help.html">
-                        <img class="header_help_icon" src="../assets/img/icons/header_help_icon.svg" alt="help-icon" />
-                    </a>
-                    <div class="header_user_profile">SM</div>
-                </div>
-            </header>
+            <div w3-include-html="header.html"></div>
 
             <main class="main_content">
                 <div class="headBoard">
                     <div class="headBoardPosition">
                         <h1 class="h1Board">Board</h1>
                         <div class="headBoardRight">
-    
                             <div class="searchFieldBoard">
                                 <input type="text" placeholder="Find Task" class="searchBarBoard">
                                 <div class="searchButton">
                                     <div class="vector"></div>
                                     <button>
-                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <svg class="iconSearch" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <mask id="mask0_75609_16019" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="32">
                                             <rect width="32" height="32" fill="#D9D9D9"/>
                                             </mask>
@@ -77,21 +43,69 @@
                                         </svg>
                                     </button>
                                 </div>
-    
                             </div>
-    
                             <button class="addTaskButton">Add task 
                                 <svg width="18.67" height="18.67" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path  d="M8.73438 11.3327H0.734375V8.66602H8.73438V0.666016H11.401V8.66602H19.401V11.3327H11.401V19.3327H8.73438V11.3327Z" fill="white"/>
                                 </svg>                                    
                             </button>
-    
                         </div>
                     </div>
-
-
                 </div>
                 
+                <div id="taskBoard">
+
+                    <div id="toDoBoard" class="baseBoard">
+                        <div class="headTask">
+                            <p>To do</p>
+                            <button>
+                                <svg class="iconAdd" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="1" y="1" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2"/>
+                                    <path d="M12 8V16" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+                                </svg>                                    
+                            </button>
+                        </div>
+                        <div id="toDoTask">
+                            <div id="noTaskToDo">
+                                <p>No task To Do</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="inProgressBoard" class="baseBoard">
+                        <div class="headTask">
+                            <p>In progress</p>
+                            <button>
+                                <svg class="iconAdd" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="1" y="1" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2"/>
+                                    <path d="M12 8V16" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+                                </svg>                                    
+                            </button>
+                        </div>
+                        <div id="inProgressTask"></div>
+                    </div>
+                    <div id="awaitFeedbackBoard" class="baseBoard">
+                        <div class="headTask">
+                            <p>Await Feedback</p>
+                            <button>
+                                <svg class="iconAdd" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="1" y="1" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2"/>
+                                    <path d="M12 8V16" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+                                </svg>                                                                      
+                            </button>
+                        </div>
+                        <div id="awaitFeedbackTask"></div>
+                    </div>
+                    <div id="doneBoard" class="baseBoard">
+                        <div class="headTask">
+                            <p>Done</p>
+                        </div>
+                        <div id="doneTask"></div>
+                    </div>
+
+                </div>
                 
             </main>
         </div>
