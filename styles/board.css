@@ -157,3 +157,112 @@ align-items: center;
 justify-content: center;
 margin-bottom: 10px;
 }
+
+#taskCards {
+    cursor: pointer;
+    border-radius: 24px;
+    padding: 16px;
+    background-color: white;
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08);
+}
+
+.cardsFrame {
+
+}
+
+.cardsLabel {
+    width: 113px;
+    height: 27px;
+    border-radius: 8px;
+    padding-top: 4px;
+    padding-right: 16px;
+    padding-bottom: 4px;
+    padding-left: 16px;
+    background: rgba(0, 56, 255, 1);
+    font-weight: 400;
+    font-size: 16px;
+    color: white;
+    margin-bottom: 24px;
+}
+
+.cardsTitleAndContent {
+    font-size: 16px;
+    gap: 8px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+.cardsTitle {
+    font-weight: 700;
+}
+
+.cardsContent {
+    font-weight: 400;
+    color: rgba(168, 168, 168, 1);
+}
+
+#cardsSubtasks {
+    font-weight: 400;
+    font-size: 12px;
+}
+
+#cardsProgressBar {
+    width: 128px;
+    height: 8px;
+    border-radius: 8px;
+    background: rgba(244, 244, 244, 1);
+}
+
+.cardsProgress {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+#progressBar {
+    background: rgba(69, 137, 255, 1);
+    height: 8px;
+    border-radius: 16px;
+}
+
+#cardsBottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#cardsAssignedTo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    height: 32px;
+}
+
+.cardsAssignedToIcon:nth-child(1) {
+    position: absolute;
+    left: 0;
+}
+
+.cardsAssignedToIcon:nth-child(2) {
+    position: absolute;
+    left: 24px;
+}
+
+.cardsAssignedToIcon:nth-child(3) {
+    position: absolute;
+    left: 48px;
+}
+
+#cardsPriority {
+    display: flex;
+    align-items: center;
+}
+
+#taskCards:active {
+    transform: rotate(5deg);
+}
