@@ -37,3 +37,11 @@ input {
 input:focus {
   outline: none; 
 }
+
+.bShadow_blur4 {
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bShadow_blur14 {
+  box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.04);
+}
