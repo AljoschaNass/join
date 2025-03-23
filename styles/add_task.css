@@ -50,6 +50,8 @@
 .footer_links {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  padding-left: 56px;
   gap: 16px;
 }
 
@@ -59,6 +61,7 @@
 
   &:hover {
     color: #2aaae2;
+    font-weight: 700;
   }
 }
 
@@ -114,110 +117,146 @@
   padding-top: 100px;
 }
 
-.add_task_section{
+.add_task_section {
+  display: flex;
+  justify-content: flex-start;
+  gap: 40px;
+}
+
+.seperator {
+  width: 1px;
+  background-color: #a8a8a8;
+}
+
+.add_task_input {
+  height: 48px;
+  width: 440px;
+  border-radius: 10px;
+  border: 1px solid #d1d1d1;
+  padding: 8px;
+  margin-top: 4px;
+  font-size: 20px;
+}
+
+.add_task_input::placeholder {
+  color: #d1d1d1;
+  padding: 8px;
+  font-size: 20px;
+}
+
+textarea {
+  width: 440px;
+  min-height: 156px;
+  resize: vertical;
+}
+
+.add_task_required {
+  height: 12px;
+  color: #ff3d00;
+  margin-bottom: 12px;
+}
+
+.add_task_left {
+  display: flex;
+  flex-direction: column;
+}
+
+.add_task_left label {
+  height: 24px;
+  font-size: 20px;
+}
+
+.add_task_priority_section{
     display: flex;
-    justify-content: flex-start;
-    gap: 40px;
-}
-
-.seperator{
-    width: 1px;
-    background-color: #a8a8a8;
-}
-
-.add_task_input{
-    height: 48px;
-    width: 440px;
-    border-radius: 10px;
-    border: 1px solid #D1D1D1;
-    padding: 8px;
-    margin-top: 4px;
-    font-size: 20px;
-}
-
-.add_task_input::placeholder{
-    color: #D1D1D1;
-    padding: 8px;
-    font-size: 20px;
-}
-
-textarea{
-    width: 440px;
-    min-height: 156px;
-    resize: vertical;
-}
-
-.add_task_required{
-    height: 12px;
-    color: #FF3D00;
-    margin-bottom: 12px;
-}
-
-.add_task_left{
-    display: flex;
-    flex-direction: column;
-}
-
-.add_task_left label{
-    height: 24px;
-    font-size: 20px;
-}
-
-.priority_urgent_color{
-    color: #FF3D00;
-}
-
-.priority_meduim_color{
-    color: #ffa800;
-}
-
-.priority_low_color{
-    color: #7AE229;
-}
-
-.add_task_btn_section{
-    display: flex;
-    justify-content: flex-end;
     gap: 16px;
-    position: relative;
-    top: 200px;
+    margin-top: 4px;
 }
 
-.btn_add_task{
-    height: 56px;
-    border-radius: 10px;
-    padding: 16px;
-    border: unset;
-    font-size: 21px;
+.priority_icons{
+    width: 20px;
 }
 
-.btn_clear{
-    background-color: #f6f7f8;
-    border: 1px solid #2A3647;
-
-    &:hover{
-        color: #2aaae2;
-        border-color: #2aaae2;
-        box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.22);
-        cursor: pointer;
-    }
-}
-
-.btn_create{
-    background-color: #2b3647;
-    color: white;
+.add_task_btn_priorities{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 4px;
+    gap: 8px;
+    width: 136px;
+    height: 56px;
+    cursor: pointer;
+    border: unset;
+    font-size: 20px;
+    background-color: white;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px;
 
     &:hover{
-        background-color: #2aaae2;
-        box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.22);
         cursor: pointer;
+        box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.22);
     }
 }
 
-.btn_create img{
-    height: 12px;
+.priority_color_urgent {
+  background-color: #ff3d00;
+  color: white;
+  font-weight: 700;
+}
+
+.priority_color_medium {
+  background-color: #ffa800;
+  color: white;
+  font-weight: 700;
+}
+
+.priority_color_low {
+  background-color: #7ae229;
+  color: white;
+  font-weight: 700;
+}
+
+.add_task_btn_section {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  position: relative;
+  top: 200px;
+}
+
+.btn_add_task {
+  height: 56px;
+  border-radius: 10px;
+  padding: 16px;
+  border: unset;
+  font-size: 21px;
+}
+
+.btn_clear {
+  background-color: #f6f7f8;
+  border: 1px solid #2a3647;
+
+  &:hover {
+    color: #2aaae2;
+    border-color: #2aaae2;
+    box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.22);
+    cursor: pointer;
+  }
+}
+
+.btn_create {
+  background-color: #2b3647;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+
+  &:hover {
+    background-color: #2aaae2;
+    box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.22);
+    cursor: pointer;
+  }
+}
+
+.btn_create img {
+  height: 12px;
 }
