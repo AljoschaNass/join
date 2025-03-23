@@ -1,11 +1,21 @@
 .headSummaryPosition {
     width: 1056px;
     height: 73px;
-    margin: 79.5px 64px 79.5px 64px;
+    margin: 0;
+    margin-bottom: 56px;
     display: flex;
     justify-content: left;
     flex-direction: row;
     align-items: center;
+    gap: 30px;
+}
+
+.h1Summary {
+    font-family: 'Inter', sans-serif;
+    color: #2A3647;
+    padding-bottom: 40px;
+    font-size: 61px;
+    font-weight: 700;
 }
 
 .h2Summary {
@@ -13,7 +23,6 @@
     font-size: 27px;
     font-weight: 400;
     color: #2A3647;
-    margin-left: 30px;
 }
 
 .blueLine {
@@ -21,22 +30,20 @@
     border-left-style: solid;
     width: 3px;
     height: 59px;
-    margin-left: 96px;
-    margin-right: 30px;
 }
 
 .summary_content {
     margin: 0;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
 }
 
 .summary_cards {
     width: 560px;
     height: 562px;
-    margin: 56px 80px 0px 96px;
+    margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -159,7 +166,7 @@
     display: flex;
     flex-direction: column;
     align-items: left;
-    margin-left: 30px;
+    margin-left: 60px;
 }
 
 .summary_greeting_text {
