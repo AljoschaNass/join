@@ -1,3 +1,9 @@
+.body_logIn {
+    height: 100vh;
+    background-color: #f6f7f8;
+    position: relative;
+}
+
 .header_logIn {
     background-color: #f6f7f8;
     display: flex;
@@ -44,6 +50,10 @@
 
 .main_logIn {
     background-color:#f6f7f8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .logIn_content {
@@ -51,9 +61,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    flex: 1;
-    padding-bottom: 500px;
+    padding: 48p 115px 48px 115px;
+    gap: 32px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.04);
+    background-color: white;
+    height: 449px;
+    width: 652px;
 }
 
 .input_logIn {
@@ -111,4 +125,31 @@
     font-size: 21px;
     font-weight: 700px;
     background-color: white;
+}
+
+.footer_logIn {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: #f6f7f8; 
+}
+
+.footer_logIn a {
+    text-decoration: none;
+    color: #A8A8A8;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.footer_logIn a:hover {
+    color:#29ABE2;
 }
