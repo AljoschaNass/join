@@ -3,15 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="style.css">
-
-    <script src="script.js"></script>
     
-    <title>Join/Login</title>
-    <link rel="icon" type="image/x-icon" href="./assets/img/join_logo_dark.svg"/>
+    <title>Join/Log in</title>
+    <link rel="icon" type="image/x-icon" href="../assets/img/join_logo_dark.svg"/>
+
+    <link rel="stylesheet" href="../styles/standard.css" />
+    <link rel="stylesheet" href="../styles/logIn.css" />
+    <link rel="stylesheet" href="./style.css" />
+    
 </head>
-<body>
+<body class="body_logIn">
+    <header class="header_logIn">
+        <img class="header_LogIn_logo" src="../assets/img/join_logo_dark.svg" alt="join-logo" />
+        <div class="header_LogIn_right">
+            <div>Not a Join user?</div>
+            <button class="header_LogIn_right_btn"><a href="./signUp.html">Sign up</a></button>
+        </div>
+    </header>
     
+    <main class="main_logIn">
+        <div class="logIn_content bShadow_blur14_opacity04">
+            <h1>Log in</h1>
+            <input type="email" placeholder="Email" class="input_logIn" id="logInEmail" required>
+            <input type="password" placeholder="Password" class="input_logIn" id="logInPassword" required>
+            <div class="logIn_btns">
+                <button class="logIn_btn" id="logInBtn">Log in</button>
+                <button class="logIn_btn" id="guestLogInBtn">Guest Log in</button>
+        </div>
+    </main>
+
+    <footer class="footer_logIn">
+        <a href="../html/privacyPolice.html">Privacy Policy</a>
+        <a href="../html/legalNotice.html">Legal notice</a>
+    </footer>
 </body>
 </html>
