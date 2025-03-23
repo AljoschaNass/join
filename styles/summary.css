@@ -108,6 +108,14 @@
     width: 170px;
 }
 
+.summary_card_content_small {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    gap: 13px;}
+
 .summary_card_icon {
     width: 60px;
     height: 60px;
