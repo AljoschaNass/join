@@ -6,8 +6,38 @@
     
     <title>Join/Sign up</title>
     <link rel="icon" type="image/x-icon" href="../assets/img/join_logo_dark.svg"/>
-</head>
-<body>
+
+    <link rel="stylesheet" href="../styles/standard.css" />
+    <link rel="stylesheet" href="../style.css" />
+
+    <script src="./script.js"></script>
     
+</head>
+<body class="body_logIn">
+    <header class="header_logIn">
+        <img class="header_LogIn_logo" src="../assets/img/join_logo_dark.svg" alt="join-logo" />
+    </header>
+    
+    <main class="main_logIn">
+        <div class="logIn_content bShadow_blur14_opacity04">
+            <h1>Log in</h1>
+            <input type="text" placeholder="Name" class="input_logIn" id="signUpName" required>
+            <input type="email" placeholder="Email" class="input_logIn" id="signUpEmail" required>
+            <input type="password" placeholder="Password" class="input_logIn" id="signUpPassword" required>
+            <input type="password" placeholder="Confirm Password" class="input_logIn" id="signUpConfirmPassword" required>
+            <div class="checkbox"></div>
+                <input type="checkbox" id="checkbox" required>
+                <label for="checkbox">I accept the <a href="../html/privacyPolice.html" class="lightBlue">Privacy Policy</a></label>
+            </div>
+            <div class="logIn_btns">
+                <button class="logIn_btn" id="logInBtn">Sign up</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer_logIn">
+        <a href="../html/privacyPolice.html">Privacy Policy</a>
+        <a href="../html/legalNotice.html">Legal notice</a>
+    </footer>
 </body>
 </html>
