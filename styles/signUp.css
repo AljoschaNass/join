@@ -1,0 +1,24 @@
+.signUp_content {
+    position: relative;
+    top: -100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 48px 88px 48px 88px;
+    gap: 32px;
+    border-radius: 30px;
+    background-color: white;
+}
+
+.checkbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 400;
+    color: #A8A8A8;
+    font-family: 'Inter', sans-serif;
+    gap: 16px;
+}
