@@ -93,6 +93,11 @@
     background-position: 380px center; 
 }
 
+#logInPassword:focus {
+    border: 1px solid #29ABE2;
+    background-image: url('../assets/img/icons/visibility_off.svg'); 
+}
+
 .logIn_btns {
     display: flex;
     flex-direction: row;
