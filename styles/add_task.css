@@ -14,14 +14,13 @@
   width: 440px;
   border-radius: 10px;
   border: 1px solid #d1d1d1;
-  padding: 8px;
+  padding: 8px 16px;
   margin-top: 4px;
   font-size: 20px;
 }
 
 .add_task_input::placeholder {
   color: #d1d1d1;
-  padding: 8px;
   font-size: 20px;
 }
 
@@ -33,16 +32,29 @@ textarea {
 
 .add_task_required {
   height: 12px;
-  color: #ff3d00;
+  color: #ff8190;
   margin-bottom: 12px;
 }
 
-.add_task_left {
+.add_task_hint_required{
+    font-size: 16px;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    top: 240px;
+}
+
+.add_task_hint_required::before, .add_task_after_required::after{
+    content: "*";
+    color: #ff8190;
+}
+
+.add_task_half {
   display: flex;
   flex-direction: column;
 }
 
-.add_task_left label {
+.add_task_half label {
   height: 24px;
   font-size: 20px;
 }
