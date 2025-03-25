@@ -13,7 +13,7 @@
 .h1Summary {
     font-family: 'Inter', sans-serif;
     color: #2A3647;
-    padding-bottom: 40px;
+    padding-bottom: 0px;
     font-size: 61px;
     font-weight: 700;
 }
@@ -73,8 +73,9 @@
 }
 
 .summary_card_medium:hover {
-    background-color: #2A3647;
-    color: white;
+    /*background-color: #2A3647;
+    color: white;*/
+    filter: invert(100%);
 }
 
 .summary_card_large:hover{
