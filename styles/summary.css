@@ -71,8 +71,20 @@
     width: 264px;
 }
 
+.summary_card_medium:hover {
+    background-color: #2A3647;
+    color: white;
+}
+
+.summary_card_large:hover{
+    background-color: #2A3647;
+}
+
+.summary_card_small:hover{
+    background-color: #2A3647;
+}
+
 .summary_card {
-    background-color: #FFFFFF;
     border-radius: 30px;
     display: flex;
     flex-direction: row;
