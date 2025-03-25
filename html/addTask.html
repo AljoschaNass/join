@@ -30,14 +30,14 @@
             <form class="add_task_section" action="">
               <div class="add_task_half">
                 <label class="add_task_after_required" for="add_task_title">Title</label>
-                <input
+                <input onfocusout="checkRequiredTitel()"
                   id="add_task_title"
                   class="add_task_input"
                   type="text"
                   placeholder="Enter a title"
                   required
                 />
-                <p class="add_task_required">This field is required</p>
+                <p id="add_task_required_title" class="add_task_required"></p>
 
                 <label for="add_task_description">Description</label>
                 <textarea
@@ -49,13 +49,13 @@
                 <p class="add_task_required"></p>
 
                 <label class="add_task_after_required" for="add_task_date">Due date</label>
-                <input
+                <input onfocusout="checkRequiredDate()"
                   id="add_task_date"
                   class="add_task_input"
                   type="date"
                   required
                 />
-                <p class="add_task_required">This field is required</p>
+                <p id="add_task_required_date" class="add_task_required"></p>
                 <p class="add_task_hint_required">This field is required</p>
               </div>
 
@@ -112,13 +112,13 @@
                 <p class="add_task_required"></p>
 
                 <label class="add_task_after_required" for="add_task_category">Category</label>
-                <input
+                <input onfocusout="checkRequiredCategory()"
                   id="add_task_category"
                   class="add_task_input"
                   type="text"
                   required
                 />
-                <p class="add_task_required">This field is required</p>
+                <p id="add_task_required_category" class="add_task_required"></p>
 
                 <label for="add_task_subtask">Subtask</label>
                 <input
@@ -135,7 +135,7 @@
                     value="Clear X"
                   />
 
-                  <button type="submit"
+                  <button onclick="checkRequiredBtnAddTask()" type="submit"
                     id="btn_add_task_create_task"
                     class="btn_add_task btn_create"
                   >
