@@ -120,8 +120,33 @@
   .resp_menu_box{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 16px;
     height: 158px;
     width: 150px;
+    padding: 10px;
+    background-color: #2b3647;
+    border-radius: 20px 0 20px 20px;
+    position: absolute;
+    top: 96px;
+    right: 20px;
+  }
+
+  .quick_link_resp{
+    height: 46px;
+    width: 100%;
+    padding-left: 16px;
+    display: flex;
+    align-items: center;
+    &:hover {
+      background-color: #2a3d59;
+    }
+  }
+
+  .resp_menu_box a{
+    color: white;
+    font-size: 16px;
   }
 
   .main_content {
