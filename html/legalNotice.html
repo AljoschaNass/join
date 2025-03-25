@@ -4,10 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="../styles/standard.css" />
+    <link rel="stylesheet" href="../styles/header_navbar.css">
+
+    <script src="../script.js"></script>
+    
     <title>Join/Legal notice</title>
     <link rel="icon" type="image/x-icon" href="../assets/img/join_logo_dark.svg"/>
 </head>
-<body>
-    
+<body onload="init()">
+    <div class="d_flex">
+        <div w3-include-html="navBar.html"></div>
+        <div class="collumn">
+            <div w3-include-html="header.html"></div>
+
+            <main class="main_content">
+                <h1>Legal notice</h1>
+            </main>
+        </div>
+    </div>
+
 </body>
 </html>

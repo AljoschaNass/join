@@ -20,3 +20,42 @@ function removeAllPriosityBg() {
     document.getElementById("add_task_btn_priority_medium").classList.remove("priority_color_medium");
     document.getElementById("add_task_btn_priority_low").classList.remove("priority_color_low");
 }
+
+function checkRequiredBtnAddTask() {
+    checkRequiredTitel();
+    checkRequiredDate();
+    checkRequiredCategory(); 
+}
+
+function checkRequiredTitel() {
+    let titleRef = document.getElementById("add_task_title").value;
+    let titleRequiredRef = document.getElementById("add_task_required_title");
+
+    if (titleRef == "") {
+        titleRequiredRef.innerText = "This field is required";
+    } else {
+        titleRequiredRef.innerText = "";
+    }
+}
+
+function checkRequiredDate() {
+    let dateRef = document.getElementById("add_task_date").value;
+    let dateRequiredRef = document.getElementById("add_task_required_date");
+
+    if (dateRef == "") {
+        dateRequiredRef.innerText = "This field is required";
+    } else {
+        dateRequiredRef.innerText = "";
+    }
+}
+
+function checkRequiredCategory() {
+    let categoryRef = document.getElementById("add_task_category").value;
+    let categoryRequiredRef = document.getElementById("add_task_required_category");
+
+    if (categoryRef == "") {
+        categoryRequiredRef.innerText = "This field is required";
+    } else {
+        categoryRequiredRef.innerText = "";
+    }
+}

@@ -1,0 +1,133 @@
+.d_flex {
+    display: flex;
+  }
+  
+  .main_nav_bar {
+    width: 232px;
+    height: 1024px;
+    background-color: #2b3647;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 64px 0;
+  }
+
+  .nav_bar_top{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .nav_bar_logo {
+    width: 100px;
+  }
+  
+  .quick_links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 20px;
+    margin-top: 116px;
+  }
+  
+  .quick_link_row {
+    height: 46px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 60px;
+    gap: 8px;
+  
+    &:hover {
+      background-color: #2a3d59;
+    }
+  }
+  
+  .quick_links_icons {
+    height: 30px;
+  }
+  
+  .quick_link {
+    color: #cdcdcd;
+  }
+  
+  .footer_links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 56px;
+    gap: 16px;
+  }
+  
+  .footer_link {
+    color: #a8a8a8;
+    font-size: 16px;
+  
+    &:hover {
+      color: #2aaae2;
+      font-weight: 700;
+    }
+  }
+  
+  .collumn {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main_header {
+    height: 96px;
+    width: 1208px;
+    box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.22);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+  }
+  
+  .main_header p {
+    font-size: 20px;
+    padding-left: 116px;
+  }
+  
+  .header_right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-right: 40px;
+  }
+  
+  .header_help_icon {
+    height: 20px;
+  }
+  
+  .header_user_profile {
+    height: 56px;
+    width: 56px;
+    border-radius: 50%;
+    border: 3px solid black;
+    color: #2aaae2;
+    font-size: 22px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .resp_menu_box{
+    display: flex;
+    flex-direction: column;
+    height: 158px;
+    width: 150px;
+  }
+
+  .main_content {
+    width: 100%;
+    height: 928px;
+    background-color: #f6f7f8;
+    padding-left: 100px;
+    padding-top: 100px;
+  }
