@@ -71,6 +71,17 @@
     width: 264px;
 }
 
+.summary_card {
+    background-color: #FFFFFF;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 170px;
+    width: 264px;
+}
+
 .summary_card_content_medium {
     display: flex;
     flex-direction: column;
