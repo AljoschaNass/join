@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../styles/add_task.css" />
 
     <script src="../scripts/add_task.js"></script>
+    <script src="../scripts/header_navbar.js"></script>
     <script src="../script.js"></script>
 
     <title>Join/Add Task</title>
@@ -25,12 +26,16 @@
         <div w3-include-html="header.html"></div>
 
         <main class="main_content">
+          <div w3-include-html="respMenu.html"></div>
           <h1>Add Task</h1>
           <div>
             <form class="add_task_section" action="">
               <div class="add_task_half">
-                <label class="add_task_after_required" for="add_task_title">Title</label>
-                <input onfocusout="checkRequiredTitel()"
+                <label class="add_task_after_required" for="add_task_title"
+                  >Title</label
+                >
+                <input
+                  onfocusout="checkRequiredTitel()"
                   id="add_task_title"
                   class="add_task_input"
                   type="text"
@@ -48,8 +53,11 @@
                 ></textarea>
                 <p class="add_task_required"></p>
 
-                <label class="add_task_after_required" for="add_task_date">Due date</label>
-                <input onfocusout="checkRequiredDate()"
+                <label class="add_task_after_required" for="add_task_date"
+                  >Due date</label
+                >
+                <input
+                  onfocusout="checkRequiredDate()"
                   id="add_task_date"
                   class="add_task_input"
                   type="date"
@@ -64,7 +72,8 @@
               <div class="add_task_half">
                 <label>Priority</label>
                 <div class="add_task_priority_section">
-                  <button type="button"
+                  <button
+                    type="button"
                     onclick="setBtnPriority('urgent')"
                     id="add_task_btn_priority_urgent"
                     class="add_task_btn_priorities"
@@ -76,7 +85,8 @@
                       alt="priority urgent"
                     />
                   </button>
-                  <button type="button"
+                  <button
+                    type="button"
                     onclick="setBtnPriority('medium')"
                     id="add_task_btn_priority_medium"
                     class="add_task_btn_priorities"
@@ -88,7 +98,8 @@
                       alt="priority medium"
                     />
                   </button>
-                  <button type="button"
+                  <button
+                    type="button"
                     onclick="setBtnPriority('low')"
                     id="add_task_btn_priority_low"
                     class="add_task_btn_priorities"
@@ -111,14 +122,20 @@
                 />
                 <p class="add_task_required"></p>
 
-                <label class="add_task_after_required" for="add_task_category">Category</label>
-                <input onfocusout="checkRequiredCategory()"
+                <label class="add_task_after_required" for="add_task_category"
+                  >Category</label
+                >
+                <input
+                  onfocusout="checkRequiredCategory()"
                   id="add_task_category"
                   class="add_task_input"
                   type="text"
                   required
                 />
-                <p id="add_task_required_category" class="add_task_required"></p>
+                <p
+                  id="add_task_required_category"
+                  class="add_task_required"
+                ></p>
 
                 <label for="add_task_subtask">Subtask</label>
                 <input
@@ -135,7 +152,9 @@
                     value="Clear X"
                   />
 
-                  <button onclick="checkRequiredBtnAddTask()" type="submit"
+                  <button
+                    onclick="checkRequiredBtnAddTask()"
+                    type="submit"
                     id="btn_add_task_create_task"
                     class="btn_add_task btn_create"
                   >

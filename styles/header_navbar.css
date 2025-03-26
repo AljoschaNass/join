@@ -115,6 +115,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    &:hover{
+      background-color: #cdcdcd;
+    }
+  }
+
+  .bg_grey{
+    background-color: #cdcdcd;
   }
 
   .resp_menu_box{
@@ -129,7 +137,7 @@
     background-color: #2b3647;
     border-radius: 20px 0 20px 20px;
     position: absolute;
-    top: 96px;
+    top: 0px;
     right: 20px;
   }
 
@@ -145,8 +153,12 @@
   }
 
   .resp_menu_box a{
-    color: white;
+    color: #cdcdcd;
     font-size: 16px;
+  }
+
+  .resp_menu_closed{
+    transform: translateY(-100%);
   }
 
   .main_content {
@@ -155,4 +167,6 @@
     background-color: #f6f7f8;
     padding-left: 100px;
     padding-top: 100px;
+    position: relative;
+    overflow-x: hidden;
   }
