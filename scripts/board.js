@@ -48,3 +48,8 @@ function unselectPriority () {
     document.getElementById("mediumPriority").classList.remove("mediumPriorityButtonSelected");
     document.getElementById("lowPriority").classList.remove("lowPriorityButtonSelected");
 }
+
+function assignedContactToTask() {
+    document.getElementById("editDialogBoardAssignedToDropDown").classList.toggle("d_none");
+    document.getElementById("editDialogBoardAssignedToInput").classList.toggle("arrowDropUp")
+}

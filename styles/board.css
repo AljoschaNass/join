@@ -458,7 +458,7 @@ label {
 #editDialogBoard {
     background-color: #A8A8A8 !important;
     width: 525px;
-    height: 800px;
+    height: 1200px;
     border-radius: 30px;
     background-color: white;
     display: flex;
@@ -559,7 +559,6 @@ textarea:focus {
     font-weight: 700;
     font-size: 19px;
     margin-bottom: 8px;
-    height: 23px;
 }
 
 .editDialogBoardPriorityButtons {
@@ -639,3 +638,110 @@ textarea:focus {
 .lowPriorityButtonSelected svg path {
     fill: white; /* Standardfarbe */
 }
+
+.editDialogBoardAssignedTo {
+    gap: 8px;
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+#editDialogBoardAssignedToInput {
+    width: 440px;
+    height: 48px;
+    border-radius: 10px;
+    border: 1px solid rgba(209, 209, 209, 1);
+    justify-content: space-between;
+    padding-top: 12px;
+    padding-right: 16px;
+    padding-bottom: 12px;
+    padding-left: 16px;
+    font-weight: 400;
+    font-size: 20px;
+    color: black;
+}
+
+#editDialogBoardAssignedToInput:focus {
+    border: 1px solid #29ABE2;
+}
+
+.arrowDropDown {
+    background-image: url("../assets/img/icons/arrow_drop_down.svg");
+    background-repeat: no-repeat;
+    background-position-x: 98%;
+    background-position-y: 50%;
+}
+
+.arrowDropUp {
+    background-image: url("../assets/img/icons/arrowDropUp.svg");
+    background-repeat: no-repeat;
+    background-position-x: 98%;
+    background-position-y: 50%;
+}
+
+#editDialogBoardAssignedToDropDown {
+    overflow-y: scroll;
+    width: 440px;
+    max-height: 224px;
+    background-color: white;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+    border-radius: 10px;
+}
+
+.dropDownContacts {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px 16px 7px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.dropDownContact {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+}
+
+.editDialogBoardAssignedToDropDownCheckbox {
+
+}
+
+.contactChecked {
+    background: rgba(42, 54, 71, 1);
+    color: white;
+}
+
+.contactUnchecked:hover {
+    background-color: rgba(238, 238, 238, 1);
+
+}
+
+.contactCheckedCheckbox {
+    background-image: url("../assets/img/icons/contactCheckedCheckbox.svg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    height: 24px;
+    width: 24px;
+
+}
+
+.contactUncheckedCheckbox {
+    background-image: url("../assets/img/icons/contactUncheckedCheckbox.svg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    height: 24px;
+    width: 24px;
+    
+}
+
+.contactChecked:hover {
+    background-color: rgba(9, 25, 49, 1);
+}
+
+
