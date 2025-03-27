@@ -365,6 +365,7 @@ margin-bottom: 10px;
 /* Verstecke die Standard-Checkbox */
 input[type="checkbox"] {
     display: none;
+    cursor: none !important;
 }
 
 /* Standard-Checkbox SVG (unchecked) */
@@ -374,7 +375,6 @@ input[type="checkbox"] {
     display: inline-block;
     background-image: url('../assets/img/icons/checkbox-unchecked.svg');  /* Unchecked Zustand */
     background-size: cover;
-    cursor: pointer;
 }
 
 /* Wenn die Checkbox gecheckt ist */
@@ -382,20 +382,18 @@ input[type="checkbox"]:checked + label .customCheckbox {
     background-image: url('../assets/img/icons/checkbox-checked.svg');  /* Checked Zustand */
 }
 
-/* Hover-Effekt für unchecked Zustand */
+/* Hover-Effekt für unchecked Zustand 
 input[type="checkbox"]:not(:checked) + label .customCheckbox:hover {
-    background-image: url('../assets/img/icons/checkbox-unchecked-hover.svg');  /* Unchecked Hover Zustand */
-}
+    background-image: url('../assets/img/icons/checkbox-unchecked-hover.svg');   Unchecked Hover Zustand 
+}  */
 
-/* Hover-Effekt für checked Zustand */
+/*Hover-Effekt für checked Zustand 
 input[type="checkbox"]:checked + label .customCheckbox:hover {
-    background-image: url('../assets/img/icons/checkbox-checked-hover.svg');  /* Checked Hover Zustand */
-}
+    background-image: url('../assets/img/icons/checkbox-checked-hover.svg');   Checked Hover Zustand 
+}  */
 
 /* Optional: Cursor auf das Label anwenden, um es auch klickbar zu machen */
-label {
-    cursor: pointer;
-}
+
 
 #overlayTaskBottom {
     display: flex;
