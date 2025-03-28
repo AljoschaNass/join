@@ -79,6 +79,7 @@
     font-weight: 400;
     color: #000000;
     font-family: 'Inter', sans-serif;
+    cursor: text;
 }
 
 #logInEmail {
@@ -87,15 +88,23 @@
     background-position: 380px center; 
 }
 
-#logInPassword {
-    background-image: url('../assets/img/icons/lock.svg'); 
-    background-repeat: no-repeat;
-    background-position: 380px center; 
+#logInPasswordImg {
+    position: relative;
+    top: -37px;
+    right: -381px;
+    width: 25px;
+    height: 25px;
 }
 
-#logInPassword:focus {
-    border: 1px solid #29ABE2;
-    background-image: url('../assets/img/icons/visibility_off.svg'); 
+.logIn_error {
+    height: 12px;
+    color: #ff8190;
+    font-size: 13px;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    top: -50px;
+    left: -55px;
 }
 
 .logIn_btns {

@@ -31,17 +31,17 @@
                     <input type="email" placeholder="Email" class="input_logIn" id="signUpEmail" required>
                 </div>
                 <div class="password_container">
-                    <input type="password" placeholder="Password" class="input_logIn" id="signUpPassword" required autocomplete="new-password">
+                    <input onfocus="onFocus('signUpPassword')" onblur="onBlur('signUpPassword')" type="password" placeholder="Password" class="input_logIn" id="signUpPassword" required >
                     <div class="toggle_password" onclick="togglePasswordVisibility('signUpPassword')">
-                        <img src="../assets/img/icons/visibility_off.svg" alt="Toggle Password Visibility" id="signUpPasswordImg">
+                        <img src="../assets/img/icons/visibility_off.svg" alt="Password" id="signUpPasswordImg">
                     </div>
                 </div>
-                <div class="password_container"></div>
-                    <input type="password" placeholder="Confirm Password" class="input_logIn" id="signUpConfirmPassword" required autocomplete="new-password">
+                <div class="password_container">
+                    <input onfocus="onFocus('signUpConfirmPassword')" onblur="onBlur('signUpConfirmPassword')" type="password" placeholder="Confirm Password" class="input_logIn" id="signUpConfirmPassword" required >
                     <div class="toggle_password" onclick="togglePasswordVisibility('signUpConfirmPassword')">
-                        <img src="../assets/img/icons/visibility_off.svg" alt="Toggle Password Visibility" id="signUpConfirmPasswordImg">
+                        <img src="../assets/img/icons/lock.svg" alt="Password" id="signUpConfirmPasswordImg">
                     </div>
-                    <div class="logIn_error" id="signUp_error">Your passwords don't match. Please try again.</div>
+                    <div class="signUp_error" id="signUp_error">Your passwords don't match. Please try again.</div>
                 </div>
                 <div class="checkbox">
                     <input type="checkbox" id="checkbox" required>

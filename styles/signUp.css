@@ -55,8 +55,7 @@
 }
 
 .toggle_password {
-    position: relative;
-    cursor: pointer; 
+    position: relative; 
     z-index: 1;
 }
 
@@ -71,24 +70,25 @@
 #signUpConfirmPassword {
     position: relative;
     top: -34px;
+    z-index: 1;
 }
 
 #signUpConfirmPasswordImg {
     position: relative;
-    top: -72px;
-    right: -183px;
+    top: -103px;
+    right: -381px;
     width: 25px;
     height: 25px;
 }
 
-.logIn_error {
+.signUp_error {
     height: 12px;
     color: #ff8190;
     font-size: 13px;
     font-weight: 400;
     font-family: 'Inter', sans-serif;
     position: relative;
-    top: -57px;
-    left: -68px;
+    top: -85px;
+    left: 0px;
 }
 

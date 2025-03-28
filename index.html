@@ -28,7 +28,13 @@
         <div class="logIn_content bShadow_blur14_opacity04">
             <h1>Log in</h1>
             <input type="email" placeholder="Email" class="input_logIn" id="logInEmail" required>
-            <input type="password" placeholder="Password" class="input_logIn" id="logInPassword" required>
+            <div class="password_container">
+                <input onfocus="onFocus('logInPassword')" onblur="onBlur('logInPassword')" type="password" placeholder="Password" class="input_logIn" id="logInPassword" required>
+                <div class="toggle_password" onclick="togglePasswordVisibility('logInPassword')">
+                    <img src="../assets/img/icons/visibility_off.svg" alt="Password" id="logInPasswordImg">
+                </div>
+            </div>
+            <div class="logIn_error" id="logIn_error">Check your email and password. Please try again.</div>
             <div class="logIn_btns">
                 <button class="logIn_btn" id="logInBtn">Log in</button>
                 <button class="logIn_btn" id="guestLogInBtn">Guest Log in</button>
