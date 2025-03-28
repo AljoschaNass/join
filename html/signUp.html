@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../styles/signUp.css" />
 
     <script src="../script.js"></script>
+    <script src="../scripts/LogIn.js"></script>
     
 </head>
 <body class="body_logIn">
@@ -22,18 +23,34 @@
     <main class="main_logIn">
         <div class="signUp_content bShadow_blur14_opacity04">
             <h1>Sign up</h1>
-            <input type="text" placeholder="Name" class="input_logIn" id="signUpName" required>
-            <input type="email" placeholder="Email" class="input_logIn" id="signUpEmail" required>
-            <input type="password" placeholder="Password" class="input_logIn" id="signUpPassword" required>
-            <input type="password" placeholder="Confirm Password" class="input_logIn" id="signUpConfirmPassword" required>
-            <div class="LogIn_error" id="SignUp_error">Your passwords don't match. Please try again.</div>
-            <div class="checkbox">
-                <input type="checkbox" id="checkbox" required>
-                <label for="checkbox">I accept the <a href="../html/privacyPolice.html" class="lightBlue">Privacy Policy</a></label>
-            </div>
-            <div class="logIn_btns">
-                <button class="logIn_btn center" id="logInBtn">Sign up</button>
-            </div>
+            <form class="SignUp_form">
+                <div class="password_container">
+                    <input type="text" placeholder="Name" class="input_logIn" id="signUpName" required>
+                </div>
+                <div class="password_container">
+                    <input type="email" placeholder="Email" class="input_logIn" id="signUpEmail" required>
+                </div>
+                <div class="password_container">
+                    <input type="password" placeholder="Password" class="input_logIn" id="signUpPassword" required autocomplete="new-password">
+                    <div class="toggle_password" onclick="togglePasswordVisibility('signUpPassword')">
+                        <img src="../assets/img/icons/visibility_off.svg" alt="Toggle Password Visibility" id="signUpPasswordImg">
+                    </div>
+                </div>
+                <div class="password_container"></div>
+                    <input type="password" placeholder="Confirm Password" class="input_logIn" id="signUpConfirmPassword" required autocomplete="new-password">
+                    <div class="toggle_password" onclick="togglePasswordVisibility('signUpConfirmPassword')">
+                        <img src="../assets/img/icons/visibility_off.svg" alt="Toggle Password Visibility" id="signUpConfirmPasswordImg">
+                    </div>
+                </div>
+                <div class="LogIn_error" id="SignUp_error">Your passwords don't match. Please try again.</div>
+                <div class="checkbox">
+                    <input type="checkbox" id="checkbox" required>
+                    <label for="checkbox">I accept the <a href="../html/privacyPolice.html" class="lightBlue">Privacy Policy</a></label>
+                </div>
+                <div class="logIn_btns">
+                    <button class="logIn_btn center" id="logInBtn">Sign up</button>
+                </div>
+            </form>
         </div>
     </main>
 
