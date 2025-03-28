@@ -23,6 +23,30 @@
     gap: 16px;
 }
 
+#signUpName {
+    background-image: url(../assets/img/icons/person.svg);
+    background-repeat: no-repeat;
+    background-position: 380px center;
+}
+
+#signUpEmail {
+    background-image: url(../assets/img/icons/mail.svg);
+    background-repeat: no-repeat;
+    background-position: 380px center;
+}
+
+#signUpPassword {
+    background-image: url(../assets/img/icons/lock.svg);
+    background-repeat: no-repeat;
+    background-position: 380px center;
+}
+
+#signUpConfirmPassword {
+    background-image: url(../assets/img/icons/lock.svg);
+    background-repeat: no-repeat;
+    background-position: 380px center;
+}
+
 .LogIn_error {
     height: 12px;
     color: #ff8190;
@@ -33,3 +57,4 @@
     top: -25px;
     left: -68px;
 }
+
