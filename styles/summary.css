@@ -70,6 +70,7 @@
     height: 170px;
     width: 264px;
     color: #2A3647;
+    cursor: pointer;
 
     &:hover {
         background-color: #2A3647;
@@ -115,6 +116,7 @@
     width: 170px;
     flex: 1;
     color: #2A3647;
+    cursor: pointer;
 }
 
 .summary_card_content_large {
@@ -140,6 +142,7 @@
     align-items: center;
     height: 170px;
     width: 170px;
+    cursor: pointer;
 }
 
 .summary_card_content_small {
