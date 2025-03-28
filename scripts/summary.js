@@ -8,3 +8,7 @@ function resetImage(element) {
     var img = element.querySelector('img');
     img.src = '../assets/img/icons/pen_grey.svg';
 }
+
+function switchToBoard() {
+    window.location.href = '../html/board.html';
+}
