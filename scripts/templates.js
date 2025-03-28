@@ -75,14 +75,14 @@ function getDialogTemplate(index) {
                         <div>
                             <p class="mb_8px">Subtasks</p>
                             <div class="overlayTaskSubtasks">
-                                <input type="checkbox" id="task1" checked="checked" disabled>
+                                <input type="checkbox" id="task1" checked="checked">
                                 <label for="task1">
                                     <span class="customCheckbox"></span>
                                 </label>
                                 <p>Implement Recipe Recommendation</p>
                             </div>
                             <div class="overlayTaskSubtasks">
-                                <input type="checkbox" id="task2" disabled>
+                                <input type="checkbox" id="task2">
                                 <label for="task2">
                                     <span class="customCheckbox"></span>
                                 </label>
