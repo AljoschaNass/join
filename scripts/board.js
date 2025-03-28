@@ -53,3 +53,11 @@ function assignedContactToTask() {
     document.getElementById("editDialogBoardAssignedToDropDown").classList.toggle("d_none");
     document.getElementById("editDialogBoardAssignedToInput").classList.toggle("arrowDropUp")
 }
+
+function saveNewTaskData() {
+    let overlayRef = document.getElementById("overlayBoard");
+    let noScrolling = document.body;
+    noScrolling.classList.remove("stopScrolling");
+    overlayRef.classList.remove("overlayBoard");
+    overlayRef.innerHTML = "";
+}

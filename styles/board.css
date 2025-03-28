@@ -446,9 +446,9 @@ input[type="checkbox"]:checked + label .customCheckbox:hover {
 }
 
 #editDialogBoard {
-    background-color: #A8A8A8 !important;
+    background-color: white !important;
     width: 525px;
-    height: 1200px;
+    height: 930px;
     border-radius: 30px;
     background-color: white;
     display: flex;
@@ -456,12 +456,20 @@ input[type="checkbox"]:checked + label .customCheckbox:hover {
     align-items: flex-end;
 }
 
+.editDialogBoardFrameWithScrollbar {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: calc(100% - 10px);
+    margin: 24px 10px 24px 0px;
+}
+
 #editDialogBoardFrame {
-    margin: 24px 40px 24px 40px;
+    margin: 0px 40px 0px 40px;
     width: 445px;
     gap: 24px;
     display: flex;
     flex-direction: column;
+
 }
 
 #editDialogBoard button {
@@ -642,7 +650,6 @@ textarea:focus {
     height: 48px;
     border-radius: 10px;
     border: 1px solid rgba(209, 209, 209, 1);
-    justify-content: space-between;
     padding-top: 12px;
     padding-right: 16px;
     padding-bottom: 12px;
@@ -678,6 +685,8 @@ textarea:focus {
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
     border-radius: 10px;
 }
+
+
 
 .dropDownContacts {
     display: flex;
@@ -732,6 +741,126 @@ textarea:focus {
 
 .contactChecked:hover {
     background-color: rgba(9, 25, 49, 1);
+}
+
+.editDialogBoardSubtasks {
+    font-size: 20px;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.editDialogBoardSubtasksInput {
+    width: 445px;
+    height: 48px;
+    border-radius: 10px;
+    border: 1px solid rgba(209, 209, 209, 1);
+    display: flex;
+    justify-content: space-between;
+    padding-top: 12px;
+    padding-right: 16px;
+    padding-bottom: 12px;
+    padding-left: 16px;
+    background-color: white;
+}
+
+.editDialogBoardSubtasksInput:focus-within {
+    border: 1px solid #29ABE2
+}
+
+.editDialogBoardSubtasksInput input{
+    font-weight: 400;
+    font-size: 20px;
+    width: calc(100% - 25px);
+}
+
+
+.addIcon {
+    background-image: url("../assets/img/icons/add.svg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+}
+
+.editDialogBoardSubtasksInput:focus-within .addIcon {
+    background-image: url('../assets/img/icons/addhaken.svg');
+}
+
+.editDialogBoardSubtasksInput:focus-within .xIcon {
+    background-image: url("../assets/img/icons/X.svg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+}
+
+.editDialogBoardSubtasksInput:focus-within .vectorAddSubtask {
+    height: 24px;
+    width: 1px;
+    background-color: rgba(209, 209, 209, 1);
+    margin: 0px 4px 0px 4px;
+}
+
+.editDialogBoardSubtasks li {
+    font-size: 16px;
+    cursor: pointer;
+    height: 32px;
+    padding: 4px 16px 4px 16px;
+}
+
+.editDialogBoardSubtasksAdded:hover {
+    background-color: rgba(238, 238, 238, 1);
+}
+
+.editDialogBoardSubtasksAdded:hover .editIcon {
+    background-image: url("../assets/img/icons/pen-transparent.svg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+}
+
+.editDialogBoardSubtasksAdded {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.editDialogBoardSubtasksAdded:hover .deleteIcon {
+    background-image: url("../assets/img/icons/deleteIcon.svg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+}
+
+.editDialogBoardSubtasksAdded:hover .vectorAddSubtask {
+    height: 24px;
+    width: 1px;
+    background-color: rgba(209, 209, 209, 1);
+    margin: 0px 4px 0px 4px;
+}
+
+.editDivSubtasks {
+    display: flex;
+    flex-direction: row;
+    padding: 4px 16px 4px 16px;
+}
+
+.saveEditTaskButton {
+    margin-top: 0 !important;
+    margin-bottom: 48px !important;
 }
 
 
