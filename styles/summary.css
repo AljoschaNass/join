@@ -70,12 +70,11 @@
     height: 170px;
     width: 264px;
     color: #2A3647;
-}
 
-.summary_card_medium:hover {
-    /*background-color: #2A3647;
-    color: white;*/
-    filter: invert(100%);
+    &:hover {
+        background-color: #2A3647;
+        color: white;
+    }
 }
 
 .summary_card_large:hover{

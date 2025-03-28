@@ -12,6 +12,7 @@
 
         <script src="../script.js"></script> 
         <script src="../scripts/header_navbar.js"></script>
+        <script src="../scripts/summary.js"></script>
     </head>
     <body onload="init()">
         <div class="d_flex">
@@ -29,14 +30,14 @@
                     <div class="summary_content">
                         <div class="summary_cards">
                             <div class="summary_line">
-                                <div class="summary_card_medium bShadow_blur4_opacity01 ">
+                                <div class="summary_card_medium bShadow_blur4_opacity01" onmouseover="changeImage(this)" onmouseout="resetImage(this)">
                                     <img class="summary_card_icon" src="../assets/img/icons/pen_grey.svg" alt="To-do" />
                                     <div class="summary_card_content_medium">
                                         <div class="summary_card_number">1</div>
                                         <div class="summary_card_title">To-do</div>
                                     </div>
                                 </div>
-                                <div class="summary_card_medium bShadow_blur4_opacity01 ">
+                                <div class="summary_card_medium bShadow_blur4_opacity01" onmouseover="changeImage(this)" onmouseout="resetImage(this)">
                                     <img class="summary_card_icon" src="../assets/img/icons/check_grey.svg" alt="Done" />
                                     <div class="summary_card_content_medium">
                                         <div class="summary_card_number">1</div>
