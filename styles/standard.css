@@ -68,6 +68,7 @@ input::placeholder {
 .stopScrolling {
   overflow: hidden;
 }
+
 .height_98 {
   height: 98px;
 }
@@ -82,4 +83,11 @@ input::placeholder {
 
 .lightBlue {
   color: #29ABE2;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

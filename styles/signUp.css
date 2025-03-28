@@ -3,8 +3,6 @@
     top: -100px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     padding: 48px 88px 48px 88px;
     gap: 32px;
     border-radius: 30px;
@@ -21,4 +19,15 @@
     color: #A8A8A8;
     font-family: 'Inter', sans-serif;
     gap: 16px;
+}
+
+.LogIn_error {
+    height: 12px;
+    color: #ff8190;
+    margin-bottom: 12px;
+    font-size: 13px;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    top: -25px;
 }
