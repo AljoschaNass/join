@@ -23,7 +23,7 @@
     <main class="main_logIn">
         <div class="signUp_content bShadow_blur14_opacity04">
             <h1>Sign up</h1>
-            <form class="SignUp_form">
+            <form class="signUp_form">
                 <div class="password_container">
                     <input type="text" placeholder="Name" class="input_logIn" id="signUpName" required>
                 </div>
@@ -41,8 +41,8 @@
                     <div class="toggle_password" onclick="togglePasswordVisibility('signUpConfirmPassword')">
                         <img src="../assets/img/icons/visibility_off.svg" alt="Toggle Password Visibility" id="signUpConfirmPasswordImg">
                     </div>
+                    <div class="logIn_error" id="signUp_error">Your passwords don't match. Please try again.</div>
                 </div>
-                <div class="LogIn_error" id="SignUp_error">Your passwords don't match. Please try again.</div>
                 <div class="checkbox">
                     <input type="checkbox" id="checkbox" required>
                     <label for="checkbox">I accept the <a href="../html/privacyPolice.html" class="lightBlue">Privacy Policy</a></label>

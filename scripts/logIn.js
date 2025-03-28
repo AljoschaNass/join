@@ -10,20 +10,4 @@ function togglePasswordVisibility(inputId) {
       var img = document.getElementById(inputId + "Img");
       img.src = "../assets/img/icons/visibility_off.svg";// Icon für Passwort versteckt
     }
-    
   } 
-
-    /*document.getElementById('signUpTogglePassword').addEventListener('click', function () {
-      const passwordInput = document.getElementById('password');
-      const toggleIcon = this;
-  
-      if (passwordInput.type === 'password') {
-          passwordInput.type = 'text';
-          toggleIcon.src = '../assets/img/icons/visibility.svg'; // Icon für Passwort sichtbar
-          toggleIcon.alt = 'visibility'; // Alternativtext ändern
-      } else {
-          passwordInput.type = 'password';
-          toggleIcon.src = '../assets/img/icons/visibility_off.svg'; // Icon für Passwort versteckt
-          toggleIcon.alt = 'visibility off'; // Alternativtext ändern
-      }
-  }); */

@@ -16,7 +16,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 32px;
 }
 
 .checkbox {
@@ -43,30 +42,53 @@
     background-position: 380px center;
 }
 
-.password-container {
+.password_container {
     display: flex;	
     flex-direction: column;    
     position: relative;
     width: 100%;
+    margin: 0;
+
+    & input {
+        margin-bottom: 32px;
+    }
 }
 
 .toggle_password {
     position: relative;
-    right: -90%;
-    top: 50%;
-    transform: translateY(-130%);
     cursor: pointer; 
     z-index: 1;
 }
 
-.LogIn_error {
+#signUpPasswordImg {
+    position: relative;
+    top: -68px;
+    right: -382px;
+    width: 25px;
+    height: 25px;
+}
+
+#signUpConfirmPassword {
+    position: relative;
+    top: -34px;
+}
+
+#signUpConfirmPasswordImg {
+    position: relative;
+    top: -72px;
+    right: -183px;
+    width: 25px;
+    height: 25px;
+}
+
+.logIn_error {
     height: 12px;
     color: #ff8190;
     font-size: 13px;
     font-weight: 400;
     font-family: 'Inter', sans-serif;
     position: relative;
-    top: -25px;
+    top: -57px;
     left: -68px;
 }
 
