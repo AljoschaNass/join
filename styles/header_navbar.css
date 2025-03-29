@@ -85,8 +85,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1;
+    z-index: 2;
     position: relative;
+    background-color: white;
   }
   
   .main_header p {
@@ -138,8 +139,9 @@
     background-color: #2b3647;
     border-radius: 20px 0 20px 20px;
     position: absolute;
-    top: 0px;
+    top: 96px;
     right: 20px;
+    z-index: 1;
   }
 
   .quick_link_resp{

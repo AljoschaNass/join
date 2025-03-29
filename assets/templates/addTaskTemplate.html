@@ -1,7 +1,6 @@
-    <div w3-include-html="../assets/templates/respMenu.html"></div>
     <h1>Add Task</h1>
     <div>
-      <form class="add_task_section" action="">
+      <form class="add_task_section">
         <div class="add_task_half">
           <label class="add_task_after_required" for="add_task_title"
             >Title</label
@@ -86,7 +85,7 @@
           </div>
           <p class="add_task_required"></p>
 
-          <label for="add_task_assigned_to">Assigned to</label>
+          <label for="addTaskAssignedToInput">Assigned to</label>
           <div class="editDialogBoardAssignedToInputDiv">
               <input type="text" placeholder="Select contacts to assign"
                   id="addTaskAssignedToInput" class="arrowDropDown assignedToInput add_task_input"
@@ -142,10 +141,7 @@
                   </div>
               </div>
           </div>
-          <p
-            id="add_task_required_category"
-            class="add_task_required"
-          ></p>
+          <p id="add_task_required_category" class="add_task_required"></p>
 
           <div class="editDialogBoardSubtasks">
               <label for="add_task_subtask">Subtask</label>
@@ -172,7 +168,6 @@
                   </div>
               </div>
           </div>
-
           <p class="add_task_required"></p>
 
           <div class="add_task_btn_section">
