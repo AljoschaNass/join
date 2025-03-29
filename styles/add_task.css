@@ -17,11 +17,19 @@
   padding: 8px 16px;
   margin-top: 4px;
   font-size: 20px;
-}
 
-.add_task_input::placeholder {
+  &:focus{
+    border: 1px solid #29ABE2;
+  }
+  &::placeholder{
   color: #d1d1d1;
   font-size: 20px;
+  }
+}
+
+#addTaskCategoryInput::placeholder, #addTaskAssignedToInput::placeholder{
+  font-size: 20px;
+  color: black;
 }
 
 textarea {
@@ -36,6 +44,41 @@ textarea {
   margin-bottom: 12px;
 }
 
+.assignedToInput {
+  width: 440px;
+  height: 48px;
+  border-radius: 10px;
+  border: 1px solid rgba(209, 209, 209, 1);
+  padding: 12px 16px;
+  font-weight: 400;
+  font-size: 20px;
+  color: black;
+}
+
+.arrowDropDownInputs{
+  overflow-y: scroll;
+  width: 440px;
+  max-height: 224px;
+  background-color: white;
+  box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+  border-radius: 10px;
+}
+
+.arrowDropDownInput {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 20px;
+  padding: 7px 16px 7px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+
+  &:hover{
+    background-color: #f6f7f8;
+  }
+}
+    
 .add_task_hint_required{
     font-size: 16px;
     display: flex;
@@ -113,10 +156,10 @@ textarea {
 
 .add_task_btn_section {
   display: flex;
-  justify-content: flex-end;
   gap: 16px;
-  position: relative;
-  top: 200px;
+  position: fixed;
+  bottom: 50px;
+  right: 136px;
 }
 
 .btn_add_task {

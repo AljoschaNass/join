@@ -50,7 +50,7 @@ function checkRequiredDate() {
 }
 
 function checkRequiredCategory() {
-    let categoryRef = document.getElementById("add_task_category").value;
+    let categoryRef = document.getElementById("addTaskCategoryInput").value;
     let categoryRequiredRef = document.getElementById("add_task_required_category");
 
     if (categoryRef == "") {
@@ -58,4 +58,9 @@ function checkRequiredCategory() {
     } else {
         categoryRequiredRef.innerText = "";
     }
+}
+
+function arrowDropDownSelection(id) {
+    document.getElementById(id + "DropDown").classList.toggle("d_none");
+    document.getElementById(id + "Input").classList.toggle("arrowDropUp")
 }
