@@ -21,12 +21,12 @@
   </head>
   <body onload="init()">
     <div class="d_flex">
-      <div w3-include-html="navBar.html"></div>
+      <div w3-include-html="../assets/templates/navBar.html"></div>
       <div class="collumn">
-        <div w3-include-html="header.html"></div>
+        <div w3-include-html="../assets/templates/header.html"></div>
 
         <main class="main_content">
-          <div w3-include-html="respMenu.html"></div>
+          <div w3-include-html="../assets/templates/respMenu.html"></div>
           <h1>Add Task</h1>
           <div>
             <form class="add_task_section" action="">
@@ -94,7 +94,7 @@
                     <p>Medium</p>
                     <img
                       class="priority_icons"
-                      src="../assets/img/icons/priority_meduim_orange.svg"
+                      src="../assets/img/icons/priority_medium_orange.svg"
                       alt="priority medium"
                     />
                   </button>
@@ -118,7 +118,7 @@
                 <input
                   id="add_task_assigned_to"
                   class="add_task_input"
-                  type="text"
+                  type="text" value="Select contacts to assign"
                 />
                 <p class="add_task_required"></p>
 
@@ -129,7 +129,7 @@
                   onfocusout="checkRequiredCategory()"
                   id="add_task_category"
                   class="add_task_input"
-                  type="text"
+                  type="text" value="Select task category"
                   required
                 />
                 <p

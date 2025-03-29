@@ -107,6 +107,10 @@ textarea {
   font-weight: 700;
 }
 
+.priority_color_urgent img, .priority_color_medium img, .priority_color_low img{
+  filter: brightness(0) invert(1);
+}
+
 .add_task_btn_section {
   display: flex;
   justify-content: flex-end;
