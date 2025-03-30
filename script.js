@@ -9,9 +9,9 @@ async function includeHTML() {
         file = element.getAttribute("w3-include-html"); 
         let resp = await fetch(file);
         if (resp.ok) {
-            element.innerHTML = await resp.text();
+            element.innerHTML = await resp.text();            
         } else {
-            element.innerHTML = 'Page not found';
+            element.innerHTML = 'Page not found';            
         }
     }
 }

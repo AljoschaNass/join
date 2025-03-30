@@ -183,3 +183,13 @@
     position: relative;
     overflow-x: hidden;
   }
+
+  .bg_dark_blue{
+    background-color: #081931;
+    color: white;
+    cursor: default;
+
+    &:hover{
+      background-color: #081931;
+    }
+  }
