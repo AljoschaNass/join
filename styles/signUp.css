@@ -6,9 +6,9 @@
     justify-content: center;
     align-items: center;
     padding: 48px 88px 48px 88px;
-    gap: 32px;
     border-radius: 30px;
     background-color: white;
+    margin: 0;
 }
 
 .signUp_form {
@@ -28,6 +28,7 @@
     color: #A8A8A8;
     font-family: 'Inter', sans-serif;
     gap: 16px;
+    margin-bottom: 32px;
 }
 
 #signUpName {
@@ -92,3 +93,12 @@
     left: 0px;
 }
 
+.back_to_logIn_btn {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    top: 52px;
+    left: -223px;
+    width: 32px;
+    height: 32px;
+}
