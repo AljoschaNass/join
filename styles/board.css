@@ -864,4 +864,24 @@ textarea:focus {
     margin-bottom: 48px !important;
 }
 
+.addTaskDialogBoard {
+    background-color: white;
+    width: 1116px;
+    height: 870px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.addTaskDialogBoardFrame {
+    height: 100%;
+    padding: 64px 74px 64px 74px;
+    position: relative;
+}
+
+.addTaskDialogBoardClose {
+    position: absolute;
+    top: 64px;
+    right: 74px;
+}
+
 

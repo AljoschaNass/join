@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../styles/header_navbar.css">
     <link rel="stylesheet" href="../styles/board.css">
     <link rel="stylesheet" href="../styles/summary.css">
+    <link rel="stylesheet" href="../styles/add_task.css" />
 
     <script src="../script.js"></script>
     <script src="../scripts/header_navbar.js"></script>
@@ -58,7 +59,7 @@
                                     </button>
                                 </div>
                             </div>
-                            <button class="addTaskButton">Add task
+                            <button class="addTaskButton" onclick="createNewTask()">Add task
                                 <svg width="18.67" height="18.67" viewBox="0 0 20 20" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -213,6 +214,7 @@
 
             <section id="overlayBoard" onclick="closeDialog()">
             </section>
+
 
             
 

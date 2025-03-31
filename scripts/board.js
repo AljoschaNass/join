@@ -61,3 +61,11 @@ function saveNewTaskData() {
     overlayRef.classList.remove("overlayBoard");
     overlayRef.innerHTML = "";
 }
+
+function createNewTask() {
+    let dialogRef = document.getElementById("overlayBoard");
+    dialogRef.innerHTML = "";
+    dialogRef.classList.add("overlayBoard");
+    dialogRef.innerHTML += getAddTaskDialogTemplate();
+}
+
