@@ -35,3 +35,11 @@ function onBlur(inputId) {
     img.onclick = "";
     img.style.cursor = "text";
 }
+
+/*loads user data from remote storage
+async function loadUser(path=""){
+    let response = await fetch(BASE_URL + path + ".json");
+    let responseToJson = await response.json();
+    return responseToJson;
+}
+    */
