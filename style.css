@@ -62,11 +62,20 @@
     justify-content: center;
     align-items: center;
     padding: 48px 115px 48px 115px;
-    gap: 32px;
     border-radius: 30px;
     background-color: white;
-    height: 449px;
     width: 652px;
+}
+
+.logIn_content h1 {
+    padding-bottom: 16px;
+}
+
+.blue_line_150x3 {
+    width: 150px;
+    height: 3px;
+    background-color: #29ABE2;
+    margin-bottom: 32px;
 }
 
 .input_logIn {

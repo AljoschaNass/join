@@ -91,3 +91,7 @@ input::placeholder {
   justify-content: center;
   align-items: center;
 }
+
+.gap_32 {
+  gap: 32px;
+}
