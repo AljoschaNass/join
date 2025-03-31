@@ -11,6 +11,10 @@
     margin: 0;
 }
 
+.signUp_content h1 {
+    padding-bottom: 16px;
+}
+
 .signUp_form {
     display: flex;
     flex-direction: column;
