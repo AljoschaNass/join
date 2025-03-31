@@ -15,7 +15,7 @@
         <script src="../scripts/summary.js"></script>
         <script src="../scripts/remoteStorage.js"></script>
     </head>
-    <body onload="init()">
+    <body onload="initSummary()">
         <div class="d_flex">
             <nav
         class="main_nav_bar"
@@ -92,8 +92,8 @@
                                 
                         </div>
                         <div class="summary_greeting">
-                            <div class="summary_greeting_text">Good morning,</div> 
-                            <div class="summary_greeting_name">Sofia Müller</div>
+                            <div class="summary_greeting_text" id="summary_greeting_text"></div> 
+                            <div class="summary_greeting_name" id="summary_greeting_name">Sofia Müller</div>
                         </div>
                     </div>
                 </main> 
