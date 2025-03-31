@@ -1,3 +1,8 @@
+function initSummary() {
+    init();
+    greeting();
+}
+
 //Hover effect pencil
 function changeImage(element) {
     var img = element.querySelector('img');
