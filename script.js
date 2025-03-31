@@ -1,5 +1,6 @@
 function init() {
     includeHTML();
+    greeting();
 }
 
 async function includeHTML() {
