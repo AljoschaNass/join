@@ -84,7 +84,8 @@ textarea {
     display: flex;
     justify-content: flex-start;
     position: relative;
-    top: 240px;
+    top: 170px;
+    left: 27px;
 }
 
 .add_task_hint_required::before, .add_task_after_required::after{

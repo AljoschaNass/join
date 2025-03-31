@@ -255,7 +255,7 @@ margin-bottom: 10px;
     height: 100vh;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.375);
-    z-index: 1;
+    z-index: 2;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -349,6 +349,11 @@ margin-bottom: 10px;
     position: relative;
     left: 16px;
     font-size: 16px;
+}
+
+.overlayTaskSubtasks:hover {
+    background-color: rgba(238, 238, 238, 1);
+    border-radius: 10px;
 }
 
 .overlayTaskSubtasks p {
@@ -882,6 +887,7 @@ textarea:focus {
     position: absolute;
     top: 64px;
     right: 74px;
+    background-color: transparent;
 }
 
 

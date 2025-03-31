@@ -62,10 +62,18 @@ function saveNewTaskData() {
     overlayRef.innerHTML = "";
 }
 
-function createNewTask() {
+async function createNewTask(event) {
+    event.stopPropagation();
     let dialogRef = document.getElementById("overlayBoard");
     dialogRef.innerHTML = "";
     dialogRef.classList.add("overlayBoard");
-    dialogRef.innerHTML += getAddTaskDialogTemplate();
+    const res = await fetch('../assets/templates/addTaskTemplate.html');
+    const html = await res.text(); 
+    dialogRef.innerHTML += getAddTaskDialogTemplate(html);
+    w3.includeHTML();
+    const dialogElement = document.getElementById("addTaskDialogBoard");
+    dialogElement.addEventListener("click", (event) => {
+    event.stopPropagation(); 
+    }); 
 }
 
