@@ -26,27 +26,24 @@ function editTask() {
 }
 
 function selectUrgentPriority() {
-    unselectPriority();
     let urgentRef = document.getElementById("urgentPriority")
-    urgentRef.classList.add("urgentPriorityButtonSelected");
+    urgentRef.classList.toggle("urgentPriorityButtonSelected");
+    document.getElementById("mediumPriority").classList.remove("mediumPriorityButtonSelected");
+    document.getElementById("lowPriority").classList.remove("lowPriorityButtonSelected");
 }
 
 function selectMediumPriority() {
-    unselectPriority();
     let mediumRef = document.getElementById("mediumPriority")
-    mediumRef.classList.add("mediumPriorityButtonSelected");
+    mediumRef.classList.toggle("mediumPriorityButtonSelected");
+    document.getElementById("urgentPriority").classList.remove("urgentPriorityButtonSelected");
+    document.getElementById("lowPriority").classList.remove("lowPriorityButtonSelected");
 }
 
 function selectLowPriority() {
-    unselectPriority();
     let lowRef = document.getElementById("lowPriority")
-    lowRef.classList.add("lowPriorityButtonSelected");
-}
-
-function unselectPriority () {
+    lowRef.classList.toggle("lowPriorityButtonSelected");
     document.getElementById("urgentPriority").classList.remove("urgentPriorityButtonSelected");
     document.getElementById("mediumPriority").classList.remove("mediumPriorityButtonSelected");
-    document.getElementById("lowPriority").classList.remove("lowPriorityButtonSelected");
 }
 
 function assignedContactToTask() {
@@ -75,5 +72,9 @@ async function createNewTask(event) {
     dialogElement.addEventListener("click", (event) => {
     event.stopPropagation(); 
     }); 
+}
+
+function subtaskEdit() {
+
 }
 

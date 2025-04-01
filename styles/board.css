@@ -343,12 +343,14 @@ margin-bottom: 10px;
 
 .overlayTaskSubtasks {
     height: 32px;
-    display: flex;
+    display: inline-flex;
     flex-direction: row;
     align-items: center;
     position: relative;
     left: 16px;
     font-size: 16px;
+    padding-right: 32px;
+    padding-left: 8px;
 }
 
 .overlayTaskSubtasks:hover {
@@ -605,7 +607,7 @@ textarea:focus {
 }
 
 .urgentPriorityButtonSelected:hover {
-    cursor: default;
+    cursor: pointer;
     box-shadow: none;
 }
 
@@ -620,7 +622,7 @@ textarea:focus {
 }
 
 .mediumPriorityButtonSelected:hover {
-    cursor: default;
+    cursor: pointer;
     box-shadow: none;
 }
 
@@ -635,7 +637,7 @@ textarea:focus {
 }
 
 .lowPriorityButtonSelected:hover {
-    cursor: default;
+    cursor: pointer;
     box-shadow: none;
 }
 
@@ -888,6 +890,20 @@ textarea:focus {
     top: 64px;
     right: 74px;
     background-color: transparent;
+}
+
+
+.editableText {
+    display: inline-block;
+}
+
+.editableText input {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+    padding: 4px 16px 4px 16px;
+    width: 100%;
 }
 
 

@@ -301,15 +301,15 @@ function geteditDialogTemplate(index) {
                             <div class="editDialogBoardSubtasksAdded">
                                 <li>Implement Recipe Recommendation</li>
                                 <div class="editDivSubtasks">
-                                    <div class="editIcon"></div>
+                                    <div class="editIcon" onclick="subtaskEdit()"></div>
                                     <div class="vectorAddSubtask"></div>
                                     <div class="deleteIcon"></div>
                                 </div>
                             </div>
-                            <div class="editDialogBoardSubtasksAdded">
+                            <div class="editDialogBoardSubtasksAdded" id>
                                 <li>Start Page Layout</li>
                                 <div class="editDivSubtasks">
-                                    <div class="editIcon"></div>
+                                    <div class="editIcon" onclick="subtaskEdit()"></div>
                                     <div class="vectorAddSubtask"></div>
                                     <div class="deleteIcon"></div>
                                 </div>
