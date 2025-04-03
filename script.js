@@ -1,5 +1,6 @@
 function init() {
     includeHTML();
+    checkIdNotNull();
 }
 
 async function includeHTML() {
@@ -14,4 +15,5 @@ async function includeHTML() {
             element.innerHTML = 'Page not found';            
         }
     }
+    setHighlight();
 }
