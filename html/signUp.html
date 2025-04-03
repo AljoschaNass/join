@@ -37,16 +37,12 @@
                     <input type="email" placeholder="Email" class="input_logIn" id="signUpEmail" required>
                 </div>
                 <div class="password_container">
-                    <input onfocus="onFocus('signUpPassword')" onblur="onBlur('signUpPassword')" type="password" placeholder="Password" class="input_logIn" id="signUpPassword" required >
-                    <div class="toggle_password" onclick="togglePasswordVisibility('signUpPassword')">
-                        <img src="../assets/img/icons/visibility_off.svg" alt="Password" id="signUpPasswordImg">
-                    </div>
+                    <input onfocus="onFocus('signUpPassword')" onblur="onBlur('signUpPassword')" type="password" placeholder="Password" class="input_logIn" id="signUpPassword" required>
+                    <img src="../assets/img/icons/lock.svg" alt="Password" onclick="togglePasswordVisibility('signUpPassword')" id="signUpPasswordImg">
                 </div>
                 <div class="password_container">
                     <input onfocus="onFocus('signUpConfirmPassword')" onblur="onBlur('signUpConfirmPassword')" type="password" placeholder="Confirm Password" class="input_logIn" id="signUpConfirmPassword" required >
-                    <div class="toggle_password" onclick="togglePasswordVisibility('signUpConfirmPassword')">
-                        <img src="../assets/img/icons/lock.svg" alt="Password" id="signUpConfirmPasswordImg">
-                    </div>
+                    <img src="../assets/img/icons/lock.svg" alt="Password" onclick="togglePasswordVisibility('signUpConfirmPassword')" id="signUpConfirmPasswordImg">
                     <div class="signUp_error" id="signUp_error">Your passwords don't match. Please try again.</div>
                 </div>
                 <div class="checkbox">

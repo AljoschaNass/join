@@ -22,7 +22,7 @@ function onFocus(inputId) {
     img.src = "../assets/img/icons/visibility_off.svg";// Icon für Passwort versteckt 
     img.alt = "Password Hidden";
     img.onclick = togglePasswordVisibility(inputId);
-    img.style.cursor = "pointer";
+    
 }
    
 /*Changes the color of the input field & field icon when not focused */
@@ -33,7 +33,7 @@ function onBlur(inputId) {
     img.src = "../assets/img/icons/lock.svg";// Icon für Passwort 
     img.alt = "Password";
     img.onclick = "";
-    img.style.cursor = "text";
+    x.type = "password";
 }
 
 /*loads user data from remote storage

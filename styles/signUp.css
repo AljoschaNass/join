@@ -67,11 +67,6 @@
     }
 }
 
-.toggle_password {
-    position: relative; 
-    z-index: 1;
-}
-
 #signUpPasswordImg {
     position: relative;
     top: -68px;
@@ -92,6 +87,7 @@
     right: -381px;
     width: 25px;
     height: 25px;
+    z-index: 1;
 }
 
 .signUp_error {
