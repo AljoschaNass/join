@@ -1,6 +1,6 @@
 
 let oldQuickLink = "summary";
-let newQuickLink;
+let newQuickLink = "summary";
 
 function toggleRespMenu() {    
     document.getElementById("resp_menu").classList.toggle("resp_menu_closed");
@@ -21,12 +21,16 @@ function setHighlight() {
     if (!savedOldQuickLink) {
         sessionStorage.setItem("oldQuickLink", "summary");
     }
-    if (savedOldQuickLink && savedNewQuickLink) {
-        if (savedOldQuickLink != savedNewQuickLink) {                    
-            document.getElementById("quick_link_" + savedNewQuickLink).classList.add("bg_dark_blue");
-            document.getElementById("quick_link_" + savedNewQuickLink).removeAttribute("href");
-            document.getElementById("quick_link_" + savedNewQuickLink).removeAttribute("onclick");
-            document.getElementById("quick_link_" + savedOldQuickLink).classList.remove("bg_dark_blue");
-        }
+    document.getElementById("quick_link_" + savedNewQuickLink).classList.add("bg_dark_blue");
+    document.getElementById("quick_link_" + savedNewQuickLink).removeAttribute("href");
+    if (savedOldQuickLink != savedNewQuickLink) {                    
+        document.getElementById("quick_link_" + savedOldQuickLink).classList.remove("bg_dark_blue");
+    }
+}
+
+function checkIdNotNull() {
+    let ref = document.getElementById("quick_link_summary");
+    if(ref != null) {
+        setHighlight();
     }
 }

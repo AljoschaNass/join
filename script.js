@@ -1,5 +1,6 @@
 function init() {
     includeHTML();
+    checkIdNotNull();
 }
 
 async function includeHTML() {
