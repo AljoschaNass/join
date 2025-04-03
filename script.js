@@ -14,4 +14,5 @@ async function includeHTML() {
             element.innerHTML = 'Page not found';            
         }
     }
+    setHighlight();
 }

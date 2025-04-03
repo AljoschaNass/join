@@ -1,6 +1,6 @@
 
-let selectedQuickLink = "summary";
-let currentQuickLink;
+let oldQuickLink = "summary";
+let newQuickLink;
 
 function toggleRespMenu() {    
     document.getElementById("resp_menu").classList.toggle("resp_menu_closed");
@@ -11,15 +11,22 @@ function toogleBgRespMenu(){
 }
 
 function highlightSelectedQuickLinks(id){
-    currentQuickLink = id;
-    console.log('selectedQuickLink' + selectedQuickLink);
-    console.log('currentQuickLink' + currentQuickLink);
-    
-    if (id != selectedQuickLink) {
-        document.getElementById("quick_link_" + currentQuickLink).classList.toggle("bg_dark_blue");
-        document.getElementById("quick_link_" + currentQuickLink).disabled = true;
-        document.getElementById("quick_link_" + selectedQuickLink).classList.toggle("bg_dark_blue");
-        document.getElementById("quick_link_" + selectedQuickLink).disabled = false;
+    sessionStorage.setItem("oldQuickLink", sessionStorage.getItem("newQuickLink"));
+    sessionStorage.setItem("newQuickLink", id);
+}
+
+function setHighlight() {  
+    let savedOldQuickLink = sessionStorage.getItem("oldQuickLink");
+    let savedNewQuickLink = sessionStorage.getItem("newQuickLink");
+    if (!savedOldQuickLink) {
+        sessionStorage.setItem("oldQuickLink", "summary");
     }
-    selectedQuickLink = currentQuickLink;
+    if (savedOldQuickLink && savedNewQuickLink) {
+        if (savedOldQuickLink != savedNewQuickLink) {                    
+            document.getElementById("quick_link_" + savedNewQuickLink).classList.add("bg_dark_blue");
+            document.getElementById("quick_link_" + savedNewQuickLink).removeAttribute("href");
+            document.getElementById("quick_link_" + savedNewQuickLink).removeAttribute("onclick");
+            document.getElementById("quick_link_" + savedOldQuickLink).classList.remove("bg_dark_blue");
+        }
+    }
 }
