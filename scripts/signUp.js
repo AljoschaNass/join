@@ -1,4 +1,4 @@
-async function postUser(path="user", id, name, email, password){//erstellen neuer recoursen - nicht idempotent, dh mehrere ausführungen können mehrere einträge erzeugen
+async function postUser(path="user", name, email, password){//erstellen neuer recoursen - nicht idempotent, dh mehrere ausführungen können mehrere einträge erzeugen
     let user = {
         'name': name,
         'email': email,
@@ -20,7 +20,7 @@ async function signUp() {
     let name = document.getElementById("signUpName").value;
     let email = document.getElementById("signUpEmail").value;
     let password = document.getElementById("signUpPassword").value;
-    let response = await postUser("user", id, name, email, password);
+    let response = await postUser("user", name, email, password);
     console.log(response);
     if (response.name) {
         alert("User created successfully!");
