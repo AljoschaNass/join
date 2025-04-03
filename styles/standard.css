@@ -62,7 +62,7 @@ input::placeholder {
 }
 
 .d_none {
-  display: none;
+  display: none !important;
 }
 
 .stopScrolling {

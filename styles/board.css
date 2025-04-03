@@ -854,6 +854,7 @@ textarea:focus {
 }
 
 .editDialogBoardSubtasksAdded:hover .vectorAddSubtask {
+    display: flex;
     height: 24px;
     width: 1px;
     background-color: rgba(209, 209, 209, 1);
@@ -906,4 +907,30 @@ textarea:focus {
     width: 100%;
 }
 
+.editable:focus {
+    outline: none;  /* Entfernt den Standardrahmen, wenn das Element fokussiert wird */
+    border-bottom: 1px solid rgba(0, 93, 255, 1);
+    font-weight: 400;
+    background-color: white;
+}
+
+.deleteIcon2 {
+    background-image: url("../assets/img/icons/deleteIcon.svg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+}
+
+.saveIcon {
+    background-image: url("../assets/img/icons/saveIcon.svg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+}
 

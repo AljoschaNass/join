@@ -74,7 +74,17 @@ async function createNewTask(event) {
     }); 
 }
 
-function subtaskEdit() {
-
+function subtaskEdit(event) {
+    const listItem = event.target.closest('.editDialogBoardSubtasksAdded').querySelector('li');
+    
+    // Macht das li-Element editierbar
+    listItem.setAttribute('contenteditable', true);
+    listItem.classList.add('editable'); // Füge eine Klasse hinzu
+    listItem.focus();
+    document.getElementById("editIcon1").classList.add("d_none");
+    document.getElementById("editIcon3").classList.add("d_none");
+    document.getElementById("editIcon2").classList.remove("d_none");
+    document.getElementById("editIcon4").classList.remove("d_none");
+    document.getElementById("editIcon5").classList.remove("d_none");
 }
 
