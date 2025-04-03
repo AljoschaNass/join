@@ -23,7 +23,7 @@ function setHighlight() {
     }
     document.getElementById("quick_link_" + savedNewQuickLink).classList.add("bg_dark_blue");
     document.getElementById("quick_link_" + savedNewQuickLink).removeAttribute("href");
-    if (savedOldQuickLink != savedNewQuickLink) {                    
+    if (savedOldQuickLink != savedNewQuickLink || savedOldQuickLink == "help") {                    
         document.getElementById("quick_link_" + savedOldQuickLink).classList.remove("bg_dark_blue");
     }
 }
