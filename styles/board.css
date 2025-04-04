@@ -761,6 +761,7 @@ textarea:focus {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    margin-bottom: 8px;
 }
 
 .editDialogBoardSubtasksInput {
@@ -858,7 +859,6 @@ textarea:focus {
 }
 
 .editDialogBoardSubtasksAdded:hover .vectorAddSubtask {
-    display: flex;
     height: 24px;
     width: 1px;
     background-color: rgba(209, 209, 209, 1);
@@ -866,6 +866,12 @@ textarea:focus {
 }
 
 .editDivSubtasks {
+    display: flex;
+    flex-direction: row;
+    padding: 4px 16px 4px 16px;
+}
+
+.editDivSubtasks2 {
     display: flex;
     flex-direction: row;
     padding: 4px 16px 4px 16px;
@@ -913,8 +919,6 @@ textarea:focus {
 
 .editable:focus {
     outline: none;  /* Entfernt den Standardrahmen, wenn das Element fokussiert wird */
-    border-bottom: 1px solid rgba(0, 93, 255, 1);
-    font-weight: 400;
     background-color: white;
 }
 
@@ -936,5 +940,23 @@ textarea:focus {
     height: 24px;
     width: 24px;
     cursor: pointer;
+}
+
+.vectorAddSubtask2 {
+    height: 24px;
+    width: 1px;
+    background-color: rgba(209, 209, 209, 1);
+    margin: 0px 4px 0px 4px;
+}
+
+.underline {
+    outline: none;  /* Entfernt den Standardrahmen, wenn das Element fokussiert wird */
+    border-bottom: 1px solid rgba(0, 93, 255, 1);
+    font-weight: 400;
+    background-color: white;
+}
+
+.editDialogBoardSubtasksAdded.underline:hover {
+    background-color: transparent; /* Keine Änderung bei Hover, wenn underline aktiv ist */
 }
 

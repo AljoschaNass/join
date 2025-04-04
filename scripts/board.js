@@ -75,16 +75,23 @@ async function createNewTask(event) {
 }
 
 function subtaskEdit(event) {
-    const listItem = event.target.closest('.editDialogBoardSubtasksAdded').querySelector('li');
-    
-    // Macht das li-Element editierbar
+    const editDiv = event.target.closest('.editDivSubtasks');
+    const listItem = editDiv.closest('.editDialogBoardSubtasksAdded').querySelector('li');
     listItem.setAttribute('contenteditable', true);
-    listItem.classList.add('editable'); // Füge eine Klasse hinzu
+    listItem.classList.add('editable');
     listItem.focus();
-    document.getElementById("editIcon1").classList.add("d_none");
-    document.getElementById("editIcon3").classList.add("d_none");
-    document.getElementById("editIcon2").classList.remove("d_none");
-    document.getElementById("editIcon4").classList.remove("d_none");
-    document.getElementById("editIcon5").classList.remove("d_none");
+    editDiv.classList.add('d_none');
+    editDiv.nextElementSibling.classList.remove('d_none');
+    editDiv.closest('.editDialogBoardSubtasksAdded').classList.add('underline');
 }
 
+
+function subtaskSave(event) {
+    const editDiv = event.target.closest('.editDivSubtasks2');
+    const listItem = editDiv.closest('.editDialogBoardSubtasksAdded').querySelector('li');
+    listItem.removeAttribute('contenteditable');
+    listItem.classList.remove('editable');
+    editDiv.classList.add('d_none'); 
+    editDiv.previousElementSibling.classList.remove('d_none'); 
+    editDiv.closest('.editDialogBoardSubtasksAdded').classList.remove('underline');
+}
