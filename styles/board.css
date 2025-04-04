@@ -498,6 +498,10 @@ input[type="checkbox"]:checked + label .customCheckbox:hover {
     margin-bottom: 4px;
 }
 
+.editDialogBoardDescription{
+    margin-bottom: 16px;
+}
+
 .inputEditDialogBoardTitle {
     width: 445px;
     height: 48px;

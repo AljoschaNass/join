@@ -148,7 +148,7 @@ function geteditDialogTemplate(index) {
                                     value="Kochwelt Page & Recipe Recommender" required>
                                 <p class="requiredFieldDialog d_none">This field is required</p>
                             </div>
-                            <div class="editDialogBoardDescription height_174">
+                            <div class="editDialogBoardDescription">
                                 <p>Description</p>
                                 <textarea id="inputEditDialogBoardDescription" class="inputEditDialogBoardDescription"
                                     placeholder="Enter a Description">Build start page with recipe recommendation.</textarea>
