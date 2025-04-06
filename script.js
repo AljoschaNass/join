@@ -17,3 +17,22 @@ async function includeHTML() {
     }
     setHighlight();
 }
+
+/*gets data of all useres from the database */
+async function getAllUsers(){
+    let path = "user";
+    let response = await fetch(BASE_URL + path + ".json");
+    return responseToJson = await response.json();
+  }
+  
+  /*save currentUser to local storage*/
+  function saveCurrentUserToLocalStorage(email, name) {
+    localStorage.setItem(`currentUserName`, JSON.stringify(name));
+    localStorage.setItem(`currentUserEmail`, JSON.stringify(email));
+  }
+  
+  /*get current user from local storage*/ 
+  function getCurrentUserFromLocalStorage() {
+    currentUserName = JSON.parse(localStorage.getItem(`currentUserName`));
+    currentUserEmail = JSON.parse(localStorage.getItem(`currentUserEmail`));
+  }

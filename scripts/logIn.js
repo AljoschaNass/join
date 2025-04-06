@@ -33,22 +33,24 @@ function onBlur(inputId) {
   x.type = "password";
 }
 
-async function getAllUsers(){
-  let path = "user"; // Pfad zu den Benutzerdaten
-  let response = await fetch(BASE_URL + path + ".json");
-  return responseToJson = await response.json();
-}
-
+/*Allows the user to log in personal account*/
 async function logIn() {
   let email = document.getElementById("logInEmail").value;
   let password = document.getElementById("logInPassword").value;
   let users = await getAllUsers();
   let user = Object.values(users).find(u => u.email === email && u.password === password);
   if (user) {
-    currentUserEmail = email;
-    currentUserName = user.name;
+    saveCurrentUserToLocalStorage(user.email, user.name);
     window.location.href = "../html/summary.html";
   } else {
     document.getElementById("logIn_error").classList.remove("d_none");
   }
+}
+
+/*Log in for guest user*/
+function logInGuest() {
+  currentUserEmail = "";
+  currentUserName = "Guest";
+  saveCurrentUserToLocalStorage(currentUserEmail, currentUserName);
+  window.location.href = "../html/summary.html";
 }
