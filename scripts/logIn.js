@@ -42,18 +42,13 @@ async function getAllUsers(){
 async function logIn() {
   let email = document.getElementById("logInEmail").value;
   let password = document.getElementById("logInPassword").value;
-
-  let users = await getAllUsers();  // ein Objekt kein Array -> fixen
-  console.log(users);
-
-    let user = users.find (u => u.email === email && u.password === password);
-    console.log(user);
-
-    if (user) {
-      currentUserEmail = email;
-      currentUserName = user.name;
-      window.location.href = "../html/summary.html";
-    } else {
-      alert("Invalid email or password!"); // Abändern zu logIn_error anzeigen
-    }
+  let users = await getAllUsers();
+  let user = Object.values(users).find(u => u.email === email && u.password === password);
+  if (user) {
+    currentUserEmail = email;
+    currentUserName = user.name;
+    window.location.href = "../html/summary.html";
+  } else {
+    document.getElementById("logIn_error").classList.remove("d_none");
   }
+}
