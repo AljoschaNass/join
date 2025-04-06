@@ -5,11 +5,7 @@ async function postUser(path="user", name, email, password){//erstellen neuer re
         'password': password
     };
     let response = await fetch(BASE_URL + path + ".json", {
-        method: "POST",
-        headers: { 
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(user)
+        method: "POST", headers: {'Content-Type': 'application/json', }, body: JSON.stringify(user)
     });
     let responseToJson = await response.json();
     return responseToJson;
@@ -28,14 +24,3 @@ async function signUp() {
         document.getElementById("logIn_error").classList.remove("d_none");
     }
 }
-
-/*function checkInputs() {
-    let allFilled = true;
-    inputs.forEach(input => {
-        if (input.value.trim() === '') {
-            allFilled = false;
-        }
-    });
-    submitButton.disabled = !allFilled;
-}*/
-
