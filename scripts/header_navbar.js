@@ -34,3 +34,11 @@ function checkIdNotNull() {
         setHighlight();
     }
 }
+
+function logOut() {
+    localStorage.removeItem("currentUserName");
+    localStorage.removeItem("currentUserEmail");
+    window.location.href = "../index.html";
+    currentUserEmail = "";
+    currentUserName = ""; 
+}
