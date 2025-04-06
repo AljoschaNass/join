@@ -23,10 +23,20 @@ async function signUp() {
     let response = await postUser("user", name, email, password);
     console.log(response);
     if (response.name) {
-        alert("User created successfully!");
+        alert("User created successfully!");// Abändern zu You Signed Up successfully Btn
         window.location.href = "../index.html";
     } else {
         alert("Error creating user: " + response.error);
     }
 }
+
+/*function checkInputs() {
+    let allFilled = true;
+    inputs.forEach(input => {
+        if (input.value.trim() === '') {
+            allFilled = false;
+        }
+    });
+    submitButton.disabled = !allFilled;
+}*/
 

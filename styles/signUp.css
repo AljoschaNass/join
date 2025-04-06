@@ -18,6 +18,16 @@
     align-items: center;
 }
 
+.back_to_logIn_btn {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    top: 52px;
+    left: -223px;
+    width: 32px;
+    height: 32px;
+}
+
 .signUp_content h1 {
     padding-bottom: 16px;
 }
@@ -27,6 +37,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.input_logIn#signUpPassword {
+    padding-right: 60px;
 }
 
 .checkbox {
@@ -40,54 +54,6 @@
     font-family: 'Inter', sans-serif;
     gap: 16px;
     position: relative;
-    top: -44px;
-}
-
-#signUpName {
-    background-image: url(../assets/img/icons/person.svg);
-    background-repeat: no-repeat;
-    background-position: 380px center;
-}
-
-#signUpEmail {
-    background-image: url(../assets/img/icons/mail.svg);
-    background-repeat: no-repeat;
-    background-position: 380px center;
-}
-
-.password_container {
-    display: flex;	
-    flex-direction: column;    
-    position: relative;
-    width: 100%;
-    margin: 0;
-
-    & input {
-        margin-bottom: 32px;
-    }
-}
-
-#signUpPasswordImg {
-    position: relative;
-    top: -68px;
-    right: -382px;
-    width: 25px;
-    height: 25px;
-}
-
-#signUpConfirmPassword {
-    position: relative;
-    top: -34px;
-    z-index: 1;
-}
-
-#signUpConfirmPasswordImg {
-    position: relative;
-    top: -103px;
-    right: -381px;
-    width: 25px;
-    height: 25px;
-    z-index: 1;
 }
 
 .signUp_error {
@@ -97,16 +63,11 @@
     font-weight: 400;
     font-family: 'Inter', sans-serif;
     position: relative;
-    top: -85px;
-    left: 0px;
 }
 
-.back_to_logIn_btn {
+.signUp_btn {
     display: flex;
-    justify-content: flex-start;
-    position: relative;
-    top: 52px;
-    left: -223px;
-    width: 32px;
-    height: 32px;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 35px;
 }

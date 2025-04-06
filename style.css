@@ -78,32 +78,49 @@
     margin-bottom: 32px;
 }
 
-.input_logIn {
+.password_container {
+    display: flex;	
+    flex-direction: column;    
+    position: relative;
     width: 422px;
-    height: 50px;
+    margin: 0;
+}
+
+.input_logIn {
+    width: 100%;
+    height: 48px;
     border-radius: 8px;
     border: 1px solid #D9D9D9;
-    padding: 15px;
+    padding: 15px 32px 15px 15px;
     font-size: 16px;
     font-weight: 400;
     color: #000000;
     font-family: 'Inter', sans-serif;
     cursor: text;
-}
-
-#logInEmail {
-    background-image: url('../assets/img/icons/mail.svg'); 
+    outline: none;
     background-repeat: no-repeat;
-    background-position: 380px center; 
+    background-position: right center;
+    background-size: 16px;
+    z-index: 1;
+    margin: 0;
 }
 
-#logInPasswordImg {
-    position: relative;
-    top: -37px;
-    right: -381px;
+.input_logIn:focus {
+    border: 1px solid #29ABE2;
+}
+
+.input_logIn--error {
+    border: 1px solid #ff8190;
+}
+
+.input_logIn_img {
+    position: absolute;
+    right: 15px;
+    top: 14px;
+    z-index: 1;
+    cursor: pointer;
     width: 25px;
     height: 25px;
-    cursor: pointer;
 }
 
 .logIn_error {
@@ -113,8 +130,6 @@
     font-weight: 400;
     font-family: 'Inter', sans-serif;
     position: relative;
-    top: -50px;
-    left: -55px;
 }
 
 .logIn_btns {
@@ -122,6 +137,7 @@
     flex-direction: row;
     justify-content: space-between;
     gap: 35px;
+    margin-top: 32px;
 }
 
 .logIn_btn {

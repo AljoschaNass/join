@@ -29,14 +29,20 @@
             <h1>Log in</h1>
             <div class="blue_line_150x3"></div>
             <div class="gap_32 center">
-                <input type="email" placeholder="Email" class="input_logIn" id="logInEmail" required>
+                <div class="password_container">
+                    <input type="email" placeholder="Email" class="input_logIn" id="logInEmail" required>
+                    <div class="toggle_password">
+                        <img src="../assets/img/icons/mail.svg" alt="Password" class="input_logIn_img">
+                    </div>
+                </div>
                 <div class="password_container">
                     <input onfocus="onFocus('logInPassword')" onblur="onBlur('logInPassword')" type="password" placeholder="Password" class="input_logIn" id="logInPassword" required>
                     <div class="toggle_password" onclick="togglePasswordVisibility('logInPassword')">
-                        <img src="../assets/img/icons/lock.svg" alt="Password" id="logInPasswordImg">
+                        <img src="../assets/img/icons/lock.svg" alt="Password" class="input_logIn_img" id="logInPasswordImg">
                     </div>
+                    <div class="logIn_error" id="logIn_error">Check your email and password. Please try again.</div>
                 </div>
-                <div class="logIn_error" id="logIn_error">Check your email and password. Please try again.</div>
+                
             </div>
             <div class="logIn_btns">
                 <button class="logIn_btn" id="logInBtn">Log in</button>
