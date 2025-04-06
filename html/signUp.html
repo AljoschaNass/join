@@ -41,12 +41,12 @@
                     </div>
                     <div class="password_container">
                         <input onfocus="onFocus('signUpPassword')" onblur="onBlur('signUpPassword')" type="password" placeholder="Password" class="input_logIn" id="signUpPassword" required>
-                        <img src="../assets/img/icons/lock.svg" alt="Password" class="input_logIn_img" id="signUpPasswordImg">
+                        <img onclick="togglePasswordVisibility('signUpPassword')" src="../assets/img/icons/lock.svg" alt="Password" class="input_logIn_img" id="signUpPasswordImg">
                     </div>
                     <div class="password_container">
                         <input onfocus="onFocus('signUpConfirmPassword')" onblur="onBlur('signUpConfirmPassword')" type="password" placeholder="Confirm Password" class="input_logIn" id="signUpConfirmPassword" required >
-                        <img src="../assets/img/icons/lock.svg" alt="Password" class="input_logIn_img" id="signUpConfirmPasswordImg">
-                        <div class="signUp_error" id="signUp_error">Your passwords don't match. Please try again.</div>
+                        <img onclick="togglePasswordVisibility('signUpConfirmPassword')" src="../assets/img/icons/lock.svg" alt="Password" class="input_logIn_img" id="signUpConfirmPasswordImg">
+                        <div class="signUp_error d_none" id="signUp_error">Your passwords don't match. Please try again.</div>
                     </div>
                     <div class="checkbox">
                         <input type="checkbox" id="checkbox" required>
@@ -57,10 +57,9 @@
                     </div>
                 </div>
             </form>
-          
         </div>
     </main>
-
+    
     <footer class="footer_logIn">
         <a href="../html/privacyPolice.html">Privacy Policy</a>
         <a href="../html/legalNotice.html">Legal notice</a>

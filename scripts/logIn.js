@@ -1,4 +1,4 @@
-/*Toggles Password Visibility */
+/*Toggles Password Visibility*/
 function togglePasswordVisibility(inputId) {
   var x = document.getElementById(inputId);
   if (x.type === "password") {

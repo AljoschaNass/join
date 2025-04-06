@@ -1,6 +1,6 @@
 async function postUser(path="user", name, email, password){//erstellen neuer recoursen - nicht idempotent, dh mehrere ausführungen können mehrere einträge erzeugen
     let user = {
-        'name': name,
+        'name': name, 
         'email': email,
         'password': password
     };
@@ -12,7 +12,6 @@ async function postUser(path="user", name, email, password){//erstellen neuer re
         body: JSON.stringify(user)
     });
     let responseToJson = await response.json();
-    console.log('post: ' + responseToJson);
     return responseToJson;
 }
 
@@ -21,17 +20,12 @@ async function signUp() {
     let email = document.getElementById("signUpEmail").value;
     let password = document.getElementById("signUpPassword").value;
     let passwordCheck = document.getElementById("signUpConfirmPassword").value;
-    if (password !== passwordCheck) {
-        alert("Passwords do not match!");//Ändern zu : signUp_error anzeigen
-        return;
+    if (password === passwordCheck) {
+        await postUser("user", name, email, password); 
+        sessionStorage.setItem("signUpSuccess", "true");
+        window.location.href = "../index.html";
     } else {
-        let response = await postUser("user", name, email, password);
-        console.log(response);
-        if (response.name) {
-            alert("User created successfully!");// Abändern zu You Signed Up successfully Message
-            // Redirect to login page or home page vor 
-            window.location.href = "../index.html";
-        }
+        document.getElementById("logIn_error").classList.remove("d_none");
     }
 }
 

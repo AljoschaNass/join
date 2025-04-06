@@ -15,7 +15,7 @@
     <script src="../scripts/remoteStorage.js"></script>
     
 </head>
-<body class="body_logIn">
+<body onload="justSignedUp()" class="body_logIn">
     <header class="header_logIn">
         <img class="header_LogIn_logo" src="../assets/img/join_logo_dark.svg" alt="join-logo" />
         <div class="header_LogIn_right">
@@ -50,6 +50,9 @@
                     <button onclick="logInGuest(); return false;"class="logIn_btn" id="guestLogInBtn">Guest Log in</button>
                 </div>
             </form>
+        </div>
+        <div class="bShadow_blur4_opacity015 d_none" id="signUpSuccess">
+            <button class="center" >You Signed Up successfully</button>
         </div>
     </main>
 
