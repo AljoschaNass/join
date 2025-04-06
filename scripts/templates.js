@@ -148,7 +148,7 @@ function geteditDialogTemplate(index) {
                                     value="Kochwelt Page & Recipe Recommender" required>
                                 <p class="requiredFieldDialog d_none">This field is required</p>
                             </div>
-                            <div class="editDialogBoardDescription height_174">
+                            <div class="editDialogBoardDescription">
                                 <p>Description</p>
                                 <textarea id="inputEditDialogBoardDescription" class="inputEditDialogBoardDescription"
                                     placeholder="Enter a Description">Build start page with recipe recommendation.</textarea>
@@ -300,28 +300,28 @@ function geteditDialogTemplate(index) {
                             </div>
                             <div class="editDialogBoardSubtasksAdded">
                                 <li>Implement Recipe Recommendation</li>
-                                <div class="editDivSubtasks" id="editDivSubtasks1">
-                                    <div id="editIcon1"class="editIcon" onclick="subtaskEdit(event)"></div>
-                                    <div id="vector1" class="vectorAddSubtask"></div>
-                                    <div id="editIcon3" class="deleteIcon"></div>
+                                <div class="editDivSubtasks">
+                                    <div class="editIcon" onclick="subtaskEdit(event)"></div>
+                                    <div class="vectorAddSubtask"></div>
+                                    <div class="deleteIcon"></div>
                                 </div>
-                                <div class="editDivSubtasks d_none" id="editDivSubtasks2">
-                                    <div id="editIcon2" class="deleteIcon2"></div>
-                                    <div id="vector2" class="vectorAddSubtask2"></div>
-                                    <div id="editIcon4" class="saveIcon"></div>
+                                <div class="editDivSubtasks2 d_none">
+                                    <div class="deleteIcon2"></div>
+                                    <div class="vectorAddSubtask2"></div>
+                                    <div class="saveIcon" onclick="subtaskSave(event)"></div>
                                 </div>
                             </div>
-                            <div class="editDialogBoardSubtasksAdded" id>
+                            <div class="editDialogBoardSubtasksAdded">
                                 <li>Start Page Layout</li>
-                                <div class="editDivSubtasks" id="editDivSubtasks1">
-                                    <div id="editIcon1"class="editIcon" onclick="subtaskEdit(event)"></div>
-                                    <div id="vector1" class="vectorAddSubtask"></div>
-                                    <div id="editIcon3" class="deleteIcon"></div>
+                                <div class="editDivSubtasks">
+                                    <div class="editIcon" onclick="subtaskEdit(event)"></div>
+                                    <div class="vectorAddSubtask"></div>
+                                    <div class="deleteIcon"></div>
                                 </div>
-                                <div class="editDivSubtasks d_none" id="editDivSubtasks2">
-                                    <div id="editIcon2" class="deleteIcon2"></div>
-                                    <div id="vector2" class="vectorAddSubtask2"></div>
-                                    <div id="editIcon4" class="saveIcon"></div>
+                                <div class="editDivSubtasks2 d_none">
+                                    <div class="deleteIcon2"></div>
+                                    <div class="vectorAddSubtask2"></div>
+                                    <div class="saveIcon" onclick="subtaskSave(event)"></div>
                                 </div>
                             </div>
                         </div>
