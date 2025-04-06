@@ -20,13 +20,18 @@ async function signUp() {
     let name = document.getElementById("signUpName").value;
     let email = document.getElementById("signUpEmail").value;
     let password = document.getElementById("signUpPassword").value;
-    let response = await postUser("user", name, email, password);
-    console.log(response);
-    if (response.name) {
-        alert("User created successfully!");// Abändern zu You Signed Up successfully Btn
-        window.location.href = "../index.html";
+    let passwordCheck = document.getElementById("signUpConfirmPassword").value;
+    if (password !== passwordCheck) {
+        alert("Passwords do not match!");//Ändern zu : signUp_error anzeigen
+        return;
     } else {
-        alert("Error creating user: " + response.error);
+        let response = await postUser("user", name, email, password);
+        console.log(response);
+        if (response.name) {
+            alert("User created successfully!");// Abändern zu You Signed Up successfully Message
+            // Redirect to login page or home page vor 
+            window.location.href = "../index.html";
+        }
     }
 }
 
