@@ -42,3 +42,13 @@ function logOut() {
     currentUserEmail = "";
     currentUserName = ""; 
 }
+function goToLogInOrPage(page){
+    getCurrentUserFromLocalStorage();
+    if (currentUserName == null) {
+        ref = "../index.html";
+        window.location.href = ref;
+    } else {
+        ref = "./" + page + ".html";
+        window.location.href = ref;
+    }
+}
