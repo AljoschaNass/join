@@ -1,0 +1,493 @@
+#editDialogBoard {
+    background-color: white !important;
+    width: 525px;
+    height: 930px;
+    border-radius: 30px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.editDialogBoardFrameWithScrollbar {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: calc(100% - 10px);
+    margin: 24px 10px 24px 0px;
+}
+
+#editDialogBoardFrame {
+    margin: 0px 40px 0px 40px;
+    width: 445px;
+    gap: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+#editDialogBoard button {
+    background-color: transparent;
+    margin-right: 40px;
+    margin-top: 48px;
+}
+
+.editDialogBoardTop {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.editDialogBoardTop p {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 4px;
+}
+
+.editDialogBoardDescription{
+    margin-bottom: 16px;
+}
+
+.inputEditDialogBoardTitle {
+    width: 445px;
+    height: 48px;
+    border-radius: 10px;
+    padding-top: 12px;
+    padding-right: 21px;
+    padding-bottom: 12px;
+    padding-left: 21px;
+    border: 1px solid rgba(209, 209, 209, 1);
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.inputEditDialogBoardTitle:focus {
+    border: 1px solid #29ABE2
+    }
+
+.requiredFieldDialog {
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 12px !important;
+    color: rgba(255, 129, 144, 1);
+}
+
+.inputEditDialogBoardDescription {
+    width: 445px;
+    height: 120px;
+    border-radius: 10px;
+    border: 1px solid rgba(209, 209, 209, 1);
+    padding-top: 18px;
+    padding-right: 16px;
+    padding-bottom: 18px;
+    padding-left: 16px;
+    font-weight: 400;
+    font-size: 20px;
+    resize: none;
+}
+
+textarea:focus {
+    border: 1px solid #29ABE2;
+    outline: none; 
+}
+
+.inputEditDialogBoardDueDate {
+    width: 445px;
+    height: 48px;
+    border-radius: 10px;
+    border: 1px solid rgba(209, 209, 209, 1);
+    justify-content: space-between;
+    padding-top: 12px;
+    padding-right: 16px;
+    padding-bottom: 12px;
+    padding-left: 16px;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.inputEditDialogBoardDueDate:focus {
+    border: 1px solid #29ABE2;
+}
+
+.editDialogBoardPriority{
+    font-family: 'Open Sans';
+    font-weight: 700;
+    font-size: 19px;
+    margin-bottom: 8px;
+}
+
+.editDialogBoardPriorityButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 56px;
+    width: 445px;
+}
+
+.editDialogBoardPriorityButton {
+    margin-top: 0 !important;
+    margin-right: 0 !important;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 136px;
+    height: 56px;
+    gap: 8px;
+    padding-top: 16px;
+    padding-right: 10px;
+    padding-bottom: 16px;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    font-size: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.editDialogBoardPriorityButton:hover {
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.urgentPriorityButtonSelected {
+    background-color: rgba(255, 61, 0, 1) !important;
+    color: white !important;
+    font-weight: 700;
+}
+
+.urgentPriorityButtonSelected:hover {
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.urgentPriorityButtonSelected svg path {
+    fill: white; 
+}
+
+.mediumPriorityButtonSelected {
+    background-color:rgba(255, 168, 0, 1)  !important;
+    color: white !important;
+    font-weight: 700;
+}
+
+.mediumPriorityButtonSelected:hover {
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.mediumPriorityButtonSelected svg path {
+    fill: white;
+}
+
+.lowPriorityButtonSelected {
+    background-color:rgba(122, 226, 41, 1)  !important;
+    color: white !important;
+    font-weight: 700;
+}
+
+.lowPriorityButtonSelected:hover {
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.lowPriorityButtonSelected svg path {
+    fill: white; 
+}
+
+.editDialogBoardAssignedTo {
+    gap: 8px;
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+#editDialogBoardAssignedToInput {
+    width: 440px;
+    height: 48px;
+    border-radius: 10px;
+    border: 1px solid rgba(209, 209, 209, 1);
+    padding-top: 12px;
+    padding-right: 16px;
+    padding-bottom: 12px;
+    padding-left: 16px;
+    font-weight: 400;
+    font-size: 20px;
+    color: black;
+}
+
+#editDialogBoardAssignedToInput:focus {
+    border: 1px solid #29ABE2;
+}
+
+.arrowDropDown {
+    background-image: url("../assets/img/icons/arrow_drop_down.svg");
+    background-repeat: no-repeat;
+    background-position-x: 98%;
+    background-position-y: 50%;
+}
+
+.arrowDropUp {
+    background-image: url("../assets/img/icons/arrowDropUp.svg");
+    background-repeat: no-repeat;
+    background-position-x: 98%;
+    background-position-y: 50%;
+}
+
+#editDialogBoardAssignedToDropDown {
+    overflow-y: scroll;
+    width: 440px;
+    max-height: 224px;
+    background-color: white;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+    border-radius: 10px;
+}
+
+.dropDownContacts {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px 16px 7px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.dropDownContact {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+}
+
+.contactChecked {
+    background: rgba(42, 54, 71, 1);
+    color: white;
+}
+
+.contactUnchecked:hover {
+    background-color: rgba(238, 238, 238, 1);
+}
+
+.contactCheckedCheckbox {
+    background-image: url("../assets/img/icons/contactCheckedCheckbox.svg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    height: 24px;
+    width: 24px;
+}
+
+.contactUncheckedCheckbox {
+    background-image: url("../assets/img/icons/contactUncheckedCheckbox.svg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    height: 24px;
+    width: 24px;  
+}
+
+.contactChecked:hover {
+    background-color: rgba(9, 25, 49, 1);
+}
+
+.editDialogBoardSubtasks {
+    font-size: 20px;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.editDialogBoardSubtasksInput {
+    width: 445px;
+    height: 48px;
+    border-radius: 10px;
+    border: 1px solid rgba(209, 209, 209, 1);
+    display: flex;
+    justify-content: space-between;
+    padding-top: 12px;
+    padding-right: 16px;
+    padding-bottom: 12px;
+    padding-left: 16px;
+    background-color: white;
+}
+
+.editDialogBoardSubtasksInput:focus-within {
+    border: 1px solid #29ABE2
+}
+
+.editDialogBoardSubtasksInput input{
+    font-weight: 400;
+    font-size: 20px;
+    width: calc(100% - 25px);
+}
+
+.addIcon {
+    background-image: url("../assets/img/icons/add.svg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+}
+
+.editDialogBoardSubtasksInput:focus-within .addIcon {
+    background-image: url('../assets/img/icons/addhaken.svg');
+}
+
+.editDialogBoardSubtasksInput:focus-within .xIcon {
+    background-image: url("../assets/img/icons/X.svg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+}
+
+.editDialogBoardSubtasksInput:focus-within .vectorAddSubtask {
+    height: 24px;
+    width: 1px;
+    background-color: rgba(209, 209, 209, 1);
+    margin: 0px 4px 0px 4px;
+}
+
+.editDialogBoardSubtasks li {
+    font-size: 16px;
+    cursor: pointer;
+    height: 32px;
+    padding: 4px 16px 4px 16px;
+}
+
+.editDialogBoardSubtasksAdded:hover {
+    background-color: rgba(238, 238, 238, 1);
+}
+
+.editDialogBoardSubtasksAdded:hover .editIcon {
+    background-image: url("../assets/img/icons/pen-transparent.svg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+}
+
+.editDialogBoardSubtasksAdded {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.editDialogBoardSubtasksAdded:hover .deleteIcon {
+    background-image: url("../assets/img/icons/deleteIcon.svg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+}
+
+.editDialogBoardSubtasksAdded:hover .vectorAddSubtask {
+    height: 24px;
+    width: 1px;
+    background-color: rgba(209, 209, 209, 1);
+    margin: 0px 4px 0px 4px;
+}
+
+.editDivSubtasks {
+    display: flex;
+    flex-direction: row;
+    padding: 4px 16px 4px 16px;
+}
+
+.editDivSubtasks2 {
+    display: flex;
+    flex-direction: row;
+    padding: 4px 16px 4px 16px;
+}
+
+.saveEditTaskButton {
+    margin-top: 0 !important;
+    margin-bottom: 48px !important;
+}
+
+.addTaskDialogBoard {
+    background-color: white;
+    width: 1116px;
+    height: 870px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.addTaskDialogBoardFrame {
+    height: 100%;
+    padding: 64px 74px 64px 74px;
+    position: relative;
+}
+
+.addTaskDialogBoardClose {
+    position: absolute;
+    top: 64px;
+    right: 74px;
+    background-color: transparent;
+}
+
+.editableText {
+    display: inline-block;
+}
+
+.editableText input {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+    padding: 4px 16px 4px 16px;
+    width: 100%;
+}
+
+.editable:focus {
+    outline: none; 
+    background-color: white;
+}
+
+.deleteIcon2 {
+    background-image: url("../assets/img/icons/deleteIcon.svg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+}
+
+.saveIcon {
+    background-image: url("../assets/img/icons/saveIcon.svg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+}
+
+.vectorAddSubtask2 {
+    height: 24px;
+    width: 1px;
+    background-color: rgba(209, 209, 209, 1);
+    margin: 0px 4px 0px 4px;
+}
+
+.underline {
+    outline: none; 
+    border-bottom: 1px solid rgba(0, 93, 255, 1);
+    font-weight: 400;
+    background-color: white;
+}
+
+.editDialogBoardSubtasksAdded.underline:hover {
+    background-color: transparent; 
+}

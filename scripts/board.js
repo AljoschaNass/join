@@ -75,11 +75,19 @@ async function createNewTask(event) {
 }
 
 function subtaskEdit(event) {
-    const editDiv = event.target.closest('.editDivSubtasks');
-    const listItem = editDiv.closest('.editDialogBoardSubtasksAdded').querySelector('li');
+    editableListItem(event);
+    changeButtons(event);
+}
+
+function editableListItem(event) {
+    const listItem = event.target.closest('.editDivSubtasks').closest('.editDialogBoardSubtasksAdded').querySelector('li');
     listItem.setAttribute('contenteditable', true);
     listItem.classList.add('editable');
     listItem.focus();
+}
+
+function changeButtons(event) {
+    const editDiv = event.target.closest('.editDivSubtasks');
     editDiv.classList.add('d_none');
     editDiv.nextElementSibling.classList.remove('d_none');
     editDiv.closest('.editDialogBoardSubtasksAdded').classList.add('underline');
@@ -87,11 +95,36 @@ function subtaskEdit(event) {
 
 
 function subtaskSave(event) {
-    const editDiv = event.target.closest('.editDivSubtasks2');
-    const listItem = editDiv.closest('.editDialogBoardSubtasksAdded').querySelector('li');
+    editableListItem2(event);
+    changeButtons2(event);
+}
+
+function editableListItem2(event) {
+    const listItem = event.target.closest('.editDivSubtasks2').closest('.editDialogBoardSubtasksAdded').querySelector('li');
     listItem.removeAttribute('contenteditable');
     listItem.classList.remove('editable');
+}
+
+function changeButtons2(event) {
+    const editDiv = event.target.closest('.editDivSubtasks2');
     editDiv.classList.add('d_none'); 
     editDiv.previousElementSibling.classList.remove('d_none'); 
     editDiv.closest('.editDialogBoardSubtasksAdded').classList.remove('underline');
+}
+
+function selectContactToAssignTask(event) {
+    changeBackgroundColor(event);
+    changeCheckbox(event);
+}
+
+function changeBackgroundColor(event) {
+    const contactDiv = event.target.closest('.dropDownContacts');
+    contactDiv.classList.toggle('contactChecked');
+    contactDiv.classList.toggle('contactUnchecked');
+}
+
+function changeCheckbox(event) {
+    const  checkboxDiv = event.target.closest('.dropDownContacts').querySelector('.editDialogBoardAssignedToDropDownCheckbox');
+    checkboxDiv.classList.toggle('contactCheckedCheckbox');
+    checkboxDiv.classList.toggle('contactUncheckedCheckbox');
 }

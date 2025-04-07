@@ -226,7 +226,7 @@ function geteditDialogTemplate(index) {
                                     id="editDialogBoardAssignedToInput" class="arrowDropDown"
                                     onclick="assignedContactToTask()">
                                 <div id="editDialogBoardAssignedToDropDown" class="d_none">
-                                    <div class="dropDownContacts contactUnchecked">
+                                    <div class="dropDownContacts contactUnchecked" onclick="selectContactToAssignTask(event)">
                                         <div class="dropDownContact">
                                             <svg width="42" height="42" viewBox="0 0 42 42" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -241,7 +241,7 @@ function geteditDialogTemplate(index) {
                                         <div class="editDialogBoardAssignedToDropDownCheckbox contactUncheckedCheckbox">
                                         </div>
                                     </div>
-                                    <div class="dropDownContacts contactChecked">
+                                    <div class="dropDownContacts contactChecked" onclick="selectContactToAssignTask(event)">
                                         <div class="dropDownContact">
                                             <svg width="43" height="43" viewBox="0 0 43 43" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -366,5 +366,4 @@ function getAddTaskDialogTemplate() {
                 </div>
             </div>
     `
-
 }

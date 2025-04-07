@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="../styles/standard.css" />
     <link rel="stylesheet" href="../styles/header_navbar.css">
     <link rel="stylesheet" href="../styles/board.css">
+    <link rel="stylesheet" href="../styles/editTask.css">
+    <link rel="stylesheet" href="../styles/taskDetailview.css">
     <link rel="stylesheet" href="../styles/summary.css">
     <link rel="stylesheet" href="../styles/add_task.css" />
 
@@ -28,15 +30,14 @@
         <nav
         class="main_nav_bar"
         w3-include-html="../assets/templates/navBar.html"
-      ></nav>
-      <div class="collumn">
+        ></nav>
+        <div class="collumn">
         <header
-          class="main_header"
-          w3-include-html="../assets/templates/header.html"
+            class="main_header"
+            w3-include-html="../assets/templates/header.html"
         ></header>
-
         <div w3-include-html="../assets/templates/respMenu.html"></div>
-
+        
             <main class="main_content_board">
                 <div class="headBoard">
                     <div class="headBoardPosition">
@@ -73,9 +74,7 @@
                         </div>
                     </div>
                 </div>
-
                 <div id="taskBoard">
-
                     <div id="toDoBoard" class="baseBoard">
                         <div class="headTask">
                             <p>To do</p>
@@ -210,16 +209,11 @@
                         </div>
                         <div id="doneTask"></div>
                     </div>
-
                 </div>
-
             </main>
 
             <section id="overlayBoard" onclick="closeDialog()">
             </section>
-
-
-            
 
         </div>
     </div>
