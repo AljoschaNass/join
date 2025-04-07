@@ -70,6 +70,10 @@ input::placeholder {
   display: none !important;
 }
 
+.d_flex {
+  display: flex;
+}
+
 .stopScrolling {
   overflow: hidden;
 }

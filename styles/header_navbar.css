@@ -1,8 +1,4 @@
-.d_flex {
-    display: flex;
-  }
-  
-  .main_nav_bar {
+    .main_nav_bar {
     width: 232px;
     height: 1024px;
     background-color: #2b3647;
@@ -106,9 +102,19 @@
     gap: 16px;
     padding-right: 40px;
   }
+
+  .header_right a{
+    width: 24px;
+    display: flex;
+    justify-content: center;
+  }
   
   .header_help_icon {
     height: 20px;
+
+    &:hover{
+      height: 24px;
+    }
   }
   
   .header_user_profile {
@@ -123,6 +129,7 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+
     &:hover{
       background-color: #cdcdcd;
     }
@@ -155,6 +162,7 @@
     padding-left: 16px;
     display: flex;
     align-items: center;
+
     &:hover {
       background-color: #2a3d59;
     }
