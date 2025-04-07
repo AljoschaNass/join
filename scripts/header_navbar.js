@@ -21,13 +21,19 @@ function setHighlight() {
     if (!savedOldQuickLink) {
         sessionStorage.setItem("oldQuickLink", "summary");
     }
-    document.getElementById("quick_link_" + savedNewQuickLink).classList.add("bg_dark_blue");
-    document.getElementById("quick_link_" + savedNewQuickLink).removeAttribute("href");
+    if(savedNewQuickLink != "help") {
+        document.getElementById("quick_link_" + savedNewQuickLink).classList.add("bg_dark_blue");
+        document.getElementById("quick_link_" + savedNewQuickLink).removeAttribute("href");
+    }
     if(savedNewQuickLink == "privacy_police" || savedNewQuickLink == "legal_notice") {
         document.getElementById("quick_link_" + savedNewQuickLink).classList.remove("footer_link_hover");
+        document.getElementById("header_right").classList.add("d_none");
     }
     if (savedOldQuickLink != savedNewQuickLink || savedOldQuickLink == "help") {                    
         document.getElementById("quick_link_" + savedOldQuickLink).classList.remove("bg_dark_blue");
+    }
+    if(savedNewQuickLink == "help") {
+        document.getElementById("addTask_help_link").classList.add("d_none");
     }
 }
 
