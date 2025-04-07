@@ -24,3 +24,17 @@ async function signUp() {
         document.getElementById("logIn_error").classList.remove("d_none");
     }
 }
+
+function enableSignUpButton() {
+    let name = document.getElementById("signUpName");
+    let email = document.getElementById("signUpEmail");
+    let password = document.getElementById("signUpPassword");
+    let passwordCheck = document.getElementById("signUpConfirmPassword");
+    let signUpBtn = document.getElementById("signUpBtn");
+    signUpBtn.disabled = true; 
+    signUpBtn.classList.remove("signUpBtn_enabled"); 
+    if (name.value && email.value && password.value && passwordCheck.value) {
+        signUpBtn.disabled = false; 
+        signUpBtn.classList.add("signUpBtn_enabled"); 
+    } 
+}

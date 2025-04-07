@@ -29,7 +29,7 @@
                 <h1>Sign up</h1>
                 <div class="blue_line_150x3"></div>
             </div>
-            <form onsubmit="signUp(); return false;" class="signUp_form">
+            <form onchange="enableSignUpButton()" onsubmit="signUp(); return false;" class="signUp_form">
                 <div class="gap_32 center">
                     <div class="password_container">
                         <input type="text" placeholder="Name" class="input_logIn" id="signUpName" required>
@@ -53,7 +53,7 @@
                         <label for="checkbox">I accept the <a href="../html/privacyPolice.html" class="lightBlue">Privacy Policy</a></label>
                     </div>
                     <div class="signUp_btn">
-                        <button class="logIn_btn center" id="signUpBtn">Sign up</button>
+                        <button class="center" type="submit" id="signUpBtn">Sign up</button>
                     </div>
                 </div>
             </form>

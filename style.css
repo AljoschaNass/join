@@ -108,16 +108,19 @@
     background-repeat: no-repeat;
     background-position: right center;
     background-size: 16px;
+    background-color: white;
     z-index: 1;
     margin: 0;
 }
 
 .input_logIn:focus {
     border: 1px solid #29ABE2;
+    background-color: white;
 }
 
 .input_logIn--error {
     border: 1px solid #ff8190;
+    background-color: white;
 }
 
 .input_logIn_img {
