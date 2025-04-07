@@ -41,6 +41,7 @@
     align-items: center;
     padding-left: 60px;
     gap: 8px;
+    cursor: pointer;
   
     &:hover {
       background-color: #2a3d59;
@@ -59,16 +60,20 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding-left: 56px;
-    gap: 16px;
+    gap: 2px;
   }
   
   .footer_link {
-    color: #a8a8a8;
+    color: #a8a8a8 !important;
     font-size: 16px;
-  
+    padding-left: 56px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .footer_link_hover{
     &:hover {
-      color: #2aaae2;
+      color: #2aaae2 !important;
       font-weight: 700;
     }
   }
