@@ -51,6 +51,7 @@ function logOut() {
     currentUserEmail = "";
     currentUserName = ""; 
 }
+
 function goToLogInOrPage(page){
     getCurrentUserFromLocalStorage();
     if (currentUserName == null) {
