@@ -1,0 +1,64 @@
+.main_content_contacts {
+    width: 100%;
+    height: 928px;
+    background-color: #f6f7f8;
+    display: flex;
+    flex-direction: row;
+}
+
+.contacts {
+    background-color: white;
+    width: 456px;
+    height: 100%;
+    position: sticky;
+    top: 96px;
+    left: 232px;
+    z-index: 3;
+    box-shadow: 4px 0px 6px 0px rgba(0, 0, 0, 0.08);
+}
+
+.main_contacts {
+    height: fit-content;
+    padding-left: 48px;
+    padding-top: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+}
+
+.main_contacts h1{
+    padding-bottom: 0;
+}
+
+.contactsList {
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.seperator {
+    height: 59px;
+    border: 2px solid rgba(41, 171, 226, 1)
+}
+
+.addNewContactButton {
+    width: 352px;
+    height: 56px;
+    border-radius: 10px;
+    background-color: rgba(42, 54, 71, 1) ;
+    color: white;
+    font-size: 21px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.contactsListTop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 101px;
+    width: 100%;
+}
