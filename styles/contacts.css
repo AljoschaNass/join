@@ -71,3 +71,47 @@
     height: 101px;
     width: 100%;
 }
+
+#contactDetails {
+    padding-left: 62px;
+    padding-top: 32px;
+}
+
+.contactDetailsTop {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 54px;
+}
+
+.contactName {
+    font-weight: 500;
+    font-size: 47px;
+    padding-bottom: 8px;
+}
+
+.contactDetailsButtons {
+    display: flex;
+    flex-direction: row;
+    gap: 13px;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.contactButton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    min-width: 62px;
+}
+
+.contactButton:hover {
+    cursor: pointer;
+    color: #29ABE2;
+    font-weight: 700;
+}
+
+.contactButton:hover svg path {
+    fill: #29ABE2;  /* Die SVG-Farbe beim Hover ändern */
+}
