@@ -4,9 +4,6 @@ let newQuickLink = "summary";
 
 function toggleRespMenu() {    
     document.getElementById("resp_menu").classList.toggle("resp_menu_closed");
-}
-
-function toogleBgRespMenu(){
     document.getElementById("header_user_profile").classList.toggle("bg_grey");
 }
 
@@ -16,22 +13,45 @@ function highlightSelectedQuickLinks(id){
 }
 
 function setHighlight() {  
+    showNavbarIfLoggedIn();
+
     let savedOldQuickLink = sessionStorage.getItem("oldQuickLink");
     let savedNewQuickLink = sessionStorage.getItem("newQuickLink");
+    
+    setOldLinkToSummaryIfNull(savedOldQuickLink)
+    setBgQuickLinksNavbar(savedNewQuickLink);
+    ifQuickLinkSameOrHelp(savedOldQuickLink, savedNewQuickLink);
+    hideHeaderRight(savedNewQuickLink);
+    hideHelpIconHeader(savedNewQuickLink);
+}
+
+function setOldLinkToSummaryIfNull(savedOldQuickLink) {
     if (!savedOldQuickLink) {
         sessionStorage.setItem("oldQuickLink", "summary");
-    }
+    } 
+}
+
+function setBgQuickLinksNavbar(savedNewQuickLink) {
     if(savedNewQuickLink != "help") {
         document.getElementById("quick_link_" + savedNewQuickLink).classList.add("bg_dark_blue");
         document.getElementById("quick_link_" + savedNewQuickLink).removeAttribute("href");
     }
+}
+
+function ifQuickLinkSameOrHelp(savedOldQuickLink, savedNewQuickLink) {
+    if (savedOldQuickLink != savedNewQuickLink || savedOldQuickLink == "help") {                    
+        document.getElementById("quick_link_" + savedOldQuickLink).classList.remove("bg_dark_blue");
+    }
+}
+
+function hideHeaderRight(savedNewQuickLink) {
     if(savedNewQuickLink == "privacy_police" || savedNewQuickLink == "legal_notice") {
         document.getElementById("quick_link_" + savedNewQuickLink).classList.remove("footer_link_hover");
         document.getElementById("header_right").classList.add("d_none");
     }
-    if (savedOldQuickLink != savedNewQuickLink || savedOldQuickLink == "help") {                    
-        document.getElementById("quick_link_" + savedOldQuickLink).classList.remove("bg_dark_blue");
-    }
+}
+
+function hideHelpIconHeader(savedNewQuickLink) {
     if(savedNewQuickLink == "help") {
         document.getElementById("addTask_help_link").classList.add("d_none");
     }
@@ -52,13 +72,10 @@ function logOut() {
     currentUserName = ""; 
 }
 
-function goToLogInOrPage(page){
+function showNavbarIfLoggedIn(){
     getCurrentUserFromLocalStorage();
     if (currentUserName == null) {
-        ref = "../index.html";
-        window.location.href = ref;
-    } else {
-        ref = "./" + page + ".html";
-        window.location.href = ref;
+        document.getElementById("navbar_logout").classList.remove("d_none");
+        document.getElementById("navbar_login").classList.add("d_none");
     }
 }

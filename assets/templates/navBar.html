@@ -1,46 +1,57 @@
 <div class="nav_bar_top">
   <img class="nav_bar_logo" src="../assets/img/join_logo.svg" alt="join-logo" />
 
-  <div class="quick_links">
-    <div onclick="goToLogInOrPage('summary')" id="quick_link_summary" class="quick_link_row">
+  <div  id="navbar_login" class="quick_links">
+    <a id="quick_link_summary" class="quick_link_row" href="./summary.html">
       <img
         class="quick_links_icons"
         src="../assets/img/icons/nav_summary_icon.svg"
         alt="summary-icon"
       />
       <p class="quick_link">Summary</p>
-    </div>
+    </a>
 
-    <div onclick="goToLogInOrPage('addTask')" id="quick_link_add_task" class="quick_link_row">
+    <a id="quick_link_add_task" class="quick_link_row" href="./addTask.html">
       <img
         class="quick_links_icons"
         src="../assets/img/icons/nav_add_task_icon.svg"
         alt="task-icon"
       />
       <p class="quick_link">Add Task</p>
-    </div>
+    </a>
 
-    <div onclick="goToLogInOrPage('board')" id="quick_link_board" class="quick_link_row">
+    <a id="quick_link_board" class="quick_link_row" href="./board.html">
       <img
         class="quick_links_icons"
         src="../assets/img/icons/nav_board_icon.svg"
         alt="board-icon"
       />
       <p class="quick_link">Board</p>
-    </div>
+    </a>
 
-    <div onclick="goToLogInOrPage('contacts')" id="quick_link_contacts" class="quick_link_row">
+    <a id="quick_link_contacts" class="quick_link_row" href="./contacts.html">
       <img
         class="quick_links_icons"
         src="../assets/img/icons/nav_contacts_icon.svg"
         alt="contact-icon"
       />
       <p class="quick_link">Contacts</p>
-    </div>
+    </a>
   </div>
 </div>
 
-<div class="footer_links">
+<section id="navbar_logout" class="quick_links d_none">
+  <a id="quick_link_login" class="quick_link_row" href="/index.html">
+    <img
+      class="quick_links_icons"
+      src="../assets/img/icons/login.svg"
+      alt="login-icon"
+    />
+    <p class="quick_link">Login</p>
+  </a>
+</section>
+
+<section class="footer_links">
   <a id="quick_link_privacy_police" class="footer_link footer_link_hover" href="./privacyPolice.html">Privacy Police</a>
   <a id="quick_link_legal_notice" class="footer_link footer_link_hover" href="./legalNotice.html">Legal notice</a>
-</div>
+</section>
