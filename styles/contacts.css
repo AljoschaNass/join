@@ -75,6 +75,9 @@
 #contactDetails {
     padding-left: 62px;
     padding-top: 32px;
+    gap: 21px;
+    display: flex;
+    flex-direction: column;
 }
 
 .contactDetailsTop {
@@ -82,6 +85,7 @@
     flex-direction: row;
     align-items: center;
     gap: 54px;
+    height: 120px;
 }
 
 .contactName {
@@ -114,4 +118,23 @@
 
 .contactButton:hover svg path {
     fill: #29ABE2;  /* Die SVG-Farbe beim Hover ändern */
+}
+
+.contactDetailsMiddle{
+    font-size: 20px;
+    font-weight: 400;
+    width: 207px;
+    height: 74px;
+    display: flex;
+    align-items: center;
+}
+
+.contactDetailsKey {
+    font-size: 16px;
+    font-weight: 700;
+    padding-bottom: 15px;
+}
+
+.contactEmail {
+    color: #007CEE;
 }
