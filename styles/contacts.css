@@ -135,6 +135,6 @@
     padding-bottom: 15px;
 }
 
-.contactEmail {
-    color: #007CEE;
+#contactDetails a{
+    color:#007CEE;
 }
