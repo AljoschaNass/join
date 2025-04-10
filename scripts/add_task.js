@@ -24,7 +24,7 @@ function removeAllPriosityBg() {
 function checkRequiredBtnAddTask() {
     checkRequiredTitel();
     checkRequiredDate();
-    checkRequiredCategory(); 
+    //checkRequiredCategory(); 
 }
 
 function checkRequiredTitel() {
@@ -63,4 +63,12 @@ function checkRequiredCategory() {
 function arrowDropDownSelection(id) {
     document.getElementById(id + "DropDown").classList.toggle("d_none");
     document.getElementById(id + "Input").classList.toggle("arrowDropUp")
+}
+
+function addTaskselectCategory(category) {
+    let categoryInputRef = document.getElementById("addTaskCategoryInput");
+    categoryInputRef.value = category;
+    categoryInputRef.removeAttribute("onfocusout");
+    checkRequiredCategory();
+    arrowDropDownSelection('addTaskCategory');
 }
