@@ -2,8 +2,6 @@
 let currentPriority = "";
 
 function setBtnPriority(priority) {
-    console.log(currentPriority);
-
     if (currentPriority == priority) {
         removeAllPriosityBg();
         currentPriority = "";
@@ -69,4 +67,36 @@ function addTaskselectCategory(category) {
     document.getElementById("addTaskCategoryInput").value = category;
     checkRequiredCategory();
     arrowDropDownSelection('addTaskCategory');
+}
+
+async function postTask(path="task", title, description, dueDate, priority, assignedTo, category, subtasks) {
+    let task = {
+        'title': title, 
+        'description': description,
+        'dueDate': dueDate,
+        'priority': priority,
+        'assignedTo': assignedTo,
+        'category': category,
+        'subtasks': subtasks
+    };
+    let response = await fetch(BASE_URL + path + ".json", {
+        method: "POST", headers: {'Content-Type': 'application/json', }, body: JSON.stringify(task)
+    });
+    let responseToJson = await response.json();
+    return responseToJson;
+}
+
+async function addTask() { 
+    let title = document.getElementById("add_task_title").value;
+    let description = document.getElementById("add_task_description").value;
+    let dueDate = document.getElementById("add_task_date").value;
+    let priority = document.getElementById(currentPriority).value;
+    let assignedTo = document.getElementById("addTaskAssignedToInput").value;
+    let category = document.getElementById("addTaskCategoryInput").value;
+    let subtasks = document.getElementById("add_task_subtask").value;
+
+    //if(title != "" && dueDate != "" && category != "") {
+        await postTask("task", title, description, dueDate, priority, assignedTo, category, subtasks); 
+        window.location.href = "./board.html";
+    //}
 }
