@@ -64,3 +64,9 @@ function arrowDropDownSelection(id) {
     document.getElementById(id + "DropDown").classList.toggle("d_none");
     document.getElementById(id + "Input").classList.toggle("arrowDropUp")
 }
+
+function addTaskselectCategory(category) {
+    document.getElementById("addTaskCategoryInput").value = category;
+    checkRequiredCategory();
+    arrowDropDownSelection('addTaskCategory');
+}

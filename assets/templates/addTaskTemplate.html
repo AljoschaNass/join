@@ -138,13 +138,13 @@
           id="addTaskCategoryInput"
           class="arrowDropDown assignedToInput add_task_input"
           onclick="arrowDropDownSelection('addTaskCategory')"
-          onfocusout="checkRequiredCategory()"
+          readonly="true"
           required>
         <div id="addTaskCategoryDropDown" class="arrowDropDownInputs d_none">
-          <div class="arrowDropDownInput">
+          <div onclick="addTaskselectCategory('Technical Task')" class="arrowDropDownInput">
             <p>Technical Task</p>
           </div>
-          <div class="arrowDropDownInput">
+          <div onclick="addTaskselectCategory('User Story')" class="arrowDropDownInput">
             <p>User Story</p>
           </div>
         </div>

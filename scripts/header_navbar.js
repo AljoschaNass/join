@@ -79,3 +79,13 @@ function showNavbarIfLoggedIn(){
         document.getElementById("navbar_login").classList.add("d_none");
     }
 }
+
+function setUserProfileInitials() {
+    let userNameRef = JSON.parse(localStorage.getItem(`currentUserName`)).toUpperCase();
+    let userNamesRef = userNameRef.split(" ");
+    let userNameInitial = [];
+    for (let index = 0; index < userNamesRef.length; index++) {
+        userNameInitial += userNamesRef[index].at(0);
+    }    
+    document.getElementById("header_user_profile").innerText = userNameInitial;
+}
