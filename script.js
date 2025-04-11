@@ -16,6 +16,7 @@ async function includeHTML() {
         }
     }
     setHighlight();
+    setUserProfileInitials();
 }
 
 /*Checks if user has just signed up and is redirected to the login page*/
