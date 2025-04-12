@@ -14,11 +14,17 @@ async function postContact(path="contacts", name, email, phone, isItMe){//erstel
 
 
 async function addContact() { 
-    let name = document.getElementById("").value;
-    let email = document.getElementById("").value;
-    let phone = document.getElementById("").value;	
-    let isItMe = (email === currentUserEmail) ? true : false; // Check if the email is the same as the current user's email
+    let name = document.getElementById("addContactName").value;
+    let email = document.getElementById("addContactEmail").value;
+    let phone = document.getElementById("addContactPhone").value;	
+    isItMe = (email === currentUserEmail) ? true : false; // Check if the email is the same as the current user's email
     await postContact("contacts", name, email, phone, isItMe); 
+    name = "";
+    email = "";
+    phone = "";
+    closeContactDialog();
+   // await loadContacts(); // Reload contacts after adding a new one
+    // openContactCreatedMessage(); // Show success message
 }
 
 function openContactDialog() {

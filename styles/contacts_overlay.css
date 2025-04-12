@@ -79,6 +79,10 @@
     cursor: pointer;
     border-radius: 50px;
     background-color: #ffffff;
+
+    &:hover {
+        background-color: #F2F2F2;
+    }
 }
 
 #closeOverlayButton img {
