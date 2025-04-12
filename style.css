@@ -76,13 +76,6 @@
     padding-bottom: 16px;
 }
 
-.blue_line_150x3 {
-    width: 150px;
-    height: 3px;
-    background-color: #29ABE2;
-    margin-bottom: 32px;
-}
-
 .logIn_form {
     display: flex;
     flex-direction: column;
@@ -214,5 +207,5 @@
 
 .footer_logIn a:hover {
     color:#29ABE2;
-    font-weight: 700;
+    font-weight: 700px;
 }

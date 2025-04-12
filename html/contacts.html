@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="../styles/standard.css"/>
-    <link rel="stylesheet" href="../styles/header_navbar.css">
-    <link rel="stylesheet" href="../styles/contacts.css">
+    <link rel="stylesheet" href="../styles/header_navbar.css"/>
+    <link rel="stylesheet" href="../styles/contacts.css"/>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../styles/signUp.css"/>
+    <link rel="stylesheet" href="../styles/contacts_overlay.css"/>
 
     <script src="../script.js"></script>
     <script src="../scripts/header_navbar.js"></script>
@@ -30,12 +33,12 @@
 
             <div w3-include-html="../assets/templates/respMenu.html"></div>
 
-
+            <div w3-include-html="../assets/templates/addContactTemplate.html" class="center" id="overlayContacts"></div>
         
             <main class="main_content_contacts">
                 <section class="contacts">
                     <div class="contactsListTop">
-                        <button class="addNewContactButton">Add new contact
+                        <button onclick="openContactDialog()" class="addNewContactButton">Add new contact
                             <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <mask id="mask0_298547_5190" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="33" height="33">
                                 <rect x="0.5" y="0.5" width="32" height="32" fill="#D9D9D9"/>

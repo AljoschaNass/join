@@ -20,3 +20,17 @@ async function addContact() {
     let isItMe = (email === currentUserEmail) ? true : false; // Check if the email is the same as the current user's email
     await postContact("contacts", name, email, phone, isItMe); 
 }
+
+function openContactDialog() {
+    let overlayRef = document.getElementById("overlayContacts");
+    let noScrolling = document.body;
+    noScrolling.classList.add("stopScrolling");
+    overlayRef.classList.remove("d_none");
+}
+
+function closeContactDialog() {
+    let overlayRef = document.getElementById("overlayContacts");
+    let noScrolling = document.body;
+    noScrolling.classList.remove("stopScrolling");
+    overlayRef.classList.add("d_none");
+}
