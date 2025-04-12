@@ -21,8 +21,13 @@ async function signUp() {
         sessionStorage.setItem("signUpSuccess", "true");
         window.location.href = "../index.html";
     } else {
-        document.getElementById("logIn_error").classList.remove("d_none");
+        signUpError();
     }
+}
+
+function signUpError() {
+    document.getElementById("signUp_error").classList.remove("d_none");
+    document.getElementById("signUpConfirmPassword").style.borderColor = "#ff001f";
 }
 
 function enableSignUpButton() {
@@ -30,11 +35,17 @@ function enableSignUpButton() {
     let email = document.getElementById("signUpEmail");
     let password = document.getElementById("signUpPassword");
     let passwordCheck = document.getElementById("signUpConfirmPassword");
+    let checkbox = document.getElementById("signUpCheckbox");
     let signUpBtn = document.getElementById("signUpBtn");
-    signUpBtn.disabled = true; 
-    signUpBtn.classList.remove("signUpBtn_enabled"); 
-    if (name.value && email.value && password.value && passwordCheck.value) {
+    disableSignUpButton() 
+    if (name.value && email.value && password.value && passwordCheck.value && checkbox.checked) {
         signUpBtn.disabled = false; 
         signUpBtn.classList.add("signUpBtn_enabled"); 
     } 
+}
+
+function disableSignUpButton() {
+    let signUpBtn = document.getElementById("signUpBtn");
+    signUpBtn.disabled = true; 
+    signUpBtn.classList.remove("signUpBtn_enabled"); 
 }

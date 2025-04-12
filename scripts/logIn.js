@@ -48,10 +48,15 @@ function checkUser(user) {
     saveCurrentUserToLocalStorage(user.email, user.name);
     window.location.href = "./html/summary.html";
   } else {
-    document.getElementById("logIn_error").classList.remove("d_none");
-    document.getElementById("logInPassword").style.borderColor = "#ff001f";
-    document.getElementById("logInEmail").style.borderColor = "#ff001f";
+    logInError();
   } 
+}
+
+/*Displays an error message*/
+function logInError() {
+  document.getElementById("logIn_error").classList.remove("d_none");
+  document.getElementById("logInPassword").style.borderColor = "#ff001f";
+  document.getElementById("logInEmail").style.borderColor = "#ff001f";
 }
 
 /*Log in for guest user*/
