@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../styles/standard.css" />
     <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="../styles/signUp.css" />
+    <link rel="stylesheet" href="../styles/taskDetailview.css" />
 
     <script src="../script.js"></script>
     <script src="../scripts/LogIn.js"></script>
@@ -48,9 +49,10 @@
                         <img onclick="togglePasswordVisibility('signUpConfirmPassword')" src="../assets/img/icons/lock.svg" alt="Password" class="input_logIn_img" id="signUpConfirmPasswordImg">
                         <div class="signUp_error d_none" id="signUp_error">Your passwords don't match. Please try again.</div>
                     </div>
-                    <div class="checkbox">
+                    <div class="signUpCheckbox">
                         <input type="checkbox" id="signUpCheckbox" required>
-                        <label for="signUpCheckbox">I accept the <a href="../html/privacyPolice.html" class="lightBlue">Privacy Policy</a></label>
+                        <label for="signUpCheckbox"><span class="customCheckbox"></span></label>
+                        <p>I accept the <a href="../html/privacyPolice.html" class="lightBlue">Privacy Policy</a></p>
                     </div>
                     <div class="signUp_btn">
                         <button class="center" type="submit" id="signUpBtn">Sign up</button>

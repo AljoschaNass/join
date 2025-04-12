@@ -108,7 +108,7 @@
     font-weight: 400;
     color: #000000;
     font-family: 'Inter', sans-serif;
-    cursor: text;
+    cursor: pointer;
     outline: none;
     background-repeat: no-repeat;
     background-position: right center;
@@ -171,7 +171,7 @@
     gap: 10px;
 
     &:hover {
-        background-color: #29ABE2;
+        background-color:#29ABE2;
         border-color:#29ABE2;
         box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
     }
@@ -238,4 +238,5 @@
 
 .footer_logIn a:hover {
     color:#29ABE2;
+    font-weight: 700;
 }

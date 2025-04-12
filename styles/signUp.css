@@ -26,6 +26,7 @@
     left: -223px;
     width: 32px;
     height: 32px;
+    padding: 5px 5px 5px 5px;
 
     &:hover {
         cursor: pointer;
@@ -55,7 +56,7 @@
     margin-top: 10px;
 }
 
-.checkbox {
+.signUpCheckbox {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -64,20 +65,16 @@
     font-weight: 400;
     color: #A8A8A8;
     font-family: 'Inter', sans-serif;
-    gap: 16px;
+    gap: 6px;
     position: relative;
-
-    &:hover {
-        
-        & input [type="checkbox"] {
-            cursor: pointer;
-            border-radius: 42px;
-            background-color: #EDF2FA;  
-        }
-    }
+    cursor: pointer;
 }
 
-.checkbox a:hover {
+.signUpCheckbox label {
+    display: flex;  
+}
+
+.signUpCheckbox a:hover {
     text-decoration: underline;
 }
 
