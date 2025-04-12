@@ -21,15 +21,6 @@ async function includeHTML() {
 }
 
 
-/*Checks if user has just signed up and is redirected to the login page*/
-function justSignedUp() {
-    if (sessionStorage.getItem("signUpSuccess") === "true") {
-        document.getElementById("signUpSuccess").classList.remove("d_none");
-        sessionStorage.removeItem("signUpSuccess");
-    }
-}
-
-
 /*gets data of all useres from the database */
 async function getAllUsers(){
     let path = "user";

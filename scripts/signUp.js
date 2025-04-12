@@ -19,13 +19,15 @@ async function signUp() {
     let passwordCheck = document.getElementById("signUpConfirmPassword").value;
     if (password === passwordCheck) {
         await postUser("user", name, email, password); 
-        sessionStorage.setItem("signUpSuccess", "true");
-        window.location.href = "../index.html";
+        document.getElementById("signUpSuccess").classList.remove("d_none");
     } else {
         signUpError();
     }
 }
 
+function goToLogIn() {
+    window.location.href = "../index.html";
+}
 
 function signUpError() {
     document.getElementById("signUp_error").classList.remove("d_none");
