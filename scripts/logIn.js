@@ -23,6 +23,7 @@ function onFocus(inputId) {
   img.alt = "Password Hidden";
 }
    
+
 /*Changes the color of the input field & field icon when not focused */
 function onBlur(inputId) {
   let x = document.getElementById(inputId);
@@ -33,6 +34,7 @@ function onBlur(inputId) {
   x.type = "password";
 }
 
+
 /*Allows the user to log in personal account*/
 async function logIn() {
   let thisEmail = document.getElementById("logInEmail").value;
@@ -41,6 +43,7 @@ async function logIn() {
   let user = Object.values(users).find(u => u.email === thisEmail && u.password === thisPassword);
   checkUser(user);
 }
+
 
 /*checks weather the user is registred & saves the current user to local storage or displays an error message*/
 function checkUser(user) {
@@ -52,12 +55,14 @@ function checkUser(user) {
   } 
 }
 
+
 /*Displays an error message*/
 function logInError() {
   document.getElementById("logIn_error").classList.remove("d_none");
   document.getElementById("logInPassword").style.borderColor = "#ff001f";
   document.getElementById("logInEmail").style.borderColor = "#ff001f";
 }
+
 
 /*Log in for guest user*/
 function logInGuest() {

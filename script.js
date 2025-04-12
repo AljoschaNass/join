@@ -3,6 +3,7 @@ function init() {
     checkIdNotNull();
 }
 
+
 async function includeHTML() {
     let includeElements = document.querySelectorAll('[w3-include-html]');
     for (let i = 0; i < includeElements.length; i++) {
@@ -19,6 +20,7 @@ async function includeHTML() {
     setUserProfileInitials();
 }
 
+
 /*Checks if user has just signed up and is redirected to the login page*/
 function justSignedUp() {
     if (sessionStorage.getItem("signUpSuccess") === "true") {
@@ -27,18 +29,21 @@ function justSignedUp() {
     }
 }
 
+
 /*gets data of all useres from the database */
 async function getAllUsers(){
     let path = "user";
     let response = await fetch(BASE_URL + path + ".json");
     return responseToJson = await response.json();
-  }
+}
   
-  /*save currentUser to local storage*/
-  function saveCurrentUserToLocalStorage(email, name) {
+
+/*save currentUser to local storage*/
+function saveCurrentUserToLocalStorage(email, name) {
     localStorage.setItem(`currentUserName`, JSON.stringify(name));
     localStorage.setItem(`currentUserEmail`, JSON.stringify(email));
-  }
+}
+
   
   /*get current user from local storage*/ 
   function getCurrentUserFromLocalStorage() {

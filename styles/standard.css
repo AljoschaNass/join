@@ -109,3 +109,27 @@ input::placeholder {
 .gap_32 {
   gap: 32px;
 }
+
+.customCheckbox {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  background-image: url('../assets/img/icons/checkbox-unchecked.svg');  /* Unchecked Zustand */
+  background-size: cover;
+  cursor: pointer;
+}
+
+/* Wenn die Checkbox gecheckt ist */
+input[type="checkbox"]:checked + label .customCheckbox {
+  background-image: url('../assets/img/icons/checkbox-checked.svg');  /* Checked Zustand */
+}
+
+/* Hover-Effekt für unchecked Zustand */
+input[type="checkbox"]:not(:checked) + label .customCheckbox:hover {
+  background-image: url('../assets/img/icons/checkbox-unchecked-hover.svg');   /*Unchecked Hover Zustand */
+}  
+
+/*Hover-Effekt für checked Zustand */
+input[type="checkbox"]:checked + label .customCheckbox:hover {
+  background-image: url('../assets/img/icons/checkbox-checked-hover.svg');   /*Checked Hover Zustand */
+}  

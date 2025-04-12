@@ -11,6 +11,7 @@ async function postUser(path="user", name, email, password){//erstellen neuer re
     return responseToJson;
 }
 
+
 async function signUp() { 
     let name = document.getElementById("signUpName").value;
     let email = document.getElementById("signUpEmail").value;
@@ -25,10 +26,12 @@ async function signUp() {
     }
 }
 
+
 function signUpError() {
     document.getElementById("signUp_error").classList.remove("d_none");
     document.getElementById("signUpConfirmPassword").style.borderColor = "#ff001f";
 }
+
 
 function enableSignUpButton() {
     let name = document.getElementById("signUpName");
@@ -43,6 +46,7 @@ function enableSignUpButton() {
         signUpBtn.classList.add("signUpBtn_enabled"); 
     } 
 }
+
 
 function disableSignUpButton() {
     let signUpBtn = document.getElementById("signUpBtn");
