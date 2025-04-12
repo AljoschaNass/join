@@ -123,11 +123,6 @@
     background-color: white;
 }
 
-.input_logIn--error {
-    border: 1px solid #ff8190;
-    background-color: white;
-}
-
 .input_logIn_img {
     position: absolute;
     right: 15px;
