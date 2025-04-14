@@ -496,3 +496,9 @@ textarea:focus {
 .editDialogBoardSubtasksAdded.underline:hover {
     background-color: transparent; 
 }
+
+.editDialogBoardAssignedToIcons {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}

@@ -238,3 +238,17 @@ margin-bottom: 10px;
 #taskCards:active {
     transform: rotate(5deg);
 }
+
+.contactCircleExtraSmall {
+    border: 1px solid white;
+    border-radius: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    font-weight: 400;
+    height: 32px !important;
+    width: 32px !important;
+}
+
