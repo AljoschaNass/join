@@ -27,8 +27,15 @@ async function loadContactList() {
     for (let i in contacts) {
         let contact = contacts[i]; 
         let isItMe = (contact.email === currentUserEmail) ? true : false; // Check if the email is the same as the current user's email
-        contactList.innerHTML += renderContactInList(contact.name, contact.email, isItMe); 
+        contactList.innerHTML += renderContactInList(contact.name, contact.email, contact.phone, isItMe); 
     } 
+}
+
+
+function loadContactDetails(name, email, phone, isItMe) {
+    let contactCard = document.getElementById("contactDetails"); 
+    contactCard.innerHTML = ""; // Clear the contact card before adding new contacts
+    contactCard.innerHTML = renderContactDetails(name, email, phone, isItMe); 
 }
 
 
@@ -60,6 +67,9 @@ function closeContactDialog() {
     let noScrolling = document.body;
     noScrolling.classList.remove("stopScrolling");
     overlayRef.classList.add("d_none");
+    document.getElementById("addContactName").value = "";
+    document.getElementById("addContactEmail").value = "";
+    document.getElementById("addContactPhone").value = "";
 }
 
 
