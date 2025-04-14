@@ -1,7 +1,6 @@
 function init() {
     includeHTML();
     checkIdNotNull();
-    getAllContacts();
 }
 
 
