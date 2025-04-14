@@ -436,6 +436,11 @@ textarea:focus {
     background-color: transparent;
 }
 
+.addTaskDialogBoardClose svg:hover {
+    background-color: #EEEEEE;
+    border-radius: 50px;
+}
+
 .editableText {
     display: inline-block;
 }
