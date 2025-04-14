@@ -111,6 +111,8 @@ function getDialogTemplate(index) {
     `
 }
 
+
+
 function getEditDialogTemplate(index) {
     return`
 <div id="editDialogBoard">
@@ -296,6 +298,7 @@ function getEditDialogTemplate(index) {
     `
 }
 
+
 function getAddTaskDialogTemplate() {
     return `
                 <div class="addTaskDialogBoard" id="addTaskDialogBoard">
@@ -314,4 +317,19 @@ function getAddTaskDialogTemplate() {
                 </div>
             </div>
     `
+}
+
+
+function renderContactInList(name, email, isItMe) {
+    return `
+            <div class="contactInList" onclick="selectContact(event)">
+                <div class="contactCircleSmall backgroundColorOrange">
+                    ${setContactInitials(name)}
+                </div>
+                <div>
+                    <p>${name}</p>
+                    <a href="mailto:${email}">${email}</a>
+                </div>
+            </div>
+        `;
 }

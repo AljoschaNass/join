@@ -25,9 +25,11 @@ async function signUp() {
     }
 }
 
+
 function goToLogIn() {
     window.location.href = "../index.html";
 }
+
 
 function signUpError() {
     document.getElementById("signUp_error").classList.remove("d_none");
