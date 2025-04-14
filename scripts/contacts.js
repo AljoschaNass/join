@@ -40,3 +40,10 @@ function closeContactDialog() {
     noScrolling.classList.remove("stopScrolling");
     overlayRef.classList.add("d_none");
 }
+
+function selectContact(event) {
+    document.querySelectorAll('.contactInList').forEach(contact => {
+        contact.classList.remove('click');
+    });
+    event.currentTarget.classList.add('click');
+}

@@ -15,6 +15,8 @@
     left: 232px;
     z-index: 3;
     box-shadow: 4px 0px 6px 0px rgba(0, 0, 0, 0.08);
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .main_contacts {
@@ -32,8 +34,11 @@
 }
 
 .contactsList {
-    overflow-y: scroll;
-    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+    flex-direction: column;
+    height: 100vh;
 }
 
 .seperator {
@@ -65,11 +70,15 @@
 }
 
 .contactsListTop {
+    position: sticky;
+    top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 101px;
     width: 100%;
+    height: 101px;
+    background-color: white;
+    z-index: 2;
 }
 
 #contactDetails {
@@ -138,3 +147,81 @@
 #contactDetails a{
     color:#007CEE;
 }
+
+.alphabetInContactList {
+    height: 58px;
+    width: 352px;
+    font-size: 20px;
+    padding: 17px 36px;
+}
+
+.seperatorContactList {
+    width: 352px;
+    height: 1px;
+    border-radius: 3px;
+    border: 1px solid #D1D1D1;
+    background-color: #D1D1D1;
+    margin: 8px 0px;
+}
+
+.contactInList {
+    cursor: pointer;
+    height: 78px;
+    width: 352px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 15px 25px;
+    gap: 35px;
+}
+
+.contactInList:hover:not(.click) {
+    background: linear-gradient(180deg, #F9F9F9 0%, #F0F0F0 100%);
+    border-radius: 10px;
+}
+
+.click {
+    background: #2A3647;
+    color: white;
+    border-radius: 10px;
+}
+
+.contactInList p {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.contactInList a{
+    color:#007CEE;
+}
+
+.scrollContactList {
+    padding: 32px 0px;
+    position: absolute;
+    top: 0;
+}
+
+.contactCircleSmall {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    color: white;
+    border: 1px solid white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.contactCircleBig {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: white;
+    box-shadow: 0px 0px 4px 0px #0000001a;
+    border: 3px solid white;
+    }

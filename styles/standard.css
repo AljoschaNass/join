@@ -150,3 +150,86 @@ input[type="checkbox"]:not(:checked) + label .customCheckbox:hover {
 input[type="checkbox"]:checked + label .customCheckbox:hover {
   background-image: url('../assets/img/icons/checkbox-checked-hover.svg');   /*Checked Hover Zustand */
 }  
+
+:root {
+  --orange: #ff7a00;
+  --pink: #ff5eb3;
+  --purple: #6e52ff;
+  --violet: #9327ff;
+  --cyan: #00bee8;
+  --green: #1fd7c1;
+  --peach: #ff745e;
+  --blue: #0038ff;
+  --lime: #c3ff2b;
+  --yellow: #ffe62b;
+  --gold: #ffc701;
+  --coral: #ffbb2b;
+  --red: #ff4646;
+  --magenta: #fc71ff;
+  --light-orange: #ffbb2b;
+  --dark-blue: #462f8a;
+}
+
+.backgroundColorOrange {
+  background-color: var(--orange);
+}
+
+.backgroundColorPink {
+  background-color: var(--pink);
+}
+
+.backgroundColorPurple {
+  background-color: var(--purple);
+}
+
+.backgroundColorViolet {
+  background-color: var(--violet);
+}
+
+.backgroundColorCyan {
+  background-color: var(--cyan);
+}
+
+.backgroundColorGreen {
+  background-color: var(--green);
+}
+
+.backgroundColorPeach {
+  background-color: var(--peach);
+}
+
+.backgroundColorBlue {
+  background-color: var(--blue);
+}
+
+.backgroundColorLime {
+  background-color: var(--lime);
+}
+
+.backgroundColorYellow {
+  background-color: var(--yellow);
+}
+
+.backgroundColorGold {
+  background-color: var(--gold);
+}
+
+.backgroundColorCoral {
+  background-color: var(--coral);
+}
+
+.backgroundColorRed {
+  background-color: var(--red);
+}
+
+.backgroundColorMagenta {
+  background-color: var(--magenta);
+}
+
+.backgroundColorLightOrange {
+  background-color: var(--light-orange);
+}
+
+.backgroundColorDarkBlue {
+  background-color: var(--dark-blue);
+}
