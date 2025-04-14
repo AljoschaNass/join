@@ -22,7 +22,7 @@ function closeDialog() {
 function editTask() {
     let dialogRef = document.getElementById("dialogBoard");
     dialogRef.innerHTML = "";
-    dialogRef.innerHTML += geteditDialogTemplate();
+    dialogRef.innerHTML += getEditDialogTemplate();
 }
 
 function selectUrgentPriority() {

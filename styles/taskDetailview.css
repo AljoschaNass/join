@@ -73,22 +73,26 @@
     left: 40px;
 }
 
-.overlayTaskAissgnedTo p {
+.overlayTaskAssignedTo p {
     margin-bottom: 8px;
     font-weight: 400;
     font-size: 20px;
 }
 
-#overlayTaskAissgnedToContacts {
+#overlayTaskAssignedToContacts {
+    display: flex;
+    flex-direction: column;
     gap: 4px;
 }
 
-#overlayTaskAissgnedToContacts div {
-    height:56px;
+#overlayTaskAssignedToContacts div {
     display: flex;
     align-items: center;
     position: relative;
-    left: 16px;
+    width: 445px;
+    height: 56px;
+    padding: 7px 16px;
+    gap: 16px;
 }
 
 .overlayTaskSubtasks {
@@ -172,4 +176,23 @@ input[type="checkbox"] {
 
 .overlayTaskEdit button:hover {
     color: #29ABE2;
+}
+
+.contactCircleSmallDetailView {
+    border: 2px solid white;
+    border-radius: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    font-weight: 400;
+    height: 42px !important;
+    width: 42px !important;
+    line-height: 1;
+}
+
+.assignedToContact p{
+    margin-bottom: 0 !important;
+    font-size: 19px;
 }
