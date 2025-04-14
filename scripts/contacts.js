@@ -13,6 +13,25 @@ async function postContact(path="contacts", name, email, phone, isItMe){//erstel
 }
 
 
+async function getAllContacts(){
+    let path = "contacts";
+    let response = await fetch(BASE_URL + path + ".json");   
+    return responseToJson = await response.json();
+}
+
+
+async function loadContactList() {
+    let contacts = await getAllContacts(); 
+    let contactList = document.getElementById("contactList"); 
+    contactList.innerHTML = ""; // Clear the contact list before adding new contacts
+    for (let i in contacts) {
+        let contact = contacts[i]; 
+        let isItMe = (contact.email === currentUserEmail) ? true : false; // Check if the email is the same as the current user's email
+        contactList.innerHTML += renderContactInList(contact.name, contact.email, isItMe); 
+    } 
+}
+
+
 async function addContact() { 
     let name = document.getElementById("addContactName").value;
     let email = document.getElementById("addContactEmail").value;
@@ -23,9 +42,10 @@ async function addContact() {
     email = "";
     phone = "";
     closeContactDialog();
-   // await loadContacts(); // Reload contacts after adding a new one
+    await loadContactList(); // Reload contacts after adding a new one
     // openContactCreatedMessage(); // Show success message
 }
+
 
 function openContactDialog() {
     let overlayRef = document.getElementById("overlayContacts");
@@ -34,12 +54,14 @@ function openContactDialog() {
     overlayRef.classList.remove("d_none");
 }
 
+
 function closeContactDialog() {
     let overlayRef = document.getElementById("overlayContacts");
     let noScrolling = document.body;
     noScrolling.classList.remove("stopScrolling");
     overlayRef.classList.add("d_none");
 }
+
 
 function selectContact(event) {
     document.querySelectorAll('.contactInList').forEach(contact => {

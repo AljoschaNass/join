@@ -16,12 +16,13 @@
     <script src="../scripts/header_navbar.js"></script>
     <script src="../scripts/remoteStorage.js"></script>
     <script src="../scripts/contacts.js"></script>
+    <script src="../scripts/templates.js"></script>
 
     <title>Join/Contacts</title>
     <link rel="icon" type="image/x-icon" href="../assets/img/join_logo_dark.svg" />
 </head>
 
-<body onload="init(), highlightSelectedQuickLinks('contacts')">
+<body onload="init(), highlightSelectedQuickLinks('contacts'), loadContactList()">
     <div class="d_flex">
         <nav class="main_nav_bar" w3-include-html="../assets/templates/navBar.html"></nav>
         <div class="collumn">
@@ -53,7 +54,7 @@
                                 </svg>
                             </button>
                         </div>
-                        <div class="scrollContactList">
+                        <div class="scrollContactList" id="contactList">
                             <div class="alphabetInContactList"></div>
                             <div class="alphabetInContactList">A</div>
                             <div class="seperatorContactList"></div>

@@ -367,3 +367,17 @@ function getAddTaskDialogTemplate() {
             </div>
     `
 }
+
+function renderContactInList(name, email, isItMe) {
+    return `
+            <div class="contactInList" onclick="selectContact(event)">
+                <div class="contactCircleSmall backgroundColorOrange">
+                    AM
+                </div>
+                <div>
+                    <p>${name}</p>
+                    <a href="mailto:${email}">${email}</a>
+                </div>
+            </div>
+        `;
+}
