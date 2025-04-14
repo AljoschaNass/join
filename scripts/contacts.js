@@ -69,3 +69,14 @@ function selectContact(event) {
     });
     event.currentTarget.classList.add('click');
 }
+
+
+function setContactInitials(name) {
+    let contactName = name.toUpperCase();
+    let contactNames = contactName.split(" ");
+    let contactNameInitial = [];
+    for (let index = 0; index < contactNames.length; index++) {
+        contactNameInitial += contactNames[index].at(0);
+    }    
+    return contactNameInitial;
+}

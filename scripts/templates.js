@@ -123,6 +123,7 @@ function getDialogTemplate(index) {
     `
 }
 
+
 function geteditDialogTemplate(index) {
     return`
 <div id="editDialogBoard">
@@ -348,6 +349,7 @@ function geteditDialogTemplate(index) {
     `
 }
 
+
 function getAddTaskDialogTemplate() {
     return `
                 <div class="addTaskDialogBoard" id="addTaskDialogBoard">
@@ -368,11 +370,12 @@ function getAddTaskDialogTemplate() {
     `
 }
 
+
 function renderContactInList(name, email, isItMe) {
     return `
             <div class="contactInList" onclick="selectContact(event)">
                 <div class="contactCircleSmall backgroundColorOrange">
-                    AM
+                    ${setContactInitials(name)}
                 </div>
                 <div>
                     <p>${name}</p>
