@@ -45,10 +45,8 @@ async function addContact() {
     let phone = document.getElementById("addContactPhone").value;	
     isItMe = (email === currentUserEmail) ? true : false; // Check if the email is the same as the current user's email
     await postContact("contacts", name, email, phone, isItMe); 
-    name = "";
-    email = "";
-    phone = "";
     closeContactDialog();
+    document.getElementById("addContactSuccess").classList.remove("d_none");
     await loadContactList(); // Reload contacts after adding a new one
     // openContactCreatedMessage(); // Show success message
 }
