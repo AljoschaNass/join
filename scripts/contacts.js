@@ -39,16 +39,22 @@ function loadContactDetails(name, email, phone, isItMe) {
 }
 
 
-async function addContact() { 
-    let name = document.getElementById("addContactName").value;
-    let email = document.getElementById("addContactEmail").value;
-    let phone = document.getElementById("addContactPhone").value;	
-    isItMe = (email === currentUserEmail) ? true : false; // Check if the email is the same as the current user's email
-    await postContact("contacts", name, email, phone, isItMe); 
-    closeContactDialog();
-    showAddContactSuccessMessage();
-    await loadContactList(); 
-}
+async function addContact(event) { 
+    event.preventDefault();
+    const form = document.querySelector('.add_contact_form');
+    if (form.checkValidity()) {
+        let name = document.getElementById("addContactName").value;
+        let email = document.getElementById("addContactEmail").value;
+        let phone = document.getElementById("addContactPhone").value;	
+        isItMe = (email === currentUserEmail) ? true : false; // Check if the email is the same as the current user's email
+        await postContact("contacts", name, email, phone, isItMe); 
+        closeContactDialog();
+        showAddContactSuccessMessage();
+        await loadContactList(); 
+    } else {
+        form.reportValidity();
+    }
+ }
 
 
 async function deleteContact(email) {

@@ -112,7 +112,6 @@ function getDialogTemplate(index) {
 }
 
 
-
 function getEditDialogTemplate(index) {
     return`
 <div id="editDialogBoard">
