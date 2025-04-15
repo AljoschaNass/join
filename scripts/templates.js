@@ -359,7 +359,7 @@ function renderContactDetails(name, email, phone, isItMe) {
                         </svg>
                         <p>Edit</p>
                     </div>
-                    <div class="contactButton">
+                    <div onclick="deleteContact('${email}')" class="contactButton">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <mask id="mask0_298547_4497" style="mask-type:alpha"

@@ -34,7 +34,7 @@ async function loadContactList() {
 
 function loadContactDetails(name, email, phone, isItMe) {
     let contactCard = document.getElementById("contactDetails"); 
-    contactCard.innerHTML = ""; // Clear the contact card before adding new contacts
+    contactCard.innerHTML = ''; // Clear the contact card before adding new contacts
     contactCard.innerHTML = renderContactDetails(name, email, phone, isItMe); 
 }
 
@@ -47,9 +47,39 @@ async function addContact() {
     await postContact("contacts", name, email, phone, isItMe); 
     closeContactDialog();
     showAddContactSuccessMessage();
-    await loadContactList(); // Reload contacts after adding a new one
-    // openContactCreatedMessage(); // Show success message
+    await loadContactList(); 
 }
+
+
+async function deleteContact(email) {
+    let path = "contacts";
+    let position = await findContactPositionByEmail(email); 
+    if (position === null) {
+        return; 
+    }
+    try {
+        let response = await fetch(BASE_URL + path + "/"  + position + ".json", { method: "DELETE" });
+        if (response.ok) {
+            await loadContactList();
+            document.getElementById("contactDetails").innerHTML = ''; 
+        } 
+    } catch (error) {
+    }
+}
+
+
+async function findContactPositionByEmail(email) {
+    let contacts = await getAllContacts(); 
+    console.log("Contacts: ", contacts)
+    for (let i in contacts) {
+        if (contacts[i].email === email) {
+            console.log("Found contact at position: ", i);
+            return i;
+        } 
+    } 
+    return null;
+}
+
 
 function showAddContactSuccessMessage() {
     let successMessage = document.getElementById("addContactSuccess");
@@ -57,6 +87,7 @@ function showAddContactSuccessMessage() {
     void successMessage.offsetWidth; // Triggern der Reflow, um die Animation zurückzusetzen
     successMessage.classList.remove("d_none");
 }
+
 
 function openContactDialog() {
     let overlayRef = document.getElementById("overlayContacts");
