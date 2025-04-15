@@ -46,11 +46,17 @@ async function addContact() {
     isItMe = (email === currentUserEmail) ? true : false; // Check if the email is the same as the current user's email
     await postContact("contacts", name, email, phone, isItMe); 
     closeContactDialog();
-    document.getElementById("addContactSuccess").classList.remove("d_none");
+    showAddContactSuccessMessage();
     await loadContactList(); // Reload contacts after adding a new one
     // openContactCreatedMessage(); // Show success message
 }
 
+function showAddContactSuccessMessage() {
+    let successMessage = document.getElementById("addContactSuccess");
+    successMessage.classList.add("d_none");
+    void successMessage.offsetWidth; // Triggern der Reflow, um die Animation zurückzusetzen
+    successMessage.classList.remove("d_none");
+}
 
 function openContactDialog() {
     let overlayRef = document.getElementById("overlayContacts");
@@ -65,9 +71,9 @@ function closeContactDialog() {
     let noScrolling = document.body;
     noScrolling.classList.remove("stopScrolling");
     overlayRef.classList.add("d_none");
-    document.getElementById("addContactName").value = "";
-    document.getElementById("addContactEmail").value = "";
-    document.getElementById("addContactPhone").value = "";
+    document.getElementById("addContactName").value ='';
+    document.getElementById("addContactEmail").value = '';
+    document.getElementById("addContactPhone").value = '';
 }
 
 

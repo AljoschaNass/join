@@ -328,7 +328,7 @@ function renderContactInList(name, email, phone, isItMe) {
                 </div>
                 <div>
                     <p>${name}</p>
-                    <a href="mailto:${email}">${email}</a>
+                    <a>${email}</a>
                 </div>
             </div>
         `;
