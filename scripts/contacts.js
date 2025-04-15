@@ -22,13 +22,25 @@ async function getAllContacts(){
 
 async function loadContactList() {
     let contacts = await getAllContacts(); 
+    let sortedContacts = sortContactsAlphabetically(contacts);
     let contactList = document.getElementById("contactList"); 
-    contactList.innerHTML = ""; // Clear the contact list before adding new contacts
-    for (let i in contacts) {
-        let contact = contacts[i]; 
+    contactList.innerHTML = ""; 
+    for (let i in sortedContacts) {
+        let contact = sortedContacts[i]; 
         let isItMe = (contact.email === currentUserEmail) ? true : false; // Check if the email is the same as the current user's email
         contactList.innerHTML += renderContactInList(contact.name, contact.email, contact.phone, isItMe); 
     } 
+}
+
+
+function sortContactsAlphabetically(contacts) {
+    let contactsArray = Object.values(contacts);
+    contactsArray.sort((a, b) => a.name.localeCompare(b.name));
+    let sortedContacts = {};
+    contactsArray.forEach((contact, index) => {
+        sortedContacts[`contact${index + 1}`] = contact;
+    });
+    return sortedContacts
 }
 
 
