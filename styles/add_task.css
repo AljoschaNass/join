@@ -1,6 +1,13 @@
 .add_task_section {
   display: flex;
   justify-content: flex-start;
+  flex-direction: column;
+  max-width: fit-content;
+}
+
+.add_task_div {
+  display: flex;
+  flex-direction: row ;
   gap: 40px;
 }
 
@@ -83,9 +90,9 @@ textarea {
     font-size: 16px;
     display: flex;
     justify-content: flex-start;
+    align-items: flex-end;
     position: relative;
-    top: 170px;
-    left: 27px;
+    height: 100%;
 }
 
 .add_task_hint_required::before, .add_task_after_required::after{
@@ -157,10 +164,20 @@ textarea {
 
 .add_task_btn_section {
   display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-direction: row;
   gap: 16px;
-  position: fixed;
-  bottom: 50px;
-  right: 136px;
+  position: unset;
+  right: 74px;
+  bottom: 64px;
+}
+
+.add_task_btn_section div{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 16px;
 }
 
 .btn_add_task {
@@ -200,4 +217,11 @@ textarea {
 
 .btn_create img {
   height: 12px;
+}
+
+.addTaskTemplate {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

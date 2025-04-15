@@ -21,6 +21,10 @@
   line-height: 120%;
 }
 
+body {
+  background-color: #f6f7f8;
+}
+
 a {
   text-decoration: none;
 }

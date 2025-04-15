@@ -1,12 +1,13 @@
     .main_nav_bar {
-    width: 232px;
-    height: 1024px;
+    min-width: 232px;
+    height: 100vh;
     background-color: #2b3647;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     padding: 64px 0;
+    position: fixed;
   }
 
   .nav_bar_top{
@@ -82,13 +83,14 @@
 
   .main_header {
     height: 96px;
-    width: 1208px;
+    width: calc(100vw - 232px);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 2;
-    position: relative;
+    position: fixed;
+    left: 232px;
     background-color: white;
   }
   
@@ -179,19 +181,36 @@
   }
 
   .main_content {
-    width: 100%;
-    height: 928px;
+    max-width: fit-content;
+    min-height: calc(100vh - 96px);
     background-color: #f6f7f8;
-    padding-left: 100px;
-    padding-top: 100px;
+    margin-left: 232px;
+    margin-top: 96px;
+    padding: 64px 96px;
     position: relative;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .main_content_summary {
+    height: calc(100vh - 96px);
+    background-color: #f6f7f8;
+    margin-left: 328px;
+    margin-top: 96px;
+    position: relative;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .main_content_board {
-    width: 100%;
-    height: 928px;
+    height: calc(100vh - 96px);
     background-color: #f6f7f8;
+    margin-left: 232px;
+    margin-top: 96px;
     padding-left: 64px;
     padding-top: 80px;
     position: relative;
