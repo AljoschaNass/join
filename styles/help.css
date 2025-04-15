@@ -1,0 +1,14 @@
+.main_content_help {
+    width: 1208px;
+    padding-left: 96px;
+    padding-top: 110px;
+    background-color: #f6f7f8;
+    height: 928px;
+}
+
+.helpText {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-right: 96px;
+}
