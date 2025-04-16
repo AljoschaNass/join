@@ -41,3 +41,7 @@ function saveCurrentUserToLocalStorage(email, name) {
     currentUserName = JSON.parse(localStorage.getItem(`currentUserName`));
     currentUserEmail = JSON.parse(localStorage.getItem(`currentUserEmail`));
   }
+
+  function backToPreviousPage() {
+    history.back();
+}
