@@ -90,13 +90,42 @@ async function addTask() {
     let title = document.getElementById("add_task_title").value;
     let description = document.getElementById("add_task_description").value;
     let dueDate = document.getElementById("add_task_date").value;
-    let priority = document.getElementById(currentPriority).value;
+    let priority = currentPriority;
     let assignedTo = document.getElementById("addTaskAssignedToInput").value;
     let category = document.getElementById("addTaskCategoryInput").value;
     let subtasks = document.getElementById("add_task_subtask").value;
 
-    //if(title != "" && dueDate != "" && category != "") {
+    if(title != "" && dueDate != "" && category != "") {
         await postTask("task", title, description, dueDate, priority, assignedTo, category, subtasks); 
         window.location.href = "./board.html";
-    //}
+    }
+}
+
+function clearAddTaskForm() {
+    document.getElementById("add_task_title").value = "";
+    document.getElementById("add_task_description").value = "";
+    document.getElementById("add_task_date").value = "";
+    removeAllPriosityBg();
+    currentPriority = "";
+    document.getElementById("addTaskAssignedToInput").value = "";
+    document.getElementById("addTaskCategoryInput").value = "";
+    document.getElementById("add_task_subtask").value = "";
+    diableCreateTaskButton();
+}
+
+function enableCreateTaskButton() {
+    let titleRef = document.getElementById("add_task_title").value;
+    let dateRef = document.getElementById("add_task_date").value;
+    let categoryRef = document.getElementById("addTaskCategoryInput").value;
+    diableCreateTaskButton();
+    if (titleRef != "" && dateRef != "" && categoryRef != "") {
+        document.getElementById("btn_add_task_create_task").disabled = false;
+        document.getElementById("btn_add_task_create_task").classList.add("btn_create_enabled");
+    }
+}
+
+function diableCreateTaskButton() {
+    let createTaskBtn = document.getElementById("btn_add_task_create_task");
+    createTaskBtn.disabled = true;
+    createTaskBtn.classList.remove("btn_create_enabled");
 }

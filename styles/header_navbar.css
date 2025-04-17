@@ -177,7 +177,7 @@
   }
 
   .resp_menu_closed{
-    transform: translateY(-100%);
+    transform: translateY(-120%);
   }
 
   .main_content {

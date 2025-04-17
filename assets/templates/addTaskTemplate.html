@@ -3,7 +3,7 @@
   <div class="add_task_div">
     <div class="add_task_half">
       <label class="add_task_after_required" for="add_task_title">Title</label>
-      <input onfocusout="checkRequiredTitel()" id="add_task_title" class="add_task_input" type="text"
+      <input oninput="enableCreateTaskButton()" onfocusout="checkRequiredTitel()" id="add_task_title" class="add_task_input" type="text"
         placeholder="Enter a title" required />
       <p id="add_task_required_title" class="add_task_required"></p>
 
@@ -12,7 +12,7 @@
       <p class="add_task_required"></p>
 
       <label class="add_task_after_required" for="add_task_date">Due date</label>
-      <input onfocusout="checkRequiredDate()" id="add_task_date" class="add_task_input" type="date" required />
+      <input oninput="enableCreateTaskButton()" onfocusout="checkRequiredDate()" id="add_task_date" class="add_task_input" type="date" required />
       <p id="add_task_required_date" class="add_task_required"></p>
 
     </div>
@@ -69,10 +69,10 @@
           class="arrowDropDown assignedToInput add_task_input" onclick="arrowDropDownSelection('addTaskCategory')"
           readonly="true" required>
         <div id="addTaskCategoryDropDown" class="arrowDropDownInputs d_none">
-          <div onclick="addTaskselectCategory('Technical Task')" class="arrowDropDownInput">
+          <div onclick="addTaskselectCategory('Technical Task'), enableCreateTaskButton()" class="arrowDropDownInput">
             <p>Technical Task</p>
           </div>
-          <div onclick="addTaskselectCategory('User Story')" class="arrowDropDownInput">
+          <div onclick="addTaskselectCategory('User Story'), enableCreateTaskButton()" class="arrowDropDownInput">
             <p>User Story</p>
           </div>
         </div>
@@ -111,9 +111,9 @@
 <section class="add_task_btn_section">
   <p class="add_task_hint_required">This field is required</p>
   <div>
-    <input class="btn_add_task btn_clear" type="reset" value="Clear X">
-    <button onclick="checkRequiredBtnAddTask()" type="submit" id="btn_add_task_create_task"
-      class="btn_add_task btn_create">
+    <input onclick="clearAddTaskForm()" class="btn_add_task btn_clear" type="reset" value="Clear X">
+    <button onclick="checkRequiredBtnAddTask(), addTask()" type="submit" id="btn_add_task_create_task"
+      class="btn_add_task btn_create" disabled>
       Create Task
       <img src="../assets/img/icons/add_task_btn_check.svg" alt="check">
     </button>
