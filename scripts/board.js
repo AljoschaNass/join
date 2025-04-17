@@ -128,3 +128,15 @@ function changeCheckbox(event) {
     checkboxDiv.classList.toggle('contactCheckedCheckbox');
     checkboxDiv.classList.toggle('contactUncheckedCheckbox');
 }
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function highlight(id) {
+    document.getElementById(id).classList.add("dragAreaHighlight")
+}
+
+function removeHighlight(id) {
+    document.getElementById(id).classList.remove("dragAreaHighlight")
+}

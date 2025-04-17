@@ -161,7 +161,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="awaitFeedbackBoard" class="baseBoard">
+                    <div id="awaitFeedbackBoard" class="baseBoard" ondrop="drop(event)" ondragover="allowDrop(event); highlight('awaitFeedbackTask')"  ondragend="removeHighlight('awaitFeedbackTask')">
                         <div class="headTask">
                             <p>Await Feedback</p>
                             <button onclick="createNewTask(event)">
@@ -176,7 +176,7 @@
                         </div>
                         <div id="awaitFeedbackTask"></div>
                     </div>
-                    <div id="doneBoard" class="baseBoard">
+                    <div id="doneBoard" class="baseBoard" ondrop="drop(event)" ondragover="allowDrop(event); highlight('doneTask')" ondragend="removeHighlight('doneTask')">
                         <div class="headTask">
                             <p>Done</p>
                         </div>
