@@ -1,0 +1,35 @@
+.main_content_legal_notice {
+    max-width: fit-content;
+    min-height: calc(100vh - 96px);
+    background-color: #f6f7f8;
+    margin-left: 232px;
+    margin-top: 96px;
+    padding: 110px 96px;
+    position: relative;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 35px;
+}
+
+.legalNoticeText {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.main_content_legal_notice ul {
+    list-style-position: outside;  /* Der Marker bleibt außerhalb der Liste */
+    padding-left: 24px;  /* Einrücken des gesamten Textes und Markers */
+}
+
+.main_content_legal_notice h2{
+    font-size: 27px;
+    font-weight: 700;
+}
+
+.main_content_legal_notice h3{
+    font-size: 20px;
+    font-weight: 700;
+}
