@@ -1,7 +1,8 @@
 .main_content_help {
-    width: 1014px;
+    width: 100&;
     margin-left: 328px;
     margin-top: 206px;
+    margin-right: 96px;
     background-color: #f6f7f8;
     height: 928px;
 }
@@ -43,7 +44,7 @@
     background-color: transparent;
     position: fixed;
     top: 225px;
-    left: 1307px;
+    right: 133px;
 }
 
 .arrowLeft:hover svg{
