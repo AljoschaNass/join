@@ -110,22 +110,32 @@ function clearAddTaskForm() {
     document.getElementById("addTaskAssignedToInput").value = "";
     document.getElementById("addTaskCategoryInput").value = "";
     document.getElementById("add_task_subtask").value = "";
-    diableCreateTaskButton();
+    diableCreateTaskButton(createTaskBtn);
 }
 
 function enableCreateTaskButton() {
     let titleRef = document.getElementById("add_task_title").value;
     let dateRef = document.getElementById("add_task_date").value;
     let categoryRef = document.getElementById("addTaskCategoryInput").value;
-    diableCreateTaskButton();
+    let createTaskBtn = document.getElementById("btn_add_task_create_task");
+    diableCreateTaskButton(createTaskBtn);
     if (titleRef != "" && dateRef != "" && categoryRef != "") {
-        document.getElementById("btn_add_task_create_task").disabled = false;
-        document.getElementById("btn_add_task_create_task").classList.add("btn_create_enabled");
+        createTaskBtn.disabled = false;
+        createTaskBtn.classList.add("btn_create_enabled");
     }
 }
 
-function diableCreateTaskButton() {
-    let createTaskBtn = document.getElementById("btn_add_task_create_task");
+function diableCreateTaskButton(createTaskBtn) {
     createTaskBtn.disabled = true;
     createTaskBtn.classList.remove("btn_create_enabled");
 }
+
+//function addSubtask() {}
+
+function clearSubtaskInput() {
+    document.getElementById("add_task_subtask").value = "";
+}
+
+//function editSubtask() {}
+
+//function deleteSubtask(id) {}

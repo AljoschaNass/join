@@ -162,6 +162,84 @@ textarea {
   filter: brightness(0) invert(1);
 }
 
+.addTaskSubtasksInput {
+  width: 445px;
+  height: 48px;
+  border-radius: 10px;
+  border: 1px solid rgba(209, 209, 209, 1);
+  display: flex;
+  justify-content: space-between;
+  padding-top: 12px;
+  padding-right: 16px;
+  padding-bottom: 12px;
+  padding-left: 16px;
+  background-color: white;
+}
+
+.addTaskSubtasksInput:focus-within {
+  border: 1px solid #29ABE2
+}
+
+.addTaskSubtasksInput input{
+  font-weight: 400;
+  font-size: 20px;
+  width: calc(100% - 25px);
+}
+
+.addIcon {
+  background-image: url("../assets/img/icons/add.svg");
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
+}
+
+.addTaskSubtasksInput:focus-within .addIcon {
+  background-image: url('../assets/img/icons/addhaken.svg');
+}
+
+.xIcon {
+  background-image: url("../assets/img/icons/X.svg");
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  height: 24px;
+  width: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.addTaskSubtasksInput:focus-within .xIcon {
+  cursor: pointer;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#add_task_subtask:focus-within .xIcon{
+  cursor: pointer;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.addTaskSubtasksInput:focus-within .vectorAddSubtask {
+  height: 24px;
+  width: 1px;
+  background-color: rgba(209, 209, 209, 1);
+  margin: 0px 4px 0px 4px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.addTaskSubtasksInput:focus-within .vectorAddSubtask {
+  cursor: pointer;
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .add_task_btn_section {
   display: flex;
   justify-content: space-between;
