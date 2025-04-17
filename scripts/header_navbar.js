@@ -53,7 +53,7 @@ function hideHeaderRight(savedNewQuickLink) {
 
 function hideHelpIconHeader(savedNewQuickLink) {
     if(savedNewQuickLink == "help") {
-        document.getElementById("addTask_help_link").classList.add("d_none");
+        document.getElementById("quick_link_help").classList.add("d_none");
     }
 }
 
