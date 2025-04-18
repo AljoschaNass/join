@@ -44,7 +44,7 @@ function enableSignUpButton() {
     let passwordCheck = document.getElementById("signUpConfirmPassword");
     let checkbox = document.getElementById("signUpCheckbox");
     let signUpBtn = document.getElementById("signUpBtn");
-    disableSignUpButton() 
+    disableSignUpButton();
     if (name.value && email.value && password.value && passwordCheck.value && checkbox.checked) {
         signUpBtn.disabled = false; 
         signUpBtn.classList.add("signUpBtn_enabled"); 

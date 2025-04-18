@@ -179,6 +179,25 @@
     }
 }
 
+#addContactBtn {
+    border-color: #A8A8A8;
+    background-color: #A8A8A8;
+    cursor: not-allowed;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+}
+
+.addContactBtn_enabled {
+    border-color: #2A3647 !important;
+    background-color: #2A3647 !important;
+    cursor: pointer !important;
+
+    &:hover {
+        background-color:#29ABE2 !important;
+        border-color:#29ABE2 !important;
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    }
+}
+
 .add_contact_btn img {
     width: 24px;
     height: 24px;

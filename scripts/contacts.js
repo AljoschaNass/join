@@ -112,6 +112,12 @@ function openContactDialog() {
     let noScrolling = document.body;
     noScrolling.classList.add("stopScrolling");
     overlayRef.classList.remove("d_none");
+    let overlayBackground = document.getElementById("add_contact_background");
+    overlayBackground.addEventListener("click", (event) => {
+        if (!event.target.closest('.add_contact_container')) {
+            closeContactDialog();
+        }
+    });
 }
 
 
@@ -142,4 +148,24 @@ function setContactInitials(name) {
         contactNameInitial += contactNames[index].at(0);
     }    
     return contactNameInitial;
+}
+
+
+function enableCreateContactButton() {
+    let name = document.getElementById("addContactName");
+    let email = document.getElementById("addContactEmail");
+    let phone= document.getElementById("addContactPhone");
+    let createContactBtn = document.getElementById("addContactBtn");
+    disableCreateContactButton()
+    if (name.value && email.value && phone.value) {
+        createContactBtn.disabled = false; 
+        createContactBtn.classList.add("addContactBtn_enabled"); 
+    } 
+}
+
+
+function disableCreateContactButton() {
+    let createContactBtn = document.getElementById("addContactBtn");
+    createContactBtn.disabled = true; 
+    createContactBtn.classList.remove("addContactBtn_enabled"); 
 }

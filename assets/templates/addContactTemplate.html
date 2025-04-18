@@ -1,4 +1,4 @@
-<div class="add_contact_background">
+<div class="add_contact_background"  id="add_contact_background">
   <div class="add_contact_container">
     <div class="add_contact_left gap_12">
       <img src="../assets/img/join_logo.svg" alt="join logo" class="add_contact_logo">
@@ -13,7 +13,7 @@
       <div class="close_overlay">
         <button onclick="closeContactDialog(); return false;" id="closeOverlayButton" class="close_overlay_button"><img src="../assets/img/icons/X.svg" alt="Close"></button>
       </div>
-      <form class="add_contact_form">
+      <form onchange="enableCreateContactButton()" class="add_contact_form">
         <div class="gap_32 center">
             <div class="password_container">
                 <input type="text" placeholder="Name" class="input_contact" id="addContactName" required>
@@ -25,12 +25,12 @@
             </div>
             <div class="password_container">
                 <input type="phone" placeholder="Phone" class="input_contact" id="addContactPhone" required>
-                <img  src="../assets/img/icons/lock.svg" alt="Phone" class="input_contact_img">
+                <img  src="../assets/img/icons/call.svg" alt="Phone" class="input_contact_img">
             </div>
         </div>
         <div class="add_contact_btns">
           <button onclick="closeContactDialog()" class="cancel_contact_btn">Cancel</button>
-          <button type="submit" onclick="addContact()" class="add_contact_btn">Create Contact</button>
+          <button type="submit" onclick="addContact()" class="add_contact_btn" id="addContactBtn">Create Contact</button>
         </div>
       </form>
     </div>
