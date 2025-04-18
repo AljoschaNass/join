@@ -1,4 +1,4 @@
-async function postContact(path="contacts", name, email, phone, isItMe){//erstellen neuer recoursen - nicht idempotent, dh mehrere ausführungen können mehrere einträge erzeugen
+async function postContact(path="contacts", name, email, phone){//erstellen neuer recoursen - nicht idempotent, dh mehrere ausführungen können mehrere einträge erzeugen
     let contact = {
         'name': name, 
         'email': email,
@@ -27,7 +27,7 @@ async function loadContactList() {
     contactList.innerHTML = ""; 
     for (let i in sortedContacts) {
         let contact = sortedContacts[i]; 
-        let isItMe = (contact.email === currentUserEmail) ? true : false; // Check if the email is the same as the current user's email
+        let isItMe = (contact.email === currentUserEmail) ? '(You)' : ''; // Check if the email is the same as the current user's email
         contactList.innerHTML += renderContactInList(contact.name, contact.email, contact.phone, isItMe); 
     } 
 }
@@ -44,9 +44,10 @@ function sortContactsAlphabetically(contacts) {
 }
 
 
-function loadContactDetails(name, email, phone, isItMe) {
+function loadContactDetails(name, email, phone) {
     let contactCard = document.getElementById("contactDetails"); 
     contactCard.innerHTML = ''; // Clear the contact card before adding new contacts
+    let isItMe = (email === currentUserEmail) ? '(You)' : ''; 
     contactCard.innerHTML = renderContactDetails(name, email, phone, isItMe); 
 }
 

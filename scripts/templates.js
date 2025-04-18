@@ -321,12 +321,12 @@ function getAddTaskDialogTemplate() {
 
 function renderContactInList(name, email, phone, isItMe) {
     return `
-            <div class="contactInList" onclick="selectContact(event); loadContactDetails('${name}', '${email}', '${phone}', ${isItMe});">
+            <div class="contactInList" onclick="selectContact(event); loadContactDetails('${name}', '${email}', '${phone}', '${isItMe}');">
                 <div class="contactCircleSmall backgroundColorOrange">
                     ${setContactInitials(name)}
                 </div>
                 <div>
-                    <p>${name}</p>
+                    <p>${name} ${isItMe}</p>
                     <a>${email}</a>
                 </div>
             </div>
@@ -341,7 +341,7 @@ function renderContactDetails(name, email, phone, isItMe) {
                 <div class="contactCircleBig backgroundColorOrange">${setContactInitials(name)}</div>
             </div>
             <div>
-                <div class="contactName">${name}</div>
+                <div class="contactName">${name} ${isItMe}</div>
                 <div class="contactDetailsButtons">
                     <div class="contactButton">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
