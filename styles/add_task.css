@@ -301,3 +301,27 @@ textarea {
   flex-direction: column;
   justify-content: space-between;
 }
+
+.taskAdded {
+  background-color: #2A3647;
+  color: white;
+  border-radius: 20px;
+  box-shadow: 0px 0px 4px 0px #00000026;
+  font-weight: 400;
+  font-size: 20px;
+  width: 326px;
+  height: 74px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  max-width: 1920px;
+  transform: translate(-50%, -50%);
+}
+
+.taskAdded p{
+  width: 235px;
+}

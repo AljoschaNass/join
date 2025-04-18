@@ -94,10 +94,13 @@ async function addTask() {
     let assignedTo = document.getElementById("addTaskAssignedToInput").value;
     let category = document.getElementById("addTaskCategoryInput").value;
     let subtasks = document.getElementById("add_task_subtask").value;
+    document.getElementById("taskAdded").classList.remove("d_none");
 
     if(title != "" && dueDate != "" && category != "") {
         await postTask("task", title, description, dueDate, priority, assignedTo, category, subtasks); 
-        window.location.href = "./board.html";
+        setTimeout(() => {
+            window.location.href = "./board.html";
+        }, 1000);
     }
 }
 
