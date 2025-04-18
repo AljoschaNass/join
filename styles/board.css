@@ -258,3 +258,14 @@ margin-bottom: 10px;
     border-radius: 30px;
 }
 
+
+.cardsLabel p {
+    background-color: #0038FF;
+    color: white;
+    padding: 4px 16px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 400;
+    width: fit-content;
+
+}

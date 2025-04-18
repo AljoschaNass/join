@@ -133,10 +133,31 @@ function allowDrop(ev) {
     ev.preventDefault();
 }
 
-function highlight(id) {
-    document.getElementById(id).classList.add("dragAreaHighlight")
+function dragStart(ev) {
+    ev.dataTransfer.setData("text/plain", ev.target.id);
+    const taskContainers = Array.from(document.querySelectorAll('#toDoTask, #inProgressTask, #awaitFeedbackTask, #doneTask'));
+    const currentContainer = ev.target.closest('#toDoTask, #inProgressTask, #awaitFeedbackTask, #doneTask');
+    const index = taskContainers.indexOf(currentContainer);
+    dragAreaHighlight = document.createElement('div');
+    dragAreaHighlight.classList.add('dragAreaHighlight');
+    if (taskContainers[index - 1]) {
+        taskContainers[index - 1].appendChild(dragAreaHighlight.cloneNode());
+    }
+    if (taskContainers[index + 1]) {
+        taskContainers[index + 1].appendChild(dragAreaHighlight.cloneNode());
+    }
 }
 
-function removeHighlight(id) {
-    document.getElementById(id).classList.remove("dragAreaHighlight")
+function dragEnd() {
+    document.querySelectorAll('.dragAreaHighlight').forEach(el => el.remove());
 }
+
+function drop(ev) {
+    ev.preventDefault();
+    const id = ev.dataTransfer.getData("text/plain");
+    const draggedElement = document.getElementById(id);
+    const dropZone = ev.currentTarget;
+    dropZone.appendChild(draggedElement);
+    dragEnd();
+}
+
