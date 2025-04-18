@@ -1,5 +1,4 @@
 async function postContact(path="contacts", name, email, phone, isItMe){//erstellen neuer recoursen - nicht idempotent, dh mehrere ausführungen können mehrere einträge erzeugen
-    console.log('postContact loaded');
     let contact = {
         'name': name, 
         'email': email,
@@ -54,7 +53,6 @@ function loadContactDetails(name, email, phone, isItMe) {
 
 async function addContact(event) { 
     event.preventDefault();
-    console.log('addContact loaded');
     let name = document.getElementById("addContactName").value;
     let email = document.getElementById("addContactEmail").value;
     let phone = document.getElementById("addContactPhone").value;	
@@ -147,7 +145,6 @@ function setContactInitials(name) {
 
 
 function enableCreateContactButton() {
-    console.log('enable contactbtn')
     let name = document.getElementById("addContactName");
     let email = document.getElementById("addContactEmail");
     let phone= document.getElementById("addContactPhone");
