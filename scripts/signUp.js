@@ -19,6 +19,7 @@ async function signUp() {
     let passwordCheck = document.getElementById("signUpConfirmPassword").value;
     if (password === passwordCheck) {
         await postUser("user", name, email, password); 
+        await postContact(path="contacts", name, email, phone='', isItMe=false);
         document.getElementById("signUpSuccess").classList.remove("d_none");
     } else {
         signUpError();
