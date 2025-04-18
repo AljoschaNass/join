@@ -194,10 +194,18 @@ textarea {
   height: 24px;
   width: 24px;
   cursor: pointer;
+  &:hover{
+    background-color: #f0f0f0;
+    border-radius: 50%;
+  }
 }
 
 .addTaskSubtasksInput:focus-within .addIcon {
   background-image: url('../assets/img/icons/addhaken.svg');
+  &:hover{
+    background-color: #f0f0f0;
+    border-radius: 50%;
+  }
 }
 
 .xIcon {
@@ -206,22 +214,19 @@ textarea {
   background-position-x: center;
   background-position-y: center;
   height: 24px;
-  width: 24px;
+  width: 0px;
   opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
+  transition: width 0.2s ease-in;
 }
 
 .addTaskSubtasksInput:focus-within .xIcon {
   cursor: pointer;
   opacity: 1;
-  pointer-events: auto;
-}
-
-#add_task_subtask:focus-within .xIcon{
-  cursor: pointer;
-  opacity: 1;
-  pointer-events: auto;
+  width: 24px;
+  &:hover{
+    background-color: #f0f0f0;
+    border-radius: 50%;
+  }
 }
 
 .addTaskSubtasksInput:focus-within .vectorAddSubtask {
@@ -229,15 +234,7 @@ textarea {
   width: 1px;
   background-color: rgba(209, 209, 209, 1);
   margin: 0px 4px 0px 4px;
-  opacity: 0;
-  pointer-events: none;
   transition: opacity 0.2s ease;
-}
-
-.addTaskSubtasksInput:focus-within .vectorAddSubtask {
-  cursor: pointer;
-  opacity: 1;
-  pointer-events: auto;
 }
 
 .add_task_btn_section {
