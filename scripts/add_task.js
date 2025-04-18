@@ -113,6 +113,8 @@ function clearAddTaskForm() {
     document.getElementById("addTaskAssignedToInput").value = "";
     document.getElementById("addTaskCategoryInput").value = "";
     document.getElementById("add_task_subtask").value = "";
+
+    let createTaskBtn = document.getElementById("btn_add_task_create_task");
     diableCreateTaskButton(createTaskBtn);
 }
 
