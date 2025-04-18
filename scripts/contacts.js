@@ -2,8 +2,7 @@ async function postContact(path="contacts", name, email, phone){//erstellen neue
     let contact = {
         'name': name, 
         'email': email,
-        'phone': phone,
-        'isItMe': isItMe
+        'phone': phone
     };
     let response = await fetch(BASE_URL + path + ".json", {
         method: "POST", headers: {'Content-Type': 'application/json', }, body: JSON.stringify(contact)
@@ -17,6 +16,16 @@ async function getAllContacts(){
     let path = "contacts";
     let response = await fetch(BASE_URL + path + ".json");   
     return responseToJson = await response.json();
+}
+
+async function getAllUsersToContacts(){
+    let path = "user";
+    let response = await fetch(BASE_URL + path + ".json");   
+    let users = await response.json();
+    for (let i in users) {
+        let contact = users[i];
+        await postContact("contacts", contact.name, contact.email, contact.phone);
+    }
 }
 
 
@@ -58,7 +67,7 @@ async function addContact(event) {
     let email = document.getElementById("addContactEmail").value;
     let phone = document.getElementById("addContactPhone").value;	
     isItMe = (email === currentUserEmail) ? true : false; // Check if the email is the same as the current user's email
-    await postContact("contacts", name, email, phone, isItMe); 
+    await postContact("contacts", name, email, phone); 
     closeContactDialog();
     showAddContactSuccessMessage();
     await loadContactList(); 
