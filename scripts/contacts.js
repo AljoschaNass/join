@@ -1,4 +1,5 @@
 async function postContact(path="contacts", name, email, phone, isItMe){//erstellen neuer recoursen - nicht idempotent, dh mehrere ausführungen können mehrere einträge erzeugen
+    console.log('postContact loaded');
     let contact = {
         'name': name, 
         'email': email,
@@ -51,21 +52,17 @@ function loadContactDetails(name, email, phone, isItMe) {
 }
 
 
-async function addContact(event) { 
+async function addContact() { 
     event.preventDefault();
-    const form = document.querySelector('.add_contact_form');
-    if (form.checkValidity()) {
-        let name = document.getElementById("addContactName").value;
-        let email = document.getElementById("addContactEmail").value;
-        let phone = document.getElementById("addContactPhone").value;	
-        isItMe = (email === currentUserEmail) ? true : false; // Check if the email is the same as the current user's email
-        await postContact("contacts", name, email, phone, isItMe); 
-        closeContactDialog();
-        showAddContactSuccessMessage();
-        await loadContactList(); 
-    } else {
-        form.reportValidity();
-    }
+    console.log('addContact loaded');
+    let name = document.getElementById("addContactName").value;
+    let email = document.getElementById("addContactEmail").value;
+    let phone = document.getElementById("addContactPhone").value;	
+    isItMe = (email === currentUserEmail) ? true : false; // Check if the email is the same as the current user's email
+    await postContact("contacts", name, email, phone, isItMe); 
+    closeContactDialog();
+    showAddContactSuccessMessage();
+    await loadContactList(); 
  }
 
 
@@ -88,10 +85,8 @@ async function deleteContact(email) {
 
 async function findContactPositionByEmail(email) {
     let contacts = await getAllContacts(); 
-    console.log("Contacts: ", contacts)
     for (let i in contacts) {
         if (contacts[i].email === email) {
-            console.log("Found contact at position: ", i);
             return i;
         } 
     } 
@@ -152,6 +147,7 @@ function setContactInitials(name) {
 
 
 function enableCreateContactButton() {
+    console.log('enable contactbtn')
     let name = document.getElementById("addContactName");
     let email = document.getElementById("addContactEmail");
     let phone= document.getElementById("addContactPhone");
