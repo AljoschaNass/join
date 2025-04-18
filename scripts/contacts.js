@@ -52,7 +52,7 @@ function loadContactDetails(name, email, phone, isItMe) {
 }
 
 
-async function addContact() { 
+async function addContact(event) { 
     event.preventDefault();
     console.log('addContact loaded');
     let name = document.getElementById("addContactName").value;
