@@ -59,19 +59,33 @@ function saveNewTaskData() {
     overlayRef.innerHTML = "";
 }
 
-async function createNewTask(event) {
+function createNewTask(event) {
     event.stopPropagation();
-    let dialogRef = document.getElementById("overlayBoard");
-    dialogRef.innerHTML = "";
+    let dialogRef = document.getElementById("overlayBoardAddTask");
+    let noScrolling = document.body;
+    noScrolling.classList.add("stopScrolling");
+    dialogRef.classList.remove("d_none");
     dialogRef.classList.add("overlayBoard");
-    const res = await fetch('../assets/templates/addTaskTemplate.html');
-    const html = await res.text(); 
-    dialogRef.innerHTML += getAddTaskDialogTemplate(html);
-    w3.includeHTML();
     const dialogElement = document.getElementById("addTaskDialogBoard");
     dialogElement.addEventListener("click", (event) => {
     event.stopPropagation(); 
     }); 
+}
+
+async function renderW3AddTaskTemplate() {
+    const res = await fetch('../assets/templates/addTaskTemplate.html');
+    const html = await res.text(); 
+    let dialogRef = document.getElementById("overlayBoardAddTask");
+    dialogRef.classList.add("d_none")
+    dialogRef.innerHTML += getAddTaskDialogTemplate(html);
+    w3.includeHTML(); 
+}
+
+function closeDialogAddTask() {
+    let overlayRef = document.getElementById("overlayBoardAddTask");
+    let noScrolling = document.body;
+    noScrolling.classList.remove("stopScrolling");
+    overlayRef.classList.remove("overlayBoard");
 }
 
 function subtaskEdit(event) {

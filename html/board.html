@@ -27,7 +27,7 @@
 
 </head>
 
-<body onload="init(), highlightSelectedQuickLinks('board')">
+<body onload="init(), highlightSelectedQuickLinks('board'), renderW3AddTaskTemplate()">
     <div class="d_flex">
         <nav
         class="main_nav_bar"
@@ -182,6 +182,8 @@
             </main>
 
             <section id="overlayBoard" onclick="closeDialog()">
+            </section>
+            <section id="overlayBoardAddTask" onclick="closeDialogAddTask()">
             </section>
 
         </div>

@@ -303,7 +303,7 @@ function getAddTaskDialogTemplate() {
                 <div class="addTaskDialogBoard" id="addTaskDialogBoard">
                 <div class="addTaskDialogBoardFrame">
                     <div w3-include-html="../assets/templates/addTaskTemplate.html" class="addTaskTemplate"></div>
-                    <button class="addTaskDialogBoardClose" onclick="closeDialog()">
+                    <button class="addTaskDialogBoardClose" onclick="closeDialogAddTask()">
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <mask id="mask0_71720_5535" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="4" y="4" width="24" height="24">
                             <rect x="4" y="4" width="24" height="24" fill="#D9D9D9"/>
