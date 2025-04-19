@@ -13,13 +13,16 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    height: 282px;
 }
 
 .header_LogIn_logo {
-    margin: 80px;
+    margin: 80px 77px;
 }
 
 .header_LogIn_right {
+    opacity: 0;
+    animation: fadeInContent 0.5s ease-in-out 0.5s forwards;
     display: flex;
     flex-direction: row;
     justify-content: start;
@@ -31,6 +34,10 @@
     font-weight: 500;
     color: #000000;
     font-family: 'Inter', sans-serif;    
+    position: fixed;
+    top: 0;
+    right: 0;
+    max-width: 1920px;
 }
 
 .header_LogIn_right_btn {
@@ -67,6 +74,8 @@
 }
 
 .logIn_content {
+    opacity: 0;
+    animation: fadeInContent 0.5s ease-in-out 0.5s forwards;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -76,6 +85,16 @@
     background-color: white;
     width: 652px;
 }
+
+@keyframes fadeInContent {
+    0% {
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
 
 .logIn_content h1 {
     padding-bottom: 16px;
@@ -111,14 +130,12 @@
     background-repeat: no-repeat;
     background-position: right center;
     background-size: 16px;
-    background-color: white;
     z-index: 1;
     margin: 0;
 }
 
 .input_logIn:focus {
     border: 1px solid #29ABE2;
-    background-color: white;
 }
 
 .input_logIn_img {
@@ -188,6 +205,8 @@
 }
 
 .footer_logIn {
+    opacity: 0;
+    animation: fadeInContent 0.5s ease-in-out 0.5s forwards;
     position: absolute;
     bottom: 40px;
     left: 50%;
@@ -213,4 +232,28 @@
 .footer_logIn a:hover {
     color:#29ABE2;
     font-weight: 700;
+}
+
+.mobile-header-icon {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: moveToTopLeft 1s ease-in-out forwards;
+    transform-origin: top left;
+    z-index: 10;
+}
+
+@keyframes moveToTopLeft {
+    0% {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    100% {
+        top: 80px;
+        left: 77px;
+        transform: translate(0, 0) scale(0.365);
+    }
 }
