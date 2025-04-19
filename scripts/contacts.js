@@ -30,6 +30,15 @@ async function getAllUsersToContacts(){
 }
 
 
+async function loadContactList() {
+    let contacts = await getAllContacts(); 
+    let sortedContacts = sortContactsAlphabetically(contacts);
+    let contactList = document.getElementById("contactList"); 
+    contactList.innerHTML = renderContactListHeader(); 
+    filterContactsByFirstLetter(sortedContacts);
+}
+
+
 function filterContactsByFirstLetter(contacts) {
     let contactsArray = Object.values(contacts);
     for (let i = 0; i < 26; i++) {
@@ -47,13 +56,7 @@ function filterContactsByFirstLetter(contacts) {
 }
 
 
-async function loadContactList() {
-    let contacts = await getAllContacts(); 
-    let sortedContacts = sortContactsAlphabetically(contacts);
-    let contactList = document.getElementById("contactList"); 
-    contactList.innerHTML = renderContactListHeader(); 
-    filterContactsByFirstLetter(sortedContacts);
-}
+
 
 
 function sortContactsAlphabetically(contacts) {
