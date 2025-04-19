@@ -88,13 +88,13 @@
 
 @keyframes fadeInContent {
     0% {
-      opacity: 0;
+        opacity: 0;
     }
-  
+
     100% {
-      opacity: 1;
+        opacity: 1;
     }
-  }
+}
 
 .logIn_content h1 {
     padding-bottom: 16px;
@@ -234,7 +234,7 @@
     font-weight: 700;
 }
 
-.mobile-header-icon {
+.mobileHeaderIcon {
     position: fixed;
     top: 50%;
     left: 50%;
