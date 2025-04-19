@@ -334,6 +334,21 @@ function renderContactInList(name, email, phone, isItMe) {
 }
 
 
+function renderContactListHeader() {
+    return `
+        <div class="alphabetInContactList"></div>
+    `;
+}
+
+
+function renderContactListHeadline(i) {
+    return `
+        <div class="alphabetInContactList">${letter(i)}</div>
+        <div class="seperatorContactList"></div>
+    `;
+}
+
+
 function renderContactDetails(name, email, phone, isItMe) {
     return `            
         <div class="contactDetailsTop">

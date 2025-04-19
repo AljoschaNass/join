@@ -18,6 +18,7 @@ async function getAllContacts(){
     return responseToJson = await response.json();
 }
 
+
 async function getAllUsersToContacts(){
     let path = "user";
     let response = await fetch(BASE_URL + path + ".json");   
@@ -29,16 +30,29 @@ async function getAllUsersToContacts(){
 }
 
 
+function filterContactsByFirstLetter(contacts) {
+    let contactsArray = Object.values(contacts);
+    for (let i = 0; i < 26; i++) {
+        let contacts_i = contactsArray.filter(contact => contact.name.startsWith(letter(i)));
+        if(contacts_i.length){
+            let contactList = document.getElementById("contactList"); 
+            contactList.innerHTML += renderContactListHeadline(i);
+            for (let index in contacts_i) {
+                let contact = contacts_i[index]; 
+                let isItMe = (contact.email === currentUserEmail) ? '(You)' : ''; // Check if the email is the same as the current user's email
+                contactList.innerHTML += renderContactInList(contact.name, contact.email, contact.phone, isItMe); 
+            } 
+        }
+    }
+}
+
+
 async function loadContactList() {
     let contacts = await getAllContacts(); 
     let sortedContacts = sortContactsAlphabetically(contacts);
     let contactList = document.getElementById("contactList"); 
-    contactList.innerHTML = ""; 
-    for (let i in sortedContacts) {
-        let contact = sortedContacts[i]; 
-        let isItMe = (contact.email === currentUserEmail) ? '(You)' : ''; // Check if the email is the same as the current user's email
-        contactList.innerHTML += renderContactInList(contact.name, contact.email, contact.phone, isItMe); 
-    } 
+    contactList.innerHTML = renderContactListHeader(); 
+    filterContactsByFirstLetter(sortedContacts);
 }
 
 
@@ -49,7 +63,7 @@ function sortContactsAlphabetically(contacts) {
     contactsArray.forEach((contact, index) => {
         sortedContacts[`contact${index + 1}`] = contact;
     });
-    return sortedContacts
+    return sortedContacts;
 }
 
 
@@ -172,3 +186,11 @@ function disableCreateContactButton() {
     createContactBtn.disabled = true; 
     createContactBtn.classList.remove("addContactBtn_enabled"); 
 }
+
+
+//für das Laden der liste nach Bucstaben
+function letter(i) {
+    let result = String.fromCharCode(65 + i); // 65 ist der ASCII-Wert für 'A'
+    return result;
+}
+
