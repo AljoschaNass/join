@@ -18,16 +18,17 @@
     <link rel="stylesheet" href="../styles/add_task.css" />
 
     <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <script src="../scripts/templates.js"></script>
     <script src="../script.js"></script>
     <script src="../scripts/header_navbar.js"></script>
     <script src="../scripts/board.js"></script>
     <script src="../scripts/add_task.js"></script>
     <script src="../scripts/remoteStorage.js"></script>
-    <script src="../scripts/templates.js"></script>
+    
 
 </head>
 
-<body onload="init(), highlightSelectedQuickLinks('board'), renderW3AddTaskTemplate()">
+<body onload="highlightSelectedQuickLinks('board'), renderW3AddTaskTemplate(), loadTasksBoard(), init()">
     <div class="d_flex">
         <nav
         class="main_nav_bar"
@@ -80,7 +81,7 @@
                     <div id="toDoBoard" class="baseBoard">
                         <div class="headTask">
                             <p>To do</p>
-                            <button onclick="createNewTask(event)">
+                            <button onclick="createNewTask(event, 'toDoTask')">
                                 <svg class="iconAdd" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <rect x="1" y="1" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2" />
@@ -91,15 +92,13 @@
                             </button>
                         </div>
                         <div id="toDoTask"  ondragover="allowDrop(event)" ondrop="drop(event)">
-                            <div id="noTaskToDo">
-                                <p>No task To Do</p>
-                            </div>
+                            
                         </div>
                     </div>
                     <div id="inProgressBoard" class="baseBoard">
                         <div class="headTask">
                             <p>In progress</p>
-                            <button onclick="createNewTask(event)">
+                            <button onclick="createNewTask(event, 'inProgressTask')">
                                 <svg class="iconAdd" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <rect x="1" y="1" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2" />
@@ -110,57 +109,13 @@
                             </button>
                         </div>
                         <div id="inProgressTask"  ondragover="allowDrop(event)" ondrop="drop(event)">
-                            <div id="taskCards" onclick="openOverlay(event)" draggable="true" ondragstart="dragStart(event)"  ondragend="dragEnd(event)">
-                                <div class="cardsFrame">
-                                    <div class="cardsLabel">
-                                        <p>User Story</p>
-                                    </div>
-                                    <div class="cardsTitleAndContent">
-                                        <p class="cardsTitle">Kochwelt Page & Recipe Recommender</p>
-                                        <p class="cardsContent">Build start page with recipe recommendation...</p>
-                                    </div>
-                                    <div class="cardsProgress">
-                                        <p id="cardsSubtasks">1/2 Subtasks</p>
-                                        <div id="cardsProgressBar" aria-valuemin="0" aria-valuemax="100"
-                                            are-valuenow="50">
-                                            <div id="progressBar" style="width: 50%;"></div>
-                                        </div>
-                                    </div>
-                                    <div id="cardsBottom">
-                                        <div id="cardsAssignedTo">
-                                            <div class="cardsAssignedToIcon contactCircleExtraSmall backgroundColorOrange">AM</div>
-                                            <div class="cardsAssignedToIcon contactCircleExtraSmall backgroundColorGreen">EM</div>
-                                            <div class="cardsAssignedToIcon contactCircleExtraSmall backgroundColorDarkBlue">MB</div>
-                                        </div>
-                                        <div id="cardsPriority">
-                                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <g clip-path="url(#clip0_298547_3334)">
-                                                    <path
-                                                        d="M23.5685 19.1666L8.43151 19.1666C8.18446 19.1666 7.94752 19.0677 7.77283 18.8918C7.59814 18.7158 7.5 18.4772 7.5 18.2283C7.5 17.9795 7.59814 17.7408 7.77283 17.5649C7.94752 17.3889 8.18446 17.29 8.43151 17.29L23.5685 17.29C23.8155 17.29 24.0525 17.3889 24.2272 17.5649C24.4019 17.7408 24.5 17.9795 24.5 18.2283C24.5 18.4772 24.4019 18.7158 24.2272 18.8918C24.0525 19.0677 23.8155 19.1666 23.5685 19.1666Z"
-                                                        fill="#FFA800" />
-                                                    <path
-                                                        d="M23.5685 14.7098L8.43151 14.7098C8.18446 14.7098 7.94752 14.6109 7.77283 14.435C7.59814 14.259 7.5 14.0204 7.5 13.7715C7.5 13.5227 7.59814 13.284 7.77283 13.1081C7.94752 12.9321 8.18446 12.8333 8.43151 12.8333L23.5685 12.8333C23.8155 12.8333 24.0525 12.9321 24.2272 13.1081C24.4019 13.284 24.5 13.5227 24.5 13.7715C24.5 14.0204 24.4019 14.259 24.2272 14.435C24.0525 14.6109 23.8155 14.7098 23.5685 14.7098Z"
-                                                        fill="#FFA800" />
-                                                </g>
-                                                <defs>
-                                                    <clipPath id="clip0_298547_3334">
-                                                        <rect width="17" height="6.33333" fill="white"
-                                                            transform="translate(7.5 12.8333)" />
-                                                    </clipPath>
-                                                </defs>
-                                            </svg>
-                                        </div>
-                                    </div>
 
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div id="awaitFeedbackBoard" class="baseBoard">
                         <div class="headTask">
                             <p>Await Feedback</p>
-                            <button onclick="createNewTask(event)">
+                            <button onclick="createNewTask(event, 'awaitFeedbackTask')">
                                 <svg class="iconAdd" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <rect x="1" y="1" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2" />

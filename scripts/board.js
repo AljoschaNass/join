@@ -59,7 +59,7 @@ function saveNewTaskData() {
     overlayRef.innerHTML = "";
 }
 
-function createNewTask(event) {
+function createNewTask(event, status) {
     event.stopPropagation();
     let dialogRef = document.getElementById("overlayBoardAddTask");
     let noScrolling = document.body;
@@ -67,6 +67,7 @@ function createNewTask(event) {
     dialogRef.classList.remove("d_none");
     dialogRef.classList.add("overlayBoard");
     const dialogElement = document.getElementById("addTaskDialogBoard");
+    dialogRef.setAttribute('status', status);
     dialogElement.addEventListener("click", (event) => {
     event.stopPropagation(); 
     }); 
@@ -79,6 +80,7 @@ async function renderW3AddTaskTemplate() {
     dialogRef.classList.add("d_none")
     dialogRef.innerHTML += getAddTaskDialogTemplate(html);
     w3.includeHTML(); 
+
 }
 
 function closeDialogAddTask() {
@@ -164,6 +166,7 @@ function dragStart(ev) {
 
 function dragEnd() {
     document.querySelectorAll('.dragAreaHighlight').forEach(el => el.remove());
+    loadTasksBoard();
 }
 
 function drop(ev) {
@@ -171,7 +174,47 @@ function drop(ev) {
     const id = ev.dataTransfer.getData("text/plain");
     const draggedElement = document.getElementById(id);
     const dropZone = ev.currentTarget;
+    const newStatus = dropZone.id; 
+    const taskId = draggedElement.id; 
+    updateTaskStatus(taskId, newStatus);
     dropZone.appendChild(draggedElement);
-    dragEnd();
+    dragEnd(); 
 }
 
+async function getAllTasks() {
+    let path = "tasks";
+    let response = await fetch(BASE_URL + path + ".json");   
+    return responseToJson = await response.json();
+}
+
+async function loadTasksBoard() {
+    let tasks = await getAllTasks();
+    const columns = {
+        "toDoTask": document.getElementById('toDoTask'),
+        "inProgressTask": document.getElementById('inProgressTask'),
+        "awaitFeedbackTask": document.getElementById('awaitFeedbackTask'),
+        "doneTask": document.getElementById('doneTask')
+    };
+    for (let key in columns) {
+        columns[key].innerHTML = '';
+    }
+    for (let taskId in tasks) {
+        let task = tasks[taskId];
+        if (columns[task.status]) {
+            columns[task.status].innerHTML += renderTaskCard(task.assignedTo, task.category, task.description, task.dueDate, task.priority, task.subtasks, task.title, taskId);
+        }
+    }
+    for (let status in columns) {
+        if (columns[status].innerHTML === '') {
+            columns[status].innerHTML = renderNoTaskCard(status);
+        }
+    }
+}
+
+async function updateTaskStatus(taskId, newStatus) {
+    let path = `tasks/${taskId}`; 
+    await fetch(BASE_URL + path + ".json", {
+        method: "PATCH",
+        body: JSON.stringify({ status: newStatus })
+    });
+}

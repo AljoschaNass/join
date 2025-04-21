@@ -403,3 +403,65 @@ function renderContactDetails(name, email, phone, isItMe) {
                     
         `;
 }
+
+function renderTaskCard(aissignedTo, category, description, dueDate, priority, subtasks, title, taskId) {
+let priorityImg = "";
+
+    if (category === "User Story") {
+        categoryClass = "userStory";
+    } else if (category === "Technical Task") {
+        categoryClass = "technicalTask";
+    }
+
+    switch (priority) {
+        case "low":
+            priorityImg = "priorityLow"; 
+            break;
+        case "medium":
+            priorityImg = "priorityMedium";
+            break;
+        case "urgent":
+            priorityImg= "priorityUrgent";
+            break;
+    }
+
+    return`
+                                <div id="${taskId}" class="taskCards"onclick="openOverlay(event)" draggable="true" ondragstart="dragStart(event)"  ondragend="dragEnd(event)">
+                                <div class="cardsFrame">
+                                    <div class="cardsLabel">
+                                        <p class="${categoryClass}">${category}</p>
+                                    </div>
+                                    <div class="cardsTitleAndContent">
+                                        <p class="cardsTitle">${title}</p>
+                                        <p class="cardsContent">${description}..</p>
+                                    </div>
+                                    <div class="cardsProgress">
+                                        <p id="cardsSubtasks">1/2 Subtasks</p>
+                                        <div id="cardsProgressBar" aria-valuemin="0" aria-valuemax="100"
+                                            are-valuenow="50">
+                                            <div id="progressBar" style="width: 50%;"></div>
+                                        </div>
+                                    </div>
+                                    <div id="cardsBottom">
+                                        <div id="cardsAssignedTo">
+                                            <div class="cardsAssignedToIcon contactCircleExtraSmall backgroundColorOrange">AM</div>
+                                            <div class="cardsAssignedToIcon contactCircleExtraSmall backgroundColorGreen">EM</div>
+                                            <div class="cardsAssignedToIcon contactCircleExtraSmall backgroundColorDarkBlue">MB</div>
+                                        </div>
+                                        <div id="cardsPriority" class="${priorityImg}">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+    `
+}
+
+function renderNoTaskCard() {
+    return`
+                            <div id="noTaskToDo">
+                                <p>No task To Do</p>
+                            </div>
+    
+    `
+}
