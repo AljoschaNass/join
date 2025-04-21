@@ -88,7 +88,20 @@ async function addContact(event) {
     closeContactDialog();
     showAddContactSuccessMessage();
     await loadContactList(); 
- }
+}
+
+async function saveContact(event) { 
+    event.preventDefault();
+    let name = document.getElementById("editContactName").value;
+    let email = document.getElementById("editContactEmail").value;
+    let phone = document.getElementById("editContactPhone").value;	
+    isItMe = (email === currentUserEmail) ? true : false; // Check if the email is the same as the current user's email
+    await postContact("contacts", name, email, phone); 
+    closeEditContactDialog();
+    await loadContactList(); 
+}
+
+
 
 
 async function deleteContact(email) {
@@ -140,6 +153,19 @@ function openContactDialog() {
     });
 }
 
+function openEditContactDialog() {
+    let overlayRef = document.getElementById("overlayEditContacts");
+    let noScrolling = document.body;
+    noScrolling.classList.add("stopScrolling");
+    overlayRef.classList.remove("d_none");
+    let overlayBackground = document.getElementById("edit_contact_background");
+    overlayBackground.addEventListener("click", (event) => {
+        if (!event.target.closest('.edit_contact_container')) {
+            closeContactDialog();
+        }
+    });
+}
+
 
 function closeContactDialog() {
     let overlayRef = document.getElementById("overlayContacts");
@@ -149,6 +175,14 @@ function closeContactDialog() {
     document.getElementById("addContactName").value ='';
     document.getElementById("addContactEmail").value = '';
     document.getElementById("addContactPhone").value = '';
+}
+
+
+function closeEditContactDialog() {
+    let overlayRef = document.getElementById("overlayEditContacts");
+    let noScrolling = document.body;
+    noScrolling.classList.remove("stopScrolling");
+    overlayRef.classList.add("d_none");
 }
 
 
