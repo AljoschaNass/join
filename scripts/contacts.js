@@ -163,7 +163,7 @@ function openEditContactDialog(event) {
     const dialogElement = document.getElementById("edit_contact_background");
     dialogElement.addEventListener("click", (event) => {closeEditContactDialog();
     });
-    const editContactContainer = document.querySelector('edit_contact_container');
+    const editContactContainer = document.querySelector('.add_contact_container');
     editContactContainer.addEventListener("click", (event) => {event.stopPropagation();
     });
 }
@@ -237,4 +237,12 @@ function letter(i) {
 function setBackgroundcolor() {
     number = Math.floor(Math.random() * 16) + 1;
     return `backgroundColor${number}`;
+}
+
+
+function fillInputFieldsWithCurrentData(name, email, phone, backgroundcolor) {
+    document.getElementById("editContactName").value = name;
+    document.getElementById("editContactEmail").value = email;
+    document.getElementById("editContactPhone").value = phone;
+    document.getElementById("edit_contact_img").classList.add(backgroundcolor);
 }
