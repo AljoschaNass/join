@@ -56,7 +56,7 @@ function filterContactsByFirstLetter(contacts) {
     let contactsArray = Object.values(contacts);
     let contactList = document.getElementById("contactList"); 
     for (let i = 0; i < 26; i++) {
-        let contacts_i = contactsArray.filter(contact => contact.name.startsWith(letter(i)));
+        let contacts_i = contactsArray.filter(contact => contact.name.toUpperCase().startsWith(letter(i)));
         if(contacts_i.length){
             contactList.innerHTML += renderContactListHeadline(i);
             contacts_i.forEach(contact => {
