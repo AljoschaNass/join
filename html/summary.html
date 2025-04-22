@@ -45,14 +45,14 @@
                                 <div onclick="switchToBoard()" class="summary_card_medium bShadow_blur4_opacity01" onmouseover="changeImage(this)" onmouseout="resetImage(this)">
                                     <img class="summary_card_icon" src="../assets/img/icons/pen_grey.svg" alt="To-do" />
                                     <div class="summary_card_content_medium">
-                                        <div class="summary_card_number">1</div>
+                                        <div class="summary_card_number" id="summary_number_of_to_do_tasks">1</div>
                                         <div class="summary_card_title">To-do</div>
                                     </div>
                                 </div>
                                 <div onclick="switchToBoard()" class="summary_card_medium bShadow_blur4_opacity01" onmouseover="changeImage(this)" onmouseout="resetImage(this)">
                                     <img class="summary_card_icon" src="../assets/img/icons/check_grey.svg" alt="Done" />
                                     <div class="summary_card_content_medium">
-                                        <div class="summary_card_number">1</div>
+                                        <div class="summary_card_number" id="summary_number_of_done_tasks">1</div>
                                         <div class="summary_card_title">Done</div>
                                     </div>
                                 </div>
@@ -62,13 +62,13 @@
                                     <div class="summary_card">
                                         <img class="summary_card_icon_urgent" src="../assets/img/icons/priority_urgent_red_circle.svg" alt="Urgent" />
                                         <div class="summary_card_content_medium">
-                                            <div class="summary_card_number">1</div>
+                                            <div class="summary_card_number" id="summary_number_of_urgent_tasks">1</div>
                                             <div class="summary_card_title">Urgent</div>
                                         </div>
                                     </div>
                                     <div class="greyLine"></div>
                                     <div class="summary_card_content_large">
-                                        <div class="summary_card_deadline">October 16, 2022</div>
+                                        <div id="summary_next_deadline">October 16, 2022</div>
                                         <div class="summary_card_title_large">Upcoming Deadline</div>
                                     </div>
                                 </div>
@@ -76,19 +76,19 @@
                             <div class="summary_line">
                                 <div onclick="switchToBoard()" class="summary_card_small bShadow_blur4_opacity01 ">
                                     <div class="summary_card_content_small">
-                                        <div class="summary_card_number">5</div>
+                                        <div class="summary_card_number" id="summary_number_of_tasks_in_board">5</div>
                                         <div class="summary_card_title">Tasks in Board</div>
                                     </div>
                                 </div>
                                 <div onclick="switchToBoard()" class="summary_card_small bShadow_blur4_opacity01 ">
                                     <div class="summary_card_content_small">
-                                        <div class="summary_card_number">2</div>
+                                        <div class="summary_card_number" id="summary_number_of_in_progress_tasks">2</div>
                                         <div class="summary_card_title">Tasks in Progress</div>
                                     </div>
                                 </div>
                                 <div onclick="switchToBoard()" class="summary_card_small bShadow_blur4_opacity01 ">
                                     <div class="summary_card_content_small">
-                                        <div class="summary_card_number">2</div>
+                                        <div class="summary_card_number" id="summary_number_of_await_feedback_tasks">2</div>
                                         <div class="summary_card_title">Awaiting Feedback</div>
                                     </div>
                                 </div>

@@ -404,6 +404,7 @@ function renderContactDetails(name, email, phone, isItMe, backgroundcolor) {
         `;
 }
 
+
 function renderTaskCard(aissignedTo, category, description, dueDate, priority, subtasks, title, taskId) {
 let priorityImg = "";
 
@@ -456,6 +457,7 @@ let priorityImg = "";
                             </div>
     `
 }
+
 
 function renderNoTaskCard() {
     return`
