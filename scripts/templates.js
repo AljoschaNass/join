@@ -321,7 +321,7 @@ function getAddTaskDialogTemplate() {
 
 function renderContactInList(name, email, phone, isItMe, backgroundcolor) {
     return `
-            <div class="contactInList" onclick="selectContact(event); loadContactDetails('${name}', '${email}', '${phone}', ${backgroundcolor});">
+            <div class="contactInList" onclick="selectContact(event); loadContactDetails('${name}', '${email}', '${phone}', '${backgroundcolor}');">
                 <div class="contactCircleSmall ${backgroundcolor}">
                     ${setContactInitials(name)}
                 </div>
