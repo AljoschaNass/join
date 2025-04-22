@@ -14,6 +14,7 @@ function togglePasswordVisibility(inputId) {
   }
 } 
 
+
 /*Changes the color of the input field & field icon when focused */
 function onFocus(inputId) {
   let x = document.getElementById(inputId);

@@ -7,10 +7,12 @@ function toggleRespMenu() {
     document.getElementById("header_user_profile").classList.toggle("bg_grey");
 }
 
+
 function highlightSelectedQuickLinks(id){
     sessionStorage.setItem("oldQuickLink", sessionStorage.getItem("newQuickLink"));
     sessionStorage.setItem("newQuickLink", id);
 }
+
 
 function setHighlight() {  
     showNavbarIfLoggedIn();
@@ -25,11 +27,13 @@ function setHighlight() {
     hideHelpIconHeader(savedNewQuickLink);
 }
 
+
 function setOldLinkToSummaryIfNull(savedOldQuickLink) {
     if (!savedOldQuickLink) {
         sessionStorage.setItem("oldQuickLink", "summary");
     } 
 }
+
 
 function setBgQuickLinksNavbar(savedNewQuickLink) {
     if(savedNewQuickLink != "help") {
@@ -38,11 +42,13 @@ function setBgQuickLinksNavbar(savedNewQuickLink) {
     }
 }
 
+
 function ifQuickLinkSameOrHelp(savedOldQuickLink, savedNewQuickLink) {
     if (savedOldQuickLink != savedNewQuickLink || savedOldQuickLink == "help") {                    
         document.getElementById("quick_link_" + savedOldQuickLink).classList.remove("bg_dark_blue");
     }
 }
+
 
 function hideHeaderRight(savedNewQuickLink) {
     if(savedNewQuickLink == "privacy_police" || savedNewQuickLink == "legal_notice") {
@@ -51,11 +57,13 @@ function hideHeaderRight(savedNewQuickLink) {
     }
 }
 
+
 function hideHelpIconHeader(savedNewQuickLink) {
     if(savedNewQuickLink == "help") {
         document.getElementById("quick_link_help").classList.add("d_none");
     }
 }
+
 
 function checkIdNotNull() {
     let ref = document.getElementById("quick_link_summary");
@@ -63,6 +71,7 @@ function checkIdNotNull() {
         setHighlight();
     }
 }
+
 
 function logOut() {
     localStorage.removeItem("currentUserName");
@@ -72,6 +81,7 @@ function logOut() {
     currentUserName = ""; 
 }
 
+
 function showNavbarIfLoggedIn(){
     getCurrentUserFromLocalStorage();
     if (currentUserName == null) {
@@ -79,6 +89,7 @@ function showNavbarIfLoggedIn(){
         document.getElementById("navbar_login").classList.add("d_none");
     }
 }
+
 
 function setUserProfileInitials() {
     let userNameRef = JSON.parse(localStorage.getItem(`currentUserName`)).toUpperCase();

@@ -1,4 +1,4 @@
-async function postContact(path="contacts", name, email, phone){//erstellen neuer recoursen - nicht idempotent, dh mehrere ausführungen können mehrere einträge erzeugen
+async function postContact(path="contacts", name, email, phone /*, backgroundcolor*/){//erstellen neuer recoursen - nicht idempotent, dh mehrere ausführungen können mehrere einträge erzeugen
     let contact = {
         'name': name, 
         'email': email,
@@ -188,9 +188,15 @@ function disableCreateContactButton() {
 }
 
 
-//für das Laden der liste nach Bucstaben
 function letter(i) {
     let result = String.fromCharCode(65 + i); // 65 ist der ASCII-Wert für 'A'
     return result;
 }
 
+
+function setBackgroundcolor() {
+    number = Math.floor(Math.random() * 16) + 1;
+    return `
+        backgroundColor${number}
+    `;
+}

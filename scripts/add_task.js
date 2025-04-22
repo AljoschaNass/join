@@ -1,6 +1,7 @@
 
 let currentPriority = "";
 
+
 function setBtnPriority(priority) {
     if (currentPriority == priority) {
         removeAllPriosityBg();
@@ -13,17 +14,20 @@ function setBtnPriority(priority) {
     }
 }
 
+
 function removeAllPriosityBg() {
     document.getElementById("add_task_btn_priority_urgent").classList.remove("priority_color_urgent");
     document.getElementById("add_task_btn_priority_medium").classList.remove("priority_color_medium");
     document.getElementById("add_task_btn_priority_low").classList.remove("priority_color_low");
 }
 
+
 function checkRequiredBtnAddTask() {
     checkRequiredTitel();
     checkRequiredDate();
     checkRequiredCategory(); 
 }
+
 
 function checkRequiredTitel() {
     let titleRef = document.getElementById("add_task_title").value;
@@ -36,6 +40,7 @@ function checkRequiredTitel() {
     }
 }
 
+
 function checkRequiredDate() {
     let dateRef = document.getElementById("add_task_date").value;
     let dateRequiredRef = document.getElementById("add_task_required_date");
@@ -46,6 +51,7 @@ function checkRequiredDate() {
         dateRequiredRef.innerText = "";
     }
 }
+
 
 function checkRequiredCategory() {
     let categoryRef = document.getElementById("addTaskCategoryInput").value;
@@ -58,16 +64,19 @@ function checkRequiredCategory() {
     }
 }
 
+
 function arrowDropDownSelection(id) {
     document.getElementById(id + "DropDown").classList.toggle("d_none");
     document.getElementById(id + "Input").classList.toggle("arrowDropUp")
 }
+
 
 function addTaskselectCategory(category) {
     document.getElementById("addTaskCategoryInput").value = category;
     checkRequiredCategory();
     arrowDropDownSelection('addTaskCategory');
 }
+
 
 async function postTask(path="task", title, description, dueDate, priority, assignedTo, category, subtasks) {
     let task = {
@@ -85,6 +94,7 @@ async function postTask(path="task", title, description, dueDate, priority, assi
     let responseToJson = await response.json();
     return responseToJson;
 }
+
 
 async function addTask() { 
     let title = document.getElementById("add_task_title").value;
@@ -104,6 +114,7 @@ async function addTask() {
     }
 }
 
+
 function clearAddTaskForm() {
     document.getElementById("add_task_title").value = "";
     document.getElementById("add_task_description").value = "";
@@ -118,6 +129,7 @@ function clearAddTaskForm() {
     diableCreateTaskButton(createTaskBtn);
 }
 
+
 function enableCreateTaskButton() {
     let titleRef = document.getElementById("add_task_title").value;
     let dateRef = document.getElementById("add_task_date").value;
@@ -130,17 +142,22 @@ function enableCreateTaskButton() {
     }
 }
 
+
 function diableCreateTaskButton(createTaskBtn) {
     createTaskBtn.disabled = true;
     createTaskBtn.classList.remove("btn_create_enabled");
 }
 
+
 //function addSubtask() {}
+
 
 function clearSubtaskInput() {
     document.getElementById("add_task_subtask").value = "";
 }
 
+
 //function editSubtask() {}
+
 
 //function deleteSubtask(id) {}

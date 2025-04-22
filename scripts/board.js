@@ -11,6 +11,7 @@ function openOverlay(event, index) {
     });    
 }
 
+
 function closeDialog() {
     let overlayRef = document.getElementById("overlayBoard");
     let noScrolling = document.body;
@@ -19,11 +20,13 @@ function closeDialog() {
     overlayRef.innerHTML = "";
 }
 
+
 function editTask() {
     let dialogRef = document.getElementById("dialogBoard");
     dialogRef.innerHTML = "";
     dialogRef.innerHTML += getEditDialogTemplate();
 }
+
 
 function selectUrgentPriority() {
     let urgentRef = document.getElementById("urgentPriority")
@@ -32,12 +35,14 @@ function selectUrgentPriority() {
     document.getElementById("lowPriority").classList.remove("lowPriorityButtonSelected");
 }
 
+
 function selectMediumPriority() {
     let mediumRef = document.getElementById("mediumPriority")
     mediumRef.classList.toggle("mediumPriorityButtonSelected");
     document.getElementById("urgentPriority").classList.remove("urgentPriorityButtonSelected");
     document.getElementById("lowPriority").classList.remove("lowPriorityButtonSelected");
 }
+
 
 function selectLowPriority() {
     let lowRef = document.getElementById("lowPriority")
@@ -46,10 +51,12 @@ function selectLowPriority() {
     document.getElementById("mediumPriority").classList.remove("mediumPriorityButtonSelected");
 }
 
+
 function assignedContactToTask() {
     document.getElementById("editDialogBoardAssignedToDropDown").classList.toggle("d_none");
     document.getElementById("editDialogBoardAssignedToInput").classList.toggle("arrowDropUp")
 }
+
 
 function saveNewTaskData() {
     let overlayRef = document.getElementById("overlayBoard");
@@ -58,6 +65,7 @@ function saveNewTaskData() {
     overlayRef.classList.remove("overlayBoard");
     overlayRef.innerHTML = "";
 }
+
 
 async function createNewTask(event) {
     event.stopPropagation();
@@ -74,10 +82,12 @@ async function createNewTask(event) {
     }); 
 }
 
+
 function subtaskEdit(event) {
     editableListItem(event);
     changeButtons(event);
 }
+
 
 function editableListItem(event) {
     const listItem = event.target.closest('.editDivSubtasks').closest('.editDialogBoardSubtasksAdded').querySelector('li');
@@ -85,6 +95,7 @@ function editableListItem(event) {
     listItem.classList.add('editable');
     listItem.focus();
 }
+
 
 function changeButtons(event) {
     const editDiv = event.target.closest('.editDivSubtasks');
@@ -99,11 +110,13 @@ function subtaskSave(event) {
     changeButtons2(event);
 }
 
+
 function editableListItem2(event) {
     const listItem = event.target.closest('.editDivSubtasks2').closest('.editDialogBoardSubtasksAdded').querySelector('li');
     listItem.removeAttribute('contenteditable');
     listItem.classList.remove('editable');
 }
+
 
 function changeButtons2(event) {
     const editDiv = event.target.closest('.editDivSubtasks2');
@@ -112,10 +125,12 @@ function changeButtons2(event) {
     editDiv.closest('.editDialogBoardSubtasksAdded').classList.remove('underline');
 }
 
+
 function selectContactToAssignTask(event) {
     changeBackgroundColor(event);
     changeCheckbox(event);
 }
+
 
 function changeBackgroundColor(event) {
     const contactDiv = event.target.closest('.dropDownContacts');
@@ -123,15 +138,18 @@ function changeBackgroundColor(event) {
     contactDiv.classList.toggle('contactUnchecked');
 }
 
+
 function changeCheckbox(event) {
     const  checkboxDiv = event.target.closest('.dropDownContacts').querySelector('.editDialogBoardAssignedToDropDownCheckbox');
     checkboxDiv.classList.toggle('contactCheckedCheckbox');
     checkboxDiv.classList.toggle('contactUncheckedCheckbox');
 }
 
+
 function allowDrop(ev) {
     ev.preventDefault();
 }
+
 
 function dragStart(ev) {
     ev.dataTransfer.setData("text/plain", ev.target.id);
@@ -148,9 +166,11 @@ function dragStart(ev) {
     }
 }
 
+
 function dragEnd() {
     document.querySelectorAll('.dragAreaHighlight').forEach(el => el.remove());
 }
+
 
 function drop(ev) {
     ev.preventDefault();
