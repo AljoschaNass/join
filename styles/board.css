@@ -257,7 +257,7 @@ margin-bottom: 10px;
     background-position-y: 50%;
 }
 
-#taskCards:active {
+.taskCards:active {
     transform: rotate(5deg);
 }
 
