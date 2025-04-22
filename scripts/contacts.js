@@ -33,8 +33,7 @@ async function getAllUsersToContacts(){
 function loadContactDetails(name, email, phone, backgroundcolor) {
     let contactCard = document.getElementById("contactDetails"); 
     contactCard.innerHTML = ''; // Clear the contact card before adding new contacts
-    let isItMe = (email === currentUserEmail) ? '(You)' : ''; // Check if the email is the same as the current user's email
-    contactCard.innerHTML += renderContactDetails(name, email, phone, isItMe, backgroundcolor); 
+    contactCard.innerHTML += renderContactDetails(name, email, phone, isItMyEmail(email), backgroundcolor); 
 }
 
 
@@ -47,19 +46,22 @@ async function loadContactList() {
 }
 
 
+function isItMyEmail(email) {
+    getCurrentUserFromLocalStorage(); 
+    return (email === currentUserEmail) ? '(You)' : ''; 
+}
+
+
 function filterContactsByFirstLetter(contacts) {
     let contactsArray = Object.values(contacts);
+    let contactList = document.getElementById("contactList"); 
     for (let i = 0; i < 26; i++) {
         let contacts_i = contactsArray.filter(contact => contact.name.startsWith(letter(i)));
         if(contacts_i.length){
-            let contactList = document.getElementById("contactList"); 
             contactList.innerHTML += renderContactListHeadline(i);
-            for (let index in contacts_i) {
-                let contact = contacts_i[index]; 
-                let isItMe = (contact.email === currentUserEmail) ? '(You)' : ''; // Check if the email is the same as the current user's email
-                let backgroundcolor = setBackgroundcolor();
-                contactList.innerHTML += renderContactInList(contact.name, contact.email, contact.phone, isItMe, backgroundcolor); 
-            } 
+            contacts_i.forEach(contact => {
+                contactList.innerHTML += renderContactInList(contact.name, contact.email, contact.phone, isItMyEmail(contact.email), setBackgroundcolor()); 
+            });
         }
     }
 }
