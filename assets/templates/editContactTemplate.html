@@ -1,12 +1,14 @@
 <div class="add_contact_background" id="edit_contact_background">
-    <div class="add_contact_container">
+    <div class="add_contact_container" id="edit_contact_container">
         <div class="add_contact_left gap_12">
             <img src="../assets/img/join_logo.svg" alt="join logo" class="add_contact_logo">
             <h1 class="edit_contact_title">Edit Contact</h1>
             <div class="blue_line_90x3"></div>
         </div>
         <div class="add_contact_middle">
-            <img src="../assets/img/icons/add_contact_icon.svg" alt="addContact" class="add_contact_img" id="edit_contact_img">
+            <div class="contactIcon">
+                <div class="contactCircleBig" id="edit_contact_img"></div>
+            </div> 
         </div>
         <div class="add_contact_right">
             <div class="close_overlay">
@@ -30,7 +32,7 @@
                 </div>
                 <div class="add_contact_btns">
                     <button onclick="closeEditContactDialog()" class="delete_contact_btn">Delete</button>
-                    <button type="submit" onclick="saveContact(event)" class="save_contact_btn" id="saveContactBtn">Save</button>
+                    <button type="submit" onclick="saveEditedContact(event)" class="save_contact_btn" id="saveContactBtn">Save</button>
                 </div>
             </form>
         </div>

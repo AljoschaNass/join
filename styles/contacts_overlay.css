@@ -53,6 +53,12 @@
     background-color: #ffffff;
     flex: 1;
     padding: 100px 64px 100px 64px;
+
+    & .contactIcon {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 80px;
+    }
 }
 
 .add_contact_img {

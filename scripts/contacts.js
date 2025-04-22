@@ -12,6 +12,20 @@ async function postContact(path="contacts", name, email, phone /*, backgroundcol
 }
 
 
+async function putContact(path, name, email, phone /*, backgroundcolor*/){
+    let contact = {
+        'name': name, 
+        'email': email,
+        'phone': phone
+    };
+    let response = await fetch(BASE_URL + path + ".json", {
+        method: "PUT", headers: {'Content-Type': 'application/json', }, body: JSON.stringify(contact)
+    });
+    let responseToJson = await response.json();
+    return responseToJson;
+}
+
+
 async function getAllContacts(){
     let path = "contacts";
     let response = await fetch(BASE_URL + path + ".json");   
@@ -96,8 +110,20 @@ async function saveContact(event) {
     let name = document.getElementById("editContactName").value;
     let email = document.getElementById("editContactEmail").value;
     let phone = document.getElementById("editContactPhone").value;	
-    isItMe = (email === currentUserEmail) ? true : false; // Check if the email is the same as the current user's email
     await postContact("contacts", name, email, phone); 
+    closeContactDialog();
+    await loadContactList(); 
+}
+
+
+async function saveEditedContact(event) { 
+    event.preventDefault();
+    event.stopPropagation();
+    let name = document.getElementById("editContactName").value;
+    let email = document.getElementById("editContactEmail").value;
+    let phone = document.getElementById("editContactPhone").value;
+    let i = await findContactPositionByEmail(email);	
+    await putContact("contacts/" + i, name, email, phone); 
     closeEditContactDialog();
     await loadContactList(); 
 }
@@ -163,7 +189,7 @@ function openEditContactDialog(event) {
     const dialogElement = document.getElementById("edit_contact_background");
     dialogElement.addEventListener("click", (event) => {closeEditContactDialog();
     });
-    const editContactContainer = document.querySelector('.add_contact_container');
+    const editContactContainer = document.querySelector('#edit_contact_container');
     editContactContainer.addEventListener("click", (event) => {event.stopPropagation();
     });
 }
@@ -245,4 +271,5 @@ function fillInputFieldsWithCurrentData(name, email, phone, backgroundcolor) {
     document.getElementById("editContactEmail").value = email;
     document.getElementById("editContactPhone").value = phone;
     document.getElementById("edit_contact_img").classList.add(backgroundcolor);
+    document.getElementById("edit_contact_img").innerHTML = setContactInitials(name);
 }
