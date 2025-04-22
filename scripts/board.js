@@ -66,12 +66,8 @@ function saveNewTaskData() {
     overlayRef.innerHTML = "";
 }
 
-<<<<<<< HEAD
 
 async function createNewTask(event) {
-=======
-function createNewTask(event, status) {
->>>>>>> 702ffd2e4b2df70746d78552997638008f2d42f7
     event.stopPropagation();
     let dialogRef = document.getElementById("overlayBoardAddTask");
     let noScrolling = document.body;
@@ -85,25 +81,6 @@ function createNewTask(event, status) {
     }); 
 }
 
-<<<<<<< HEAD
-=======
-async function renderW3AddTaskTemplate() {
-    const res = await fetch('../assets/templates/addTaskTemplate.html');
-    const html = await res.text(); 
-    let dialogRef = document.getElementById("overlayBoardAddTask");
-    dialogRef.classList.add("d_none")
-    dialogRef.innerHTML += getAddTaskDialogTemplate(html);
-    w3.includeHTML(); 
-
-}
-
-function closeDialogAddTask() {
-    let overlayRef = document.getElementById("overlayBoardAddTask");
-    let noScrolling = document.body;
-    noScrolling.classList.remove("stopScrolling");
-    overlayRef.classList.remove("overlayBoard");
-}
->>>>>>> 702ffd2e4b2df70746d78552997638008f2d42f7
 
 function subtaskEdit(event) {
     editableListItem(event);

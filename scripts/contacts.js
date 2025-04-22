@@ -30,6 +30,14 @@ async function getAllUsersToContacts(){
 }
 
 
+function loadContactDetails(name, email, phone, backgroundcolor) {
+    let contactCard = document.getElementById("contactDetails"); 
+    contactCard.innerHTML = ''; // Clear the contact card before adding new contacts
+    let isItMe = (email === currentUserEmail) ? '(You)' : ''; // Check if the email is the same as the current user's email
+    contactCard.innerHTML += renderContactDetails(name, email, phone, isItMe, backgroundcolor); 
+}
+
+
 async function loadContactList() {
     let contacts = await getAllContacts(); 
     let sortedContacts = sortContactsAlphabetically(contacts);
@@ -49,14 +57,12 @@ function filterContactsByFirstLetter(contacts) {
             for (let index in contacts_i) {
                 let contact = contacts_i[index]; 
                 let isItMe = (contact.email === currentUserEmail) ? '(You)' : ''; // Check if the email is the same as the current user's email
-                contactList.innerHTML += renderContactInList(contact.name, contact.email, contact.phone, isItMe); 
+                let backgroundcolor = setBackgroundcolor();
+                contactList.innerHTML += renderContactInList(contact.name, contact.email, contact.phone, isItMe, backgroundcolor); 
             } 
         }
     }
 }
-
-
-
 
 
 function sortContactsAlphabetically(contacts) {
@@ -67,14 +73,6 @@ function sortContactsAlphabetically(contacts) {
         sortedContacts[`contact${index + 1}`] = contact;
     });
     return sortedContacts;
-}
-
-
-function loadContactDetails(name, email, phone) {
-    let contactCard = document.getElementById("contactDetails"); 
-    contactCard.innerHTML = ''; // Clear the contact card before adding new contacts
-    let isItMe = (email === currentUserEmail) ? '(You)' : ''; 
-    contactCard.innerHTML = renderContactDetails(name, email, phone, isItMe); 
 }
 
 
@@ -90,6 +88,7 @@ async function addContact(event) {
     await loadContactList(); 
 }
 
+
 async function saveContact(event) { 
     event.preventDefault();
     let name = document.getElementById("editContactName").value;
@@ -100,8 +99,6 @@ async function saveContact(event) {
     closeEditContactDialog();
     await loadContactList(); 
 }
-
-
 
 
 async function deleteContact(email) {
@@ -152,6 +149,7 @@ function openContactDialog() {
         }
     });
 }
+
 
 function openEditContactDialog() {
     let overlayRef = document.getElementById("overlayEditContacts");
@@ -233,7 +231,5 @@ function letter(i) {
 
 function setBackgroundcolor() {
     number = Math.floor(Math.random() * 16) + 1;
-    return `
-        backgroundColor${number}
-    `;
+    return `backgroundColor${number}`;
 }
