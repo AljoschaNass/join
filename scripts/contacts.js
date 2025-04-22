@@ -175,6 +175,7 @@ function closeContactDialog() {
     document.getElementById("addContactName").value ='';
     document.getElementById("addContactEmail").value = '';
     document.getElementById("addContactPhone").value = '';
+    disableCreateContactButton();
 }
 
 
@@ -210,7 +211,7 @@ function enableCreateContactButton() {
     let email = document.getElementById("addContactEmail");
     let phone= document.getElementById("addContactPhone");
     let createContactBtn = document.getElementById("addContactBtn");
-    disableCreateContactButton()
+    disableCreateContactButton();
     if (name.value && email.value && phone.value) {
         createContactBtn.disabled = false; 
         createContactBtn.classList.add("addContactBtn_enabled"); 

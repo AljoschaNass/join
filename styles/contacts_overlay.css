@@ -221,7 +221,13 @@
     &:hover {
         background-color:#29ABE2 !important;
         border-color:#29ABE2 !important;
-        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) !important;
+    }
+
+    &:active {
+        background-color: #091931 !important;
+        border-color:#091931 !important;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
 }
 
@@ -253,8 +259,15 @@
     &:hover {
         border-color: #29ABE2;
         color: #29ABE2;
-        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         background-image: url(../assets/img/icons/X_blue.svg);
+    }
+
+    &:active {
+        color: #091931 !important;
+        border-color:#091931 !important;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        background-image: url(../assets/img/icons/X.svg);
     }
 }
 
