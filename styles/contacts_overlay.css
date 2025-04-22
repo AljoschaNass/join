@@ -32,7 +32,7 @@
     z-index: 3;
     background-color: #2A3647;
     color: #ffffff;
-    padding: 66px 48px 66px 48px; 
+    padding: 66px 48px 132px 48px; 
     border-start-start-radius: 30px;
     border-end-start-radius: 30px;
 }
@@ -179,6 +179,33 @@
     }
 }
 
+.save_contact_btn {
+    display : flex;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #2A3647;
+    background-color: #2A3647;
+    color: white;
+    font-size: 21px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    padding: 16px 40px 16px 16px;
+    gap: 4px;
+    background-image: url(../assets/img/icons/check_white.svg);
+    background-repeat: no-repeat;
+    background-position: calc(100% - 14px) center;
+   
+    &:hover {
+        background-color:#29ABE2;
+        border-color:#29ABE2;
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    }
+}
+
 #addContactBtn {
     border-color: #A8A8A8;
     background-color: #A8A8A8;
@@ -229,4 +256,36 @@
         box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
         background-image: url(../assets/img/icons/X_blue.svg);
     }
+}
+
+.delete_contact_btn {
+    display: flex;
+    flex-direction: row;  
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #2A3647;
+    text-decoration: none;
+    color: #2A3647;
+    font-size: 21px;
+    font-weight: 700;
+    background-color: white;
+    padding: 16px 16px 16px 16px;
+    gap: 4px; 
+
+    &:hover {
+        border-color: #29ABE2;
+        color: #29ABE2;
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    }
+}
+
+.edit_contact_title {
+    padding-bottom: 0;;
+}
+
+.add_contact_title {
+    padding-bottom: 0;;
 }

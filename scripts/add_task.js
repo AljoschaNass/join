@@ -77,8 +77,7 @@ function addTaskselectCategory(category) {
     arrowDropDownSelection('addTaskCategory');
 }
 
-
-async function postTask(path="task", title, description, dueDate, priority, assignedTo, category, subtasks) {
+async function postTask(path="tasks", title, description, dueDate, priority, assignedTo, category, subtasks, status) {
     let task = {
         'title': title, 
         'description': description,
@@ -86,7 +85,8 @@ async function postTask(path="task", title, description, dueDate, priority, assi
         'priority': priority,
         'assignedTo': assignedTo,
         'category': category,
-        'subtasks': subtasks
+        'subtasks': subtasks,
+        'status': status
     };
     let response = await fetch(BASE_URL + path + ".json", {
         method: "POST", headers: {'Content-Type': 'application/json', }, body: JSON.stringify(task)
@@ -95,8 +95,7 @@ async function postTask(path="task", title, description, dueDate, priority, assi
     return responseToJson;
 }
 
-
-async function addTask() { 
+async function addTask(status) { 
     let title = document.getElementById("add_task_title").value;
     let description = document.getElementById("add_task_description").value;
     let dueDate = document.getElementById("add_task_date").value;
@@ -107,7 +106,7 @@ async function addTask() {
     document.getElementById("taskAdded").classList.remove("d_none");
 
     if(title != "" && dueDate != "" && category != "") {
-        await postTask("task", title, description, dueDate, priority, assignedTo, category, subtasks); 
+        await postTask("tasks", title, description, dueDate, priority, assignedTo, category, subtasks, status); 
         setTimeout(() => {
             window.location.href = "./board.html";
         }, 1000);

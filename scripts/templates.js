@@ -300,10 +300,10 @@ function getEditDialogTemplate(index) {
 
 function getAddTaskDialogTemplate() {
     return `
-                <div class="addTaskDialogBoard" id="addTaskDialogBoard">
+            <div class="addTaskDialogBoard" id="addTaskDialogBoard">
                 <div class="addTaskDialogBoardFrame">
                     <div w3-include-html="../assets/templates/addTaskTemplate.html" class="addTaskTemplate"></div>
-                    <button class="addTaskDialogBoardClose" onclick="closeDialog()">
+                    <button class="addTaskDialogBoardClose" onclick="closeDialogAddTask()">
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <mask id="mask0_71720_5535" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="4" y="4" width="24" height="24">
                             <rect x="4" y="4" width="24" height="24" fill="#D9D9D9"/>
@@ -358,7 +358,7 @@ function renderContactDetails(name, email, phone, isItMe) {
             <div>
                 <div class="contactName">${name} ${isItMe}</div>
                 <div class="contactDetailsButtons">
-                    <div class="contactButton">
+                    <div class="contactButton" onclick="openEditContactDialog()">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <mask id="mask0_298547_4257" style="mask-type:alpha"
@@ -402,4 +402,66 @@ function renderContactDetails(name, email, phone, isItMe) {
         </div>
                     
         `;
+}
+
+function renderTaskCard(aissignedTo, category, description, dueDate, priority, subtasks, title, taskId) {
+let priorityImg = "";
+
+    if (category === "User Story") {
+        categoryClass = "userStory";
+    } else if (category === "Technical Task") {
+        categoryClass = "technicalTask";
+    }
+
+    switch (priority) {
+        case "low":
+            priorityImg = "priorityLow"; 
+            break;
+        case "medium":
+            priorityImg = "priorityMedium";
+            break;
+        case "urgent":
+            priorityImg= "priorityUrgent";
+            break;
+    }
+
+    return`
+                                <div id="${taskId}" class="taskCards"onclick="openOverlay(event)" draggable="true" ondragstart="dragStart(event)"  ondragend="dragEnd(event)">
+                                <div class="cardsFrame">
+                                    <div class="cardsLabel">
+                                        <p class="${categoryClass}">${category}</p>
+                                    </div>
+                                    <div class="cardsTitleAndContent">
+                                        <p class="cardsTitle">${title}</p>
+                                        <p class="cardsContent">${description}..</p>
+                                    </div>
+                                    <div class="cardsProgress">
+                                        <p id="cardsSubtasks">1/2 Subtasks</p>
+                                        <div id="cardsProgressBar" aria-valuemin="0" aria-valuemax="100"
+                                            are-valuenow="50">
+                                            <div id="progressBar" style="width: 50%;"></div>
+                                        </div>
+                                    </div>
+                                    <div id="cardsBottom">
+                                        <div id="cardsAssignedTo">
+                                            <div class="cardsAssignedToIcon contactCircleExtraSmall backgroundColorOrange">AM</div>
+                                            <div class="cardsAssignedToIcon contactCircleExtraSmall backgroundColorGreen">EM</div>
+                                            <div class="cardsAssignedToIcon contactCircleExtraSmall backgroundColorDarkBlue">MB</div>
+                                        </div>
+                                        <div id="cardsPriority" class="${priorityImg}">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+    `
+}
+
+function renderNoTaskCard() {
+    return`
+                            <div id="noTaskToDo">
+                                <p>No task To Do</p>
+                            </div>
+    
+    `
 }
