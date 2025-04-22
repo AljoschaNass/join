@@ -87,7 +87,7 @@ function closeDialogAddTask() {
     let overlayRef = document.getElementById("overlayBoardAddTask");
     let noScrolling = document.body;
     noScrolling.classList.remove("stopScrolling");
-    overlayRef.classList.remove("overlayBoard");
+    overlayRef.classList.add("d_none");
 }
 
 function subtaskEdit(event) {
