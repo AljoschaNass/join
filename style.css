@@ -231,10 +231,11 @@
     transform: translateX(-50%);
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 10px;
     background-color: #f6f7f8; 
+    width: 244px;
 }
 
 .footer_logIn a {
@@ -245,11 +246,12 @@
     font-family: 'Inter', sans-serif;
     padding: 8px;
     cursor: pointer;
-}
 
-.footer_logIn a:hover {
-    color:#29ABE2;
-    font-weight: 700;
+    &:hover {
+        color:#29ABE2;
+        font-weight: 700;
+        text-decoration: none !important;
+    }
 }
 
 .mobileHeaderIcon {
