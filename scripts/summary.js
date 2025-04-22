@@ -52,6 +52,28 @@ function loadNumberOfTasksWithPriority(tasks, priority) {
 }
 
 
+//find next deadline
+function findNextDeadline(tasks) {
+    let nextDeadline = null;
+    tasks.forEach(task => {
+        if (task.dueDate) {
+            let taskDate = new Date(task.dueDate);
+            if (!nextDeadline || taskDate < nextDeadline) {
+                nextDeadline = taskDate;
+            }
+        }
+    });
+    return nextDeadline;
+}
+
+
+//format the deadline
+function formatDate(deadline) {
+    let options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return deadline.toLocaleDateString('en-US', options);
+}
+
+
 //load tasks for summary
 async function loadNumberOfTasks() {
     let tasks = await getAllTasks();
@@ -61,7 +83,8 @@ async function loadNumberOfTasks() {
     document.getElementById("summary_number_of_done_tasks").innerHTML = loadNumberOfTasksWithStatus(tasksArray, 'doneTask');
     document.getElementById("summary_number_of_await_feedback_tasks").innerHTML = loadNumberOfTasksWithStatus(tasksArray, 'awaitFeedbackTask');
     document.getElementById("summary_number_of_urgent_tasks").innerHTML = loadNumberOfTasksWithPriority(tasksArray, 'urgent');
-    document.getElementById("summary_number_of_tasks_in_board").innerHTML = sumOfOpenTasks(tasksArray);
+    document.getElementById("summary_number_of_tasks_in_board").innerHTML = sumOfOpenTasks(tasksArray); 
+    document.getElementById("summary_next_deadline").innerHTML = findNextDeadline(tasksArray) ? formatDate(findNextDeadline(tasksArray)) : "No deadline set";
 }
 
 
