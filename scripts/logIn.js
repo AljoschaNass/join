@@ -62,6 +62,7 @@ function logInError() {
   document.getElementById("logIn_error").classList.remove("d_none");
   document.getElementById("logInPassword").style.borderColor = "#ff001f";
   document.getElementById("logInEmail").style.borderColor = "#ff001f";
+  document.getElementById("logInPassword").value = "";
 }
 
 
