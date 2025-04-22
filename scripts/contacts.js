@@ -122,9 +122,12 @@ async function saveEditedContact(event) {
     let name = document.getElementById("editContactName").value;
     let email = document.getElementById("editContactEmail").value;
     let phone = document.getElementById("editContactPhone").value;
+    let backgroundcolor = document.getElementById("edit_contact_img").classList[1];
+    console.log(backgroundcolor);
     let i = await findContactPositionByEmail(email);	
     await putContact("contacts/" + i, name, email, phone); 
     closeEditContactDialog();
+    loadContactDetails(name, email, phone, backgroundcolor);
     await loadContactList(); 
 }
 
@@ -212,6 +215,7 @@ function closeEditContactDialog() {
     let noScrolling = document.body;
     noScrolling.classList.remove("stopScrolling");
     overlayRef.classList.add("d_none");
+    document.getElementById("edit_contact_img").classList.remove("backgroundColor1", "backgroundColor2", "backgroundColor3", "backgroundColor4", "backgroundColor5", "backgroundColor6", "backgroundColor7", "backgroundColor8", "backgroundColor9", "backgroundColor10", "backgroundColor11", "backgroundColor12", "backgroundColor13", "backgroundColor14", "backgroundColor15", "backgroundColor16");
 }
 
 
