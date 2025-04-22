@@ -139,21 +139,26 @@ function showAddContactSuccessMessage() {
 }
 
 
-function openContactDialog() {
+function openContactDialog(event) {
+    event.stopPropagation(); 
     let overlayRef = document.getElementById("overlayContacts");
     let noScrolling = document.body;
     noScrolling.classList.add("stopScrolling");
     overlayRef.classList.remove("d_none");
-    let overlayBackground = document.getElementById("add_contact_background");
-    overlayBackground.addEventListener("click", (event) => {
-        if (!event.target.closest('.add_contact_container')) {
-            closeContactDialog();
-        }
+    const dialogElement = document.getElementById("add_contact_background");
+    dialogElement.addEventListener("click", (event) => {
+        closeContactDialog(); 
+    });
+    const contactContainer = document.querySelector('.add_contact_container');
+    contactContainer.addEventListener("click", (event) => {
+        event.stopPropagation(); 
     });
 }
 
 
+//anpassen!
 function openEditContactDialog() {
+    
     let overlayRef = document.getElementById("overlayEditContacts");
     let noScrolling = document.body;
     noScrolling.classList.add("stopScrolling");

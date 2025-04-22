@@ -77,6 +77,7 @@ function addTaskselectCategory(category) {
     arrowDropDownSelection('addTaskCategory');
 }
 
+
 async function postTask(path="tasks", title, description, dueDate, priority, assignedTo, category, subtasks, status) {
     let task = {
         'title': title, 
