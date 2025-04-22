@@ -146,28 +146,25 @@ function openContactDialog(event) {
     noScrolling.classList.add("stopScrolling");
     overlayRef.classList.remove("d_none");
     const dialogElement = document.getElementById("add_contact_background");
-    dialogElement.addEventListener("click", (event) => {
-        closeContactDialog(); 
+    dialogElement.addEventListener("click", (event) => {closeContactDialog(); 
     });
     const contactContainer = document.querySelector('.add_contact_container');
-    contactContainer.addEventListener("click", (event) => {
-        event.stopPropagation(); 
+    contactContainer.addEventListener("click", (event) => {event.stopPropagation();
     });
 }
 
 
-//anpassen!
-function openEditContactDialog() {
-    
+function openEditContactDialog(event) {
+    event.stopPropagation(); 
     let overlayRef = document.getElementById("overlayEditContacts");
     let noScrolling = document.body;
     noScrolling.classList.add("stopScrolling");
     overlayRef.classList.remove("d_none");
-    let overlayBackground = document.getElementById("edit_contact_background");
-    overlayBackground.addEventListener("click", (event) => {
-        if (!event.target.closest('.edit_contact_container')) {
-            closeContactDialog();
-        }
+    const dialogElement = document.getElementById("edit_contact_background");
+    dialogElement.addEventListener("click", (event) => {closeEditContactDialog();
+    });
+    const editContactContainer = document.querySelector('edit_contact_container');
+    editContactContainer.addEventListener("click", (event) => {event.stopPropagation();
     });
 }
 
