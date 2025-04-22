@@ -70,12 +70,11 @@
 }
 
 .contactsListTop {
-    position: sticky;
-    top: 0;
+    position: fixed;
+    top: 96px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
     height: 101px;
     background-color: white;
     z-index: 2;
