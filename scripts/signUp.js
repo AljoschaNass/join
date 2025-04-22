@@ -18,9 +18,12 @@ async function signUp() {
     let password = document.getElementById("signUpPassword").value;
     let passwordCheck = document.getElementById("signUpConfirmPassword").value;
     if (password === passwordCheck) {
-        await postUser("user", name, email, password); 
-        await postContact(path="contacts", name, email, phone='', isItMe=false);
         document.getElementById("signUpSuccess").classList.remove("d_none");
+        await postUser("user", name, email, password); 
+        await postContact(path="contacts", name, email, phone='');
+        setTimeout(() => {
+            window.location.href = "../index.html";
+        }, 1000);
     } else {
         signUpError();
     }
