@@ -1,6 +1,7 @@
 function initSummary() {
     init();
     loadNumberOfTasks();
+    loadNextDeadline();
     greeting();
 }
 
@@ -84,7 +85,6 @@ async function loadNumberOfTasks() {
     document.getElementById("summary_number_of_await_feedback_tasks").innerHTML = loadNumberOfTasksWithStatus(tasksArray, 'awaitFeedbackTask');
     document.getElementById("summary_number_of_urgent_tasks").innerHTML = loadNumberOfTasksWithPriority(tasksArray, 'urgent');
     document.getElementById("summary_number_of_tasks_in_board").innerHTML = sumOfOpenTasks(tasksArray); 
-    document.getElementById("summary_next_deadline").innerHTML = findNextDeadline(tasksArray) ? formatDate(findNextDeadline(tasksArray)) : "No deadline set";
 }
 
 
@@ -95,4 +95,12 @@ function sumOfOpenTasks(tasksArray) {
     let awaitFeedbackTasks = loadNumberOfTasksWithStatus(tasksArray, 'awaitFeedbackTask');
     let sum = toDoTasks + inProgressTasks + awaitFeedbackTasks;
     return sum;
+}
+
+
+//load next deadline for summary
+async function loadNextDeadline() {
+    let tasks = await getAllTasks();
+    let tasksArray = Object.values(tasks);
+    document.getElementById("summary_next_deadline").innerHTML = findNextDeadline(tasksArray) ? formatDate(findNextDeadline(tasksArray)) : "No deadline set";
 }
