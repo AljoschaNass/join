@@ -277,3 +277,9 @@ function fillInputFieldsWithCurrentData(name, email, phone, backgroundcolor) {
     document.getElementById("edit_contact_img").classList.add(backgroundcolor);
     document.getElementById("edit_contact_img").innerHTML = setContactInitials(name);
 }
+
+
+function loadEditContactDialogDeleteBtn(email) {
+    let deleteBtn = document.getElementById("editContactDeleteContactBtn");
+    deleteBtn.setAttribute("onclick", `deleteContact('${email}')`);
+}
