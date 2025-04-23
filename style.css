@@ -23,6 +23,7 @@
 .header_LogIn_right {
     opacity: 0;
     animation: fadeInContent 0.5s ease-in-out 0.5s forwards;
+    animation-delay: 0.5s;
     display: flex;
     flex-direction: row;
     justify-content: start;
@@ -82,6 +83,7 @@
 .logIn_content {
     opacity: 0;
     animation: fadeInContent 0.5s ease-in-out 0.5s forwards;
+    animation-delay: 0.5s;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -225,6 +227,7 @@
 .footer_logIn {
     opacity: 0;
     animation: fadeInContent 0.5s ease-in-out 0.5s forwards;
+    animation-delay: 0.5s;
     position: absolute;
     bottom: 40px;
     left: 50%;
@@ -259,7 +262,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    animation: moveToTopLeft 1s ease-in-out forwards;
+    animation: moveToTopLeft 0.5s ease-in-out forwards;
+    animation-delay: 0.5s;
     transform-origin: top left;
     z-index: 10;
 }

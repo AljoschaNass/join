@@ -218,3 +218,7 @@ async function updateTaskStatus(taskId, newStatus) {
         body: JSON.stringify({ status: newStatus })
     });
 }
+
+function openTaskDialogFor(columnId) {
+    document.getElementById("btn_add_task_create_task").setAttribute("data-column-id", columnId);
+}

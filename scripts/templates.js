@@ -459,10 +459,18 @@ let priorityImg = "";
 }
 
 
-function renderNoTaskCard() {
+function renderNoTaskCard(status) {
+    const statusMap = {
+        toDoTask: "To do",
+        inProgressTask: "In progress",
+        awaitFeedbackTask: "Await Feedback",
+        doneTask: "Done"
+    };
+
+    const readableStatus = statusMap[status];
     return`
                             <div id="noTaskToDo">
-                                <p>No task To Do</p>
+                                <p>No tasks ${readableStatus}</p>
                             </div>
     
     `

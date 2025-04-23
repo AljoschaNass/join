@@ -127,7 +127,7 @@
   <p class="add_task_hint_required">This field is required</p>
   <div>
     <input onclick="clearAddTaskForm()" class="btn_add_task btn_clear" type="reset" value="Clear X">
-    <button onclick="checkRequiredBtnAddTask(), addTask('toDoTask')" type="submit" id="btn_add_task_create_task"
+    <button onclick="checkRequiredBtnAddTask(), openTaskDialogFor('toDoTask'), addTask(this.dataset.columnId)" type="submit" id="btn_add_task_create_task"
       class="btn_add_task btn_create" disabled>
       Create Task
       <img src="../assets/img/icons/add_task_btn_check.svg" alt="check">
