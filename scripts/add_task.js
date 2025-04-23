@@ -1,5 +1,6 @@
 
 let currentPriority = "";
+let counterContactIcons = 0;
 
 
 function setBtnPriority(priority) {
@@ -166,15 +167,19 @@ function clearSubtaskInput() {
 async function loadContactListAssignedTo() {
     let contacts = await getAllContacts(); 
     let sortedContacts = sortContactsAlphabetically(contacts);
-    renderContactsToAssignedTo(sortedContacts)
+    renderContactsToAssignedTo(sortedContacts);
 }
 
 function renderContactsToAssignedTo(contacts) {
     let assignedToDropDownRef = document.getElementById("editDialogBoardAssignedToDropDown");
     assignedToDropDownRef.innerHTML = "";
+
+    let assignedToIcons = document.getElementById("addTask_assignedToIcons");
+    assignedToIcons.innerHTML = "";
     
     Object.entries(contacts).forEach(([key, contact], index) => {
         assignedToDropDownRef.innerHTML += getAssignedToContactTemplate(contact.name, setContactInitials(contact.name), index);
+        assignedToIcons.innerHTML += getAssignedToContactIconTemplate(setContactInitials(contact.name), index);
     });
 }
 
@@ -184,11 +189,11 @@ function toggleAssignedContactToTaskMenu() {
     document.getElementById("addTask_assignedToIcons").classList.toggle("d_none");
 }
 
-// function selectContactToAssignTask(event) {
-//     changeBackgroundColor(event);
-//     changeCheckbox(event);
-//     checkIfContactChecked(event);
-// }
+function addTaskselectContactToAssignTask(event, index) {
+    changeBackgroundColor(event);
+    changeCheckbox(event);
+    checkIfContactChecked(event, index);
+}
 
 // function changeBackgroundColor(event) {
 //     const contactDiv = event.target.closest('.dropDownContacts');
@@ -202,16 +207,15 @@ function toggleAssignedContactToTaskMenu() {
 //     checkboxDiv.classList.toggle('contactUncheckedCheckbox');
 // }
 
-// function checkIfContactChecked(event) {
-//     const contactDiv = event.target.closest('.dropDownContacts');
-//     let ifChecked = contactDiv.classList.item(1);
-//     let assignedToDropDownRef = document.getElementById("editDialogBoardAssignedToDropDown");
+function checkIfContactChecked(event, index) {
+    const contactDiv = event.target.closest('.dropDownContacts');
+    let ifChecked = contactDiv.classList.item(1);
 
-//     if (ifChecked == 'contactChecked') {
-//         console.log(contactDiv.classList.item(1));
-//         for (let indexContact = 0; indexContact < array.length; indexContact++) {
-//             const element = array[index];
-//             assignedToDropDownRef += getAssignedToContactTemplate(indexContact);
-//         }
-//     }
-// }
+    if (ifChecked == 'contactChecked') {    
+        document.getElementById("addTask_assignedTo_contactIcon_" + index).classList.remove("d_none");
+        counterContactIcons++;        
+    } else {
+        document.getElementById("addTask_assignedTo_contactIcon_" + index).classList.add("d_none");
+        counterContactIcons--;
+    }
+}
