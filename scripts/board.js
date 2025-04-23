@@ -4,7 +4,7 @@ function openOverlay(event, aissignedTo, category, description, dueDate, priorit
     let noScrolling = document.body;
     noScrolling.classList.add("stopScrolling");
     overlayRef.classList.add("overlayBoard");
-    overlayRef.innerHTML += getDialogTemplate(aissignedTo, category, description, dueDate, priority, subtasks, title);
+    overlayRef.innerHTML += getDialogTemplate(aissignedTo, category, description, dueDate, priority, subtasks, title, taskId);
     const dialogElement = document.getElementById("dialogBoard");
     dialogElement.addEventListener("click", (event) => {
     event.stopPropagation(); 
@@ -217,6 +217,15 @@ async function updateTaskStatus(taskId, newStatus) {
         method: "PATCH",
         body: JSON.stringify({ status: newStatus })
     });
+}
+
+async function deleteTask(taskId) {
+    let path = `tasks/${taskId}`;
+    await fetch(BASE_URL + path + ".json", {
+        method: "DELETE"
+    });
+    closeDialog();
+    loadTasksBoard();
 }
 
 function openTaskDialogFor(columnId) {
