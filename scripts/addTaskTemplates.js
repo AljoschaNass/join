@@ -1,8 +1,8 @@
-function getAssignedToContactTemplate(name) {
+function getAssignedToContactTemplate(name, initials, index) {
     return`
-            <div class="dropDownContacts contactUnchecked" onclick="selectContactToAssignTask(event)">
+            <div id="addTask_assignedTo_contact_${index}" class="dropDownContacts contactUnchecked" onclick="selectContactToAssignTask(event)">
                 <div class="dropDownContact">
-                    <div class="contactCircleSmallDetailView backgroundColorOrange">AM</div>
+                    <div class="contactCircleSmallDetailView backgroundColorOrange">${initials}</div>
                     <p>${name}</p>
                 </div>
                 <div class="editDialogBoardAssignedToDropDownCheckbox contactUncheckedCheckbox">

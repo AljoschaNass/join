@@ -173,9 +173,9 @@ function renderContactsToAssignedTo(contacts) {
     let assignedToDropDownRef = document.getElementById("editDialogBoardAssignedToDropDown");
     assignedToDropDownRef.innerHTML = "";
     
-    Object.values(contacts).forEach(contact => {
-        assignedToDropDownRef.innerHTML += getAssignedToContactTemplate(contact.name);
-      });
+    Object.entries(contacts).forEach(([key, contact], index) => {
+        assignedToDropDownRef.innerHTML += getAssignedToContactTemplate(contact.name, setContactInitials(contact.name), index);
+    });
 }
 
 function toggleAssignedContactToTaskMenu() {
