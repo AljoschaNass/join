@@ -1,10 +1,10 @@
-function openOverlay(event, index) {
+function openOverlay(event, aissignedTo, category, description, dueDate, priority, subtasks, title, taskId) {
     event.stopPropagation();
     let overlayRef = document.getElementById("overlayBoard");
     let noScrolling = document.body;
     noScrolling.classList.add("stopScrolling");
     overlayRef.classList.add("overlayBoard");
-    overlayRef.innerHTML += getDialogTemplate(index);
+    overlayRef.innerHTML += getDialogTemplate(aissignedTo, category, description, dueDate, priority, subtasks, title);
     const dialogElement = document.getElementById("dialogBoard");
     dialogElement.addEventListener("click", (event) => {
     event.stopPropagation(); 
@@ -221,4 +221,42 @@ async function updateTaskStatus(taskId, newStatus) {
 
 function openTaskDialogFor(columnId) {
     document.getElementById("btn_add_task_create_task").setAttribute("data-column-id", columnId);
+}
+
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    const day = String(date.getDate()).padStart(2, '0'); 
+    const month = String(date.getMonth() + 1).padStart(2, '0'); 
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+}
+
+function formatCategory(category) {
+    if (category === "User Story") {
+        categoryClass = "userStory";
+    } else if (category === "Technical Task") {
+        categoryClass = "technicalTask";
+    }
+    return categoryClass;
+}
+
+function formatPriorityImg(priority) {
+    let priorityImg = "";
+
+    switch (priority) {
+        case "low":
+            priorityImg = "priorityLow"; 
+            break;
+        case "medium":
+            priorityImg = "priorityMedium";
+            break;
+        case "urgent":
+            priorityImg= "priorityUrgent";
+            break;
+    }
+    return priorityImg;
+}
+
+function capitalizeFirstLetter(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 }

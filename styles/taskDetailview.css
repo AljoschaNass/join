@@ -68,9 +68,18 @@
     left: 40px;
 }
 
-#overlayTaskPriority svg {
+.overlayTaskPriorityDiv {
     position: relative;
-    left: 40px;
+    left: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.priorityImg {
+    width: 32px;
+    height: 32px;
+
 }
 
 .overlayTaskAssignedTo p {
@@ -195,4 +204,13 @@ input[type="checkbox"] {
 .assignedToContact p{
     margin-bottom: 0 !important;
     font-size: 19px;
+}
+
+.dialogBoardTop p {
+    color: white;
+    padding: 4px 24px;
+    border-radius: 8px;
+    font-size: 23px;
+    font-weight: 400;
+    width: fit-content;
 }
