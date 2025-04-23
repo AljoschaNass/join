@@ -1,3 +1,7 @@
+.overflowY_hidden {
+  overflow-y: hidden;
+}
+
 .add_task_section {
   display: flex;
   justify-content: flex-start;
@@ -54,13 +58,20 @@ textarea {
 
 .assignedToInput {
   width: 440px;
-  height: 48px;
-  border-radius: 10px;
-  border: 1px solid rgba(209, 209, 209, 1);
-  padding: 12px 16px;
-  font-weight: 400;
-  font-size: 20px;
-  color: black;
+    height: 48px;
+    border-radius: 10px;
+    border: 1px solid rgba(209, 209, 209, 1);
+    padding-top: 12px;
+    padding-right: 16px;
+    padding-bottom: 12px;
+    padding-left: 16px;
+    font-weight: 400;
+    font-size: 20px;
+    color: black;
+}
+
+.assignedToInput:focus {
+  border: 1px solid #29ABE2;
 }
 
 .arrowDropDownInputs{

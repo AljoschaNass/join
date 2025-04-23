@@ -1,6 +1,7 @@
 
 let currentPriority = "";
 let counterContactIcons = 0;
+let currentContacts = [];
 
 
 function setBtnPriority(priority) {
@@ -168,6 +169,11 @@ async function loadContactListAssignedTo() {
     let contacts = await getAllContacts(); 
     let sortedContacts = sortContactsAlphabetically(contacts);
     renderContactsToAssignedTo(sortedContacts);
+    saveCurrentContacts(sortedContacts);
+}
+
+function saveCurrentContacts(contacts) {
+    currentContacts = contacts;
 }
 
 function renderContactsToAssignedTo(contacts) {
@@ -178,14 +184,15 @@ function renderContactsToAssignedTo(contacts) {
     assignedToIcons.innerHTML = "";
     
     Object.entries(contacts).forEach(([key, contact], index) => {
-        assignedToDropDownRef.innerHTML += getAssignedToContactTemplate(contact.name, setContactInitials(contact.name), index);
-        assignedToIcons.innerHTML += getAssignedToContactIconTemplate(setContactInitials(contact.name), index);
+        let bgClass = setBackgroundcolor();
+        assignedToDropDownRef.innerHTML += getAssignedToContactTemplate(contact.name, setContactInitials(contact.name), index, bgClass);
+        assignedToIcons.innerHTML += getAssignedToContactIconTemplate(setContactInitials(contact.name), index, bgClass);
     });
 }
 
 function toggleAssignedContactToTaskMenu() {
     document.getElementById("editDialogBoardAssignedToDropDown").classList.toggle("d_none");
-    document.getElementById("editDialogBoardAssignedToInput").classList.toggle("arrowDropUp");
+    document.getElementById("addTaskAssignedToInput").classList.toggle("arrowDropUp");
     document.getElementById("addTask_assignedToIcons").classList.toggle("d_none");
 }
 
@@ -194,18 +201,6 @@ function addTaskselectContactToAssignTask(event, index) {
     changeCheckbox(event);
     checkIfContactChecked(event, index);
 }
-
-// function changeBackgroundColor(event) {
-//     const contactDiv = event.target.closest('.dropDownContacts');
-//     contactDiv.classList.toggle('contactChecked');
-//     contactDiv.classList.toggle('contactUnchecked');
-// }
-
-// function changeCheckbox(event) {
-//     const  checkboxDiv = event.target.closest('.dropDownContacts').querySelector('.editDialogBoardAssignedToDropDownCheckbox');
-//     checkboxDiv.classList.toggle('contactCheckedCheckbox');
-//     checkboxDiv.classList.toggle('contactUncheckedCheckbox');
-// }
 
 function checkIfContactChecked(event, index) {
     const contactDiv = event.target.closest('.dropDownContacts');
@@ -218,4 +213,13 @@ function checkIfContactChecked(event, index) {
         document.getElementById("addTask_assignedTo_contactIcon_" + index).classList.add("d_none");
         counterContactIcons--;
     }
+}
+
+function searchContactAssignedTo() {
+    let searchInputRef = document.getElementById("addTaskAssignedToInput").value.toLowerCase();
+
+    let filteredContacts = Object.entries(currentContacts).filter(([key, contact]) =>
+        contact.name.toLowerCase().includes(searchInputRef)
+    );
+    renderContactsToAssignedTo(Object.fromEntries(filteredContacts));
 }
