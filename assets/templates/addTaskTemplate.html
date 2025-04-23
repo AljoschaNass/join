@@ -40,6 +40,41 @@
       </section>
       <p class="add_task_required"></p>
 
+
+      <div class="editDialogBoardAssignedTo">
+        <p>Assigned to</p>
+        <div class="editDialogBoardAssignedToInputDiv">
+            <input type="text" placeholder="Select contacts to assign"
+                id="editDialogBoardAssignedToInput" class="arrowDropDown"
+                onclick="toggleAssignedContactToTaskMenu()">
+            <div id="editDialogBoardAssignedToDropDown" class="d_none">
+                <div class="dropDownContacts contactUnchecked" onclick="selectContactToAssignTask(event)">
+                    <div class="dropDownContact">
+                        <div class="contactCircleSmallDetailView backgroundColorOrange">AM</div>
+                        <p>Anton Mayer</p>
+                    </div>
+                    <div class="editDialogBoardAssignedToDropDownCheckbox contactUncheckedCheckbox">
+                    </div>
+                </div>
+                <div class="dropDownContacts contactChecked" onclick="selectContactToAssignTask(event)">
+                    <div class="dropDownContact">
+                        <div class="contactCircleSmallDetailView backgroundColorGreen">EM</div>
+                        <p>Emmanuel Mauer</p>
+                    </div>
+                    <div class="editDialogBoardAssignedToDropDownCheckbox contactCheckedCheckbox">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="addTask_assignedToIcons" class="editDialogBoardAssignedToIcons">
+            <div class="contactCircleSmallDetailView backgroundColorGreen">EM</div>
+            <div class="contactCircleSmallDetailView backgroundColorDarkBlue">MB</div>
+            <div class="contactCircleSmallDetailView backgroundColorOrange">AM</div>
+        </div>
+        <p class="add_task_required"></p>
+    </div>
+
+
       <label for="addTaskAssignedToInput">Assigned to</label>
       <section class="editDialogBoardAssignedToInputDiv">
         <input type="text" placeholder="Select contacts to assign" id="addTaskAssignedToInput"

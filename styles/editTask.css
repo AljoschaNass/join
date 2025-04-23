@@ -235,7 +235,7 @@ textarea:focus {
 #editDialogBoardAssignedToDropDown {
     overflow-y: scroll;
     width: 440px;
-    max-height: 224px;
+    max-height: 280px;
     background-color: white;
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
     border-radius: 10px;

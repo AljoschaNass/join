@@ -137,7 +137,7 @@ function changeBackgroundColor(event) {
     const contactDiv = event.target.closest('.dropDownContacts');
     contactDiv.classList.toggle('contactChecked');
     contactDiv.classList.toggle('contactUnchecked');
-}
+    }
 
 function changeCheckbox(event) {
     const  checkboxDiv = event.target.closest('.dropDownContacts').querySelector('.editDialogBoardAssignedToDropDownCheckbox');

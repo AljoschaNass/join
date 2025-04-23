@@ -161,3 +161,57 @@ function clearSubtaskInput() {
 
 
 //function deleteSubtask(id) {}
+
+
+async function loadContactListAssignedTo() {
+    let contacts = await getAllContacts(); 
+    let sortedContacts = sortContactsAlphabetically(contacts);
+    renderContactsToAssignedTo(sortedContacts)
+}
+
+function renderContactsToAssignedTo(contacts) {
+    let assignedToDropDownRef = document.getElementById("editDialogBoardAssignedToDropDown");
+    assignedToDropDownRef.innerHTML = "";
+    
+    Object.values(contacts).forEach(contact => {
+        assignedToDropDownRef.innerHTML += getAssignedToContactTemplate(contact.name);
+      });
+}
+
+function toggleAssignedContactToTaskMenu() {
+    document.getElementById("editDialogBoardAssignedToDropDown").classList.toggle("d_none");
+    document.getElementById("editDialogBoardAssignedToInput").classList.toggle("arrowDropUp");
+    document.getElementById("addTask_assignedToIcons").classList.toggle("d_none");
+}
+
+// function selectContactToAssignTask(event) {
+//     changeBackgroundColor(event);
+//     changeCheckbox(event);
+//     checkIfContactChecked(event);
+// }
+
+// function changeBackgroundColor(event) {
+//     const contactDiv = event.target.closest('.dropDownContacts');
+//     contactDiv.classList.toggle('contactChecked');
+//     contactDiv.classList.toggle('contactUnchecked');
+// }
+
+// function changeCheckbox(event) {
+//     const  checkboxDiv = event.target.closest('.dropDownContacts').querySelector('.editDialogBoardAssignedToDropDownCheckbox');
+//     checkboxDiv.classList.toggle('contactCheckedCheckbox');
+//     checkboxDiv.classList.toggle('contactUncheckedCheckbox');
+// }
+
+// function checkIfContactChecked(event) {
+//     const contactDiv = event.target.closest('.dropDownContacts');
+//     let ifChecked = contactDiv.classList.item(1);
+//     let assignedToDropDownRef = document.getElementById("editDialogBoardAssignedToDropDown");
+
+//     if (ifChecked == 'contactChecked') {
+//         console.log(contactDiv.classList.item(1));
+//         for (let indexContact = 0; indexContact < array.length; indexContact++) {
+//             const element = array[index];
+//             assignedToDropDownRef += getAssignedToContactTemplate(indexContact);
+//         }
+//     }
+// }
