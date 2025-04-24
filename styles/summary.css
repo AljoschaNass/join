@@ -75,17 +75,9 @@
     &:hover {
         background-color: #2A3647;
         color: white;
+        height: 184px;
+        width: 282px;
     }
-}
-
-.summary_card_large:hover{
-    background-color: #2A3647;
-    color: white;
-}
-
-.summary_card_small:hover{
-    background-color: #2A3647;
-    color: white;
 }
 
 .summary_card {
@@ -113,10 +105,17 @@
     flex-direction: row;
     align-items: center;
     height: 170px;
-    width: 170px;
+    width: 560px;
     flex: 1;
     color: #2A3647;
     cursor: pointer;
+
+    &:hover {
+        background-color: #2A3647;
+        color: white;
+        height: 184px;
+        width: 576px;
+    }
 }
 
 .summary_card_content_large {
@@ -143,6 +142,13 @@
     height: 170px;
     width: 170px;
     cursor: pointer;
+
+    &:hover {
+        background-color: #2A3647;
+        color: white;
+        height: 184px;
+        width: 184px;
+    }
 }
 
 .summary_card_content_small {
