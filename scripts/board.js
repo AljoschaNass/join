@@ -1,10 +1,10 @@
-function openOverlay(event, aissignedTo, category, description, dueDate, priority, subtasks, title, taskId) {
+function openOverlay(event, assignedTo, category, description, dueDate, priority, subtasks, title, taskId) {
     event.stopPropagation();
     let overlayRef = document.getElementById("overlayBoard");
     let noScrolling = document.body;
     noScrolling.classList.add("stopScrolling");
     overlayRef.classList.add("overlayBoard");
-    overlayRef.innerHTML += getDialogTemplate(aissignedTo, category, description, dueDate, priority, subtasks, title, taskId);
+    overlayRef.innerHTML += getDialogTemplate(assignedTo, category, description, dueDate, priority, subtasks, title, taskId);
     const dialogElement = document.getElementById("dialogBoard");
     dialogElement.addEventListener("click", (event) => {
     event.stopPropagation(); 
@@ -19,10 +19,11 @@ function closeDialog() {
     overlayRef.innerHTML = "";
 }
 
-function editTask() {
+function editTask(assignedTo, category, description, dueDate, priority, subtasks, title, taskId) {
     let dialogRef = document.getElementById("dialogBoard");
     dialogRef.innerHTML = "";
-    dialogRef.innerHTML += getEditDialogTemplate();
+    dialogRef.innerHTML += getEditDialogTemplate(assignedTo, category, description, dueDate, priority, subtasks, title, taskId);
+    updatePriorityButtonClasses(priority);
 }
 
 function selectUrgentPriority() {
@@ -268,4 +269,48 @@ function formatPriorityImg(priority) {
 
 function capitalizeFirstLetter(str) {
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+}
+
+function updatePriorityButtonClasses(priority) {
+    document.getElementById("lowPriority").classList.remove("lowPriorityButtonSelected");
+    document.getElementById("mediumPriority").classList.remove("mediumPriorityButtonSelected");
+    document.getElementById("urgentPriority").classList.remove("urgentPriorityButtonSelected");
+    if (priority === "low") {
+        document.getElementById("lowPriority").classList.add("lowPriorityButtonSelected");
+    } else if (priority === "medium") {
+        document.getElementById("mediumPriority").classList.add("mediumPriorityButtonSelected");
+    } else if (priority === "urgent") {
+        document.getElementById("urgentPriority").classList.add("urgentPriorityButtonSelected");
+    }
+}
+
+async function updateTask(title, description, dueDate, priority, taskId) {
+    const task = {
+        title: title,
+        description: description,
+        dueDate: dueDate,
+        priority: priority
+    };
+    let response = await fetch(`${BASE_URL}tasks/${taskId}.json`, {
+        method: "PATCH", headers: {'Content-Type': 'application/json', }, body: JSON.stringify(task)
+    });
+    let responseToJson = await response.json();
+    return responseToJson;  
+}
+
+async function saveEditTask(taskId) { 
+    let title = document.getElementById("titleTask").value;
+    let description = document.getElementById("inputEditDialogBoardDescription").value;
+    let dueDate = document.getElementById("dueDate").value;
+    let priority;
+    if (document.getElementById("lowPriority").classList.contains("lowPriorityButtonSelected")) {
+        priority = "low";
+    } else if (document.getElementById("mediumPriority").classList.contains("mediumPriorityButtonSelected")) {
+        priority = "medium";
+    } else if (document.getElementById("urgentPriority").classList.contains("urgentPriorityButtonSelected")) {
+        priority = "urgent";
+    }
+    await updateTask(title, description, dueDate, priority, taskId); 
+    closeDialog();
+    loadTasksBoard()
 }

@@ -1,4 +1,4 @@
-function getDialogTemplate(aissignedTo, category, description, dueDate, priority, subtasks, title, taskId) {
+function getDialogTemplate(assignedTo, category, description, dueDate, priority, subtasks, title, taskId) {
 
 
     return`
@@ -84,7 +84,7 @@ function getDialogTemplate(aissignedTo, category, description, dueDate, priority
                             </div>
                             <div class="overlayTaskVector"></div>
                             <div class="overlayTaskEdit">
-                                <button onclick="editTask()">
+                                <button onclick="editTask('${assignedTo}', '${category}', '${description}', '${dueDate}', '${priority}', '${subtasks}', '${title}', '${taskId}')">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <mask id="mask0_298547_4257" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
                                             <rect width="24" height="24" fill="#D9D9D9"></rect>
@@ -103,7 +103,7 @@ function getDialogTemplate(aissignedTo, category, description, dueDate, priority
 }
 
 
-function getEditDialogTemplate(index) {
+function getEditDialogTemplate(assignedTo, category, description, dueDate, priority, subtasks, title, taskId) {
     return`
 <div id="editDialogBoard">
                 <button onclick="closeDialog()">
@@ -124,18 +124,18 @@ function getEditDialogTemplate(index) {
                         <div class="editDialogBoardTop">
                             <div class="editDialogBoardTitle height_98">
                                 <p>Title</p>
-                                <input type="text" class="inputEditDialogBoardTitle" placeholder="Enter a title"
-                                    value="Kochwelt Page & Recipe Recommender" required>
+                                <input type="text" class="inputEditDialogBoardTitle" placeholder="Enter a title" id="titleTask"
+                                    value="${title}" required>
                                 <p class="requiredFieldDialog d_none">This field is required</p>
                             </div>
                             <div class="editDialogBoardDescription">
                                 <p>Description</p>
                                 <textarea id="inputEditDialogBoardDescription" class="inputEditDialogBoardDescription"
-                                    placeholder="Enter a Description">Build start page with recipe recommendation.</textarea>
+                                    placeholder="Enter a Description">${description}</textarea>
                             </div>
                             <div class="editDialogBoardDueDate height_98" required>
                                 <p>Due Date</p>
-                                <input type="date" class="inputEditDialogBoardDueDate" value="2023-05-10">
+                                <input type="date" class="inputEditDialogBoardDueDate" value="${dueDate}" id="dueDate">
                                 <p class="requiredFieldDialog d_none">This field is required</p>
                             </div>
                         </div>
@@ -267,7 +267,7 @@ function getEditDialogTemplate(index) {
                         </div>
                     </div>
                 </div>
-                <button class="saveEditTaskButton" onclick="saveNewTaskData()">
+                <button class="saveEditTaskButton" onclick="saveEditTask('${taskId}')">
                     <svg width="90" height="58" viewBox="0 0 90 58" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="0.682129" y="0.396729" width="89" height="57" rx="10" fill="#2A3647" />
                         <path
