@@ -123,7 +123,6 @@ async function saveEditedContact(event) {
     let email = document.getElementById("editContactEmail").value;
     let phone = document.getElementById("editContactPhone").value;
     let backgroundcolor = document.getElementById("edit_contact_img").classList[1];
-    console.log(backgroundcolor);
     let i = await findContactPositionByEmail(email);	
     await putContact("contacts/" + i, name, email, phone); 
     closeEditContactDialog();
@@ -279,7 +278,11 @@ function fillInputFieldsWithCurrentData(name, email, phone, backgroundcolor) {
 }
 
 
-function loadEditContactDialogDeleteBtn(email) {
-    let deleteBtn = document.getElementById("editContactDeleteContactBtn");
-    deleteBtn.setAttribute("onclick", `deleteContact('${email}')`);
+async function deleteContactInEditDialog(event) { 
+    event.preventDefault();
+    event.stopPropagation();
+    let email = document.getElementById("editContactEmail").value;	
+    deleteContact(email);
+    closeEditContactDialog();
+    await loadContactList();
 }
