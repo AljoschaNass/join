@@ -24,6 +24,7 @@
     <script src="../scripts/board.js"></script>
     <script src="../scripts/add_task.js"></script>
     <script src="../scripts/remoteStorage.js"></script>
+    <script src="../scripts/search.js"></script>
     
 
 </head>
@@ -47,7 +48,7 @@
                         <h1 class="h1Board">Board</h1>
                         <div class="headBoardRight">
                             <div class="searchFieldBoard">
-                                <input type="text" placeholder="Find Task" class="searchBarBoard">
+                                <input onchange="searchTask()" type="text" placeholder="Find Task" class="searchBarBoard" id="searchInput">
                                 <div class="searchButton">
                                     <div class="vector"></div>
                                     <button>

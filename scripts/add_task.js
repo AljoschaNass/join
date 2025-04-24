@@ -157,6 +157,7 @@ function addSubtask() {
     renderSubtask();
 }
 
+
 function renderSubtask() {
     let contentRef = document.getElementById("addTask_subtask_content");
     contentRef.innerHTML += getSubtaskTemplate();
@@ -181,9 +182,11 @@ async function loadContactListAssignedTo() {
     saveCurrentContacts(sortedContacts);
 }
 
+
 function saveCurrentContacts(contacts) {
     currentContacts = contacts;
 }
+
 
 function renderContactsToAssignedTo(contacts) {
     let assignedToDropDownRef = document.getElementById("editDialogBoardAssignedToDropDown");
@@ -199,17 +202,20 @@ function renderContactsToAssignedTo(contacts) {
     });
 }
 
+
 function toggleAssignedContactToTaskMenu() {
     document.getElementById("editDialogBoardAssignedToDropDown").classList.toggle("d_none");
     document.getElementById("addTaskAssignedToInput").classList.toggle("arrowDropUp");
     document.getElementById("addTask_assignedToIcons").classList.toggle("d_none");
 }
 
+
 function addTaskselectContactToAssignTask(event, index) {
     changeBackgroundColor(event);
     changeCheckbox(event);
     checkIfContactChecked(event, index);
 }
+
 
 function checkIfContactChecked(event, index) {
     const contactDiv = event.target.closest('.dropDownContacts');
@@ -227,6 +233,7 @@ function checkIfContactChecked(event, index) {
         counterContactIcons--;
     }    
 }
+
 
 function searchContactAssignedTo() {
     let searchInputRef = document.getElementById("addTaskAssignedToInput").value.toLowerCase();
