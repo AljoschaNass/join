@@ -1,6 +1,7 @@
 
 let currentPriority = "";
 let counterContactIcons = 0;
+let checkedContacts = {};
 let currentContacts = [];
 
 
@@ -103,7 +104,7 @@ async function addTask(status) {
     let description = document.getElementById("add_task_description").value;
     let dueDate = document.getElementById("add_task_date").value;
     let priority = currentPriority;
-    let assignedTo = document.getElementById("addTaskAssignedToInput").value;
+    let assignedTo = checkedContacts;
     let category = document.getElementById("addTaskCategoryInput").value;
     let subtasks = document.getElementById("add_task_subtask").value;
     document.getElementById("taskAdded").classList.remove("d_none");
@@ -204,15 +205,19 @@ function addTaskselectContactToAssignTask(event, index) {
 
 function checkIfContactChecked(event, index) {
     const contactDiv = event.target.closest('.dropDownContacts');
-    let ifChecked = contactDiv.classList.item(1);
+    let isChecked = contactDiv.classList.contains('contactChecked');
+    let iconRef = document.getElementById("addTask_assignedTo_contactIcon_" + index);
+    let contactRef = document.getElementById("addTask_assignedTo_contact_" + index).querySelector('.dropDownContact p').textContent;
 
-    if (ifChecked == 'contactChecked') {    
-        document.getElementById("addTask_assignedTo_contactIcon_" + index).classList.remove("d_none");
+    if (isChecked) {    
+        iconRef.classList.remove("d_none");
+        checkedContacts[contactRef] = true;   
         counterContactIcons++;        
     } else {
-        document.getElementById("addTask_assignedTo_contactIcon_" + index).classList.add("d_none");
+        iconRef.classList.add("d_none");
+        delete checkedContacts[contactRef];
         counterContactIcons--;
-    }
+    }    
 }
 
 function searchContactAssignedTo() {
