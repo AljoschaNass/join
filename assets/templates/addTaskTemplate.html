@@ -14,7 +14,6 @@
       <label class="add_task_after_required" for="add_task_date">Due date</label>
       <input oninput="enableCreateTaskButton()" onfocusout="checkRequiredDate()" id="add_task_date" class="add_task_input" type="date" required />
       <p id="add_task_required_date" class="add_task_required"></p>
-
     </div>
 
     <div class="seperator"></div>
@@ -53,30 +52,6 @@
         <div id="addTask_assignedToIcons" class="editDialogBoardAssignedToIcons"></div>
         <p class="add_task_required"></p>
     </div>
-
-
-      <label for="addTaskAssignedToInput">Assigned to</label>
-      <section class="editDialogBoardAssignedToInputDiv">
-        <input type="text" placeholder="Select contacts to assign" id=""
-          class="arrowDropDown assignedToInput add_task_input" onclick="arrowDropDownSelection('addTaskAssignedTo')" />
-        <div id="addTaskAssignedToDropDown" class="d_none">
-          <div class="dropDownContacts contactChecked">
-            <div class="dropDownContact">
-              <svg width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="0.682129" y="0.396729" width="42" height="42" rx="21" fill="white" />
-                <circle cx="21.6821" cy="21.3967" r="20" fill="#1FD7C1" stroke="white" stroke-width="2" />
-                <path
-                  d="M13.8151 25.3967V16.6695H19.0822V17.607H14.8719V20.5558H18.8094V21.4933H14.8719V24.4592H19.1503V25.3967H13.8151ZM20.987 16.6695H22.2484L25.2143 23.9138H25.3165L28.2824 16.6695H29.5438V25.3967H28.5552V18.766H28.4699L25.7427 25.3967H24.7881L22.0609 18.766H21.9756V25.3967H20.987V16.6695Z"
-                  fill="white" />
-              </svg>
-              <p>Emmanuel Mauer</p>
-            </div>
-            <div class="editDialogBoardAssignedToDropDownCheckbox contactCheckedCheckbox">
-            </div>
-          </div>
-        </div>
-      </section>
-      <p class="add_task_required"></p>
 
       <label class="add_task_after_required" for="addTaskCategoryInput">Category</label>
       <section class="editDialogBoardAssignedToInputDiv">
