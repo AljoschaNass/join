@@ -16,3 +16,16 @@ function getAssignedToContactIconTemplate(initials, index, bgClass) {
             <div id="addTask_assignedTo_contactIcon_${index}" class="contactCircleSmallDetailView ${bgClass} d_none">${initials}</div>
     `
 }
+
+function getSubtaskTemplate() {
+    return`
+            <div class="editDialogBoardSubtasksAdded">
+                <li>Contact Form</li>
+                <div class="editDivSubtasks">
+                    <div class="editIcon"></div>
+                    <div class="vectorAddSubtask"></div>
+                    <div class="deleteIcon"></div>
+                </div>
+            </div>
+    `
+}

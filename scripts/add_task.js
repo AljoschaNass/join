@@ -152,7 +152,15 @@ function diableCreateTaskButton(createTaskBtn) {
 }
 
 
-//function addSubtask() {}
+function addSubtask() {
+    let inputRef = document.getElementById("add_task_subtask");
+    renderSubtask();
+}
+
+function renderSubtask() {
+    let contentRef = document.getElementById("addTask_subtask_content");
+    contentRef.innerHTML += getSubtaskTemplate();
+}
 
 
 function clearSubtaskInput() {
