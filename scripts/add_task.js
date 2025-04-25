@@ -153,8 +153,9 @@ function diableCreateTaskButton(createTaskBtn) {
 
 
 function addSubtask() {
-    let inputRef = document.getElementById("add_task_subtask").value;    
-    renderSubtask(inputRef);
+    let inputRef = document.getElementById("add_task_subtask");    
+    renderSubtask(inputRef.value);
+    inputRef.value = "";
 }
 
 
@@ -172,7 +173,12 @@ function clearSubtaskInput() {
 //function editSubtask() {}
 
 
-//function deleteSubtask(id) {}
+function deleteSubtask(event) {
+    const subtaskDiv = event.target.closest('.editDialogBoardSubtasksAdded');
+    if (subtaskDiv) {
+        subtaskDiv.remove();
+    }
+}
 
 
 async function loadContactListAssignedTo() {

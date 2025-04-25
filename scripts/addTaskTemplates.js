@@ -24,7 +24,7 @@ function getSubtaskTemplate(input) {
                 <div class="editDivSubtasks">
                     <div class="editIcon"></div>
                     <div class="vectorAddSubtask"></div>
-                    <div class="deleteIcon"></div>
+                    <div onclick="deleteSubtask(event)" class="deleteIcon"></div>
                 </div>
             </div>
     `
