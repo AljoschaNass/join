@@ -17,14 +17,14 @@ function getAssignedToContactIconTemplate(initials, index, bgClass) {
     `
 }
 
-function getSubtaskTemplate(input) {
+function getSubtaskTemplate(id, input) {
     return`
-            <div class="editDialogBoardSubtasksAdded">
+            <div id="${id}" class="editDialogBoardSubtasksAdded">
                 <li>${input}</li>
                 <div class="editDivSubtasks">
                     <div class="editIcon"></div>
                     <div class="vectorAddSubtask"></div>
-                    <div onclick="deleteSubtask(event)" class="deleteIcon"></div>
+                    <div onclick="deleteSubtask('${id}')" class="deleteIcon"></div>
                 </div>
             </div>
     `
