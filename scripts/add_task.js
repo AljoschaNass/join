@@ -153,14 +153,14 @@ function diableCreateTaskButton(createTaskBtn) {
 
 
 function addSubtask() {
-    let inputRef = document.getElementById("add_task_subtask");
-    renderSubtask();
+    let inputRef = document.getElementById("add_task_subtask").value;    
+    renderSubtask(inputRef);
 }
 
 
-function renderSubtask() {
+function renderSubtask(input) {
     let contentRef = document.getElementById("addTask_subtask_content");
-    contentRef.innerHTML += getSubtaskTemplate();
+    contentRef.innerHTML += getSubtaskTemplate(input);
 }
 
 
