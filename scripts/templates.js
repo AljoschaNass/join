@@ -1,6 +1,4 @@
 function getDialogTemplate(assignedTo, category, description, dueDate, priority, subtasks, title, taskId) {
-
-
     return`
                 <div id="dialogBoard">
                     <div id="dialogBoardFrame">
