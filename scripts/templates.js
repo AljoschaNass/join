@@ -1,3 +1,42 @@
+function renderTaskCard(assignedTo, category, description, dueDate, priority, subtasks, title, taskId) {
+    return`
+                                <div id="${taskId}" class="taskCards" onclick="openOverlay(event, '${encodeURIComponent(JSON.stringify(assignedTo))}', '${category}', '${description}', '${dueDate}', '${priority}', '${subtasks}', '${title}', '${taskId}')" draggable="true" ondragstart="dragStart(event)"  ondragend="dragEnd(event)">
+                                <div class="cardsFrame">
+                                    <div class="cardsLabel">
+                                        <p class="${formatCategory(category)}">${category}</p>
+                                    </div>
+                                    <div class="cardsTitleAndContent">
+                                        <p class="cardsTitle">${title}</p>
+                                        <p class="cardsContent">${description}..</p>
+                                    </div>
+                                    <div class="cardsProgress">
+                                        <p id="cardsSubtasks">1/2 Subtasks</p>
+                                        <div id="cardsProgressBar" aria-valuemin="0" aria-valuemax="100"
+                                            are-valuenow="50">
+                                            <div id="progressBar" style="width: 50%;"></div>
+                                        </div>
+                                    </div>
+                                    <div id="cardsBottom">
+                                        <div id="cardsAssignedTo_${taskId}" class="cardsAssignedTo">
+                                        </div>
+                                        <div id="cardsPriority" class="${formatPriorityImg(priority)}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    `
+}
+
+
+function createAssignedToIconHTML(initials, bgColor) {
+    return `
+        <div class="cardsAssignedToIcon contactCircleExtraSmall ${bgColor}">
+            ${initials}
+        </div>
+    `;
+}
+
+
 function getDialogTemplate(assignedTo, category, description, dueDate, priority, subtasks, title, taskId) {
     return`
                 <div id="dialogBoard">
@@ -34,7 +73,7 @@ function getDialogTemplate(assignedTo, category, description, dueDate, priority,
                         </div>
                         <div class="overlayTaskAssignedTo">
                             <p>Assigned To:</p>
-                            <div id="overlayTaskAssignedToContacts">
+                            <div id="overlayTaskAssignedToContacts_${taskId}" class="overlayTaskAssignedToContacts">
                                 <div class="assignedToContact">
                                     <div class="contactCircleSmallDetailView backgroundColorGreen">EM</div>
                                     <p>Emanuel Mauer</p>
@@ -96,6 +135,16 @@ function getDialogTemplate(assignedTo, category, description, dueDate, priority,
                             </div>
                         </div>
                     </div>
+                </div>
+    `
+}
+
+
+function createAssignedToIconHTMLforDetailView(name, initials, bgColor) {
+    return`
+                <div class="assignedToContact">
+                    <div class="contactCircleSmallDetailView ${bgColor}">${initials}</div>
+                    <p>${name}</p>
                 </div>
     `
 }
@@ -222,7 +271,7 @@ function getEditDialogTemplate(assignedTo, category, description, dueDate, prior
                                     </div>
                                 </div>
                             </div>
-                            <div class="editDialogBoardAssignedToIcons">
+                            <div class="editDialogBoardAssignedToIcons" id="editDialogBoardAssignedToIcons">
                                 <div class="contactCircleSmallDetailView backgroundColorGreen">EM</div>
                                 <div class="contactCircleSmallDetailView backgroundColorDarkBlue">MB</div>
                                 <div class="contactCircleSmallDetailView backgroundColorOrange">AM</div>
@@ -304,6 +353,24 @@ function getAddTaskDialogTemplate() {
                     </button>
                 </div>
             </div>
+    `
+}
+
+
+function renderNoTaskCard(status) {
+    const statusMap = {
+        toDoTask: "To do",
+        inProgressTask: "In progress",
+        awaitFeedbackTask: "Await Feedback",
+        doneTask: "Done"
+    };
+
+    const readableStatus = statusMap[status];
+    return`
+                            <div id="noTaskToDo">
+                                <p>No tasks ${readableStatus}</p>
+                            </div>
+    
     `
 }
 
@@ -393,57 +460,36 @@ function renderContactDetails(name, email, phone, isItMe, backgroundcolor) {
 }
 
 
-function renderTaskCard(assignedTo, category, description, dueDate, priority, subtasks, title, taskId) {
+function getAssignedToContactTemplate(name, initials, index, bgClass) {
     return`
-                                <div id="${taskId}" class="taskCards"onclick="openOverlay(event, '${assignedTo}', '${category}', '${description}', '${dueDate}', '${priority}', '${subtasks}', '${title}', '${taskId}')" draggable="true" ondragstart="dragStart(event)"  ondragend="dragEnd(event)">
-                                <div class="cardsFrame">
-                                    <div class="cardsLabel">
-                                        <p class="${formatCategory(category)}">${category}</p>
-                                    </div>
-                                    <div class="cardsTitleAndContent">
-                                        <p class="cardsTitle">${title}</p>
-                                        <p class="cardsContent">${description}..</p>
-                                    </div>
-                                    <div class="cardsProgress">
-                                        <p id="cardsSubtasks">1/2 Subtasks</p>
-                                        <div id="cardsProgressBar" aria-valuemin="0" aria-valuemax="100"
-                                            are-valuenow="50">
-                                            <div id="progressBar" style="width: 50%;"></div>
-                                        </div>
-                                    </div>
-                                    <div id="cardsBottom">
-                                        <div id="cardsAssignedTo_${taskId}" class="cardsAssignedTo">
-                                        </div>
-                                        <div id="cardsPriority" class="${formatPriorityImg(priority)}">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+            <div id="addTask_assignedTo_contact_${index}" class="dropDownContacts contactUnchecked" onclick="addTaskselectContactToAssignTask(event, ${index})">
+                <div class="dropDownContact">
+                    <div class="contactCircleSmallDetailView ${bgClass}">${initials}</div>
+                    <p>${name}</p>
+                </div>
+                <div class="editDialogBoardAssignedToDropDownCheckbox contactUncheckedCheckbox">
+                </div>
+            </div>
     `
 }
 
 
-function renderNoTaskCard(status) {
-    const statusMap = {
-        toDoTask: "To do",
-        inProgressTask: "In progress",
-        awaitFeedbackTask: "Await Feedback",
-        doneTask: "Done"
-    };
-
-    const readableStatus = statusMap[status];
+function getAssignedToContactIconTemplate(initials, index, bgClass) {
     return`
-                            <div id="noTaskToDo">
-                                <p>No tasks ${readableStatus}</p>
-                            </div>
-    
+            <div id="addTask_assignedTo_contactIcon_${index}" class="contactCircleSmallDetailView ${bgClass} d_none">${initials}</div>
     `
 }
 
-function createAssignedToIconHTML(initials, bgColor) {
-    return `
-        <div class="cardsAssignedToIcon contactCircleExtraSmall ${bgColor}">
-            ${initials}
-        </div>
-    `;
+
+function getSubtaskTemplate(id, input) {
+    return`
+            <div id="${id}" class="editDialogBoardSubtasksAdded">
+                <li>${input}</li>
+                <div class="editDivSubtasks">
+                    <div class="editIcon"></div>
+                    <div class="vectorAddSubtask"></div>
+                    <div onclick="deleteSubtask('${id}')" class="deleteIcon"></div>
+                </div>
+            </div>
+    `
 }

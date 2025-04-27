@@ -70,11 +70,11 @@ function onBlurSignUp(inputId) {
     x.type = "password";
     if (x.value == "") {
         let img = document.getElementById(inputId + "Img");
-        img.src = "../assets/img/icons/lock.svg";// Icon für Passwort 
+        img.src = "./assets/img/icons/lock.svg";// Icon für Passwort 
         img.alt = "Password";
     } else {
         let img = document.getElementById(inputId + "Img");
-        img.src = "../assets/img/icons/visibility_off.svg";// Icon für Passwort versteckt 
+        img.src = "./assets/img/icons/visibility_off.svg";// Icon für Passwort versteckt 
         img.alt = "Password Hidden";
     }
   }

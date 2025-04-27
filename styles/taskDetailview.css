@@ -88,13 +88,13 @@
     font-size: 20px;
 }
 
-#overlayTaskAssignedToContacts {
+.overlayTaskAssignedToContacts {
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
 
-#overlayTaskAssignedToContacts div {
+.overlayTaskAssignedToContacts div {
     display: flex;
     align-items: center;
     position: relative;
