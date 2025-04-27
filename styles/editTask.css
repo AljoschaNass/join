@@ -200,7 +200,7 @@ textarea:focus {
     font-size: 20px;
 }
 
-#editDialogBoardAssignedToInput {
+.editDialogBoardAssignedToInput {
     width: 440px;
     height: 48px;
     border-radius: 10px;

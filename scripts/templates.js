@@ -121,7 +121,7 @@ function getDialogTemplate(assignedTo, category, description, dueDate, priority,
                             </div>
                             <div class="overlayTaskVector"></div>
                             <div class="overlayTaskEdit">
-                                <button onclick="editTask('${assignedTo}', '${category}', '${description}', '${dueDate}', '${priority}', '${subtasks}', '${title}', '${taskId}')">
+                                <button onclick="editTask( '${encodeURIComponent(JSON.stringify(assignedTo, taskId))}', '${category}', '${description}', '${dueDate}', '${priority}', '${subtasks}', '${title}', '${taskId}')">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <mask id="mask0_298547_4257" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
                                             <rect width="24" height="24" fill="#D9D9D9"></rect>
@@ -250,31 +250,12 @@ function getEditDialogTemplate(assignedTo, category, description, dueDate, prior
                             <p>Assigned to</p>
                             <div class="editDialogBoardAssignedToInputDiv">
                                 <input type="text" placeholder="Select contacts to assign"
-                                    id="editDialogBoardAssignedToInput" class="arrowDropDown"
-                                    onclick="assignedContactToTask()">
+                                    id="addTaskAssignedToInput" class="editDialogBoardAssignedToInput arrowDropDown"
+                                    onclick="assignedContactToTask()" onkeyup="searchContactAssignedTo()">
                                 <div id="editDialogBoardAssignedToDropDown" class="d_none">
-                                    <div class="dropDownContacts contactUnchecked" onclick="selectContactToAssignTask(event)">
-                                        <div class="dropDownContact">
-                                            <div class="contactCircleSmallDetailView backgroundColorOrange">AM</div>
-                                            <p>Anton Mayer</p>
-                                        </div>
-                                        <div class="editDialogBoardAssignedToDropDownCheckbox contactUncheckedCheckbox">
-                                        </div>
-                                    </div>
-                                    <div class="dropDownContacts contactChecked" onclick="selectContactToAssignTask(event)">
-                                        <div class="dropDownContact">
-                                            <div class="contactCircleSmallDetailView backgroundColorGreen">EM</div>
-                                            <p>Emmanuel Mauer</p>
-                                        </div>
-                                        <div class="editDialogBoardAssignedToDropDownCheckbox contactCheckedCheckbox">
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
-                            <div class="editDialogBoardAssignedToIcons" id="editDialogBoardAssignedToIcons">
-                                <div class="contactCircleSmallDetailView backgroundColorGreen">EM</div>
-                                <div class="contactCircleSmallDetailView backgroundColorDarkBlue">MB</div>
-                                <div class="contactCircleSmallDetailView backgroundColorOrange">AM</div>
+                            <div class="editDialogBoardAssignedToIcons" id="addTask_assignedToIcons">
                             </div>
                         </div>
                         <div class="editDialogBoardSubtasks">

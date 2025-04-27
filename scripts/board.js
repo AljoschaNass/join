@@ -27,8 +27,7 @@ async function loadTasksBoard() {
         if (columns[status].innerHTML === '') {
             columns[status].innerHTML = renderNoTaskCard(status);
         }
-    }
-    
+    } 
 }
 
 
@@ -106,7 +105,6 @@ async function renderW3AddTaskTemplate() {
     dialogRef.classList.add("d_none")
     dialogRef.innerHTML += getAddTaskDialogTemplate(html);
     w3.includeHTML(); 
-
 }
 
 

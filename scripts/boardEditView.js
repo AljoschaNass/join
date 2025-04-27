@@ -3,6 +3,10 @@ function editTask(assignedTo, category, description, dueDate, priority, subtasks
     dialogRef.innerHTML = "";
     dialogRef.innerHTML += getEditDialogTemplate(assignedTo, category, description, dueDate, priority, subtasks, title, taskId);
     updatePriorityButtonClasses(priority);
+    loadContactListAssignedTo();
+    setTimeout(function() {
+        loadAssignedContacts(assignedTo);
+    }, 100);  // 100ms warten, bis loadContactListAssignedTo ausgeführt ist
 }
 
 
@@ -46,13 +50,14 @@ function selectLowPriority() {
 
 function assignedContactToTask() {
     document.getElementById("editDialogBoardAssignedToDropDown").classList.toggle("d_none");
-    document.getElementById("editDialogBoardAssignedToInput").classList.toggle("arrowDropUp")
+    document.getElementById("addTaskAssignedToInput").classList.toggle("arrowDropUp")
 }
 
 
 function selectContactToAssignTask(event) {
     changeBackgroundColor(event);
     changeCheckbox(event);
+    checkIfContactChecked(event, index);
 }
 
 
@@ -146,5 +151,65 @@ async function saveEditTask(taskId) {
 }
 
 
+
+function getContactIndex(contactName) {
+    // Hier kannst du die Logik anpassen, um den Index basierend auf dem Namen zu bestimmen
+    // Zum Beispiel könnte es ein Index in einem Array sein, oder du kannst ihn auf Basis des Namens ermitteln
+    // Hier wird angenommen, dass der Index einfach die Reihenfolge der Namen in einer Liste widerspiegelt.
+    let contactNames = ["Anton Mayer", "Sarah Schmidt", "John Doe"];  // Beispiel-Namen-Liste
+    return contactNames.indexOf(contactName); // Gibt den Index des Namens in der Liste zurück
+}
+
+function loadAssignedContacts(assignedToEditEncoded, taskId) {
+    let assignedToEdit = parseAssignedToEdit(assignedToEditEncoded);
+    if (!assignedToEdit) return;
+
+    const contactDivs = getContactDivs();
+    if (!contactDivs) return;
+
+    contactDivs.forEach(contactDiv => {
+        let contactName = getContactName(contactDiv);
+        if (assignedToEdit[contactName]) {
+            markContactAsChecked(contactDiv);
+            let index = getContactIndex(contactDiv);
+            handleContactCheckbox(contactDiv, index);
+        }
+    });
+}
+
+
+function parseAssignedToEdit(assignedToEditEncoded) {
+    if (!assignedToEditEncoded || assignedToEditEncoded === 'undefined') return null;
+    return JSON.parse(decodeURIComponent(assignedToEditEncoded));
+}
+
+
+function getContactDivs() {
+    const contactDivs = document.querySelectorAll('#editDialogBoardAssignedToDropDown .dropDownContacts');
+    return contactDivs.length ? contactDivs : null;
+}
+
+
+function getContactName(contactDiv) {
+    let contactNameElement = contactDiv.querySelector('.dropDownContact p');
+    return contactNameElement ? contactNameElement.textContent.trim() : '';
+}
+
+
+function markContactAsChecked(contactDiv) {
+    contactDiv.classList.add('contactChecked');
+}
+
+
+function getContactIndex(contactDiv) {
+    return contactDiv.id.replace('addTask_assignedTo_contact_', '');
+}
+
+
+function handleContactCheckbox(contactDiv, index) {
+    let event = { target: contactDiv };
+    checkIfContactChecked(event, index);
+    changeCheckbox(event);
+}
 
 
