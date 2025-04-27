@@ -197,7 +197,8 @@ function openEditContactDialog(event) {
 }
 
 
-function closeContactDialog() {
+function closeContactDialog(event) {
+    event.preventDefault();
     let overlayRef = document.getElementById("overlayContacts");
     let noScrolling = document.body;
     noScrolling.classList.remove("stopScrolling");
