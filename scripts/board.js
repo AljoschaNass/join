@@ -203,7 +203,7 @@ async function loadTasksBoard() {
         let task = tasks[taskId];
         if (columns[task.status]) {
             columns[task.status].innerHTML += renderTaskCard(task.assignedTo, task.category, task.description, task.dueDate, task.priority, task.subtasks, task.title, taskId);
-            generateAssignedToHTML(task.assignedTo);
+            renderAssignedToIcons(task.assignedTo, `cardsAssignedTo_${taskId}`);
         }
     }
     for (let status in columns) {
@@ -317,21 +317,22 @@ async function saveEditTask(taskId) {
     loadTasksBoard()
 }
 
-function generateAssignedToHTML(assignedToObj) {
+function renderAssignedToIcons(assignedToObj, containerId) {
+    const container = document.getElementById(containerId);
+    container.innerHTML = '';
+
+    if (!assignedToObj || typeof assignedToObj !== 'object' || Object.keys(assignedToObj).length === 0) {
+        return;
+    }
     let names = Object.keys(assignedToObj);
     for (let i = 0; i < names.length; i++) {
         let name = names[i];
         if (assignedToObj[name]) {
-            let splitName = name.split(' ');
-            let initials = '';
-            if (splitName.length === 1) {
-                initials = splitName[0][0];
-            } else {
-                initials = splitName[0][0] + splitName[1][0];
-            }
-            initials = initials.toUpperCase();
-            console.log(initials)
+            let initials = setContactInitials(name);
+            let bgColor = setBackgroundcolor();
+            container.innerHTML += createAssignedToIconHTML(initials, bgColor);
         }
     }
-    
 }
+
+

@@ -412,15 +412,11 @@ function renderTaskCard(assignedTo, category, description, dueDate, priority, su
                                         </div>
                                     </div>
                                     <div id="cardsBottom">
-                                        <div id="cardsAssignedTo">
-                                            <div class="cardsAssignedToIcon contactCircleExtraSmall backgroundColorOrange">AM</div>
-                                            <div class="cardsAssignedToIcon contactCircleExtraSmall backgroundColorGreen">EM</div>
-                                            <div class="cardsAssignedToIcon contactCircleExtraSmall backgroundColorDarkBlue">MB</div>
+                                        <div id="cardsAssignedTo_${taskId}" class="cardsAssignedTo">
                                         </div>
                                         <div id="cardsPriority" class="${formatPriorityImg(priority)}">
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
     `
@@ -442,4 +438,12 @@ function renderNoTaskCard(status) {
                             </div>
     
     `
+}
+
+function createAssignedToIconHTML(initials, bgColor) {
+    return `
+        <div class="cardsAssignedToIcon contactCircleExtraSmall ${bgColor}">
+            ${initials}
+        </div>
+    `;
 }
