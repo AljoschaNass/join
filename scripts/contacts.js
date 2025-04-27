@@ -99,7 +99,7 @@ async function addContact(event) {
     let phone = document.getElementById("addContactPhone").value;	
     isItMe = (email === currentUserEmail) ? true : false; // Check if the email is the same as the current user's email
     await postContact("contacts", name, email, phone); 
-    closeContactDialog();
+    closeContactDialog(event);
     showAddContactSuccessMessage();
     await loadContactList(); 
 }
@@ -123,11 +123,12 @@ async function saveEditedContact(event) {
     let email = document.getElementById("editContactEmail").value;
     let phone = document.getElementById("editContactPhone").value;
     let backgroundcolor = document.getElementById("edit_contact_img").classList[1];
-    let i = await findContactPositionByEmail(email);	
+    let i = await findContactPositionByEmail(contactToEdit);	
     await putContact("contacts/" + i, name, email, phone); 
     closeEditContactDialog();
     loadContactDetails(name, email, phone, backgroundcolor);
     await loadContactList(); 
+    contactToEdit = null;
 }
 
 
@@ -197,7 +198,8 @@ function openEditContactDialog(event) {
 }
 
 
-function closeContactDialog() {
+function closeContactDialog(event) {
+    event.preventDefault();
     let overlayRef = document.getElementById("overlayContacts");
     let noScrolling = document.body;
     noScrolling.classList.remove("stopScrolling");
@@ -214,6 +216,7 @@ function closeEditContactDialog() {
     let noScrolling = document.body;
     noScrolling.classList.remove("stopScrolling");
     overlayRef.classList.add("d_none");
+    contactToEdit = null;
     document.getElementById("edit_contact_img").classList.remove("backgroundColor1", "backgroundColor2", "backgroundColor3", "backgroundColor4", "backgroundColor5", "backgroundColor6", "backgroundColor7", "backgroundColor8", "backgroundColor9", "backgroundColor10", "backgroundColor11", "backgroundColor12", "backgroundColor13", "backgroundColor14", "backgroundColor15", "backgroundColor16");
 }
 
@@ -272,6 +275,7 @@ function setBackgroundcolor() {
 function fillInputFieldsWithCurrentData(name, email, phone, backgroundcolor) {
     document.getElementById("editContactName").value = name;
     document.getElementById("editContactEmail").value = email;
+    contactToEdit = email;
     document.getElementById("editContactPhone").value = phone;
     document.getElementById("edit_contact_img").classList.add(backgroundcolor);
     document.getElementById("edit_contact_img").innerHTML = setContactInitials(name);
@@ -285,4 +289,5 @@ async function deleteContactInEditDialog(event) {
     deleteContact(email);
     closeEditContactDialog();
     await loadContactList();
+    contactToEdit = null;
 }

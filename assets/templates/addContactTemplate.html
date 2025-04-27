@@ -1,4 +1,4 @@
-<div class="add_contact_background" id="add_contact_background" onclick="closeContactDialog()">
+<div class="add_contact_background" id="add_contact_background" onclick="closeContactDialog(event)">
   <div class="add_contact_container">
     <div class="add_contact_left gap_12">
       <img src="../assets/img/join_logo.svg" alt="join logo" class="add_contact_logo">
@@ -11,25 +11,25 @@
     </div>
     <div class="add_contact_right">
       <div class="close_overlay">
-        <button onclick="closeContactDialog(); return false;" id="closeOverlayButton" class="close_overlay_button"><img src="../assets/img/icons/X.svg" alt="Close"></button>
+        <button onclick="closeContactDialog(event); return false;" id="closeOverlayButton" class="close_overlay_button"><img src="../assets/img/icons/X.svg" alt="Close"></button>
       </div>
       <form onchange="enableCreateContactButton()" class="add_contact_form">
         <div class="gap_32 center">
             <div class="password_container">
-                <input type="text" placeholder="Name" class="input_contact" id="addContactName" required>
+                <input type="text" placeholder="Name" class="input_contact" id="addContactName" name="Name" required>
                 <img src="../assets/img/icons/person.svg" alt="name" class="input_contact_img">
             </div>
             <div class="password_container">
-                <input type="email" placeholder="Email" class="input_contact" id="addContactEmail" required>
+                <input type="email" placeholder="Email" class="input_contact" id="addContactEmail" name="Email" required>
                 <img src="../assets/img/icons/mail.svg" alt="Email" class="input_contact_img">
             </div>
             <div class="password_container">
-                <input type="phone" placeholder="Phone" class="input_contact" id="addContactPhone" required>
+                <input type="tel" placeholder="Phone" class="input_contact" id="addContactPhone" name="Phone" required>
                 <img  src="../assets/img/icons/call.svg" alt="Phone" class="input_contact_img">
             </div>
         </div>
         <div class="add_contact_btns">
-          <button onclick="closeContactDialog()" class="cancel_contact_btn">Cancel</button>
+          <button onclick="closeContactDialog(event)" class="cancel_contact_btn">Cancel</button>
           <button type="submit" disabled onclick="addContact(event)" class="add_contact_btn" id="addContactBtn">Create Contact</button>
         </div>
       </form>
