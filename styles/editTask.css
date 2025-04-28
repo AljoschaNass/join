@@ -362,6 +362,7 @@ textarea:focus {
 
 .editDialogBoardSubtasksAdded:hover {
     background-color: rgba(238, 238, 238, 1);
+    border-radius: 10px;
 }
 
 .editDialogBoardSubtasksAdded:hover .editIcon {

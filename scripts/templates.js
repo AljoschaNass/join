@@ -467,9 +467,14 @@ function getSubtaskTemplate(id, input) {
             <div id="${id}" class="editDialogBoardSubtasksAdded">
                 <li>${input}</li>
                 <div class="editDivSubtasks">
-                    <div class="editIcon"></div>
+                    <div onclick="subtaskEdit(event)" class="editIcon"></div>
                     <div class="vectorAddSubtask"></div>
-                    <div onclick="deleteSubtask('${id}')" class="deleteIcon"></div>
+                    <div class="deleteIcon" onclick="deleteSubtask('${id}')"></div>
+                </div>
+                <div class="editDivSubtasks2 d_none">
+                    <div class="deleteIcon2" onclick="deleteSubtask('${id}')"></div>
+                    <div class="vectorAddSubtask2"></div>
+                    <div class="saveIcon" onclick="subtaskSave(event)"></div>
                 </div>
             </div>
     `
