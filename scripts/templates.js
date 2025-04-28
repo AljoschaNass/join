@@ -1,6 +1,6 @@
 function renderTaskCard(assignedTo, category, description, dueDate, priority, subtasks, title, taskId) {
     return`
-                                <div id="${taskId}" class="taskCards" onclick="openOverlay(event, '${encodeURIComponent(JSON.stringify(assignedTo))}', '${category}', '${description}', '${dueDate}', '${priority}', '${subtasks}', '${title}', '${taskId}')" draggable="true" ondragstart="dragStart(event)"  ondragend="dragEnd(event)">
+                                <div id="${taskId}" class="taskCards" onclick="openOverlay(event, '${encodeURIComponent(JSON.stringify(assignedTo))}', '${category}', '${description}', '${dueDate}', '${priority}', '${encodeURIComponent(JSON.stringify(subtasks))}', '${title}', '${taskId}')" draggable="true" ondragstart="dragStart(event)"  ondragend="dragEnd(event)">
                                 <div class="cardsFrame">
                                     <div class="cardsLabel">
                                         <p class="${formatCategory(category)}">${category}</p>
@@ -88,8 +88,9 @@ function getDialogTemplate(assignedTo, category, description, dueDate, priority,
                                 </div>
                             </div> 
                         </div>
-                        <div>
+                        <div id="subtasksDialog">
                             <p class="mb_8px">Subtasks</p>
+                            <div id="addTask_subtask_content_${taskId}" class="subtasksContent">
                             <div class="overlayTaskSubtasks">
                                 <input type="checkbox" id="task1" checked="checked">
                                 <label for="task1">
@@ -103,6 +104,7 @@ function getDialogTemplate(assignedTo, category, description, dueDate, priority,
                                     <span class="customCheckbox"></span>
                                 </label>
                                 <p>Start Page Layout</p>
+                            </div>
                             </div>
                         </div>
                         <div id="overlayTaskBottom">
@@ -146,6 +148,19 @@ function createAssignedToIconHTMLforDetailView(name, initials, bgColor) {
                     <div class="contactCircleSmallDetailView ${bgColor}">${initials}</div>
                     <p>${name}</p>
                 </div>
+    `
+}
+
+
+function createSubTaskHTML(id, subtask) {
+    return`
+                            <div class="overlayTaskSubtasks">
+                                <input type="checkbox" id="${id}">
+                                <label for="${id}">
+                                    <span class="customCheckbox"></span>
+                                </label>
+                                <p>${subtask}</p>
+                            </div>
     `
 }
 

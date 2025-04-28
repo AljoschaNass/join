@@ -1,8 +1,12 @@
-function openOverlay(event, assignedToEncoded, category, description, dueDate, priority, subtasks, title, taskId) {
+function openOverlay(event, assignedToEncoded, category, description, dueDate, priority, subtasksEncoded, title, taskId) {
     event.stopPropagation();
     let assignedTo = {};
     if (assignedToEncoded && assignedToEncoded !== 'undefined') {
         assignedTo = JSON.parse(decodeURIComponent(assignedToEncoded));
+    }
+    let subtasks = {};
+    if (subtasksEncoded && subtasksEncoded !== 'undefined') {
+        subtasks = JSON.parse(decodeURIComponent(subtasksEncoded));
     }
     let overlayRef = document.getElementById("overlayBoard");
     let noScrolling = document.body;
@@ -10,6 +14,7 @@ function openOverlay(event, assignedToEncoded, category, description, dueDate, p
     overlayRef.classList.add("overlayBoard");
     overlayRef.innerHTML += getDialogTemplate(assignedTo, category, description, dueDate, priority, subtasks, title, taskId);
     renderAssignedToIconsDetailView(assignedTo, `overlayTaskAssignedToContacts_${taskId}`);
+    renderSubtasksDetailView(subtasks, `addTask_subtask_content_${taskId}`);
     const dialogElement = document.getElementById("dialogBoard");
     dialogElement.addEventListener("click", (event) => {
         event.stopPropagation(); 
@@ -34,7 +39,7 @@ function capitalizeFirstLetter(str) {
 function renderAssignedToIconsDetailView(assignedToObj, containerId) {
     const container = document.getElementById(containerId);
     container.innerHTML = '';
-
+    console.log(assignedToObj)
     if (!assignedToObj || typeof assignedToObj !== 'object' || Object.keys(assignedToObj).length === 0) {
         return;
     }
@@ -45,6 +50,25 @@ function renderAssignedToIconsDetailView(assignedToObj, containerId) {
             let initials = setContactInitials(name);
             let bgColor = setBackgroundcolor();
             container.innerHTML += createAssignedToIconHTMLforDetailView(name, initials, bgColor);
+        }
+    }
+}
+
+
+function renderSubtasksDetailView(subtasksObj, containerIdS) {
+    const container = document.getElementById(containerIdS);
+    container.innerHTML = '';
+    console.log(subtasksObj)
+
+    if (!subtasksObj || typeof subtasksObj !== 'object' || Object.keys(subtasksObj).length === 0) {
+        document.getElementById('subtasksDialog').classList.add('d_none');
+        return;
+    }
+
+    for (let [id, subtask] of Object.entries(subtasksObj)) {
+        if (subtask) {
+            container.innerHTML += createSubTaskHTML(id, subtask);
+            console.log(id, subtask)
         }
     }
 }

@@ -214,3 +214,8 @@ input[type="checkbox"] {
     font-weight: 400;
     width: fit-content;
 }
+
+.subtasksContent {
+    display: flex;
+    flex-direction: column;
+}

@@ -21,6 +21,7 @@ async function loadTasksBoard() {
         if (columns[task.status]) {
             columns[task.status].innerHTML += renderTaskCard(task.assignedTo, task.category, task.description, task.dueDate, task.priority, task.subtasks, task.title, taskId);
             renderAssignedToIcons(task.assignedTo, `cardsAssignedTo_${taskId}`);  
+            renderSubtasksDetailView(task.subtasks);
         }
     }
     for (let status in columns) {
@@ -58,6 +59,8 @@ function renderAssignedToIcons(assignedToObj, containerId) {
         }
     }
 }
+
+
 
 
 function formatPriorityImg(priority) {
