@@ -48,12 +48,6 @@ function selectLowPriority() {
 }
 
 
-function assignedContactToTask() {
-    document.getElementById("editDialogBoardAssignedToDropDown").classList.toggle("d_none");
-    document.getElementById("addTaskAssignedToInput").classList.toggle("arrowDropUp")
-}
-
-
 function selectContactToAssignTask(event) {
     changeBackgroundColor(event);
     changeCheckbox(event);
@@ -118,12 +112,13 @@ function changeButtons2(event) {
 }
 
 
-async function updateTask(title, description, dueDate, priority, taskId) {
+async function updateTask(title, description, dueDate, priority, assignedTo, taskId) {
     const task = {
         title: title,
         description: description,
         dueDate: dueDate,
-        priority: priority
+        priority: priority,
+        assignedTo: assignedTo
     };
     let response = await fetch(`${BASE_URL}tasks/${taskId}.json`, {
         method: "PATCH", headers: {'Content-Type': 'application/json', }, body: JSON.stringify(task)
@@ -138,6 +133,8 @@ async function saveEditTask(taskId) {
     let description = document.getElementById("inputEditDialogBoardDescription").value;
     let dueDate = document.getElementById("dueDate").value;
     let priority;
+    let assignedTo = checkedContacts;
+    console.log(assignedTo)
     if (document.getElementById("lowPriority").classList.contains("lowPriorityButtonSelected")) {
         priority = "low";
     } else if (document.getElementById("mediumPriority").classList.contains("mediumPriorityButtonSelected")) {
@@ -145,7 +142,7 @@ async function saveEditTask(taskId) {
     } else if (document.getElementById("urgentPriority").classList.contains("urgentPriorityButtonSelected")) {
         priority = "urgent";
     }
-    await updateTask(title, description, dueDate, priority, taskId); 
+    await updateTask(title, description, dueDate, priority, assignedTo, taskId); 
     closeDialog();
     loadTasksBoard()
 }
