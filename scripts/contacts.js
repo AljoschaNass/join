@@ -1,8 +1,9 @@
-async function postContact(path="contacts", name, email, phone /*, backgroundcolor*/){//erstellen neuer recoursen - nicht idempotent, dh mehrere ausführungen können mehrere einträge erzeugen
+async function postContact(path="contacts", name, email, phone, backgroundcolor){//erstellen neuer recoursen - nicht idempotent, dh mehrere ausführungen können mehrere einträge erzeugen
     let contact = {
         'name': name, 
         'email': email,
-        'phone': phone
+        'phone': phone,
+        'backgroundcolor': backgroundcolor
     };
     let response = await fetch(BASE_URL + path + ".json", {
         method: "POST", headers: {'Content-Type': 'application/json', }, body: JSON.stringify(contact)
@@ -12,14 +13,15 @@ async function postContact(path="contacts", name, email, phone /*, backgroundcol
 }
 
 
-async function putContact(path, name, email, phone /*, backgroundcolor*/){
+async function patchContact(path, name, email, phone, backgroundcolor){ //patch statt put, da patch nur teile überscreibt. put überschreibt alles!
     let contact = {
         'name': name, 
         'email': email,
-        'phone': phone
+        'phone': phone,
+        'backgroundcolor': backgroundcolor
     };
     let response = await fetch(BASE_URL + path + ".json", {
-        method: "PUT", headers: {'Content-Type': 'application/json', }, body: JSON.stringify(contact)
+        method: "PATCH", headers: {'Content-Type': 'application/json', }, body: JSON.stringify(contact)
     });
     let responseToJson = await response.json();
     return responseToJson;
@@ -39,7 +41,7 @@ async function getAllUsersToContacts(){
     let users = await response.json();
     for (let i in users) {
         let contact = users[i];
-        await postContact("contacts", contact.name, contact.email, contact.phone);
+        await postContact("contacts", contact.name, contact.email, contact.phone, setBackgroundcolor());
     }
 }
 
@@ -74,7 +76,7 @@ function filterContactsByFirstLetter(contacts) {
         if(contacts_i.length){
             contactList.innerHTML += renderContactListHeadline(i);
             contacts_i.forEach(contact => {
-                contactList.innerHTML += renderContactInList(contact.name, contact.email, contact.phone, isItMyEmail(contact.email), setBackgroundcolor()); 
+                contactList.innerHTML += renderContactInList(contact.name, contact.email, contact.phone, isItMyEmail(contact.email), contact.backgroundcolor); 
             });
         }
     }
@@ -98,20 +100,9 @@ async function addContact(event) {
     let email = document.getElementById("addContactEmail").value;
     let phone = document.getElementById("addContactPhone").value;	
     isItMe = (email === currentUserEmail) ? true : false; // Check if the email is the same as the current user's email
-    await postContact("contacts", name, email, phone); 
+    await postContact("contacts", name, email, phone, setBackgroundcolor()); 
     closeContactDialog(event);
     showAddContactSuccessMessage();
-    await loadContactList(); 
-}
-
-
-async function saveContact(event) { 
-    event.preventDefault();
-    let name = document.getElementById("editContactName").value;
-    let email = document.getElementById("editContactEmail").value;
-    let phone = document.getElementById("editContactPhone").value;	
-    await postContact("contacts", name, email, phone); 
-    closeContactDialog();
     await loadContactList(); 
 }
 
@@ -124,7 +115,7 @@ async function saveEditedContact(event) {
     let phone = document.getElementById("editContactPhone").value;
     let backgroundcolor = document.getElementById("edit_contact_img").classList[1];
     let i = await findContactPositionByEmail(contactToEdit);	
-    await putContact("contacts/" + i, name, email, phone); 
+    await patchContact("contacts/" + i, name, email, phone, backgroundcolor);  
     closeEditContactDialog();
     loadContactDetails(name, email, phone, backgroundcolor);
     await loadContactList(); 
