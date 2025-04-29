@@ -243,9 +243,8 @@ function renderContactsToAssignedTo(contacts) {
     assignedToIcons.innerHTML = "";
     
     Object.entries(contacts).forEach(([key, contact], index) => {
-        let bgClass = setBackgroundcolor();
-        assignedToDropDownRef.innerHTML += getAssignedToContactTemplate(contact.name, setContactInitials(contact.name), index, bgClass);
-        assignedToIcons.innerHTML += getAssignedToContactIconTemplate(setContactInitials(contact.name), index, bgClass);
+        assignedToDropDownRef.innerHTML += getAssignedToContactTemplate(contact.name, setContactInitials(contact.name), index, contact.backgroundcolor);
+        assignedToIcons.innerHTML += getAssignedToContactIconTemplate(setContactInitials(contact.name), index, contact.backgroundcolor);        
     });
     renderNoContactsToAssignedTo();
 }
