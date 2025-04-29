@@ -198,7 +198,6 @@ function addSubtask() {
 function renderSubtask(id, subtaskValue) {
     let contentRef = document.getElementById("addTask_subtask_content");
     contentRef.innerHTML += getSubtaskTemplate(id, subtaskValue);
-    console.log(currentSubtasks);
 }
 
 function clearSubtaskInput() {
@@ -211,7 +210,6 @@ function deleteSubtask(id) {
     if (subtaskDiv) {
         subtaskDiv.remove();
     }    
-    console.log(currentSubtasks);
 }
 
 async function loadContactListAssignedTo() {
@@ -237,6 +235,37 @@ function renderContactsToAssignedTo(contacts) {
         assignedToDropDownRef.innerHTML += getAssignedToContactTemplate(contact.name, setContactInitials(contact.name), index, bgClass);
         assignedToIcons.innerHTML += getAssignedToContactIconTemplate(setContactInitials(contact.name), index, bgClass);
     });
+}
+
+document.addEventListener("click", function(event) {
+    closeAssignedToByClickNextToIt(event);
+    closeCategoryByClickNextToIt(event);
+});
+
+function closeAssignedToByClickNextToIt(event) {
+    const assignedInput = document.getElementById("addTaskAssignedToInput");
+    const assignedDropdown = document.getElementById("editDialogBoardAssignedToDropDown");
+
+    const isClickInsideAssigned =
+        assignedInput.contains(event.target) || assignedDropdown.contains(event.target);
+    
+    if (!isClickInsideAssigned) {
+        closeAssignedContactToTaskMenu();
+    }
+}
+
+function closeCategoryByClickNextToIt(event) {
+    const categoryInput = document.getElementById("addTaskCategoryInput");
+    const categoryDropdown = document.getElementById("addTaskCategoryDropDown");
+
+    const isClickInsideCategory =
+        categoryInput.contains(event.target) || categoryDropdown.contains(event.target);
+    
+    if (!isClickInsideCategory) {
+        if (!categoryDropdown.classList.contains("d_none")) {
+            arrowDropDownSelection('addTaskCategory');
+        }
+    }
 }
 
 function openAssignedContactToTaskMenu() {
