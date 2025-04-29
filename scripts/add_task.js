@@ -25,20 +25,17 @@ function setBtnPriority(priority) {
     }
 }
 
-
 function removeAllPriosityBg() {
     document.getElementById("add_task_btn_priority_urgent").classList.remove("priority_color_urgent");
     document.getElementById("add_task_btn_priority_medium").classList.remove("priority_color_medium");
     document.getElementById("add_task_btn_priority_low").classList.remove("priority_color_low");
 }
 
-
 function checkRequiredBtnAddTask() {
     checkRequiredTitel();
     checkRequiredDate();
     checkRequiredCategory(); 
 }
-
 
 function checkRequiredTitel() {
     let titleRef = document.getElementById("add_task_title").value;
@@ -51,7 +48,6 @@ function checkRequiredTitel() {
     }
 }
 
-
 function checkRequiredDate() {
     let dateRef = document.getElementById("add_task_date").value;
     let dateRequiredRef = document.getElementById("add_task_required_date");
@@ -62,7 +58,6 @@ function checkRequiredDate() {
         dateRequiredRef.innerText = "";
     }
 }
-
 
 function checkRequiredCategory() {
     let categoryRef = document.getElementById("addTaskCategoryInput").value;
@@ -75,19 +70,16 @@ function checkRequiredCategory() {
     }
 }
 
-
 function arrowDropDownSelection(id) {
     document.getElementById(id + "DropDown").classList.toggle("d_none");
     document.getElementById(id + "Input").classList.toggle("arrowDropUp")
 }
-
 
 function addTaskselectCategory(category) {
     document.getElementById("addTaskCategoryInput").value = category;
     checkRequiredCategory();
     arrowDropDownSelection('addTaskCategory');
 }
-
 
 async function postTask(path="tasks", title, description, dueDate, priority, assignedTo, category, subtasks, status) {
     let task = {
@@ -125,7 +117,6 @@ async function addTask(status) {
         clearAddTaskForm();
     }
 }
-
 
 function clearAddTaskForm() {
     document.getElementById("add_task_title").value = "";
@@ -170,12 +161,10 @@ function resetContactSelections() {
     });
 }
 
-
 function deleteAllSubtasks() {
     currentSubtasks = {};
     document.getElementById("addTask_subtask_content").innerHTML = "";
 }
-
 
 function enableCreateTaskButton() {
     let titleRef = document.getElementById("add_task_title").value;
@@ -189,38 +178,32 @@ function enableCreateTaskButton() {
     }
 }
 
-
 function diableCreateTaskButton(createTaskBtn) {
     createTaskBtn.disabled = true;
     createTaskBtn.classList.remove("btn_create_enabled");
 }
 
-
 function addSubtask() {
     let inputRef = document.getElementById("add_task_subtask");   
-    if(inputRef.value.trim() !== "") {
-        let subtaskValue = inputRef.value.trim();
-        let id = `subtask_${subtaskId++}`;
-        currentSubtasks[id] = subtaskValue;
+    let subtaskValue = inputRef.value.trim();
+    let id = `subtask_${subtaskId++}`;
+
+    if (subtaskValue !== "") {
+        currentSubtasks[id] = { text: subtaskValue, status: "undone" };
         renderSubtask(id, subtaskValue);
         inputRef.value = "";
     }
 }
 
-
 function renderSubtask(id, subtaskValue) {
     let contentRef = document.getElementById("addTask_subtask_content");
     contentRef.innerHTML += getSubtaskTemplate(id, subtaskValue);
+    console.log(currentSubtasks);
 }
-
 
 function clearSubtaskInput() {
     document.getElementById("add_task_subtask").value = "";
 }
-
-
-//function editSubtask() {}
-
 
 function deleteSubtask(id) {
     delete currentSubtasks[id];
@@ -228,8 +211,8 @@ function deleteSubtask(id) {
     if (subtaskDiv) {
         subtaskDiv.remove();
     }    
+    console.log(currentSubtasks);
 }
-
 
 async function loadContactListAssignedTo() {
     let contacts = await getAllContacts(); 
@@ -238,11 +221,9 @@ async function loadContactListAssignedTo() {
     saveCurrentContacts(sortedContacts);
 }
 
-
 function saveCurrentContacts(contacts) {
     currentContacts = contacts;
 }
-
 
 function renderContactsToAssignedTo(contacts) {
     let assignedToDropDownRef = document.getElementById("editDialogBoardAssignedToDropDown");
@@ -270,20 +251,17 @@ function closeAssignedContactToTaskMenu() {
     document.getElementById("addTask_assignedToIcons").classList.remove("d_none");
 }
 
-
 function toggleAssignedContactToTaskMenu() {
     document.getElementById("editDialogBoardAssignedToDropDown").classList.toggle("d_none");
     document.getElementById("addTaskAssignedToInput").classList.toggle("arrowDropUp");
     document.getElementById("addTask_assignedToIcons").classList.toggle("d_none");
 }
 
-
 function addTaskselectContactToAssignTask(event, index) {
     changeBackgroundColor(event);
     changeCheckbox(event);
     checkIfContactChecked(event, index);
 }
-
 
 function checkIfContactChecked(event, index) {
     const contactDiv = event.target.closest('.dropDownContacts');
@@ -301,7 +279,6 @@ function checkIfContactChecked(event, index) {
         counterContactIcons--;
     }    
 }
-
 
 function searchContactAssignedTo() {
     let searchInputRef = document.getElementById("addTaskAssignedToInput").value.toLowerCase();
