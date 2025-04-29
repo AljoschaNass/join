@@ -12,7 +12,8 @@
       <p class="add_task_required"></p>
 
       <label class="add_task_after_required" for="add_task_date">Due date</label>
-      <input oninput="enableCreateTaskButton()" onfocusout="checkRequiredDate()" id="add_task_date" class="add_task_input" type="date" required />
+      <input id="add_task_date" class="add_task_input" type="date" 
+        oninput="enableCreateTaskButton(), checkRequiredDate()" onfocusout="checkRequiredDate()" required />
       <p id="add_task_required_date" class="add_task_required"></p>
     </div>
 
@@ -55,8 +56,10 @@
 
       <label class="add_task_after_required" for="addTaskCategoryInput">Category</label>
       <section class="editDialogBoardAssignedToInputDiv">
-        <input type="text" placeholder="Select task category" id="addTaskCategoryInput"
-          class="arrowDropDown assignedToInput add_task_input" onclick="arrowDropDownSelection('addTaskCategory')" 
+        <input type="text" placeholder="Select task category" 
+          id="addTaskCategoryInput" class="arrowDropDown assignedToInput add_task_input" 
+          onclick="arrowDropDownSelection('addTaskCategory')" 
+          onfocusout="checkRequiredCategory()"
           readonly="true" required>
         <div id="addTaskCategoryDropDown" class="arrowDropDownInputs d_none">
           <div onclick="addTaskselectCategory('Technical Task'), enableCreateTaskButton()" class="arrowDropDownInput">

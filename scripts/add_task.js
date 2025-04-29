@@ -37,6 +37,16 @@ function checkRequiredBtnAddTask() {
     checkRequiredCategory(); 
 }
 
+function resetRequiredIputs() {
+    let titleRequiredRef = document.getElementById("add_task_required_title");
+    let dateRequiredRef = document.getElementById("add_task_required_date");
+    let categoryRequiredRef = document.getElementById("add_task_required_category");
+
+    titleRequiredRef.innerText = "";
+    dateRequiredRef.innerText = "";
+    categoryRequiredRef.innerText = "";
+}
+
 function checkRequiredTitel() {
     let titleRef = document.getElementById("add_task_title").value;
     let titleRequiredRef = document.getElementById("add_task_required_title");
@@ -127,6 +137,8 @@ function clearAddTaskForm() {
     resetAssignedToContacts();
     document.getElementById("addTaskCategoryInput").value = "";
     deleteAllSubtasks();
+
+    resetRequiredIputs();
 
     let createTaskBtn = document.getElementById("btn_add_task_create_task");
     diableCreateTaskButton(createTaskBtn);
