@@ -469,6 +469,18 @@ function getAssignedToContactTemplate(name, initials, index, bgClass) {
     `
 }
 
+function getNoContactAssignedTo() {
+    return`
+            <div id="addTask_assignedTo_no_contact" class="dropDownContacts contactUnchecked d_none">
+                <div class="dropDownContact">
+                    <div class="contactCircleSmallDetailView"></div>
+                    <p>Kein Kontakt gefunden!</p>
+                </div>
+                <div class="editDialogBoardAssignedToDropDownCheckbox">
+                </div>
+            </div>
+    `
+}
 
 function getAssignedToContactIconTemplate(initials, index, bgClass) {
     return`
