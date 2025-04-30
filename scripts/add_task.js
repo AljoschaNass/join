@@ -1,5 +1,5 @@
 
-let currentPriority = "";
+let currentPriority = "medium";
 let counterContactIcons = 0;
 let checkedContacts = {};
 let currentSubtasks = {};
@@ -23,6 +23,13 @@ function setBtnPriority(priority) {
         priorityRef.classList.add("priority_color_" + priority);
         currentPriority = priority;
     }
+}
+
+function resetBtnPriority() {
+    removeAllPriosityBg();
+    currentPriority = "medium";
+    let priorityRef = document.getElementById("add_task_btn_priority_medium");
+    priorityRef.classList.add("priority_color_medium");
 }
 
 function removeAllPriosityBg() {
@@ -132,12 +139,10 @@ function clearAddTaskForm() {
     document.getElementById("add_task_title").value = "";
     document.getElementById("add_task_description").value = "";
     document.getElementById("add_task_date").value = "";
-    removeAllPriosityBg();
-    currentPriority = "";
+    resetBtnPriority();
     resetAssignedToContacts();
     document.getElementById("addTaskCategoryInput").value = "";
     deleteAllSubtasks();
-
     resetRequiredIputs();
 
     let createTaskBtn = document.getElementById("btn_add_task_create_task");
