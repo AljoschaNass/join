@@ -456,14 +456,14 @@ function renderContactDetails(name, email, phone, isItMe, backgroundcolor) {
 }
 
 
-function getAssignedToContactTemplate(name, initials, index, bgClass) {
+function getAssignedToContactTemplate(name, initials, index, classIfContactChecked, classIfCheckbox, bgClass) {
     return`
-            <div id="addTask_assignedTo_contact_${index}" class="dropDownContacts contactUnchecked" onclick="addTaskselectContactToAssignTask(event, ${index})">
+            <div id="addTask_assignedTo_contact_${index}" class="dropDownContacts ${classIfContactChecked}" onclick="addTaskselectContactToAssignTask(event, ${index})">
                 <div class="dropDownContact">
                     <div class="contactCircleSmallDetailView ${bgClass}">${initials}</div>
                     <p>${name}</p>
                 </div>
-                <div class="editDialogBoardAssignedToDropDownCheckbox contactUncheckedCheckbox">
+                <div class="editDialogBoardAssignedToDropDownCheckbox ${classIfCheckbox}">
                 </div>
             </div>
     `
@@ -482,9 +482,9 @@ function getNoContactAssignedTo() {
     `
 }
 
-function getAssignedToContactIconTemplate(initials, index, bgClass) {
+function getAssignedToContactIconTemplate(initials, index, iconClass, bgClass) {
     return`
-            <div id="addTask_assignedTo_contactIcon_${index}" class="contactCircleSmallDetailView ${bgClass} d_none">${initials}</div>
+            <div id="addTask_assignedTo_contactIcon_${index}" class="contactCircleSmallDetailView ${bgClass} ${iconClass}">${initials}</div>
     `
 }
 

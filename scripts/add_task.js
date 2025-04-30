@@ -236,15 +236,21 @@ function saveCurrentContacts(contacts) {
 }
 
 function renderContactsToAssignedTo(contacts) {
-    let assignedToDropDownRef = document.getElementById("editDialogBoardAssignedToDropDown");
-    assignedToDropDownRef.innerHTML = "";
+    const dropDown = document.getElementById("editDialogBoardAssignedToDropDown");
+    const icons = document.getElementById("addTask_assignedToIcons");
+    dropDown.innerHTML = "";
+    icons.innerHTML = "";
 
-    let assignedToIcons = document.getElementById("addTask_assignedToIcons");
-    assignedToIcons.innerHTML = "";
-    
-    Object.entries(contacts).forEach(([key, contact], index) => {
-        assignedToDropDownRef.innerHTML += getAssignedToContactTemplate(contact.name, setContactInitials(contact.name), index, contact.backgroundcolor);
-        assignedToIcons.innerHTML += getAssignedToContactIconTemplate(setContactInitials(contact.name), index, contact.backgroundcolor);        
+    Object.entries(contacts).forEach(([_, contact], index) => {
+        const isChecked = checkedContacts.hasOwnProperty(contact.name);
+        const contactClass = isChecked ? "contactChecked" : "contactUnchecked";
+        const checkboxClass = isChecked ? "contactCheckedCheckbox" : "contactUncheckedCheckbox";
+        const iconClass = isChecked ? "" : "d_none";
+        const initials = setContactInitials(contact.name);
+        const bgColor = contact.backgroundcolor;
+
+        dropDown.innerHTML += getAssignedToContactTemplate(contact.name, initials, index, contactClass, checkboxClass, bgColor);
+        icons.innerHTML += getAssignedToContactIconTemplate(initials, index, iconClass, bgColor);
     });
     renderNoContactsToAssignedTo();
 }
@@ -287,7 +293,7 @@ function closeCategoryByClickNextToIt(event) {
 
 function openAssignedContactToTaskMenu() {
     document.getElementById("editDialogBoardAssignedToDropDown").classList.remove("d_none");
-    document.getElementById("addTaskAssignedToInput").classList.remove("arrowDropUp");
+    document.getElementById("addTaskAssignedToInput").classList.add("arrowDropUp");
     document.getElementById("addTask_assignedToIcons").classList.add("d_none");
 }
 
@@ -295,7 +301,7 @@ function closeAssignedContactToTaskMenu() {
     document.getElementById("addTaskAssignedToInput").value = "";
     searchContactAssignedTo();
     document.getElementById("editDialogBoardAssignedToDropDown").classList.add("d_none");
-    document.getElementById("addTaskAssignedToInput").classList.add("arrowDropUp");
+    document.getElementById("addTaskAssignedToInput").classList.remove("arrowDropUp");
     document.getElementById("addTask_assignedToIcons").classList.remove("d_none");
 }
 
@@ -326,7 +332,7 @@ function checkIfContactChecked(event, index) {
         iconRef.classList.add("d_none");
         delete checkedContacts[contactRef];
         counterContactIcons--;
-    }    
+    }       
 }
 
 function searchContactAssignedTo() {
