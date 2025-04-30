@@ -1,6 +1,6 @@
-function renderTaskCard(assignedTo, category, description, dueDate, priority, subtasks, title, taskId) {
+function renderTaskCard(assignedTo, category, description, dueDate, priority, subtasks, title, taskId, contactsObj) {
     return`
-                                <div id="${taskId}" class="taskCards" onclick="openOverlay(event, '${encodeURIComponent(JSON.stringify(assignedTo))}', '${category}', '${description}', '${dueDate}', '${priority}', '${encodeURIComponent(JSON.stringify(subtasks))}', '${title}', '${taskId}')" draggable="true" ondragstart="dragStart(event)"  ondragend="dragEnd(event)">
+                                <div id="${taskId}" class="taskCards" onclick="openOverlay(event, '${encodeURIComponent(JSON.stringify(assignedTo))}', '${category}', '${description}', '${dueDate}', '${priority}', '${encodeURIComponent(JSON.stringify(subtasks))}', '${title}', '${taskId}', '${encodeURIComponent(JSON.stringify(contactsObj))}')" draggable="true" ondragstart="dragStart(event)"  ondragend="dragEnd(event)">
                                 <div class="cardsFrame">
                                     <div class="cardsLabel">
                                         <p class="${formatCategory(category)}">${category}</p>
@@ -9,7 +9,7 @@ function renderTaskCard(assignedTo, category, description, dueDate, priority, su
                                         <p class="cardsTitle">${title}</p>
                                         <p class="cardsContent">${description}..</p>
                                     </div>
-                                    <div class="cardsProgress">
+                                    <div class="cardsProgress" id="subtasksTaskCard_${taskId}">
                                         <p id="cardsSubtasks">1/2 Subtasks</p>
                                         <div id="cardsProgressBar" aria-valuemin="0" aria-valuemax="100"
                                             are-valuenow="50">
@@ -91,20 +91,6 @@ function getDialogTemplate(assignedTo, category, description, dueDate, priority,
                         <div id="subtasksDialog">
                             <p class="mb_8px">Subtasks</p>
                             <div id="addTask_subtask_content_${taskId}" class="subtasksContent">
-                            <div class="overlayTaskSubtasks">
-                                <input type="checkbox" id="task1" checked="checked">
-                                <label for="task1">
-                                    <span class="customCheckbox"></span>
-                                </label>
-                                <p>Implement Recipe Recommendation</p>
-                            </div>
-                            <div class="overlayTaskSubtasks">
-                                <input type="checkbox" id="task2">
-                                <label for="task2">
-                                    <span class="customCheckbox"></span>
-                                </label>
-                                <p>Start Page Layout</p>
-                            </div>
                             </div>
                         </div>
                         <div id="overlayTaskBottom">
@@ -152,16 +138,17 @@ function createAssignedToIconHTMLforDetailView(name, initials, bgColor) {
 }
 
 
-function createSubTaskHTML(id, subtask) {
-    return`
-                            <div class="overlayTaskSubtasks">
-                                <input type="checkbox" id="${id}">
-                                <label for="${id}">
-                                    <span class="customCheckbox"></span>
-                                </label>
-                                <p>${subtask}</p>
-                            </div>
-    `
+function createSubTaskHTML(title, status, taskId) {
+    const checked = status === "done" ? "checked" : "";
+    return `
+        <div class="overlayTaskSubtasks">
+            <input type="checkbox" id="check_${taskId}_${title}" ${checked} onchange="updateSubtasksInDatabase('${taskId}', '${title}', this.checked)">
+            <label for="check_${taskId}_${title}">
+                <span class="customCheckbox"></span>
+            </label>
+            <p>${title}</p>
+        </div>
+    `;
 }
 
 

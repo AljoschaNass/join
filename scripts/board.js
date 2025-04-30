@@ -8,26 +8,23 @@ async function getAllTasks() {
 async function loadTasksBoard() {
     let tasks = await getAllTasks();
     let contactsObj = await getAllContacts(); // einmalig laden
-
     const columns = {
         "toDoTask": document.getElementById('toDoTask'),
         "inProgressTask": document.getElementById('inProgressTask'),
         "awaitFeedbackTask": document.getElementById('awaitFeedbackTask'),
         "doneTask": document.getElementById('doneTask')
     };
-
     for (let key in columns) {
         columns[key].innerHTML = '';
     }
-
     for (let taskId in tasks) {
         let task = tasks[taskId];
         if (columns[task.status]) {
-            columns[task.status].innerHTML += renderTaskCard(task.assignedTo, task.category, task.description, task.dueDate, task.priority, task.subtasks, task.title, taskId);
+            columns[task.status].innerHTML += renderTaskCard(task.assignedTo, task.category, task.description, task.dueDate, task.priority, task.subtasks, task.title, taskId, contactsObj);
             renderAssignedToIcons(task.assignedTo, `cardsAssignedTo_${taskId}`, contactsObj);  
+            renderSubtasks(task.subtasks, `subtasksTaskCard_${taskId}`);
         }
     }
-
     for (let status in columns) {
         if (columns[status].innerHTML === '') {
             columns[status].innerHTML = renderNoTaskCard(status);
@@ -49,26 +46,44 @@ function formatCategory(category) {
 function renderAssignedToIcons(assignedToObj, containerId, contactsObj) {
     const container = document.getElementById(containerId);
     container.innerHTML = '';
-
     if (!assignedToObj || typeof assignedToObj !== 'object' || Object.keys(assignedToObj).length === 0) {
         return;
     }
-
     for (let name of Object.keys(assignedToObj)) {
         if (assignedToObj[name]) {
-            let contact = null;
-            for (let id in contactsObj) {
-                if (contactsObj[id].name === name) {
-                    contact = contactsObj[id];
-                    break;
-                }
-            }
-
-            let bgColor = contact?.backgroundcolor || 'defaultBackground';
+            const bgColor = getContactBackgroundColor(name, contactsObj);
             const initials = setContactInitials(name);
             container.innerHTML += createAssignedToIconHTML(initials, bgColor);
         }
     }
+}
+
+
+function getContactBackgroundColor(name, contactsObj) {
+    for (let id in contactsObj) {
+        if (contactsObj[id].name === name) {
+            return contactsObj[id].backgroundcolor || 'defaultBackground';
+        }
+    }
+    return 'defaultBackground';
+}
+
+
+function renderSubtasks(subtasksObj, containerId) {
+    const container = document.getElementById(containerId); 
+    const progressBar = container.querySelector('#cardsProgressBar');
+    const progressBarFill = container.querySelector('#progressBar');
+    const subtasksText = container.querySelector('#cardsSubtasks');
+    if (!subtasksObj || typeof subtasksObj !== 'object' || Object.keys(subtasksObj).length === 0) {
+        container.classList.add('d_none'); 
+        return;
+    }
+    const totalSubtasks = Object.keys(subtasksObj).length;
+    const completedSubtasks = Object.values(subtasksObj).filter(status => status === 'done').length;
+    subtasksText.innerText = `${completedSubtasks}/${totalSubtasks} Subtasks`;
+    const progressPercentage = (completedSubtasks / totalSubtasks) * 100;
+    progressBar.setAttribute('aria-valuenow', progressPercentage);
+    progressBarFill.style.width = `${progressPercentage}%`;
 }
 
 
