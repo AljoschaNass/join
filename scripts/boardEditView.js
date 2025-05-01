@@ -4,9 +4,15 @@ function editTask(assignedTo, category, description, dueDate, priority, subtasks
     dialogRef.innerHTML += getEditDialogTemplate(assignedTo, category, description, dueDate, priority, subtasks, title, taskId);
     updatePriorityButtonClasses(priority);
     loadContactListAssignedTo();
+    let editDialogBoard = document.getElementById('editDialogBoard');
+    editDialogBoard.addEventListener('click', function(event) {
+    if (event.target.closest('.editDialogBoardAssignedToInputDiv')) return; 
+    closeAssignedContactToTaskMenu();
+    });
     setTimeout(function() {
         loadAssignedContacts(assignedTo);
-    }, 100);  // 100ms warten, bis loadContactListAssignedTo ausgeführt ist
+    }, 100);
+    
 }
 
 
@@ -150,11 +156,8 @@ async function saveEditTask(taskId) {
 
 
 function getContactIndex(contactName) {
-    // Hier kannst du die Logik anpassen, um den Index basierend auf dem Namen zu bestimmen
-    // Zum Beispiel könnte es ein Index in einem Array sein, oder du kannst ihn auf Basis des Namens ermitteln
-    // Hier wird angenommen, dass der Index einfach die Reihenfolge der Namen in einer Liste widerspiegelt.
-    let contactNames = ["Anton Mayer", "Sarah Schmidt", "John Doe"];  // Beispiel-Namen-Liste
-    return contactNames.indexOf(contactName); // Gibt den Index des Namens in der Liste zurück
+    let contactNames = ["Anton Mayer", "Sarah Schmidt", "John Doe"]; 
+    return contactNames.indexOf(contactName);
 }
 
 function loadAssignedContacts(assignedToEditEncoded, taskId) {
@@ -206,7 +209,6 @@ function getContactIndex(contactDiv) {
 function handleContactCheckbox(contactDiv, index) {
     let event = { target: contactDiv };
     checkIfContactChecked(event, index);
-    changeCheckbox(event);
 }
 
 
