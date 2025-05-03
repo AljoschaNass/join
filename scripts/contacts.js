@@ -99,11 +99,12 @@ async function addContact(event) {
     let name = document.getElementById("addContactName").value;
     let email = document.getElementById("addContactEmail").value;
     let phone = document.getElementById("addContactPhone").value;	
-    isItMe = (email === currentUserEmail) ? true : false; // Check if the email is the same as the current user's email
-    await postContact("contacts", name, email, phone, setBackgroundcolor()); 
+    let backgroundcolor = setBackgroundcolor();
+    await postContact("contacts", name, email, phone, backgroundcolor); 
     closeContactDialog(event);
-    showAddContactSuccessMessage();
     await loadContactList(); 
+    loadContactDetails(name, email, phone, backgroundcolor)
+    showAddContactSuccessMessage(); 
 }
 
 

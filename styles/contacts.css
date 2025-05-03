@@ -223,14 +223,14 @@
     color: white;
     box-shadow: 0px 0px 4px 0px #0000001a;
     border: 3px solid white;
-    }
+    }    
 
 #addContactSuccess{
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: center;
-    align-items: start;
-    margin: 32px 0 0 62px;
+    align-items: center;
+    margin: 32px 0px 0px 62px;
     z-index: 3;
     transform: translateX(300%); /* Startposition außerhalb des Sichtbereichs */
     animation: slideIn 800ms forwards, pause 2400ms 800ms forwards; /* Pause nach dem Einfahren */
@@ -254,7 +254,7 @@
     }
 }
     
-#addContactSuccess button{
+#addContactSuccess button {
     border-radius: 20px;
     border-style: solid;
     border-width: 1px;
@@ -266,5 +266,6 @@
     font-family: 'Inter', sans-serif;
     text-align: center;
     padding: 25px;
+    margin-top: 256px;
 }
 
