@@ -12,10 +12,10 @@
         </div>
         <div class="add_contact_right">
             <div class="close_overlay">
-                <button onclick="closeEditContactDialog(); return false;" id="closeOverlayButton"
+                <button onkeyup="closeEditContactDialog(); return false;" id="closeOverlayButton"
                     class="close_overlay_button"><img src="../assets/img/icons/X.svg" alt="Close"></button>
             </div>
-            <form onchange="enableCreateContactButton()" class="add_contact_form">
+            <form onchange="enableEditContactButton(); disableEditContactButton();" class="add_contact_form">
                 <div class="gap_32 center">
                     <div class="password_container">
                         <input type="text" placeholder="Name" class="input_contact" id="editContactName" name="Name" required>
@@ -32,7 +32,7 @@
                 </div>
                 <div class="add_contact_btns" id="editContactDeleteContactBtns">
                     <button onclick="deleteContactInEditDialog(event)" class="delete_contact_btn">Delete</button>
-                    <button type="submit" onclick="saveEditedContact(event)" class="save_contact_btn" id="saveContactBtn">Save</button>
+                    <button type="submit" disabled="false" onclick="saveEditedContact(event)" class="save_contact_btn" id="saveContactBtn">Save</button>
                 </div>
             </form>
         </div>

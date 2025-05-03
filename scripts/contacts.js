@@ -109,7 +109,6 @@ async function addContact(event) {
 
 async function saveEditedContact(event) { 
     event.preventDefault();
-    event.stopPropagation();
     let name = document.getElementById("editContactName").value;
     let email = document.getElementById("editContactEmail").value;
     let phone = document.getElementById("editContactPhone").value;
@@ -244,10 +243,37 @@ function enableCreateContactButton() {
 }
 
 
+function enableEditContactButton() {
+    let name = document.getElementById("editContactName");
+    let email = document.getElementById("editContactEmail");
+    let phone= document.getElementById("editContactPhone");
+    let createContactBtn = document.getElementById("saveContactBtn");
+    disableEditContactButton();
+    if (name.value && email.value && phone.value) {
+        createContactBtn.disabled = false; 
+        createContactBtn.classList.add("saveContactBtn_enabled"); 
+        createContactBtn.classList.remove("saveContactBtn_disabled");
+    } 
+}
+
+
 function disableCreateContactButton() {
-    let createContactBtn = document.getElementById("addContactBtn");
+    let createContactBtn = document.getElementById("saveContactBtn");
     createContactBtn.disabled = true; 
     createContactBtn.classList.remove("addContactBtn_enabled"); 
+}
+
+
+function disableEditContactButton() {
+    let name = document.getElementById("editContactName");
+    let email = document.getElementById("editContactEmail");
+    let phone= document.getElementById("editContactPhone");
+    let createContactBtn = document.getElementById("saveContactBtn");
+    if (name.value == '' || email.value== '' || phone.value == '') {
+        createContactBtn.disabled = true; 
+        createContactBtn.classList.remove("saveContactBtn_enabled"); 
+        createContactBtn.classList.add("saveContactBtn_disabled");
+    }
 }
 
 
