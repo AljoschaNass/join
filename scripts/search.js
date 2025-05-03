@@ -59,4 +59,5 @@ function showNoTaskFoundMessage() {
     message.classList.add("d_none");
     void message.offsetWidth; 
     message.classList.remove("d_none");
+    setTimeout(() => {message.classList.add("d_none");}, 2000);
 }
