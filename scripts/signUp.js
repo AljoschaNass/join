@@ -1,3 +1,47 @@
+/*Toggles Password Visibility*/
+function toggleSignUpPasswordVisibility(inputId) {
+    var x = document.getElementById(inputId);
+    if (x.type === "password") {
+      x.type = "text";
+      let img = document.getElementById(inputId + "Img");
+      img.src = "../assets/img/icons/visibility.svg"; // Icon für Passwort sichtbar
+      img.alt = "Password Visible";
+    } else {
+      x.type = "password";
+      let img = document.getElementById(inputId + "Img");
+      img.src = "../assets/img/icons/visibility_off.svg";// Icon für Passwort versteckt
+      img.alt = "Password Hidden";
+    }
+}
+
+
+/*Changes the color of the input field & field icon when focused */
+function onFocusSignUp(inputId) {
+    let x = document.getElementById(inputId);
+    x.style.borderColor = "#29ABE2";
+    let img = document.getElementById(inputId + "Img");
+    img.src = "../assets/img/icons/visibility_off.svg";// Icon für Passwort versteckt 
+    img.alt = "Password Hidden";
+}
+
+
+/*Changes the color of the input field & field icon when not focused */
+function onBlurSignUp(inputId) {
+    let x = document.getElementById(inputId);
+    x.style.borderColor = "#D9D9D9";
+    x.type = "password";
+    if (x.value == "") {
+        let img = document.getElementById(inputId + "Img");
+        img.src = "../assets/img/icons/lock.svg";// Icon für Passwort 
+        img.alt = "Password";
+    } else {
+        let img = document.getElementById(inputId + "Img");
+        img.src = "../assets/img/icons/visibility_off.svg";// Icon für Passwort versteckt 
+        img.alt = "Password Hidden";
+    }
+}
+     
+  
 async function postUser(path="user", name, email, password){//erstellen neuer recoursen - nicht idempotent, dh mehrere ausführungen können mehrere einträge erzeugen
     let user = {
         'name': name, 
