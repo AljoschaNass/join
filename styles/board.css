@@ -299,4 +299,45 @@ margin-bottom: 10px;
     background-color: #1FD7C1;
 }
 
+#noTaskFoundMessage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    z-index: 3;
+    transform: translateX(200%); /* Startposition außerhalb des Sichtbereichs */
+    animation: slideIn 1200ms forwards, 4800ms pause 1200ms forwards; /* Pause nach dem Einfahren */
+}
 
+@keyframes slideIn {
+    0% {
+        transform: translateX(200%); 
+    }
+    100% {
+        transform: translateX(0); 
+    }
+}
+
+@keyframes pause {
+    0% {
+        transform: translateX(0); 
+    }
+    100% {
+        transform: translateX(200%); 
+    }
+}
+    
+#noTaskFoundMessage button{
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #2A3647;
+    background-color: #2A3647;
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    padding: 25px;
+}

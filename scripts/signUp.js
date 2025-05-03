@@ -40,7 +40,7 @@ function onBlurSignUp(inputId) {
         img.alt = "Password Hidden";
     }
 }
-     
+    
   
 async function postUser(path="user", name, email, password){//erstellen neuer recoursen - nicht idempotent, dh mehrere ausführungen können mehrere einträge erzeugen
     let user = {

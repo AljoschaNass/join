@@ -7,7 +7,7 @@ async function searchTask() {
          loadTasksBoardAfterSearch(filteredTasks);
     } else {
         loadTasksBoardAfterSearch(filteredTasks);
-        alert('No tasks found!');//muss noch schöner
+        showNoTaskFoundMessage();
     }
 }
 
@@ -51,4 +51,12 @@ function checkEmptyColumns(columns) {
             columns[status].innerHTML = renderNoTaskCard(status);
         }
     }
+}
+
+
+function showNoTaskFoundMessage() {
+    let message = document.getElementById("noTaskFoundMessage");
+    message.classList.add("d_none");
+    void message.offsetWidth; 
+    message.classList.remove("d_none");
 }
