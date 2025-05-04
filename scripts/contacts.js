@@ -180,12 +180,11 @@ function openEditContactDialog(event) {
     let noScrolling = document.body;
     noScrolling.classList.add("stopScrolling");
     overlayRef.classList.remove("d_none");
+    enableCreateContactButton();
     const dialogElement = document.getElementById("edit_contact_background");
-    dialogElement.addEventListener("click", (event) => {closeEditContactDialog();
-    });
+    dialogElement.addEventListener("click", (event) => {closeEditContactDialog();});
     const editContactContainer = document.querySelector('#edit_contact_container');
-    editContactContainer.addEventListener("click", (event) => {event.stopPropagation();
-    });
+    editContactContainer.addEventListener("click", (event) => {event.stopPropagation();});
 }
 
 
@@ -195,9 +194,9 @@ function closeContactDialog(event) {
     let noScrolling = document.body;
     noScrolling.classList.remove("stopScrolling");
     overlayRef.classList.add("d_none");
-    document.getElementById("addContactName").value ='';
-    document.getElementById("addContactEmail").value = '';
-    document.getElementById("addContactPhone").value = '';
+    document.getElementById("addContactName").value = null;
+    document.getElementById("addContactEmail").value = null;
+    document.getElementById("addContactPhone").value = null;
     disableCreateContactButton();
 }
 
@@ -207,6 +206,7 @@ function closeEditContactDialog() {
     let noScrolling = document.body;
     noScrolling.classList.remove("stopScrolling");
     overlayRef.classList.add("d_none");
+    enableEditContactButton();
     contactToEdit = null;
     document.getElementById("edit_contact_img").classList.remove("backgroundColor1", "backgroundColor2", "backgroundColor3", "backgroundColor4", "backgroundColor5", "backgroundColor6", "backgroundColor7", "backgroundColor8", "backgroundColor9", "backgroundColor10", "backgroundColor11", "backgroundColor12", "backgroundColor13", "backgroundColor14", "backgroundColor15", "backgroundColor16");
 }

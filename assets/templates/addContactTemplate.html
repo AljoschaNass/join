@@ -13,7 +13,7 @@
       <div class="close_overlay">
         <button onclick="closeContactDialog(event); return false;" id="closeOverlayButton" class="close_overlay_button"><img src="../assets/img/icons/X.svg" alt="Close"></button>
       </div>
-      <form onchange="enableCreateContactButton()" class="add_contact_form">
+      <form onsubmit="addContact(event); return false" onload="disableCreateContactButton()" onkeyup="enableCreateContactButton()" class="add_contact_form">
         <div class="gap_32 center">
             <div class="password_container">
                 <input type="text" placeholder="Name" class="input_contact" id="addContactName" name="Name" required>
@@ -30,7 +30,7 @@
         </div>
         <div class="add_contact_btns">
           <button onclick="closeContactDialog(event)" class="cancel_contact_btn">Cancel</button>
-          <button type="submit" disabled onclick="addContact(event)" class="add_contact_btn" id="addContactBtn">Create Contact</button>
+          <button type="submit" disabled class="add_contact_btn" id="addContactBtn">Create Contact</button>
         </div>
       </form>
     </div>
