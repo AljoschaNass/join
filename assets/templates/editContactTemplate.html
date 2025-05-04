@@ -15,7 +15,7 @@
                 <button onclick="closeEditContactDialog(); return false;" id="closeOverlayButton"
                     class="close_overlay_button"><img src="../assets/img/icons/X.svg" alt="Close"></button>
             </div>
-            <form onsubmit="saveEditedContact(event)" onkeyup="enableEditContactButton(); disableEditContactButton();" class="add_contact_form">
+            <form onsubmit="saveEditedContact(event); showEditContactSuccessMessage()" onkeyup="enableEditContactButton(); disableEditContactButton();" class="add_contact_form">
                 <div class="gap_32 center">
                     <div class="password_container">
                         <input type="text" placeholder="Name" class="input_contact" id="editContactName" name="Name" required>

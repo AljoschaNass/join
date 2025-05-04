@@ -126,17 +126,15 @@ async function saveEditedContact(event) {
 async function deleteContact(email) {
     let path = "contacts";
     let position = await findContactPositionByEmail(email); 
-    if (position === null) {
-        return; 
-    }
+    if (position === null) return; 
     try {
         let response = await fetch(BASE_URL + path + "/"  + position + ".json", { method: "DELETE" });
         if (response.ok) {
             await loadContactList();
             document.getElementById("contactDetails").innerHTML = ''; 
+            showDeleteContactSuccessMessage();
         } 
-    } catch (error) {
-    }
+    } catch (error) {}
 }
 
 
@@ -156,6 +154,31 @@ function showAddContactSuccessMessage() {
     successMessage.classList.add("d_none");
     void successMessage.offsetWidth; // Triggern der Reflow, um die Animation zurückzusetzen
     successMessage.classList.remove("d_none");
+    setTimeout(() => {
+        successMessage.classList.add("d_none"); 
+    }, 3000); 
+}
+
+
+function showEditContactSuccessMessage() {
+    let successMessage = document.getElementById("editContactSuccess");
+    successMessage.classList.add("d_none");
+    void successMessage.offsetWidth; // Triggern der Reflow, um die Animation zurückzusetzen
+    successMessage.classList.remove("d_none");
+    setTimeout(() => {
+        successMessage.classList.add("d_none"); 
+    }, 3000);
+}
+
+
+function showDeleteContactSuccessMessage() {
+    let successMessage = document.getElementById("deleteContactSuccess");
+    successMessage.classList.add("d_none");
+    void successMessage.offsetWidth; // Triggern der Reflow, um die Animation zurückzusetzen
+    successMessage.classList.remove("d_none");
+    setTimeout(() => {
+        successMessage.classList.add("d_none"); 
+    }, 3000);
 }
 
 
@@ -308,4 +331,5 @@ async function deleteContactInEditDialog(event) {
     closeEditContactDialog();
     await loadContactList();
     contactToEdit = null;
+    showDeleteContactSuccessMessage();
 }
