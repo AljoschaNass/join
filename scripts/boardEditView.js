@@ -1,21 +1,41 @@
-function editTask(assignedTo, category, description, dueDate, priority, subtasks, title, taskId) {
-    let dialogRef = document.getElementById("dialogBoard");
-    dialogRef.innerHTML = "";
-    dialogRef.innerHTML += getEditDialogTemplate(assignedTo, category, description, dueDate, priority, subtasks, title, taskId);
+/**
+ * Opens the edit dialog and renders the template.
+ * @param {Object} assignedTo - Contacts assigned to the task.
+ * @param {string} category - Task category.
+ * @param {string} description - Task description.
+ * @param {string} dueDate - Due date of the task.
+ * @param {string} priority - Priority level.
+ * @param {Object} subtasks - Subtasks of the task.
+ * @param {string} title - Title of the task.
+ * @param {string} taskId - ID of the task.
+ */
+async function openEditDialog(assignedTo, category, description, dueDate, priority, subtasks, title, taskId) {
+    const dialog = document.getElementById("dialogBoard");
+    dialog.innerHTML = getEditDialogTemplate(assignedTo, category, description, dueDate, priority, subtasks, title, taskId);
     updatePriorityButtonClasses(priority);
-    loadContactListAssignedTo();
-    let editDialogBoard = document.getElementById('editDialogBoard');
-    editDialogBoard.addEventListener('click', function(event) {
-    if (event.target.closest('.editDialogBoardAssignedToInputDiv')) return; 
-    closeAssignedContactToTaskMenu();
-    });
-    setTimeout(function() {
-        loadAssignedContacts(assignedTo);
-    }, 100);
-    
+    await loadContactListAssignedTo();
+    handleClickOutsideAssignedTo();
+    loadAssignedContacts(assignedTo);
 }
 
 
+/**
+ * Handles click outside the "Assigned To" menu.
+ */
+function handleClickOutsideAssignedTo() {
+    const editDialog = document.getElementById('editDialogBoard');
+    editDialog.addEventListener('click', (event) => {
+        if (event.target.closest('.editDialogBoardAssignedToInputDiv')) return;
+        closeAssignedContactToTaskMenu();
+    });
+}
+
+
+/**
+ * Updates the selected state of the priority buttons 
+ * based on the current priority value.
+ * @param {string} priority - The selected priority ('low', 'medium', 'urgent').
+ */
 function updatePriorityButtonClasses(priority) {
     document.getElementById("lowPriority").classList.remove("lowPriorityButtonSelected");
     document.getElementById("mediumPriority").classList.remove("mediumPriorityButtonSelected");
@@ -30,6 +50,21 @@ function updatePriorityButtonClasses(priority) {
 }
 
 
+/**
+ * marks the medium priority button and 
+ * deselects the others.
+ */
+function selectMediumPriority() {
+    let mediumRef = document.getElementById("mediumPriority");
+    mediumRef.classList.toggle("mediumPriorityButtonSelected");
+    document.getElementById("urgentPriority").classList.remove("urgentPriorityButtonSelected");
+    document.getElementById("lowPriority").classList.remove("lowPriorityButtonSelected");
+}
+
+
+/**
+ * Marks the urgent priority button and unmarks the others.
+ */
 function selectUrgentPriority() {
     let urgentRef = document.getElementById("urgentPriority")
     urgentRef.classList.toggle("urgentPriorityButtonSelected");
@@ -38,6 +73,9 @@ function selectUrgentPriority() {
 }
 
 
+/**
+ * Marks the medium priority button and unmarks the others.
+ */
 function selectMediumPriority() {
     let mediumRef = document.getElementById("mediumPriority")
     mediumRef.classList.toggle("mediumPriorityButtonSelected");
@@ -46,6 +84,9 @@ function selectMediumPriority() {
 }
 
 
+/**
+ * Marks the low priority button and unmarks the others.
+ */
 function selectLowPriority() {
     let lowRef = document.getElementById("lowPriority")
     lowRef.classList.toggle("lowPriorityButtonSelected");
