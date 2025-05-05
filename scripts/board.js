@@ -1,4 +1,17 @@
 /**
+ * Initializes the board.
+ * Executes highlighting, template rendering, and data loading.
+ */
+async function boardInit() {
+    init();
+    highlightSelectedQuickLinks('board');
+    await renderW3AddTaskTemplate();
+    loadContactListAssignedTo();
+    loadTasksBoard();
+}
+
+
+/**
  * Fetches all tasks from firebase.
  * @returns {Promise<Object>} All tasks as an object.
  */
@@ -199,12 +212,12 @@ function createNewTask(event, status) {
  * Loads and renders the add-task HTML template.
  */
 async function renderW3AddTaskTemplate() {
+    await w3.includeHTML(); // Sicherstellen, dass Includes geladen werden
     const res = await fetch('../assets/templates/addTaskTemplate.html');
     const html = await res.text();
-    let dialog = document.getElementById("overlayBoardAddTask");
+    const dialog = document.getElementById("overlayBoardAddTask");
     dialog.classList.add("d_none");
     dialog.innerHTML += getAddTaskDialogTemplate(html);
-    w3.includeHTML();
 }
 
 
