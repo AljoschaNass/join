@@ -322,7 +322,8 @@ textarea:focus {
     width: calc(100% - 25px);
 }
 
-.addIcon {
+/* Doppelt mit addTask.css */
+/* .addIcon {
     background-image: url("../assets/img/icons/add.svg");
     background-repeat: no-repeat;
     background-position-x: center;
@@ -330,7 +331,7 @@ textarea:focus {
     height: 24px;
     width: 24px;
     cursor: pointer;
-}
+} */
 
 .editDialogBoardSubtasksInput:focus-within .addIcon {
     background-image: url('../assets/img/icons/addhaken.svg');

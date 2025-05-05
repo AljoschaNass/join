@@ -1,5 +1,4 @@
     .main_nav_bar {
-    /* min-width: 232px; */
     width: calc(100vw *0.16);
     height: 100vh;
     background-color: #2b3647;
@@ -87,9 +86,9 @@
     max-width: fit-content;
     min-height: calc(100vh - 96px);
     background-color: #f6f7f8;
-    margin-left: 232px;
-    margin-top: 96px;
-    padding: 64px 96px;
+    margin-left: calc(100vw *0.16);
+    margin-top: calc(100vh *0.09375);
+    padding: calc((2 / 3) * (100vh *0.09375)) calc(100vh *0.09375);
     position: relative;
     overflow-x: hidden;
     display: flex;
@@ -100,8 +99,8 @@
   .main_content_summary {
     height: calc(100vh - 96px);
     background-color: #f6f7f8;
-    margin-left: 328px;
-    margin-top: 96px;
+    margin-left: calc(100vw *0.16);
+    margin-top: calc(100vh *0.09375);
     position: relative;
     overflow-x: hidden;
     display: flex;
@@ -112,8 +111,8 @@
   .main_content_board {
     height: calc(100vh - 96px);
     background-color: #f6f7f8;
-    margin-left: 232px;
-    margin-top: 96px;
+    margin-left: calc(100vw *0.16);
+    margin-top: calc(100vh *0.09375);
     padding-left: 64px;
     padding-top: 80px;
     position: relative;
