@@ -229,6 +229,21 @@ margin-bottom: 10px;
     left: 48px;
 }
 
+.cardsAssignedToIcon:nth-child(4) {
+    position: absolute;
+    left: 72px;
+}
+
+.cardsAssignedToIcon:nth-child(5) {
+    position: absolute;
+    left: 96px;
+}
+
+.cardsAssignedToIcon:nth-child(6) {
+    position: absolute;
+    left: 120px;
+}
+
 #cardsPriority {
     display: flex;
     align-items: center;
