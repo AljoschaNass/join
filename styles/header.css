@@ -1,26 +1,26 @@
 .main_header {
-    height: 96px;
-    width: calc(100vw - 232px);
+    height: calc(100vh *0.09375);
+    width: calc(100vw - (100vw *0.16));
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 2;
     position: fixed;
-    left: 232px;
+    left: calc(100vw *0.16);
     background-color: white;
   }
   
   .main_header p {
-    font-size: 20px;
-    padding-left: 116px;
+    font-size: clamp(1rem, 1.38vw, 1.5rem);
+    padding-left: 9.6%;
   }
   
   .header_right {
     display: flex;
     align-items: center;
     gap: 16px;
-    padding-right: 40px;
+    padding-right: 3.311%;
   }
 
   .header_right a{
