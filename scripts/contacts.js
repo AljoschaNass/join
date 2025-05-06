@@ -198,7 +198,6 @@ function openContactDialog(event) {
 
 
 function openEditContactDialog(event) {
-    enableEditContactButton();
     event.stopPropagation(); 
     let overlayRef = document.getElementById("overlayEditContacts");
     let noScrolling = document.body;
@@ -229,9 +228,9 @@ function closeEditContactDialog() {
     let noScrolling = document.body;
     noScrolling.classList.remove("stopScrolling");
     overlayRef.classList.add("d_none");
-    enableEditContactButton();
     contactToEdit = null;
     document.getElementById("edit_contact_img").classList.remove("backgroundColor1", "backgroundColor2", "backgroundColor3", "backgroundColor4", "backgroundColor5", "backgroundColor6", "backgroundColor7", "backgroundColor8", "backgroundColor9", "backgroundColor10", "backgroundColor11", "backgroundColor12", "backgroundColor13", "backgroundColor14", "backgroundColor15", "backgroundColor16");
+    enableEditContactButton();
 }
 
 
@@ -321,6 +320,7 @@ function fillInputFieldsWithCurrentData(name, email, phone, backgroundcolor) {
     document.getElementById("editContactPhone").value = phone;
     document.getElementById("edit_contact_img").classList.add(backgroundcolor);
     document.getElementById("edit_contact_img").innerHTML = setContactInitials(name);
+    enableEditContactButton();
 }
 
 
