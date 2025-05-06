@@ -254,9 +254,10 @@ textarea {
   align-items: flex-end;
   flex-direction: row;
   gap: 16px;
-  position: unset;
-  right: 74px;
-  bottom: 64px;
+  position: fixed;
+  left: calc(calc(100vw * 0.16) + calc(100vh * 0.09375));
+  bottom: 6.25vh;
+  width: calc(60vw + (clamp(1rem, 2.77vw, 3.5rem) * 2) + 1px);
 }
 
 .add_task_btn_section div{

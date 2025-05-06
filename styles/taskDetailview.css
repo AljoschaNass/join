@@ -196,8 +196,8 @@ input[type="checkbox"] {
     color: white;
     font-size: 12px;
     font-weight: 400;
-    height: 42px !important;
-    width: 42px !important;
+    height: 4.1vh !important;
+    aspect-ratio: 1 / 1;
     line-height: 1;
 }
 
