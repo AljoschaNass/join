@@ -109,7 +109,7 @@ function getDialogTemplate(assignedTo, category, description, dueDate, priority,
                             </div>
                             <div class="overlayTaskVector"></div>
                             <div class="overlayTaskEdit">
-                                <button onclick="openEditDialog( '${encodeURIComponent(JSON.stringify(assignedTo, taskId))}', '${category}', '${description}', '${dueDate}', '${priority}', '${subtasks}', '${title}', '${taskId}')">
+                                <button onclick="openEditDialog( '${encodeURIComponent(JSON.stringify(assignedTo, taskId))}', '${category}', '${description}', '${dueDate}', '${priority}', '${encodeURIComponent(JSON.stringify(subtasks, taskId))}', '${title}', '${taskId}')">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <mask id="mask0_298547_4257" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
                                             <rect width="24" height="24" fill="#D9D9D9"></rect>
@@ -260,39 +260,13 @@ function getEditDialogTemplate(assignedTo, category, description, dueDate, prior
                             <div class="editDialogBoardAssignedToIcons" id="addTask_assignedToIcons">
                             </div>
                         </div>
-                        <div class="editDialogBoardSubtasks">
+                        <div class="editDialogBoardSubtasks" id="editDialogBoardSubtasks">
                             <p class="">Subtasks</p>
                             <div class="editDialogBoardSubtasksInput">
                                 <input type="text" placeholder="Add new subtask">
                                 <div class="xIcon"></div>
                                 <div class="vectorAddSubtask"></div>
                                 <div class="addIcon"></div>
-                            </div>
-                            <div class="editDialogBoardSubtasksAdded">
-                                <li>Implement Recipe Recommendation</li>
-                                <div class="editDivSubtasks">
-                                    <div class="editIcon" onclick="subtaskEdit(event)"></div>
-                                    <div class="vectorAddSubtask"></div>
-                                    <div class="deleteIcon"></div>
-                                </div>
-                                <div class="editDivSubtasks2 d_none">
-                                    <div class="deleteIcon2"></div>
-                                    <div class="vectorAddSubtask2"></div>
-                                    <div class="saveIcon" onclick="subtaskSave(event)"></div>
-                                </div>
-                            </div>
-                            <div class="editDialogBoardSubtasksAdded">
-                                <li>Start Page Layout</li>
-                                <div class="editDivSubtasks">
-                                    <div class="editIcon" onclick="subtaskEdit(event)"></div>
-                                    <div class="vectorAddSubtask"></div>
-                                    <div class="deleteIcon"></div>
-                                </div>
-                                <div class="editDivSubtasks2 d_none">
-                                    <div class="deleteIcon2"></div>
-                                    <div class="vectorAddSubtask2"></div>
-                                    <div class="saveIcon" onclick="subtaskSave(event)"></div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -315,6 +289,25 @@ function getEditDialogTemplate(assignedTo, category, description, dueDate, prior
                     </svg>
                 </button>
             </div>
+    `
+}
+
+
+function createEditTaskSubTaskHTML(title) {
+    return`
+                                <div class="editDialogBoardSubtasksAdded">
+                                <li>${title}</li>
+                                <div class="editDivSubtasks">
+                                    <div class="editIcon" onclick="subtaskEdit(event)"></div>
+                                    <div class="vectorAddSubtask"></div>
+                                    <div class="deleteIcon"></div>
+                                </div>
+                                <div class="editDivSubtasks2 d_none">
+                                    <div class="deleteIcon2"></div>
+                                    <div class="vectorAddSubtask2"></div>
+                                    <div class="saveIcon" onclick="subtaskSave(event)"></div>
+                                </div>
+                            </div>
     `
 }
 
