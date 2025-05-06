@@ -7,13 +7,14 @@
   justify-content: flex-start;
   flex-direction: column;
   max-width: fit-content;
-  height: 735px;
+  height: 100%;
 }
 
 .add_task_div {
   display: flex;
   flex-direction: row ;
-  gap: 40px;
+  gap: 2.5rem;
+  gap: clamp(1rem, 2.77vw, 3.5rem);
 }
 
 .seperator {
@@ -22,30 +23,30 @@
 }
 
 .add_task_input {
-  height: 48px;
-  width: 440px;
+  height: 4.7vh;
+  width: 30vw;
   border-radius: 10px;
   border: 1px solid #d1d1d1;
   padding: 8px 16px;
   margin-top: 4px;
-  font-size: 20px;
+  font-size: clamp(1rem, 1.38vw, 1.5rem);
 
   &:focus{
     border: 1px solid #29ABE2;
   }
   &::placeholder{
   color: #d1d1d1;
-  font-size: 20px;
-  }
+  font-size: clamp(1rem, 1.38vw, 1.5rem);
+}
 }
 
 #addTaskCategoryInput::placeholder, #addTaskAssignedToInput::placeholder{
-  font-size: 20px;
+  font-size: clamp(1rem, 1.38vw, 1.5rem);
   color: black;
 }
 
 textarea {
-  width: 440px;
+  width: 30vw;
   min-height: 156px;
   resize: none;
 }
@@ -57,17 +58,17 @@ textarea {
 }
 
 .assignedToInput {
-  width: 440px;
-    height: 48px;
-    border-radius: 10px;
-    border: 1px solid rgba(209, 209, 209, 1);
-    padding-top: 12px;
-    padding-right: 16px;
-    padding-bottom: 12px;
-    padding-left: 16px;
-    font-weight: 400;
-    font-size: 20px;
-    color: black;
+  width: 30vw;
+  height: 4.7vh;
+  border-radius: 10px;
+  border: 1px solid rgba(209, 209, 209, 1);
+  padding-top: 12px;
+  padding-right: 16px;
+  padding-bottom: 12px;
+  padding-left: 16px;
+  font-weight: 400;
+  font-size: clamp(1rem, 1.38vw, 1.5rem);
+  color: black;
 }
 
 .assignedToInput:focus {
@@ -76,7 +77,7 @@ textarea {
 
 .arrowDropDownInputs{
   overflow-y: scroll;
-  width: 440px;
+  width: 30vw;
   max-height: 224px;
   background-color: white;
   box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
@@ -88,7 +89,7 @@ textarea {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  font-size: 20px;
+  font-size: clamp(1rem, 1.38vw, 1.5rem);
   padding: 7px 16px 7px 16px;
   border-radius: 10px;
   cursor: pointer;
@@ -99,12 +100,12 @@ textarea {
 }
     
 .add_task_hint_required{
-    font-size: 16px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
-    position: relative;
-    height: 100%;
+  font-size: clamp(0.875rem, 1.11vw, 1.25rem);
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  position: relative;
+  height: 100%;
 }
 
 .add_task_hint_required::before, .add_task_after_required::after{
@@ -119,29 +120,30 @@ textarea {
 
 .add_task_half label {
   height: 24px;
-  font-size: 20px;
+  font-size: clamp(1rem, 1.38vw, 1.5rem);
 }
 
 .add_task_priority_section{
     display: flex;
-    gap: 16px;
+    justify-content: space-between;
+    width: 30vw;
     margin-top: 4px;
 }
 
 .priority_icons{
-    width: 20px;
+    width: 1.19vw;
 }
 
 .add_task_btn_priorities{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8px;
-    width: 136px;
-    height: 56px;
     cursor: pointer;
     border: unset;
-    font-size: 20px;
+    gap: 0.55vw;
+    height: 5.5vh;
+    padding: 1vh clamp(0.5rem, 0.8vw, 1rem);
+    font-size: clamp(1rem, 1.38vw, 1.5rem);
     background-color: white;
     border: 1px solid #d1d1d1;
     border-radius: 10px;
@@ -175,16 +177,13 @@ textarea {
 }
 
 .addTaskSubtasksInput {
-  width: 445px;
-  height: 48px;
+  width: 30vw;
+  height: 4.7vh;
   border-radius: 10px;
   border: 1px solid rgba(209, 209, 209, 1);
   display: flex;
   justify-content: space-between;
-  padding-top: 12px;
-  padding-right: 16px;
-  padding-bottom: 12px;
-  padding-left: 16px;
+  padding: 1.175vh 1.1vw;
   background-color: white;
 }
 
@@ -194,7 +193,7 @@ textarea {
 
 .addTaskSubtasksInput input{
   font-weight: 400;
-  font-size: 20px;
+  font-size: clamp(1rem, 1.38vw, 1.5rem);
   width: calc(100% - 25px);
 }
 
@@ -203,8 +202,8 @@ textarea {
   background-repeat: no-repeat;
   background-position-x: center;
   background-position-y: center;
-  height: 24px;
-  width: 24px;
+  height: 2.35vh;
+  aspect-ratio: 1 / 1;
   cursor: pointer;
   &:hover{
     background-color: #f0f0f0;
@@ -225,7 +224,7 @@ textarea {
   background-repeat: no-repeat;
   background-position-x: center;
   background-position-y: center;
-  height: 24px;
+  height: 2.35vh;
   width: 0px;
   opacity: 0;
   transition: width 0.2s ease-in;
@@ -234,7 +233,7 @@ textarea {
 .addTaskSubtasksInput:focus-within .xIcon {
   cursor: pointer;
   opacity: 1;
-  width: 24px;
+  width: 2.35vh;
   &:hover{
     background-color: #f0f0f0;
     border-radius: 50%;
@@ -242,7 +241,7 @@ textarea {
 }
 
 .addTaskSubtasksInput:focus-within .vectorAddSubtask {
-  height: 24px;
+  height: 2.35vh;
   width: 1px;
   background-color: rgba(209, 209, 209, 1);
   margin: 0px 4px 0px 4px;
@@ -255,9 +254,10 @@ textarea {
   align-items: flex-end;
   flex-direction: row;
   gap: 16px;
-  position: unset;
-  right: 74px;
-  bottom: 64px;
+  position: fixed;
+  left: calc(calc(100vw * 0.16) + calc(100vh * 0.09375));
+  bottom: 6.25vh;
+  width: calc(60vw + (clamp(1rem, 2.77vw, 3.5rem) * 2) + 1px);
 }
 
 .add_task_btn_section div{
@@ -268,11 +268,11 @@ textarea {
 }
 
 .btn_add_task {
-  height: 56px;
+  height: 5.5vh;
   border-radius: 10px;
-  padding: 16px;
+  padding: 1.55vh;
   border: unset;
-  font-size: 21px;
+  font-size: clamp(1rem, 1.45vw, 1.5rem);
 }
 
 .btn_clear {
@@ -299,13 +299,13 @@ textarea {
 }
 
 .btn_create_enabled:hover {
-    background-color: #2aaae2;
-    box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.22);
-    cursor: pointer;
+  background-color: #2aaae2;
+  box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
 }
 
 .btn_create img {
-  height: 12px;
+  height: 1.17vh;
 }
 
 .addTaskTemplate {
@@ -321,8 +321,8 @@ textarea {
   border-radius: 20px;
   box-shadow: 0px 0px 4px 0px #00000026;
   font-weight: 400;
-  font-size: 20px;
-  width: 326px;
+  font-size: clamp(1rem, 1.38vw, 1.5rem);
+  width: 22.6vw;
   height: 74px;
   display: flex;
   flex-direction: row;
@@ -336,5 +336,5 @@ textarea {
 }
 
 .taskAdded p{
-  width: 235px;
+  width: 16.3vw;
 }
