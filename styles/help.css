@@ -1,17 +1,16 @@
 .main_content_help {
-    width: 100&;
-    margin-left: 328px;
-    margin-top: 206px;
-    margin-right: 96px;
+    max-width: fit-content;
+    min-height: calc(100vh - 96px);
     background-color: #f6f7f8;
-    height: 928px;
+    margin-left: calc(100vw *0.16);
+    margin-top: calc(100vh *0.09375);
+    padding: calc((2 / 3) * (100vh *0.09375)) calc(100vh *0.09375);
 }
 
 .helpText {
     display: flex;
     flex-direction: column;
     gap: 24px;
-    padding-bottom: 32px;
 }
 
 .h1_help {
@@ -20,12 +19,12 @@
 
 .h2_help {
     font-weight: 700;
-    font-size: 27px;
+    font-size: clamp(1rem, 1.875vw, 27px);
 }
 
 .h3_help {
     font-weight: 700;
-    font-size: 20px;
+    font-size: clamp(1rem, 1.38vw, 1.5rem);
 }
 
 .listing {
@@ -42,9 +41,9 @@
 
 .arrowLeft {
     background-color: transparent;
-    position: fixed;
-    top: 225px;
-    right: 133px;
+    position: absolute;
+    top: calc(100vh *0.17);
+    right: calc(100vw *0.09375);
 }
 
 .arrowLeft:hover svg{
