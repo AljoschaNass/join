@@ -13,9 +13,9 @@ async function openEditDialog(assignedTo, category, description, dueDate, priori
     const dialog = document.getElementById("dialogBoard");
     dialog.innerHTML = getEditDialogTemplate(assignedTo, category, description, dueDate, priority, subtasks, title, taskId);
     updatePriorityButtonClasses(priority);
+    setCheckedContactsFromEncoded(assignedTo);
     await loadContactListAssignedTo();
     handleClickOutsideAssignedTo();
-    loadAssignedContacts(assignedTo);
 }
 
 
@@ -95,24 +95,33 @@ function selectLowPriority() {
 }
 
 
-function selectContactToAssignTask(event) {
-    changeBackgroundColor(event);
-    changeCheckbox(event);
-    checkIfContactChecked(event, index);
+/**
+ * Sets the global `checkedContacts` object based on an encoded JSON string.
+ * This function resets the current checked contacts and fills the object
+ * with contact names marked as selected.
+ *
+ * @param {string} assignedToEditEncoded - A URI-encoded JSON string representing the selected contacts.
+ */
+function setCheckedContactsFromEncoded(assignedToEditEncoded) {
+    checkedContacts = {}; // reset
+    const assignedToEdit = parseAssignedToEdit(assignedToEditEncoded);
+    if (!assignedToEdit) return;
+
+    Object.keys(assignedToEdit).forEach(name => {
+        checkedContacts[name] = true;
+    });
 }
 
 
-function changeBackgroundColor(event) {
-    const contactDiv = event.target.closest('.dropDownContacts');
-    contactDiv.classList.toggle('contactChecked');
-    contactDiv.classList.toggle('contactUnchecked');
-    }
-
-
-function changeCheckbox(event) {
-    const  checkboxDiv = event.target.closest('.dropDownContacts').querySelector('.editDialogBoardAssignedToDropDownCheckbox');
-    checkboxDiv.classList.toggle('contactCheckedCheckbox');
-    checkboxDiv.classList.toggle('contactUncheckedCheckbox');
+/**
+ * Decodes and parses an encoded JSON string representing selected contacts.
+ *
+ * @param {string} assignedToEditEncoded - A URI-encoded JSON string.
+ * @returns {Object|null} The parsed object containing selected contact names as keys, or null if invalid.
+ */
+function parseAssignedToEdit(assignedToEditEncoded) {
+    if (!assignedToEditEncoded || assignedToEditEncoded === 'undefined') return null;
+    return JSON.parse(decodeURIComponent(assignedToEditEncoded));
 }
 
 
@@ -196,60 +205,6 @@ async function saveEditTask(taskId) {
 
 
 
-function getContactIndex(contactName) {
-    let contactNames = ["Anton Mayer", "Sarah Schmidt", "John Doe"]; 
-    return contactNames.indexOf(contactName);
-}
 
-function loadAssignedContacts(assignedToEditEncoded, taskId) {
-    let assignedToEdit = parseAssignedToEdit(assignedToEditEncoded);
-    if (!assignedToEdit) return;
-
-    const contactDivs = getContactDivs();
-    if (!contactDivs) return;
-
-    contactDivs.forEach(contactDiv => {
-        let contactName = getContactName(contactDiv);
-        if (assignedToEdit[contactName]) {
-            markContactAsChecked(contactDiv);
-            let index = getContactIndex(contactDiv);
-            handleContactCheckbox(contactDiv, index);
-        }
-    });
-}
-
-
-function parseAssignedToEdit(assignedToEditEncoded) {
-    if (!assignedToEditEncoded || assignedToEditEncoded === 'undefined') return null;
-    return JSON.parse(decodeURIComponent(assignedToEditEncoded));
-}
-
-
-function getContactDivs() {
-    const contactDivs = document.querySelectorAll('#editDialogBoardAssignedToDropDown .dropDownContacts');
-    return contactDivs.length ? contactDivs : null;
-}
-
-
-function getContactName(contactDiv) {
-    let contactNameElement = contactDiv.querySelector('.dropDownContact p');
-    return contactNameElement ? contactNameElement.textContent.trim() : '';
-}
-
-
-function markContactAsChecked(contactDiv) {
-    contactDiv.classList.add('contactChecked');
-}
-
-
-function getContactIndex(contactDiv) {
-    return contactDiv.id.replace('addTask_assignedTo_contact_', '');
-}
-
-
-function handleContactCheckbox(contactDiv, index) {
-    let event = { target: contactDiv };
-    checkIfContactChecked(event, index);
-}
 
 

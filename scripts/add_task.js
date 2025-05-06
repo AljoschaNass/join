@@ -323,6 +323,21 @@ function addTaskselectContactToAssignTask(event, index) {
     checkIfContactChecked(event, index);
 }
 
+
+function changeBackgroundColor(event) {
+    const contactDiv = event.target.closest('.dropDownContacts');
+    contactDiv.classList.toggle('contactChecked');
+    contactDiv.classList.toggle('contactUnchecked');
+    }
+
+
+function changeCheckbox(event) {
+    const  checkboxDiv = event.target.closest('.dropDownContacts').querySelector('.editDialogBoardAssignedToDropDownCheckbox');
+    checkboxDiv.classList.toggle('contactCheckedCheckbox');
+    checkboxDiv.classList.toggle('contactUncheckedCheckbox');
+}
+
+
 function checkIfContactChecked(event, index) {
     const contactDiv = event.target.closest('.dropDownContacts');
     let isChecked = contactDiv.classList.contains('contactChecked');
