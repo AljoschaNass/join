@@ -233,7 +233,7 @@
     margin: 32px 0px 0px 62px;
     z-index: 3;
     transform: translateX(300%); /* Startposition außerhalb des Sichtbereichs */
-    animation: slideIn 800ms forwards, pause 2400ms 800ms forwards; /* Pause nach dem Einfahren */
+    animation: slideIn 1000ms forwards, pause 3000ms 1000ms forwards; 
 }
 
 @keyframes slideIn {

@@ -105,20 +105,3 @@ function disableSignUpButton() {
     signUpBtn.disabled = true; 
     signUpBtn.classList.remove("signUpBtn_enabled"); 
 }
-
-
-/*Changes the color of the input field & field icon when not focused */
-function onBlurSignUp(inputId) {
-    let x = document.getElementById(inputId);
-    x.style.borderColor = "#D9D9D9";
-    x.type = "password";
-    if (x.value == "") {
-        let img = document.getElementById(inputId + "Img");
-        img.src = "./assets/img/icons/lock.svg";// Icon für Passwort 
-        img.alt = "Password";
-    } else {
-        let img = document.getElementById(inputId + "Img");
-        img.src = "./assets/img/icons/visibility_off.svg";// Icon für Passwort versteckt 
-        img.alt = "Password Hidden";
-    }
-  }
