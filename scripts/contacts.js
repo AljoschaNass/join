@@ -198,13 +198,13 @@ function openContactDialog(event) {
 
 
 function openEditContactDialog(event) {
+    enableEditContactButton();
     event.stopPropagation(); 
     let overlayRef = document.getElementById("overlayEditContacts");
     let noScrolling = document.body;
     noScrolling.classList.add("stopScrolling");
     overlayRef.classList.remove("d_none");
-    enableCreateContactButton();
-    const dialogElement = document.getElementById("edit_contact_background");
+        const dialogElement = document.getElementById("edit_contact_background");
     dialogElement.addEventListener("click", (event) => {closeEditContactDialog();});
     const editContactContainer = document.querySelector('#edit_contact_container');
     editContactContainer.addEventListener("click", (event) => {event.stopPropagation();});
@@ -272,17 +272,18 @@ function enableEditContactButton() {
     let email = document.getElementById("editContactEmail");
     let phone= document.getElementById("editContactPhone");
     let createContactBtn = document.getElementById("saveContactBtn");
-    disableEditContactButton();
     if (name.value && email.value && phone.value) {
         createContactBtn.disabled = false; 
         createContactBtn.classList.add("saveContactBtn_enabled"); 
         createContactBtn.classList.remove("saveContactBtn_disabled");
-    } 
+    } else {
+        disableEditContactButton();
+    }     
 }
 
 
 function disableCreateContactButton() {
-    let createContactBtn = document.getElementById("saveContactBtn");
+    let createContactBtn = document.getElementById("addContactBtn");
     createContactBtn.disabled = true; 
     createContactBtn.classList.remove("addContactBtn_enabled"); 
 }
