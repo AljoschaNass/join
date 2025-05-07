@@ -300,10 +300,10 @@ function createEditTaskSubTaskHTML(title) {
                                 <div class="editDivSubtasks">
                                     <div class="editIcon" onclick="subtaskEdit(event)"></div>
                                     <div class="vectorAddSubtask"></div>
-                                    <div class="deleteIcon"></div>
+                                    <div class="deleteIcon" onclick="deleteSubtaskBoard(event)"></div>
                                 </div>
                                 <div class="editDivSubtasks2 d_none">
-                                    <div class="deleteIcon2"></div>
+                                    <div class="deleteIcon2" onclick="deleteSubtaskBoard(event)"></div>
                                     <div class="vectorAddSubtask2"></div>
                                     <div class="saveIcon" onclick="subtaskSave(event)"></div>
                                 </div>

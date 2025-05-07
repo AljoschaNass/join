@@ -237,9 +237,43 @@ async function saveEditTask(taskId) {
     if (document.getElementById("lowPriority").classList.contains("lowPriorityButtonSelected")) priority = "low";
     else if (document.getElementById("mediumPriority").classList.contains("mediumPriorityButtonSelected")) priority = "medium";
     else if (document.getElementById("urgentPriority").classList.contains("urgentPriorityButtonSelected")) priority = "urgent";
-    await updateTask(title, description, dueDate, priority, assignedTo, taskId);
+    const subtasks = collectEditedSubtasks();
+    await updateTask(title, description, dueDate, priority, assignedTo, subtasks, taskId);
     closeDialog();
     loadTasksBoard();
+}
+
+
+/**
+ * Collects all edited subtasks from the DOM and returns them as an object.
+ * Subtask title is the key, and value is initially set to "undone".
+ * 
+ * @returns {Object} - Subtasks object: { "Subtask title": "undone", ... }
+ */
+function collectEditedSubtasks() {
+    const subtaskElements = document.querySelectorAll('.editDialogBoardSubtasksAdded li');
+    const subtasks = {};
+    subtaskElements.forEach(li => {
+        const title = li.textContent.trim();
+        if (title) {
+            subtasks[title] = "undone"; // default state
+        }
+    });
+    return subtasks;
+}
+
+
+/**
+ * Deletes a subtask from the DOM when the delete icon is clicked.
+ * Works for both normal and edit modes.
+ * 
+ * @param {Event} event - The click event triggered by the delete icon.
+ */
+function deleteSubtaskBoard(event) {
+    const subtaskContainer = event.target.closest('.editDialogBoardSubtasksAdded');
+    if (subtaskContainer) {
+        subtaskContainer.remove();
+    }
 }
 
 
@@ -251,11 +285,12 @@ async function saveEditTask(taskId) {
  * @param {string} dueDate - Due date in YYYY-MM-DD format.
  * @param {string} priority - Task priority.
  * @param {Object} assignedTo - Assigned contacts object.
+ *  @param {Object} subtasks - Subtask titles with status
  * @param {string} taskId - Task ID to update.
  * @returns {Promise<Object>} Updated task as JSON.
  */
-async function updateTask(title, description, dueDate, priority, assignedTo, taskId) {
-    const task = { title, description, dueDate, priority, assignedTo };
+async function updateTask(title, description, dueDate, priority, assignedTo, subtasks, taskId) {
+    const task = { title, description, dueDate, priority, assignedTo, subtasks };
     const response = await fetch(`${BASE_URL}tasks/${taskId}.json`, {
         method: "PATCH",
         headers: { 'Content-Type': 'application/json' },
