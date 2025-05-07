@@ -9,6 +9,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: darkenBackground 125ms;
+}
+
+@keyframes darkenBackground {
+    from {background-color: rgba(0, 0, 0, 0);}
+    to {background-color: rgba(0, 0, 0, 0.375);}
 }
 
 .add_contact_container {
@@ -24,6 +30,12 @@
     width: 1212px;
     border-radius: 30px;
     flex: 1;
+    animation: slightFromRightToCenter 800ms; 
+}
+
+@keyframes slightFromRightToCenter {
+    from {left: 1500px;}
+    to {left: 144px;}
 }
 
 .add_contact_left {
