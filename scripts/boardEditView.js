@@ -300,6 +300,47 @@ async function updateTask(title, description, dueDate, priority, assignedTo, sub
 }
 
 
+/**
+ * Validates the title input field.
+ * If empty, shows error message and highlights input border.
+ * Resets error style when user types something.
+ * @returns {boolean} Returns true if input is valid, otherwise false.
+ */
+function validateTitleInput() {
+    const input = document.querySelector('.inputEditDialogBoardTitle');
+    const errorMsg = document.querySelector('.requiredFieldDialog');
+    const isEmpty = !input.value.trim();
+    if (isEmpty) {
+        input.style.border = '1px solid rgba(255, 129, 144, 1)';
+        errorMsg.classList.remove('d_none');
+    } else {
+        input.style.border = '';
+        errorMsg.classList.add('d_none');
+    }
+    return !isEmpty;
+}
+
+
+/**
+ * Validates the due date input.
+ * Highlights the input field and shows an error message if empty.
+ * @returns {boolean} True if valid, false if empty.
+ */
+function validateDueDateInput() {
+    const input = document.querySelector('.inputEditDialogBoardDueDate');
+    const errorMsg = input.nextElementSibling; // direkt das <p> nach dem input
+    const isEmpty = !input.value.trim();
+    if (isEmpty) {
+        input.style.border = '1px solid rgba(255, 129, 144, 1)';
+        errorMsg.classList.remove('d_none');
+    } else {
+        input.style.border = '';
+        errorMsg.classList.add('d_none');
+    }
+    return !isEmpty;
+}
+
+
 
 
 

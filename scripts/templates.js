@@ -174,7 +174,7 @@ function getEditDialogTemplate(assignedTo, category, description, dueDate, prior
                             <div class="editDialogBoardTitle height_98">
                                 <p>Title</p>
                                 <input type="text" class="inputEditDialogBoardTitle" placeholder="Enter a title" id="titleTask"
-                                    value="${title}" required>
+                                    value="${title}" required oninput="validateTitleInput()">
                                 <p class="requiredFieldDialog d_none">This field is required</p>
                             </div>
                             <div class="editDialogBoardDescription">
@@ -184,7 +184,7 @@ function getEditDialogTemplate(assignedTo, category, description, dueDate, prior
                             </div>
                             <div class="editDialogBoardDueDate height_98" required>
                                 <p>Due Date</p>
-                                <input type="date" class="inputEditDialogBoardDueDate" value="${dueDate}" id="dueDate">
+                                <input type="date" class="inputEditDialogBoardDueDate" value="${dueDate}" id="dueDate" required oninput="validateDueDateInput()">
                                 <p class="requiredFieldDialog d_none">This field is required</p>
                             </div>
                         </div>
