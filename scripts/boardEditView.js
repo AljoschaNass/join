@@ -16,18 +16,7 @@ async function openEditDialog(assignedTo, category, description, dueDate, priori
     setCheckedContactsFromEncoded(assignedTo);
     await loadContactListAssignedTo();
     handleClickOutsideAssignedTo();
-}
-
-
-/**
- * Handles click outside the "Assigned To" menu.
- */
-function handleClickOutsideAssignedTo() {
-    const editDialog = document.getElementById('editDialogBoard');
-    editDialog.addEventListener('click', (event) => {
-        if (event.target.closest('.editDialogBoardAssignedToInputDiv')) return;
-        closeAssignedContactToTaskMenu();
-    });
+    renderEditDialogSubtasksFromEncoded(subtasks);
 }
 
 
@@ -125,12 +114,35 @@ function parseAssignedToEdit(assignedToEditEncoded) {
 }
 
 
+/**
+ * Handles click outside the "Assigned To" menu.
+ */
+function handleClickOutsideAssignedTo() {
+    const editDialog = document.getElementById('editDialogBoard');
+    editDialog.addEventListener('click', (event) => {
+        if (event.target.closest('.editDialogBoardAssignedToInputDiv')) return;
+        closeAssignedContactToTaskMenu();
+    });
+}
+
+
+/**
+ * Activates editing mode for a subtask item by making it editable
+ * and updating the button UI to show save/delete icons.
+ * 
+ * @param {Event} event - The click event triggered on the edit icon.
+ */
 function subtaskEdit(event) {
     editableListItem(event);
     changeButtons(event);
 }
 
 
+/**
+ * Updates the UI to hide edit/delete icons and show save/cancel options.
+ * 
+ * @param {Event} event - The click event from the edit icon.
+ */
 function changeButtons(event) {
     const editDiv = event.target.closest('.editDivSubtasks');
     editDiv.classList.add('d_none');
@@ -139,27 +151,53 @@ function changeButtons(event) {
 }
 
 
+/**
+ * Makes the subtask list item content editable and focuses it.
+ * 
+ * @param {Event} event - The click event from the edit icon.
+ */
 function editableListItem(event) {
-    const listItem = event.target.closest('.editDivSubtasks').closest('.editDialogBoardSubtasksAdded').querySelector('li');
+    const listItem = event.target.closest('.editDivSubtasks')
+        .closest('.editDialogBoardSubtasksAdded')
+        .querySelector('li');
     listItem.setAttribute('contenteditable', true);
     listItem.classList.add('editable');
     listItem.focus();
 }
 
 
+/**
+ * Saves the edited subtask by disabling content editing
+ * and resetting the button UI.
+ * 
+ * @param {Event} event - The click event from the save icon.
+ */
 function subtaskSave(event) {
     editableListItem2(event);
     changeButtons2(event);
 }
 
 
+/**
+ * Disables editing on the subtask list item.
+ * 
+ * @param {Event} event - The click event from the save icon.
+ */
 function editableListItem2(event) {
-    const listItem = event.target.closest('.editDivSubtasks2').closest('.editDialogBoardSubtasksAdded').querySelector('li');
+    const listItem = event.target.closest('.editDivSubtasks2')
+        .closest('.editDialogBoardSubtasksAdded')
+        .querySelector('li');
     listItem.removeAttribute('contenteditable');
     listItem.classList.remove('editable');
 }
 
 
+/**
+ * Updates the UI to show edit/delete icons again
+ * and hide save/cancel options.
+ * 
+ * @param {Event} event - The click event from the save icon.
+ */
 function changeButtons2(event) {
     const editDiv = event.target.closest('.editDivSubtasks2');
     editDiv.classList.add('d_none'); 
@@ -168,39 +206,97 @@ function changeButtons2(event) {
 }
 
 
-async function updateTask(title, description, dueDate, priority, assignedTo, taskId) {
-    const task = {
-        title: title,
-        description: description,
-        dueDate: dueDate,
-        priority: priority,
-        assignedTo: assignedTo
-    };
-    let response = await fetch(`${BASE_URL}tasks/${taskId}.json`, {
-        method: "PATCH", headers: {'Content-Type': 'application/json', }, body: JSON.stringify(task)
+/**
+ * Decodes a URL-encoded JSON string of subtasks and renders them in the edit dialog.
+ * Only the titles of the subtasks (keys) are displayed.
+ * 
+ * @param {string} subtasksEncoded - The URL-encoded JSON string containing subtasks.
+ */
+function renderEditDialogSubtasksFromEncoded(subtasksEncoded) {
+    const parsed = JSON.parse(decodeURIComponent(subtasksEncoded));
+    if (!parsed) return;
+    const subtaskTitles = Object.keys(parsed);
+    const container = document.getElementById("editDialogBoardSubtasks");
+    subtaskTitles.forEach(title => {
+        container.innerHTML += createEditTaskSubTaskHTML(title);
     });
-    let responseToJson = await response.json();
-    return responseToJson;  
 }
 
 
-async function saveEditTask(taskId) { 
-    let title = document.getElementById("titleTask").value;
-    let description = document.getElementById("inputEditDialogBoardDescription").value;
-    let dueDate = document.getElementById("dueDate").value;
-    let priority;
-    let assignedTo = checkedContacts;
-    console.log(assignedTo)
-    if (document.getElementById("lowPriority").classList.contains("lowPriorityButtonSelected")) {
-        priority = "low";
-    } else if (document.getElementById("mediumPriority").classList.contains("mediumPriorityButtonSelected")) {
-        priority = "medium";
-    } else if (document.getElementById("urgentPriority").classList.contains("urgentPriorityButtonSelected")) {
-        priority = "urgent";
-    }
-    await updateTask(title, description, dueDate, priority, assignedTo, taskId); 
+/**
+ * Saves edited task values and updates the task.
+ *
+ * @param {string} taskId - The ID of the task to update.
+ */
+async function saveEditTask(taskId) {
+    const title = document.getElementById("titleTask").value;
+    const description = document.getElementById("inputEditDialogBoardDescription").value;
+    const dueDate = document.getElementById("dueDate").value;
+    const assignedTo = checkedContacts;
+    let priority = "";
+    if (document.getElementById("lowPriority").classList.contains("lowPriorityButtonSelected")) priority = "low";
+    else if (document.getElementById("mediumPriority").classList.contains("mediumPriorityButtonSelected")) priority = "medium";
+    else if (document.getElementById("urgentPriority").classList.contains("urgentPriorityButtonSelected")) priority = "urgent";
+    const subtasks = collectEditedSubtasks();
+    await updateTask(title, description, dueDate, priority, assignedTo, subtasks, taskId);
     closeDialog();
-    loadTasksBoard()
+    loadTasksBoard();
+}
+
+
+/**
+ * Collects all edited subtasks from the DOM and returns them as an object.
+ * Subtask title is the key, and value is initially set to "undone".
+ * 
+ * @returns {Object} - Subtasks object: { "Subtask title": "undone", ... }
+ */
+function collectEditedSubtasks() {
+    const subtaskElements = document.querySelectorAll('.editDialogBoardSubtasksAdded li');
+    const subtasks = {};
+    subtaskElements.forEach(li => {
+        const title = li.textContent.trim();
+        if (title) {
+            subtasks[title] = "undone"; // default state
+        }
+    });
+    return subtasks;
+}
+
+
+/**
+ * Deletes a subtask from the DOM when the delete icon is clicked.
+ * Works for both normal and edit modes.
+ * 
+ * @param {Event} event - The click event triggered by the delete icon.
+ */
+function deleteSubtaskBoard(event) {
+    const subtaskContainer = event.target.closest('.editDialogBoardSubtasksAdded');
+    if (subtaskContainer) {
+        subtaskContainer.remove();
+    }
+}
+
+
+/**
+ * Updates a task with new values on the server.
+ *
+ * @param {string} title - Task title.
+ * @param {string} description - Task description.
+ * @param {string} dueDate - Due date in YYYY-MM-DD format.
+ * @param {string} priority - Task priority.
+ * @param {Object} assignedTo - Assigned contacts object.
+ *  @param {Object} subtasks - Subtask titles with status
+ * @param {string} taskId - Task ID to update.
+ * @returns {Promise<Object>} Updated task as JSON.
+ */
+async function updateTask(title, description, dueDate, priority, assignedTo, subtasks, taskId) {
+    const task = { title, description, dueDate, priority, assignedTo, subtasks };
+    const response = await fetch(`${BASE_URL}tasks/${taskId}.json`, {
+        method: "PATCH",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(task)
+    });
+    return await response.json();
 }
 
 
