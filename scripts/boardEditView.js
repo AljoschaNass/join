@@ -126,12 +126,23 @@ function handleClickOutsideAssignedTo() {
 }
 
 
+/**
+ * Activates editing mode for a subtask item by making it editable
+ * and updating the button UI to show save/delete icons.
+ * 
+ * @param {Event} event - The click event triggered on the edit icon.
+ */
 function subtaskEdit(event) {
     editableListItem(event);
     changeButtons(event);
 }
 
 
+/**
+ * Updates the UI to hide edit/delete icons and show save/cancel options.
+ * 
+ * @param {Event} event - The click event from the edit icon.
+ */
 function changeButtons(event) {
     const editDiv = event.target.closest('.editDivSubtasks');
     editDiv.classList.add('d_none');
@@ -140,27 +151,53 @@ function changeButtons(event) {
 }
 
 
+/**
+ * Makes the subtask list item content editable and focuses it.
+ * 
+ * @param {Event} event - The click event from the edit icon.
+ */
 function editableListItem(event) {
-    const listItem = event.target.closest('.editDivSubtasks').closest('.editDialogBoardSubtasksAdded').querySelector('li');
+    const listItem = event.target.closest('.editDivSubtasks')
+        .closest('.editDialogBoardSubtasksAdded')
+        .querySelector('li');
     listItem.setAttribute('contenteditable', true);
     listItem.classList.add('editable');
     listItem.focus();
 }
 
 
+/**
+ * Saves the edited subtask by disabling content editing
+ * and resetting the button UI.
+ * 
+ * @param {Event} event - The click event from the save icon.
+ */
 function subtaskSave(event) {
     editableListItem2(event);
     changeButtons2(event);
 }
 
 
+/**
+ * Disables editing on the subtask list item.
+ * 
+ * @param {Event} event - The click event from the save icon.
+ */
 function editableListItem2(event) {
-    const listItem = event.target.closest('.editDivSubtasks2').closest('.editDialogBoardSubtasksAdded').querySelector('li');
+    const listItem = event.target.closest('.editDivSubtasks2')
+        .closest('.editDialogBoardSubtasksAdded')
+        .querySelector('li');
     listItem.removeAttribute('contenteditable');
     listItem.classList.remove('editable');
 }
 
 
+/**
+ * Updates the UI to show edit/delete icons again
+ * and hide save/cancel options.
+ * 
+ * @param {Event} event - The click event from the save icon.
+ */
 function changeButtons2(event) {
     const editDiv = event.target.closest('.editDivSubtasks2');
     editDiv.classList.add('d_none'); 

@@ -300,7 +300,6 @@ function drop(ev) {
 }
 
 
-
 /**
  * Updates the task status in the backend.
  * @param {string} taskId - ID of the task.
