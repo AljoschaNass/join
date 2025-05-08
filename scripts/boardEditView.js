@@ -301,43 +301,62 @@ async function updateTask(title, description, dueDate, priority, assignedTo, sub
 
 
 /**
- * Validates the title input field.
- * If empty, shows error message and highlights input border.
- * Resets error style when user types something.
- * @returns {boolean} Returns true if input is valid, otherwise false.
+ * Validates the title input field for emptiness.
+ * 
+ * If the field is empty, it shows an error message and
+ * highlights the border in red. If not, it hides the
+ * error message and resets the border. Also triggers
+ * validation of the save button state.
+ * 
+ * Called via `oninput` on the title field.
  */
 function validateTitleInput() {
     const input = document.querySelector('.inputEditDialogBoardTitle');
-    const errorMsg = document.querySelector('.requiredFieldDialog');
+    const errorMsg = input.nextElementSibling;
     const isEmpty = !input.value.trim();
-    if (isEmpty) {
-        input.style.border = '1px solid rgba(255, 129, 144, 1)';
-        errorMsg.classList.remove('d_none');
-    } else {
-        input.style.border = '';
-        errorMsg.classList.add('d_none');
-    }
-    return !isEmpty;
+    input.style.border = isEmpty ? '1px solid rgba(255, 129, 144, 1)' : '';
+    errorMsg.classList.toggle('d_none', !isEmpty);
+    validateSaveButtonState();
 }
 
 
 /**
- * Validates the due date input.
- * Highlights the input field and shows an error message if empty.
- * @returns {boolean} True if valid, false if empty.
+ * Validates the due date input field for emptiness.
+ * 
+ * If the date is empty, it shows an error message and
+ * highlights the border in red. If not, it hides the
+ * error and resets the border. Also triggers
+ * validation of the save button state.
+ * 
+ * Called via `oninput` on the due date field.
  */
 function validateDueDateInput() {
     const input = document.querySelector('.inputEditDialogBoardDueDate');
-    const errorMsg = input.nextElementSibling; // direkt das <p> nach dem input
-    const isEmpty = !input.value.trim();
-    if (isEmpty) {
-        input.style.border = '1px solid rgba(255, 129, 144, 1)';
-        errorMsg.classList.remove('d_none');
+    const errorMsg = input.nextElementSibling;
+    const isEmpty = !input.value;
+    input.style.border = isEmpty ? '1px solid rgba(255, 129, 144, 1)' : '';
+    errorMsg.classList.toggle('d_none', !isEmpty);
+    validateSaveButtonState();
+}
+
+
+/**
+ * Validates the state of the save button based on title and due date inputs.
+ * Disables the button and adds a CSS class if fields are incomplete.
+ */
+function validateSaveButtonState() {
+    const title = document.querySelector('.inputEditDialogBoardTitle').value.trim();
+    const date = document.querySelector('.inputEditDialogBoardDueDate').value;
+    const button = document.getElementById('saveEditTaskButton');
+
+    const isValid = title && date;
+    button.disabled = !isValid;
+
+    if (!isValid) {
+        button.classList.add('saveEditTaskButtonDisabled');
     } else {
-        input.style.border = '';
-        errorMsg.classList.add('d_none');
+        button.classList.remove('saveEditTaskButtonDisabled');
     }
-    return !isEmpty;
 }
 
 
