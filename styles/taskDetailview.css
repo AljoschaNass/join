@@ -28,6 +28,15 @@
 #closeOverlayBoard {
     background-color: transparent;
     height: 32px;
+    width: 32px;
+    border-radius: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#closeOverlayBoard:hover {
+    background-color: rgba(238, 238, 238, 1);
 }
 
 .dialogBoardTop {
@@ -197,7 +206,7 @@ input[type="checkbox"] {
     font-size: 12px;
     font-weight: 400;
     height: 4.1vh !important;
-    aspect-ratio: 1 / 1;
+    width: 4.1vh !important;
     line-height: 1;
 }
 

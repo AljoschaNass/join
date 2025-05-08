@@ -44,14 +44,7 @@ function getDialogTemplate(assignedTo, category, description, dueDate, priority,
                         <div class="dialogBoardTop">
                             <p class="${formatCategory(category)}">${category}</p>                         
                             <button id="closeOverlayBoard" onclick="closeDialog()">
-                                <svg width="32" height="32" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <mask id="mask0_75857_7481" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="4" y="4" width="25" height="25">
-                                    <rect x="4.68213" y="4.39673" width="24" height="24" fill="#D9D9D9"/>
-                                    </mask>
-                                    <g mask="url(#mask0_75857_7481)">
-                                    <path d="M16.6819 17.7968L11.7819 22.6968C11.5986 22.8801 11.3653 22.9718 11.0819 22.9718C10.7986 22.9718 10.5653 22.8801 10.3819 22.6968C10.1986 22.5134 10.1069 22.2801 10.1069 21.9968C10.1069 21.7134 10.1986 21.4801 10.3819 21.2968L15.2819 16.3968L10.3819 11.4968C10.1986 11.3134 10.1069 11.0801 10.1069 10.7968C10.1069 10.5134 10.1986 10.2801 10.3819 10.0968C10.5653 9.91344 10.7986 9.82178 11.0819 9.82178C11.3653 9.82178 11.5986 9.91344 11.7819 10.0968L16.6819 14.9968L21.5819 10.0968C21.7653 9.91344 21.9986 9.82178 22.2819 9.82178C22.5653 9.82178 22.7986 9.91344 22.9819 10.0968C23.1653 10.2801 23.2569 10.5134 23.2569 10.7968C23.2569 11.0801 23.1653 11.3134 22.9819 11.4968L18.0819 16.3968L22.9819 21.2968C23.1653 21.4801 23.2569 21.7134 23.2569 21.9968C23.2569 22.2801 23.1653 22.5134 22.9819 22.6968C22.7986 22.8801 22.5653 22.9718 22.2819 22.9718C21.9986 22.9718 21.7653 22.8801 21.5819 22.6968L16.6819 17.7968Z" fill="#2A3647"/>
-                                    </g>
-                                </svg>                                    
+                                <img src="../assets/img/icons/X.svg" alt="">                                  
                             </button>                            
                         </div>
                         <div id="overlayTaskTitle">
@@ -64,30 +57,8 @@ function getDialogTemplate(assignedTo, category, description, dueDate, priority,
                             <p>Due date:</p>
                             <div>${formatDate(dueDate)}</div>
                         </div>
-                        <div id="overlayTaskPriority">
-                            <p>Priority:</p>
-                            <div class="overlayTaskPriorityDiv">
-                                <div>${capitalizeFirstLetter(priority)}</div>
-                                <div class="${formatPriorityImg(priority)} priorityImg"></div>
-                            </div>
-                        </div>
-                        <div class="overlayTaskAssignedTo">
-                            <p>Assigned To:</p>
-                            <div id="overlayTaskAssignedToContacts_${taskId}" class="overlayTaskAssignedToContacts">
-                                <div class="assignedToContact">
-                                    <div class="contactCircleSmallDetailView backgroundColorGreen">EM</div>
-                                    <p>Emanuel Mauer</p>
-                                </div>
-                                <div class="assignedToContact">
-                                    <div class="contactCircleSmallDetailView backgroundColorDarkBlue">MB</div>
-                                    <p>Marcel Bauer</p>
-                                </div>
-                                <div class="assignedToContact">
-                                    <div class="contactCircleSmallDetailView backgroundColorOrange">AM</div>
-                                    <p>Anton Mayer</p>
-                                </div>
-                            </div> 
-                        </div>
+                        ${renderPrioritySection(priority)}
+                        ${renderAssignedToSection(assignedTo, taskId)}
                         <div id="subtasksDialog">
                             <p class="mb_8px">Subtasks</p>
                             <div id="addTask_subtask_content_${taskId}" class="subtasksContent">
@@ -109,7 +80,7 @@ function getDialogTemplate(assignedTo, category, description, dueDate, priority,
                             </div>
                             <div class="overlayTaskVector"></div>
                             <div class="overlayTaskEdit">
-                                <button onclick="openEditDialog( '${encodeURIComponent(JSON.stringify(assignedTo, taskId))}', '${category}', '${description}', '${dueDate}', '${priority}', '${encodeURIComponent(JSON.stringify(subtasks, taskId))}', '${title}', '${taskId}')">
+                                <button onclick="openEditDialog( '${encodeURIComponent(JSON.stringify(assignedTo, taskId))}', '${description}', '${dueDate}', '${priority}', '${encodeURIComponent(JSON.stringify(subtasks, taskId))}', '${title}', '${taskId}')">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <mask id="mask0_298547_4257" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
                                             <rect width="24" height="24" fill="#D9D9D9"></rect>
@@ -125,6 +96,31 @@ function getDialogTemplate(assignedTo, category, description, dueDate, priority,
                     </div>
                 </div>
     `
+}
+
+
+function renderPrioritySection(priority) {
+    if (!priority) return '';
+    return `
+        <div id="overlayTaskPriority">
+            <p>Priority:</p>
+            <div class="overlayTaskPriorityDiv">
+                <div>${capitalizeFirstLetter(priority)}</div>
+                <div class="${formatPriorityImg(priority)} priorityImg"></div>
+            </div>
+        </div>
+    `;
+}
+
+
+function renderAssignedToSection(assignedTo, taskId) {
+    if (!assignedTo || Object.keys(assignedTo).length === 0) return '';
+    return `
+        <div class="overlayTaskAssignedTo">
+            <p>Assigned To:</p>
+            <div id="overlayTaskAssignedToContacts_${taskId}" class="overlayTaskAssignedToContacts"></div> 
+        </div>
+    `;
 }
 
 
@@ -152,21 +148,11 @@ function createSubTaskHTML(title, status, taskId) {
 }
 
 
-function getEditDialogTemplate(assignedTo, category, description, dueDate, priority, subtasks, title, taskId) {
+function getEditDialogTemplate(description, dueDate, title, taskId) {
     return`
 <div id="editDialogBoard">
-                <button onclick="closeDialog()">
-                    <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <mask id="mask0_75609_16276" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="4" y="4"
-                            width="25" height="25">
-                            <rect x="4.68213" y="4.39673" width="24" height="24" fill="#D9D9D9" />
-                        </mask>
-                        <g mask="url(#mask0_75609_16276)">
-                            <path
-                                d="M16.6819 17.7967L11.7819 22.6967C11.5986 22.8801 11.3653 22.9717 11.0819 22.9717C10.7986 22.9717 10.5653 22.8801 10.3819 22.6967C10.1986 22.5134 10.1069 22.2801 10.1069 21.9967C10.1069 21.7134 10.1986 21.4801 10.3819 21.2967L15.2819 16.3967L10.3819 11.4967C10.1986 11.3134 10.1069 11.0801 10.1069 10.7967C10.1069 10.5134 10.1986 10.2801 10.3819 10.0967C10.5653 9.9134 10.7986 9.82173 11.0819 9.82173C11.3653 9.82173 11.5986 9.9134 11.7819 10.0967L16.6819 14.9967L21.5819 10.0967C21.7653 9.9134 21.9986 9.82173 22.2819 9.82173C22.5653 9.82173 22.7986 9.9134 22.9819 10.0967C23.1653 10.2801 23.2569 10.5134 23.2569 10.7967C23.2569 11.0801 23.1653 11.3134 22.9819 11.4967L18.0819 16.3967L22.9819 21.2967C23.1653 21.4801 23.2569 21.7134 23.2569 21.9967C23.2569 22.2801 23.1653 22.5134 22.9819 22.6967C22.7986 22.8801 22.5653 22.9717 22.2819 22.9717C21.9986 22.9717 21.7653 22.8801 21.5819 22.6967L16.6819 17.7967Z"
-                                fill="#2A3647" />
-                        </g>
-                    </svg>
+                <button onclick="closeDialog()" class="closeEditDialogBoard">
+                    <img src="../assets/img/icons/X.svg" alt="">          
                 </button>
                 <div class="editDialogBoardFrameWithScrollbar">
                     <div id="editDialogBoardFrame">
@@ -174,7 +160,7 @@ function getEditDialogTemplate(assignedTo, category, description, dueDate, prior
                             <div class="editDialogBoardTitle height_98">
                                 <p>Title</p>
                                 <input type="text" class="inputEditDialogBoardTitle" placeholder="Enter a title" id="titleTask"
-                                    value="${title}" required>
+                                    value="${title}" required oninput="validateTitleInput()">
                                 <p class="requiredFieldDialog d_none">This field is required</p>
                             </div>
                             <div class="editDialogBoardDescription">
@@ -184,7 +170,7 @@ function getEditDialogTemplate(assignedTo, category, description, dueDate, prior
                             </div>
                             <div class="editDialogBoardDueDate height_98" required>
                                 <p>Due Date</p>
-                                <input type="date" class="inputEditDialogBoardDueDate" value="${dueDate}" id="dueDate">
+                                <input type="date" class="inputEditDialogBoardDueDate" value="${dueDate}" id="dueDate" required oninput="validateDueDateInput()">
                                 <p class="requiredFieldDialog d_none">This field is required</p>
                             </div>
                         </div>
@@ -271,22 +257,9 @@ function getEditDialogTemplate(assignedTo, category, description, dueDate, prior
                         </div>
                     </div>
                 </div>
-                <button class="saveEditTaskButton" onclick="saveEditTask('${taskId}')">
-                    <svg width="90" height="58" viewBox="0 0 90 58" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="0.682129" y="0.396729" width="89" height="57" rx="10" fill="#2A3647" />
-                        <path
-                            d="M32.0443 28.7604C32.0443 30.4258 31.7286 31.8428 31.0973 33.0111C30.4708 34.1794 29.6157 35.0718 28.5319 35.6883C27.4531 36.2998 26.24 36.6055 24.8927 36.6055C23.5355 36.6055 22.3174 36.2973 21.2386 35.6808C20.1598 35.0643 19.3071 34.1719 18.6807 33.0036C18.0543 31.8353 17.7411 30.4209 17.7411 28.7604C17.7411 27.0949 18.0543 25.678 18.6807 24.5097C19.3071 23.3413 20.1598 22.4514 21.2386 21.8399C22.3174 21.2234 23.5355 20.9152 24.8927 20.9152C26.24 20.9152 27.4531 21.2234 28.5319 21.8399C29.6157 22.4514 30.4708 23.3413 31.0973 24.5097C31.7286 25.678 32.0443 27.0949 32.0443 28.7604ZM28.7706 28.7604C28.7706 27.6815 28.609 26.7717 28.2858 26.031C27.9676 25.2902 27.5177 24.7284 26.936 24.3456C26.3544 23.9628 25.6733 23.7714 24.8927 23.7714C24.1122 23.7714 23.4311 23.9628 22.8494 24.3456C22.2677 24.7284 21.8153 25.2902 21.4921 26.031C21.174 26.7717 21.0149 27.6815 21.0149 28.7604C21.0149 29.8392 21.174 30.749 21.4921 31.4898C21.8153 32.2305 22.2677 32.7923 22.8494 33.1751C23.4311 33.558 24.1122 33.7494 24.8927 33.7494C25.6733 33.7494 26.3544 33.558 26.936 33.1751C27.5177 32.7923 27.9676 32.2305 28.2858 31.4898C28.609 30.749 28.7706 29.8392 28.7706 28.7604ZM37.2552 33.1006L37.2627 29.2898H37.725L41.394 24.9422H45.0407L40.1114 30.6993H39.3582L37.2552 33.1006ZM34.3766 36.3967V21.124H37.5535V36.3967H34.3766ZM41.5357 36.3967L38.165 31.4077L40.2829 29.1631L45.257 36.3967H41.5357Z"
-                            fill="white" />
-                        <mask id="mask0_75609_16286" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="49" y="16"
-                            width="25" height="25">
-                            <rect x="49.6821" y="16.8967" width="24" height="24" fill="#D9D9D9" />
-                        </mask>
-                        <g mask="url(#mask0_75609_16286)">
-                            <path
-                                d="M59.2328 32.0467L67.7078 23.5717C67.9078 23.3717 68.1453 23.2717 68.4203 23.2717C68.6953 23.2717 68.9328 23.3717 69.1328 23.5717C69.3328 23.7717 69.4328 24.0092 69.4328 24.2842C69.4328 24.5592 69.3328 24.7967 69.1328 24.9967L59.9328 34.1967C59.7328 34.3967 59.4995 34.4967 59.2328 34.4967C58.9662 34.4967 58.7328 34.3967 58.5328 34.1967L54.2328 29.8967C54.0328 29.6967 53.937 29.4592 53.9453 29.1842C53.9537 28.9092 54.0578 28.6717 54.2578 28.4717C54.4578 28.2717 54.6953 28.1717 54.9703 28.1717C55.2453 28.1717 55.4828 28.2717 55.6828 28.4717L59.2328 32.0467Z"
-                                fill="white" />
-                        </g>
-                    </svg>
+                <button class="saveEditTaskButton" onclick="saveEditTask('${taskId}')" id="saveEditTaskButton">
+                <p>Ok</p>
+                <img src="../assets/img/icons/add_task_btn_check.svg" alt="">
                 </button>
             </div>
     `
@@ -318,14 +291,7 @@ function getAddTaskDialogTemplate() {
                 <div class="addTaskDialogBoardFrame">
                     <div w3-include-html="../assets/templates/addTaskTemplate.html" class="addTaskTemplate"></div>
                     <button class="addTaskDialogBoardClose" onclick="closeDialogAddTask()">
-                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <mask id="mask0_71720_5535" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="4" y="4" width="24" height="24">
-                            <rect x="4" y="4" width="24" height="24" fill="#D9D9D9"/>
-                            </mask>
-                            <g mask="url(#mask0_71720_5535)">
-                            <path d="M16 17.4L11.1 22.3C10.9167 22.4834 10.6833 22.575 10.4 22.575C10.1167 22.575 9.88333 22.4834 9.7 22.3C9.51667 22.1167 9.425 21.8834 9.425 21.6C9.425 21.3167 9.51667 21.0834 9.7 20.9L14.6 16L9.7 11.1C9.51667 10.9167 9.425 10.6834 9.425 10.4C9.425 10.1167 9.51667 9.88338 9.7 9.70005C9.88333 9.51672 10.1167 9.42505 10.4 9.42505C10.6833 9.42505 10.9167 9.51672 11.1 9.70005L16 14.6L20.9 9.70005C21.0833 9.51672 21.3167 9.42505 21.6 9.42505C21.8833 9.42505 22.1167 9.51672 22.3 9.70005C22.4833 9.88338 22.575 10.1167 22.575 10.4C22.575 10.6834 22.4833 10.9167 22.3 11.1L17.4 16L22.3 20.9C22.4833 21.0834 22.575 21.3167 22.575 21.6C22.575 21.8834 22.4833 22.1167 22.3 22.3C22.1167 22.4834 21.8833 22.575 21.6 22.575C21.3167 22.575 21.0833 22.4834 20.9 22.3L16 17.4Z" fill="#2A3647"/>
-                            </g>
-                            </svg>                                       
+                        <img src="../assets/img/icons/X.svg" alt="">                                            
                     </button>
                 </div>
             </div>

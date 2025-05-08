@@ -415,6 +415,21 @@ textarea:focus {
 .saveEditTaskButton {
     margin-top: 0 !important;
     margin-bottom: 48px !important;
+    background-color: rgba(42, 54, 71, 1) !important;
+    border-radius: 10px;
+    padding: 16px;
+    color: white;
+    font-size: 21px;
+    font-weight: 700;
+    gap: 4px;
+    display: flex;
+    flex-direction: row;
+}
+
+.saveEditTaskButtonDisabled {
+    background-color: #A8A8A8 !important;
+    cursor: not-allowed;
+
 }
 
 .addTaskDialogBoard {
@@ -435,7 +450,17 @@ textarea:focus {
     position: absolute;
     top: 64px;
     right: 74px;
+    height: 32px;
+    width: 32px;
     background-color: transparent;
+    border-radius: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.addTaskDialogBoardClose:hover {
+    background-color: rgba(238, 238, 238, 1);
 }
 
 .addTaskDialogBoardClose svg:hover {
@@ -503,4 +528,18 @@ textarea:focus {
     display: flex;
     flex-direction: row;
     gap: 8px;
+}
+
+.closeEditDialogBoard {
+    background-color: transparent;
+    height: 32px;
+    width: 32px;
+    border-radius: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.closeEditDialogBoard:hover {
+    background-color: rgba(238, 238, 238, 1) !important;
 }
