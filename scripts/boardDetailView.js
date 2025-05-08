@@ -57,8 +57,8 @@ function capitalizeFirstLetter(str) {
  */
 function renderAssignedToIconsDetailView(assignedToObj, containerId, contacts) {
     const container = document.getElementById(containerId);
+    if (!container) return;
     container.innerHTML = '';
-    if (!assignedToObj || Object.keys(assignedToObj).length === 0) return;
     Object.keys(assignedToObj).forEach(name => {
         if (assignedToObj[name]) {
             const email = Object.values(contacts).find(c => c.name === name)?.email || '';

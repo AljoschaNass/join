@@ -64,30 +64,9 @@ function getDialogTemplate(assignedTo, category, description, dueDate, priority,
                             <p>Due date:</p>
                             <div>${formatDate(dueDate)}</div>
                         </div>
-                        <div id="overlayTaskPriority">
-                            <p>Priority:</p>
-                            <div class="overlayTaskPriorityDiv">
-                                <div>${capitalizeFirstLetter(priority)}</div>
-                                <div class="${formatPriorityImg(priority)} priorityImg"></div>
-                            </div>
-                        </div>
-                        <div class="overlayTaskAssignedTo">
-                            <p>Assigned To:</p>
-                            <div id="overlayTaskAssignedToContacts_${taskId}" class="overlayTaskAssignedToContacts">
-                                <div class="assignedToContact">
-                                    <div class="contactCircleSmallDetailView backgroundColorGreen">EM</div>
-                                    <p>Emanuel Mauer</p>
-                                </div>
-                                <div class="assignedToContact">
-                                    <div class="contactCircleSmallDetailView backgroundColorDarkBlue">MB</div>
-                                    <p>Marcel Bauer</p>
-                                </div>
-                                <div class="assignedToContact">
-                                    <div class="contactCircleSmallDetailView backgroundColorOrange">AM</div>
-                                    <p>Anton Mayer</p>
-                                </div>
-                            </div> 
-                        </div>
+                        ${renderPrioritySection(priority)}
+                        ${renderAssignedToSection(assignedTo, taskId)}
+
                         <div id="subtasksDialog">
                             <p class="mb_8px">Subtasks</p>
                             <div id="addTask_subtask_content_${taskId}" class="subtasksContent">
@@ -125,6 +104,31 @@ function getDialogTemplate(assignedTo, category, description, dueDate, priority,
                     </div>
                 </div>
     `
+}
+
+
+function renderPrioritySection(priority) {
+    if (!priority) return '';
+    return `
+        <div id="overlayTaskPriority">
+            <p>Priority:</p>
+            <div class="overlayTaskPriorityDiv">
+                <div>${capitalizeFirstLetter(priority)}</div>
+                <div class="${formatPriorityImg(priority)} priorityImg"></div>
+            </div>
+        </div>
+    `;
+}
+
+
+function renderAssignedToSection(assignedTo, taskId) {
+    if (!assignedTo || Object.keys(assignedTo).length === 0) return '';
+    return `
+        <div class="overlayTaskAssignedTo">
+            <p>Assigned To:</p>
+            <div id="overlayTaskAssignedToContacts_${taskId}" class="overlayTaskAssignedToContacts"></div> 
+        </div>
+    `;
 }
 
 
