@@ -38,8 +38,8 @@
   }
   
   .header_user_profile {
-    height: 56px;
-    width: 56px;
+    height: calc(100vh * 0.09375 * 0.6);
+    aspect-ratio: 1;
     border-radius: 50%;
     border: 3px solid black;
     color: #2aaae2;
