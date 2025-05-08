@@ -1,3 +1,13 @@
+/**
+ * Creates a new contact resource in the database.
+ * This operation is non-idempotent, meaning multiple executions can create multiple entries.
+ * @param {string} [path="contacts"] - The path to the contacts endpoint.
+ * @param {string} name - The name of the contact.
+ * @param {string} email - The email of the contact.
+ * @param {string} phone - The phone number of the contact.
+ * @param {string} backgroundcolor - The background color associated with the contact.
+ * @returns {Promise<Object>} - The response from the server as a JSON object.
+ */
 async function postContact(path="contacts", name, email, phone, backgroundcolor){//erstellen neuer recoursen - nicht idempotent, dh mehrere ausführungen können mehrere einträge erzeugen
     let contact = {
         'name': name, 
@@ -11,6 +21,16 @@ async function postContact(path="contacts", name, email, phone, backgroundcolor)
 }
 
 
+/**
+ * Updates an existing contact resource in the database.
+ * This operation uses PATCH to only overwrite parts of the contact.
+ * @param {string} path - The path to the contact endpoint.
+ * @param {string} name - The name of the contact.
+ * @param {string} email - The email of the contact.
+ * @param {string} phone - The phone number of the contact.
+ * @param {string} backgroundcolor - The background color associated with the contact.
+ * @returns {Promise<Object>} - The response from the server as a JSON object.
+ */
 async function patchContact(path, name, email, phone, backgroundcolor){ //patch statt put, da patch nur teile überscreibt. put überschreibt alles!
     let contact = {
         'name': name, 
@@ -24,6 +44,10 @@ async function patchContact(path, name, email, phone, backgroundcolor){ //patch 
 }
 
 
+/**
+ * Fetches all contacts from the database.
+ * @returns {Promise<Object>} - The response of the server: the contacts as a JSON object.
+ */
 async function getAllContacts(){
     let path = "contacts";
     let response = await fetch(BASE_URL + path + ".json");   
@@ -31,6 +55,9 @@ async function getAllContacts(){
 }
 
 
+/**
+ * Retrieves all users and posts them as contacts in the database.
+ */
 async function getAllUsersToContacts(){
     let path = "user";
     let response = await fetch(BASE_URL + path + ".json");   
@@ -42,13 +69,23 @@ async function getAllUsersToContacts(){
 }
 
 
+/**
+ * Loads the details of a contact into the contact details card.
+ * @param {string} name - The name of the contact.
+ * @param {string} email - The email of the contact.
+ * @param {string} phone - The phone number of the contact.
+ * @param {string} backgroundcolor - The background color associated with the contact.
+ */
 function loadContactDetails(name, email, phone, backgroundcolor) {
     let contactCard = document.getElementById("contactDetails"); 
-    contactCard.innerHTML = ''; // Clear the contact card before adding new contacts
+    contactCard.innerHTML = ''; 
     contactCard.innerHTML += renderContactDetails(name, email, phone, isItMyEmail(email), backgroundcolor); 
 }
 
 
+/**
+ * Loads the list of contacts, sorts the contacts alphabetically and renders them in the contact list.
+ */
 async function loadContactList() {
     let contacts = await getAllContacts(); 
     let sortedContacts = sortContactsAlphabetically(contacts);
@@ -58,12 +95,21 @@ async function loadContactList() {
 }
 
 
+/**
+ * Checks if the provided email belongs to the current user.
+ * @param {string} email - The email to check.
+ * @returns {string} - Returns '(You)' if the email belongs to the current user, otherwise an empty string.
+ */
 function isItMyEmail(email) {
     getCurrentUserFromLocalStorage(); 
     return (email === currentUserEmail) ? '(You)' : ''; 
 }
 
 
+/**
+ * Filters and renders contacts by their first letter in the contact list.
+ * @param {Object} contacts - The contacts to filter.
+ */
 function filterContactsByFirstLetter(contacts) {
     let contactsArray = Object.values(contacts);
     let contactList = document.getElementById("contactList"); 
@@ -79,6 +125,11 @@ function filterContactsByFirstLetter(contacts) {
 }
 
 
+/**
+ * Sorts contacts alphabetically by their names.
+ * @param {Object} contacts - The contacts to sort.
+ * @returns {Object} - The sorted contacts as an object.
+ */
 function sortContactsAlphabetically(contacts) {
     let contactsArray = Object.values(contacts);
     contactsArray.sort((a, b) => a.name.localeCompare(b.name));
@@ -90,6 +141,10 @@ function sortContactsAlphabetically(contacts) {
 }
 
 
+/**
+ * Adds a new contact based on the input values from the form.
+ * @param {Event} event - The event triggered by the form submission.
+ */
 async function addContact(event) { 
     event.preventDefault();
     let name = document.getElementById("addContactName").value;
@@ -104,6 +159,10 @@ async function addContact(event) {
 }
 
 
+/**
+ * Saves the edited contact based on the input values from the form.
+ * @param {Event} event - The event triggered by the form submission.
+ */
 async function saveEditedContact(event) { 
     event.preventDefault();
     let name = document.getElementById("editContactName").value;
@@ -119,6 +178,10 @@ async function saveEditedContact(event) {
 }
 
 
+/**
+ * Deletes a contact by its email.
+ * @param {string} email - The email of the contact to delete.
+ */
 async function deleteContact(email) {
     let path = "contacts";
     let position = await findContactPositionByEmail(email); 
@@ -134,6 +197,10 @@ async function deleteContact(email) {
 }
 
 
+/**
+ * Finds the position of a contact by its email.
+ * @param {string} email - The email of the contact to find.
+ */
 async function findContactPositionByEmail(email) {
     let contacts = await getAllContacts(); 
     for (let i in contacts) {
@@ -145,10 +212,13 @@ async function findContactPositionByEmail(email) {
 }
 
 
+/**
+ * Displays a success message after adding a contact.
+ */
 function showAddContactSuccessMessage() {
     let successMessage = document.getElementById("addContactSuccess");
     successMessage.classList.add("d_none");
-    void successMessage.offsetWidth; // Triggern der Reflow, um die Animation zurückzusetzen
+    void successMessage.offsetWidth; 
     successMessage.classList.remove("d_none");
     setTimeout(() => {
         successMessage.classList.add("d_none"); 
@@ -156,10 +226,13 @@ function showAddContactSuccessMessage() {
 }
 
 
+/**
+ * Displays a success message after editing a contact.
+ */
 function showEditContactSuccessMessage() {
     let successMessage = document.getElementById("editContactSuccess");
     successMessage.classList.add("d_none");
-    void successMessage.offsetWidth; // Triggern der Reflow, um die Animation zurückzusetzen
+    void successMessage.offsetWidth; 
     successMessage.classList.remove("d_none");
     setTimeout(() => {
         successMessage.classList.add("d_none"); 
@@ -167,10 +240,13 @@ function showEditContactSuccessMessage() {
 }
 
 
+/**
+ * Displays a success message after deleting a contact.
+ */
 function showDeleteContactSuccessMessage() {
     let successMessage = document.getElementById("deleteContactSuccess");
     successMessage.classList.add("d_none");
-    void successMessage.offsetWidth; // Triggern der Reflow, um die Animation zurückzusetzen
+    void successMessage.offsetWidth; 
     successMessage.classList.remove("d_none");
     setTimeout(() => {
         successMessage.classList.add("d_none"); 
@@ -178,6 +254,11 @@ function showDeleteContactSuccessMessage() {
 }
 
 
+/**
+ * Opens the contact dialog by displaying the overlay and preventing background scrolling.
+ * 
+ * @param {Event} event - The event object that triggered the dialog opening.
+ */
 function openContactDialog(event) {
     event.stopPropagation(); 
     let overlayRef = document.getElementById("overlayContacts");
@@ -193,6 +274,11 @@ function openContactDialog(event) {
 }
 
 
+/**
+ * Opens the edit contact dialog by displaying the overlay and preventing background scrolling.
+ * 
+ * @param {Event} event - The event object that triggered the dialog opening.
+ */
 function openEditContactDialog(event) {
     event.stopPropagation(); 
     let overlayRef = document.getElementById("overlayEditContacts");
@@ -205,7 +291,11 @@ function openEditContactDialog(event) {
     editContactContainer.addEventListener("click", (event) => {event.stopPropagation();});
 }
 
-
+/**
+ * Closes the add contact dialog by hiding the overlay, allowing background scrolling, and resetting input fields.
+ * 
+ * @param {Event} event - The event object that triggered the dialog closing.
+ */
 function closeContactDialog(event) {
     event.preventDefault();
     let overlayRef = document.getElementById("overlayContacts");
@@ -219,6 +309,12 @@ function closeContactDialog(event) {
 }
 
 
+/**
+ * Closes the edit contact dialog by hiding the overlay, allowing background scrolling, and resetting input fields.
+ * 
+ * @param {Event} event - The event object that triggered the dialog closing.
+ * @returns {void}
+ */
 function closeEditContactDialog() {
     let overlayRef = document.getElementById("overlayEditContacts");
     let noScrolling = document.body;
@@ -230,6 +326,12 @@ function closeEditContactDialog() {
 }
 
 
+/**
+ * Selects a contact from the list by adding a 'click' class to the selected contact
+ * and removing it from all other contacts.
+ * 
+ * @param {Event} event - The event object that triggered the contact selection.
+ */
 function selectContact(event) {
     document.querySelectorAll('.contactInList').forEach(contact => {
         contact.classList.remove('click');
@@ -238,6 +340,12 @@ function selectContact(event) {
 }
 
 
+/**
+ * Generates the initials from a given contact name.
+ * 
+ * @param {string} name - The full name of the contact.
+ * @returns {string} The initials of the contact's name in uppercase.
+ */
 function setContactInitials(name) {
     let contactName = name.toUpperCase();
     let contactNames = contactName.split(" ");
@@ -249,6 +357,10 @@ function setContactInitials(name) {
 }
 
 
+/**
+ * Enables the "Create Contact" button if all required fields are filled.
+ * Otherwise, it disables the button.
+ */
 function enableCreateContactButton() {
     let name = document.getElementById("addContactName");
     let email = document.getElementById("addContactEmail");
@@ -262,6 +374,10 @@ function enableCreateContactButton() {
 }
 
 
+/**
+ * Enables the "Save Contact" button if all required fields are filled.
+ * Otherwise, it disables the button.
+ */
 function enableEditContactButton() {
     let name = document.getElementById("editContactName");
     let email = document.getElementById("editContactEmail");
@@ -277,6 +393,9 @@ function enableEditContactButton() {
 }
 
 
+/**
+ * Disables the "Create Contact" button if required fields are empty.
+ */
 function disableCreateContactButton() {
     let createContactBtn = document.getElementById("addContactBtn");
     createContactBtn.disabled = true; 
@@ -284,6 +403,9 @@ function disableCreateContactButton() {
 }
 
 
+/**
+ * Disables the "Save Contact" button if required fields are empty.
+ */
 function disableEditContactButton() {
     let name = document.getElementById("editContactName");
     let email = document.getElementById("editContactEmail");
@@ -297,18 +419,36 @@ function disableEditContactButton() {
 }
 
 
+/**
+ * Converts an index to its corresponding uppercase letter (A-Z).
+ * 
+ * @param {number} i - The index (0 for 'A', 1 for 'B', etc.).
+ * @returns {string} The uppercase letter corresponding to the index.
+ */
 function letter(i) {
-    let result = String.fromCharCode(65 + i); // 65 ist der ASCII-Wert für 'A'
+    let result = String.fromCharCode(65 + i); 
     return result;
 }
 
 
+/**
+ * Generates a random background color class name. This backgroundcolor is used to style the icon with the contact initials 
+ * @returns {string} A string representing a random background color class.
+ */
 function setBackgroundcolor() {
     number = Math.floor(Math.random() * 16) + 1;
     return `backgroundColor${number}`;
 }
 
 
+/**
+ * Fills the input fields with the current data of a contact, updates the background color and enables the "Edit Contact" button.
+ * 
+ * @param {string} name - The name of the contact to be edited.
+ * @param {string} email - The email of the contact to be edited.
+ * @param {string} phone - The phone number of the contact to be edited.
+ * @param {string} backgroundcolor - The class name for the background color to be applied.
+ */
 function fillInputFieldsWithCurrentData(name, email, phone, backgroundcolor) {
     document.getElementById("editContactName").value = name;
     document.getElementById("editContactEmail").value = email;
@@ -320,6 +460,11 @@ function fillInputFieldsWithCurrentData(name, email, phone, backgroundcolor) {
 }
 
 
+/**
+ * Deletes a contact in the edit dialog and updates the contact list.
+ * 
+ * @param {Event} event - The event object that triggered the deletion.
+ */
 async function deleteContactInEditDialog(event) { 
     event.preventDefault();
     event.stopPropagation();
