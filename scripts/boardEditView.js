@@ -95,7 +95,6 @@ function setCheckedContactsFromEncoded(assignedToEditEncoded) {
     checkedContacts = {}; // reset
     const assignedToEdit = parseAssignedToEdit(assignedToEditEncoded);
     if (!assignedToEdit) return;
-
     Object.keys(assignedToEdit).forEach(name => {
         checkedContacts[name] = true;
     });
@@ -238,8 +237,24 @@ async function saveEditTask(taskId) {
     else if (document.getElementById("mediumPriority").classList.contains("mediumPriorityButtonSelected")) priority = "medium";
     else if (document.getElementById("urgentPriority").classList.contains("urgentPriorityButtonSelected")) priority = "urgent";
     const subtasks = collectEditedSubtasks();
-    await updateTask(title, description, dueDate, priority, assignedTo, subtasks, taskId);
     closeDialog();
+    await reloadBoardAfterEdit(title, description, dueDate, priority, assignedTo, subtasks, taskId);
+}
+
+
+/**
+ * Reloads the task board after editing a task.
+ * It updates the task with new values and reloads the task board.
+ * @param {string} title - Task title.
+ * @param {string} description - Task description.
+ * @param {string} dueDate - Due date in YYYY-MM-DD format.
+ * @param {string} priority - Task priority.
+ * @param {Object} assignedTo - Assigned contacts object.
+ * @param {Object} subtasks - Subtask titles with status
+ * @param {string} taskId - Task ID to update.
+ */
+async function reloadBoardAfterEdit(title, description, dueDate, priority, assignedTo, subtasks, taskId) {
+    await updateTask(title, description, dueDate, priority, assignedTo, subtasks, taskId);
     loadTasksBoard();
 }
 

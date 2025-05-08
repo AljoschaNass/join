@@ -5,9 +5,7 @@ async function postContact(path="contacts", name, email, phone, backgroundcolor)
         'phone': phone,
         'backgroundcolor': backgroundcolor
     };
-    let response = await fetch(BASE_URL + path + ".json", {
-        method: "POST", headers: {'Content-Type': 'application/json', }, body: JSON.stringify(contact)
-    });
+    let response = await fetch(BASE_URL + path + ".json", {method: "POST", headers: {'Content-Type': 'application/json', }, body: JSON.stringify(contact)});
     let responseToJson = await response.json();
     return responseToJson;
 }
@@ -20,9 +18,7 @@ async function patchContact(path, name, email, phone, backgroundcolor){ //patch 
         'phone': phone,
         'backgroundcolor': backgroundcolor
     };
-    let response = await fetch(BASE_URL + path + ".json", {
-        method: "PATCH", headers: {'Content-Type': 'application/json', }, body: JSON.stringify(contact)
-    });
+    let response = await fetch(BASE_URL + path + ".json", {method: "PATCH", headers: {'Content-Type': 'application/json', }, body: JSON.stringify(contact)});
     let responseToJson = await response.json();
     return responseToJson;
 }

@@ -34,7 +34,7 @@
 }
 
 @keyframes slightFromRightToCenter {
-    from {left: 1500px;}
+    from {left: 2500px;}
     to {left: 144px;}
 }
 
