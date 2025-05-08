@@ -285,23 +285,45 @@ function openEditContactDialog(event) {
     let noScrolling = document.body;
     noScrolling.classList.add("stopScrolling");
     overlayRef.classList.remove("d_none");
-        const dialogElement = document.getElementById("edit_contact_background");
+    const dialogElement = document.getElementById("edit_contact_background");
     dialogElement.addEventListener("click", (event) => {closeEditContactDialog();});
     const editContactContainer = document.querySelector('#edit_contact_container');
     editContactContainer.addEventListener("click", (event) => {event.stopPropagation();});
 }
 
+
 /**
- * Closes the add contact dialog by hiding the overlay, allowing background scrolling, and resetting input fields.
+ * Closes the add contact dialog by hiding the overlay, allowing background scrolling, and resetting input fields and create button.
  * 
  * @param {Event} event - The event object that triggered the dialog closing.
  */
 function closeContactDialog(event) {
     event.preventDefault();
-    let overlayRef = document.getElementById("overlayContacts");
-    let noScrolling = document.body;
-    noScrolling.classList.remove("stopScrolling");
-    overlayRef.classList.add("d_none");
+    let dialogElement = document.getElementById("add_contact_background");
+    let containerElement = document.getElementById("add_contact_container");
+    dialogElement.classList.add("lighten");
+    containerElement.classList.add("slide-out");
+    setTimeout(() => {
+    document.body.classList.remove("stopScrolling");
+    document.getElementById("overlayContacts").classList.add("d_none");
+    resetContactDialog();
+    }, 800);
+}
+
+
+/**
+ * Resets the edit contact dialog by
+ *     removing classes to reset the slide out animation,      
+ *     resetting input fields 
+ *     and disabling the create button.
+ * 
+ * @param {Event} event - The event object that triggered the dialog closing.
+ */
+function resetContactDialog() {
+    let dialogElement = document.getElementById("add_contact_background");
+    let containerElement = document.getElementById("add_contact_container");
+    dialogElement.classList.remove("lighten");
+    containerElement.classList.remove("slide-out");
     document.getElementById("addContactName").value = null;
     document.getElementById("addContactEmail").value = null;
     document.getElementById("addContactPhone").value = null;
@@ -310,16 +332,35 @@ function closeContactDialog(event) {
 
 
 /**
- * Closes the edit contact dialog by hiding the overlay, allowing background scrolling, and resetting input fields.
+ * Closes the edit contact dialog by hiding the overlay, allowing background scrolling and resetting input fields and save button.
  * 
  * @param {Event} event - The event object that triggered the dialog closing.
- * @returns {void}
  */
 function closeEditContactDialog() {
-    let overlayRef = document.getElementById("overlayEditContacts");
-    let noScrolling = document.body;
-    noScrolling.classList.remove("stopScrolling");
-    overlayRef.classList.add("d_none");
+    let dialogElement = document.getElementById("edit_contact_background");
+    let containerElement = document.getElementById("edit_contact_container");
+    dialogElement.classList.add("lighten");
+    containerElement.classList.add("slide-out");
+    setTimeout(() => {
+        document.body.classList.remove("stopScrolling");
+        document.getElementById("overlayEditContacts").classList.add("d_none");
+        resetEditContactDialog();
+    }, 800); 
+}
+
+
+/**
+ * Resets the edit contact dialog by 
+ *    resetting the contactToEdit variable,
+ *    removing classes to reset the slide out animation,
+ *    removing the background color classes from the contact icon,
+ *    and enabling the edit contact button.
+ */
+function resetEditContactDialog() {
+    let dialogElement = document.getElementById("edit_contact_background");
+    let containerElement = document.getElementById("edit_contact_container");
+    dialogElement.classList.remove("lighten");
+    containerElement.classList.remove("slide-out");
     contactToEdit = null;
     document.getElementById("edit_contact_img").classList.remove("backgroundColor1", "backgroundColor2", "backgroundColor3", "backgroundColor4", "backgroundColor5", "backgroundColor6", "backgroundColor7", "backgroundColor8", "backgroundColor9", "backgroundColor10", "backgroundColor11", "backgroundColor12", "backgroundColor13", "backgroundColor14", "backgroundColor15", "backgroundColor16");
     enableEditContactButton();

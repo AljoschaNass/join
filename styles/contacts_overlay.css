@@ -9,7 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: darkenBackground 125ms;
+    animation: darkenBackground 800ms;
 }
 
 @keyframes darkenBackground {
@@ -36,6 +36,24 @@
 @keyframes slightFromRightToCenter {
     from {left: 2500px;}
     to {left: 144px;}
+}
+
+.add_contact_background.lighten {
+    animation: lightenBackground 800ms forwards;
+}
+
+@keyframes lightenBackground {
+    from { background-color: rgba(0, 0, 0, 0.375); }
+    to { background-color: rgba(0, 0, 0, 0); }
+}
+
+.add_contact_container.slide-out {
+    animation: slideOutToRight 800ms forwards;
+}
+
+@keyframes slideOutToRight {
+    from { left: 144px; }
+    to { left: 2500px; }
 }
 
 .add_contact_left {
