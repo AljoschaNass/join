@@ -9,9 +9,9 @@
  * @param {string} title - Title of the task.
  * @param {string} taskId - ID of the task.
  */
-async function openEditDialog(assignedTo, category, description, dueDate, priority, subtasks, title, taskId) {
+async function openEditDialog(assignedTo, description, dueDate, priority, subtasks, title, taskId) {
     const dialog = document.getElementById("dialogBoard");
-    dialog.innerHTML = getEditDialogTemplate(assignedTo, category, description, dueDate, priority, subtasks, title, taskId);
+    dialog.innerHTML = getEditDialogTemplate(description, dueDate, title, taskId);
     updatePriorityButtonClasses(priority);
     setCheckedContactsFromEncoded(assignedTo);
     await loadContactListAssignedTo();
