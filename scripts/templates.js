@@ -66,7 +66,6 @@ function getDialogTemplate(assignedTo, category, description, dueDate, priority,
                         </div>
                         ${renderPrioritySection(priority)}
                         ${renderAssignedToSection(assignedTo, taskId)}
-
                         <div id="subtasksDialog">
                             <p class="mb_8px">Subtasks</p>
                             <div id="addTask_subtask_content_${taskId}" class="subtasksContent">

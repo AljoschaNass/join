@@ -348,10 +348,8 @@ function validateSaveButtonState() {
     const title = document.querySelector('.inputEditDialogBoardTitle').value.trim();
     const date = document.querySelector('.inputEditDialogBoardDueDate').value;
     const button = document.getElementById('saveEditTaskButton');
-
     const isValid = title && date;
     button.disabled = !isValid;
-
     if (!isValid) {
         button.classList.add('saveEditTaskButtonDisabled');
     } else {
