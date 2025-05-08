@@ -450,7 +450,17 @@ textarea:focus {
     position: absolute;
     top: 64px;
     right: 74px;
+    height: 32px;
+    width: 32px;
     background-color: transparent;
+    border-radius: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.addTaskDialogBoardClose:hover {
+    background-color: rgba(238, 238, 238, 1);
 }
 
 .addTaskDialogBoardClose svg:hover {
@@ -518,4 +528,18 @@ textarea:focus {
     display: flex;
     flex-direction: row;
     gap: 8px;
+}
+
+.closeEditDialogBoard {
+    background-color: transparent;
+    height: 32px;
+    width: 32px;
+    border-radius: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.closeEditDialogBoard:hover {
+    background-color: rgba(238, 238, 238, 1) !important;
 }

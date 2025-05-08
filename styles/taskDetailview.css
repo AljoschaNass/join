@@ -28,6 +28,15 @@
 #closeOverlayBoard {
     background-color: transparent;
     height: 32px;
+    width: 32px;
+    border-radius: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#closeOverlayBoard:hover {
+    background-color: rgba(238, 238, 238, 1);
 }
 
 .dialogBoardTop {

@@ -44,14 +44,7 @@ function getDialogTemplate(assignedTo, category, description, dueDate, priority,
                         <div class="dialogBoardTop">
                             <p class="${formatCategory(category)}">${category}</p>                         
                             <button id="closeOverlayBoard" onclick="closeDialog()">
-                                <svg width="32" height="32" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <mask id="mask0_75857_7481" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="4" y="4" width="25" height="25">
-                                    <rect x="4.68213" y="4.39673" width="24" height="24" fill="#D9D9D9"/>
-                                    </mask>
-                                    <g mask="url(#mask0_75857_7481)">
-                                    <path d="M16.6819 17.7968L11.7819 22.6968C11.5986 22.8801 11.3653 22.9718 11.0819 22.9718C10.7986 22.9718 10.5653 22.8801 10.3819 22.6968C10.1986 22.5134 10.1069 22.2801 10.1069 21.9968C10.1069 21.7134 10.1986 21.4801 10.3819 21.2968L15.2819 16.3968L10.3819 11.4968C10.1986 11.3134 10.1069 11.0801 10.1069 10.7968C10.1069 10.5134 10.1986 10.2801 10.3819 10.0968C10.5653 9.91344 10.7986 9.82178 11.0819 9.82178C11.3653 9.82178 11.5986 9.91344 11.7819 10.0968L16.6819 14.9968L21.5819 10.0968C21.7653 9.91344 21.9986 9.82178 22.2819 9.82178C22.5653 9.82178 22.7986 9.91344 22.9819 10.0968C23.1653 10.2801 23.2569 10.5134 23.2569 10.7968C23.2569 11.0801 23.1653 11.3134 22.9819 11.4968L18.0819 16.3968L22.9819 21.2968C23.1653 21.4801 23.2569 21.7134 23.2569 21.9968C23.2569 22.2801 23.1653 22.5134 22.9819 22.6968C22.7986 22.8801 22.5653 22.9718 22.2819 22.9718C21.9986 22.9718 21.7653 22.8801 21.5819 22.6968L16.6819 17.7968Z" fill="#2A3647"/>
-                                    </g>
-                                </svg>                                    
+                                <img src="../assets/img/icons/X.svg" alt="">                                  
                             </button>                            
                         </div>
                         <div id="overlayTaskTitle">
@@ -158,18 +151,8 @@ function createSubTaskHTML(title, status, taskId) {
 function getEditDialogTemplate(description, dueDate, title, taskId) {
     return`
 <div id="editDialogBoard">
-                <button onclick="closeDialog()">
-                    <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <mask id="mask0_75609_16276" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="4" y="4"
-                            width="25" height="25">
-                            <rect x="4.68213" y="4.39673" width="24" height="24" fill="#D9D9D9" />
-                        </mask>
-                        <g mask="url(#mask0_75609_16276)">
-                            <path
-                                d="M16.6819 17.7967L11.7819 22.6967C11.5986 22.8801 11.3653 22.9717 11.0819 22.9717C10.7986 22.9717 10.5653 22.8801 10.3819 22.6967C10.1986 22.5134 10.1069 22.2801 10.1069 21.9967C10.1069 21.7134 10.1986 21.4801 10.3819 21.2967L15.2819 16.3967L10.3819 11.4967C10.1986 11.3134 10.1069 11.0801 10.1069 10.7967C10.1069 10.5134 10.1986 10.2801 10.3819 10.0967C10.5653 9.9134 10.7986 9.82173 11.0819 9.82173C11.3653 9.82173 11.5986 9.9134 11.7819 10.0967L16.6819 14.9967L21.5819 10.0967C21.7653 9.9134 21.9986 9.82173 22.2819 9.82173C22.5653 9.82173 22.7986 9.9134 22.9819 10.0967C23.1653 10.2801 23.2569 10.5134 23.2569 10.7967C23.2569 11.0801 23.1653 11.3134 22.9819 11.4967L18.0819 16.3967L22.9819 21.2967C23.1653 21.4801 23.2569 21.7134 23.2569 21.9967C23.2569 22.2801 23.1653 22.5134 22.9819 22.6967C22.7986 22.8801 22.5653 22.9717 22.2819 22.9717C21.9986 22.9717 21.7653 22.8801 21.5819 22.6967L16.6819 17.7967Z"
-                                fill="#2A3647" />
-                        </g>
-                    </svg>
+                <button onclick="closeDialog()" class="closeEditDialogBoard">
+                    <img src="../assets/img/icons/X.svg" alt="">          
                 </button>
                 <div class="editDialogBoardFrameWithScrollbar">
                     <div id="editDialogBoardFrame">
@@ -308,14 +291,7 @@ function getAddTaskDialogTemplate() {
                 <div class="addTaskDialogBoardFrame">
                     <div w3-include-html="../assets/templates/addTaskTemplate.html" class="addTaskTemplate"></div>
                     <button class="addTaskDialogBoardClose" onclick="closeDialogAddTask()">
-                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <mask id="mask0_71720_5535" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="4" y="4" width="24" height="24">
-                            <rect x="4" y="4" width="24" height="24" fill="#D9D9D9"/>
-                            </mask>
-                            <g mask="url(#mask0_71720_5535)">
-                            <path d="M16 17.4L11.1 22.3C10.9167 22.4834 10.6833 22.575 10.4 22.575C10.1167 22.575 9.88333 22.4834 9.7 22.3C9.51667 22.1167 9.425 21.8834 9.425 21.6C9.425 21.3167 9.51667 21.0834 9.7 20.9L14.6 16L9.7 11.1C9.51667 10.9167 9.425 10.6834 9.425 10.4C9.425 10.1167 9.51667 9.88338 9.7 9.70005C9.88333 9.51672 10.1167 9.42505 10.4 9.42505C10.6833 9.42505 10.9167 9.51672 11.1 9.70005L16 14.6L20.9 9.70005C21.0833 9.51672 21.3167 9.42505 21.6 9.42505C21.8833 9.42505 22.1167 9.51672 22.3 9.70005C22.4833 9.88338 22.575 10.1167 22.575 10.4C22.575 10.6834 22.4833 10.9167 22.3 11.1L17.4 16L22.3 20.9C22.4833 21.0834 22.575 21.3167 22.575 21.6C22.575 21.8834 22.4833 22.1167 22.3 22.3C22.1167 22.4834 21.8833 22.575 21.6 22.575C21.3167 22.575 21.0833 22.4834 20.9 22.3L16 17.4Z" fill="#2A3647"/>
-                            </g>
-                            </svg>                                       
+                        <img src="../assets/img/icons/X.svg" alt="">                                            
                     </button>
                 </div>
             </div>
