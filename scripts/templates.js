@@ -80,7 +80,7 @@ function getDialogTemplate(assignedTo, category, description, dueDate, priority,
                             </div>
                             <div class="overlayTaskVector"></div>
                             <div class="overlayTaskEdit">
-                                <button onclick="openEditDialog( '${encodeURIComponent(JSON.stringify(assignedTo, taskId))}', '${description}', '${dueDate}', '${priority}', '${encodeURIComponent(JSON.stringify(subtasks, taskId))}', '${title}', '${taskId}')">
+                                <button onclick="openEditDialog(event, '${encodeURIComponent(JSON.stringify(assignedTo, taskId))}', '${category}', '${description}', '${dueDate}', '${priority}', '${encodeURIComponent(JSON.stringify(subtasks, taskId))}', '${title}', '${taskId}')">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <mask id="mask0_298547_4257" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
                                             <rect width="24" height="24" fill="#D9D9D9"></rect>
@@ -148,7 +148,7 @@ function createSubTaskHTML(title, status, taskId) {
 }
 
 
-function getEditDialogTemplate(description, dueDate, title, taskId) {
+function getEditDialogTemplate(category, description, dueDate, title, taskId) {
     return`
 <div id="editDialogBoard">
                 <button onclick="closeDialog()" class="closeEditDialogBoard">
@@ -257,7 +257,7 @@ function getEditDialogTemplate(description, dueDate, title, taskId) {
                         </div>
                     </div>
                 </div>
-                <button class="saveEditTaskButton" onclick="saveEditTask('${taskId}')" id="saveEditTaskButton">
+                <button class="saveEditTaskButton" onclick="saveEditTask(event, '${category}', '${taskId}')" id="saveEditTaskButton">
                 <p>Ok</p>
                 <img src="../assets/img/icons/add_task_btn_check.svg" alt="">
                 </button>
