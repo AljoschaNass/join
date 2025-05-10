@@ -217,10 +217,49 @@ function renderEditDialogSubtasksFromEncoded(subtasksEncoded) {
     const parsed = JSON.parse(decodeURIComponent(subtasksEncoded));
     if (!parsed) return;
     const subtaskTitles = Object.keys(parsed);
-    const container = document.getElementById("editDialogBoardSubtasks");
+    const container = document.getElementById("subtasksContentEditView");
     subtaskTitles.forEach(title => {
         container.innerHTML += createEditTaskSubTaskHTML(title);
     });
+}
+
+
+/**
+ * Clears the input field relative to the clicked clear icon.
+ * @param {Event} event - The click event.
+ */
+function clearSubtasksInputEditTaskView(event) {
+    const container = event.target.closest('.editDialogBoardSubtasksInput');
+    const input = container?.querySelector('input');
+    if (input) input.value = '';
+}
+
+
+/**
+ * Adds a new subtask to the edit task view if the input is not empty.
+ */
+function addSubtasksEditTaskView() {
+    const inputRef = document.getElementById("subtaskInputEditView");
+    const subtaskValue = inputRef.value.trim();
+    if (!subtaskValue) return;
+
+    const container = document.getElementById("subtasksContentEditView");
+    container.innerHTML += createEditTaskSubTaskHTML(subtaskValue);
+    inputRef.value = '';
+}
+
+
+/**
+ * Deletes a subtask from the DOM when the delete icon is clicked.
+ * Works for both normal and edit modes.
+ * 
+ * @param {Event} event - The click event triggered by the delete icon.
+ */
+function deleteSubtaskBoard(event) {
+    const subtaskContainer = event.target.closest('.editDialogBoardSubtasksAdded');
+    if (subtaskContainer) {
+        subtaskContainer.remove();
+    }
 }
 
 
@@ -274,20 +313,6 @@ function collectEditedSubtasks() {
         }
     });
     return subtasks;
-}
-
-
-/**
- * Deletes a subtask from the DOM when the delete icon is clicked.
- * Works for both normal and edit modes.
- * 
- * @param {Event} event - The click event triggered by the delete icon.
- */
-function deleteSubtaskBoard(event) {
-    const subtaskContainer = event.target.closest('.editDialogBoardSubtasksAdded');
-    if (subtaskContainer) {
-        subtaskContainer.remove();
-    }
 }
 
 

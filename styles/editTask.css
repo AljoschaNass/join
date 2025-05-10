@@ -559,3 +559,14 @@ textarea:focus {
 .closeEditDialogBoard:hover {
     background-color: rgba(238, 238, 238, 1) !important;
 }
+
+.editDialogBoardSubtasksInput:focus-within .xIcon {
+    cursor: pointer;
+    opacity: 1;
+    transition: none;
+}
+
+.xIcon:hover {
+    border-radius: 56px;
+    background-color: rgba(238, 238, 238, 1);
+}
