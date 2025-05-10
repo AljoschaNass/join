@@ -16,18 +16,41 @@ function openOverlay(event, assignedToEncoded, category, description, dueDate, p
     const assignedTo = (assignedToEncoded && assignedToEncoded !== 'undefined') ? JSON.parse(decodeURIComponent(assignedToEncoded)) : {};
     const subtasks = (subtasksEncoded && subtasksEncoded !== 'undefined') ? JSON.parse(decodeURIComponent(subtasksEncoded)) : {};
     const contacts = (contactsObjEncoded && contactsObjEncoded !== 'undefined') ? JSON.parse(decodeURIComponent(contactsObjEncoded)) : {};
+    prepareOverlay(assignedTo, category, description, dueDate, priority, subtasks, title, taskId, contacts);
+    prepareDialog();
+}
+
+
+/**
+ * Prepares and displays the overlay with provided task data.
+ * @param {Object} assignedTo - Task assignees.
+ * @param {string} category - Task category.
+ * @param {string} description - Task description.
+ * @param {string} dueDate - Due date.
+ * @param {string} priority - Task priority.
+ * @param {Object} subtasks - Subtask data.
+ * @param {string} title - Task title.
+ * @param {string} taskId - Task ID.
+ * @param {Object} contacts - Contacts object.
+ */
+function prepareOverlay(assignedTo, category, description, dueDate, priority, subtasks, title, taskId, contacts) {
     const overlayRef = document.getElementById("overlayBoard");
-    
     document.body.classList.add("stopScrolling");
     overlayRef.classList.add("overlayBoard");
     overlayRef.innerHTML += getDialogTemplate(assignedTo, category, description, dueDate, priority, subtasks, title, taskId, contacts);
-
     renderAssignedToIconsDetailView(assignedTo, `overlayTaskAssignedToContacts_${taskId}`, contacts);
     renderSubtasksDetailView(subtasks, `addTask_subtask_content_${taskId}`, taskId);
+}
+
+
+/**
+ * Prepares the dialog animation and click behavior.
+ */
+function prepareDialog() {
     const dialogRef = document.getElementById("dialogBoard");
-    dialogRef.classList.add("dialogBoard")
+    dialogRef.classList.add("dialogBoard");
     requestAnimationFrame(() => dialogRef?.classList.add("slide-in"));
-    document.getElementById("dialogBoard").addEventListener("click", e => e.stopPropagation());
+    dialogRef.addEventListener("click", e => e.stopPropagation());
 }
 
 
@@ -99,9 +122,12 @@ function closeDialog() {
     const overlay = document.getElementById("overlayBoard");
     const dialog = document.getElementById("dialogBoard");
     document.body.classList.remove("stopScrolling");
-    dialog.classList.remove("visible");
-    overlay.classList.remove("overlayBoard");
-    overlay.innerHTML = "";
+    dialog.classList.add("dialogBoard")
+    requestAnimationFrame(() => dialog?.classList.add("slide-out"));
+    setTimeout(() => {
+        overlay.classList.remove("overlayBoard");
+        overlay.innerHTML = "";
+    }, 300);
     loadTasksBoard();
 }
 

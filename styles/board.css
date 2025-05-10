@@ -28,6 +28,11 @@ margin-bottom: 48px;
 
 .searchFieldBoard svg {
 background: white;
+border-radius: 56px;
+}
+
+.searchFieldBoard:hover svg {
+    background-color: rgba(238, 238, 238, 1);
 }
 
 .headBoardPosition {

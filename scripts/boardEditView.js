@@ -308,7 +308,6 @@ async function updateTaskAndRenderDialog(event, title, description, dueDate, pri
     event.stopPropagation();
     const updatedTask = await updateTaskOnFirebase(title, description, dueDate, priority, assignedTo, subtasks, taskId);
     const overlayRef = document.getElementById("overlayBoard");
-    
     overlayRef.innerHTML = ""; 
     overlayRef.innerHTML += getDialogTemplate(updatedTask.assignedTo, category, updatedTask.description, updatedTask.dueDate, updatedTask.priority, updatedTask.subtasks, updatedTask.title, taskId,  contacts);
     renderAssignedToIconsDetailView(updatedTask.assignedTo, `overlayTaskAssignedToContacts_${taskId}`, contacts);
