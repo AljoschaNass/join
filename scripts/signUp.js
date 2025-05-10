@@ -46,7 +46,7 @@ function onBlurSignUp(inputId) {
     img.alt = x.value === "" ? "Password" : "Password Hidden";
 }
     
- 
+
 /**
  * Sends a POST request to create a new user.
  * @async
@@ -96,6 +96,7 @@ async function signUp() {
     }
 }
 
+
 /**
  * Saves a new user by posting user and contact information (user's name, email and password) to the server.
  * It ensures that both operations are completed before returning.
@@ -110,6 +111,7 @@ async function saveNewUser(name, email, password) {
     await postUser("user", name, email, password); 
     await postContact(path="contacts", name, email, phone='', setBackgroundcolor());
 }
+
 
 /**
  * Delays the redirection to the login page by 1 second.

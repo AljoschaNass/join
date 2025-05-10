@@ -30,7 +30,7 @@ function onFocus(inputId) {
   img.src = "./assets/img/icons/visibility_off.svg";
   img.alt = "Password Hidden";
 }
-   
+
 
 /**
  * Changes the color of the input field and field icon when no longer focused.
