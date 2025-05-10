@@ -1,6 +1,5 @@
 /**
  * Toggles the visibility of the password input field.
- * 
  * @param {string} inputId - The ID of the input field whose visibility is toggled.
  * @returns {void}
  */
@@ -21,7 +20,6 @@ function togglePasswordVisibility(inputId) {
 
 /**
  * Changes the color of the input field and field icon when focused.
- * 
  * @param {string} inputId - The ID of the input field that is changed.
  * @returns {void}
  */
@@ -36,7 +34,6 @@ function onFocus(inputId) {
 
 /**
  * Changes the color of the input field and field icon when no longer focused.
- * 
  * @param {string} inputId - The ID of the input field that is changed.
  * @returns {void}
  */
@@ -52,7 +49,6 @@ function onBlur(inputId) {
 
 /**
  * Allows the user to log in to their personal account.
- * 
  * @returns {Promise<void>} - A promise that resolves when the login process is complete.
  */
 async function logIn() {
@@ -66,7 +62,6 @@ async function logIn() {
 
 /**
  * Checks whether the user is registered and saves the current user to local storage or displays an error message.
- * 
  * @param {Object} user - The user object to check.
  * @returns {void}
  */
@@ -82,7 +77,6 @@ function checkUser(user) {
 
 /**
  * Displays an error message for failed login attempts.
- * 
  * @returns {void}
  */
 function logInError() {
@@ -95,7 +89,6 @@ function logInError() {
 
 /**
  * Logs in as a guest user.
- * 
  * @returns {void}
  */
 function logInGuest() {

@@ -1,6 +1,5 @@
 /**
  * Opens the contact dialog by displaying the overlay and preventing background scrolling.
- * 
  * @param {Event} event - The event object that triggered the dialog opening.
  */
 function openContactDialog(event) {
@@ -20,7 +19,6 @@ function openContactDialog(event) {
 
 /**
  * Opens the edit contact dialog by displaying the overlay and preventing background scrolling.
- * 
  * @param {Event} event - The event object that triggered the dialog opening.
  */
 function openEditContactDialog(event) {
@@ -38,7 +36,6 @@ function openEditContactDialog(event) {
 
 /**
  * Closes the add contact dialog by hiding the overlay, allowing background scrolling, and resetting input fields and create button.
- * 
  * @param {Event} event - The event object that triggered the dialog closing.
  */
 function closeContactDialog(event) {
@@ -57,10 +54,9 @@ function closeContactDialog(event) {
 
 /**
  * Resets the edit contact dialog by
- *     removing classes to reset the slide out animation,      
- *     resetting input fields 
- *     and disabling the create button.
- * 
+ *removing classes to reset the slide out animation,      
+ *resetting input fields 
+ *and disabling the create button.
  * @param {Event} event - The event object that triggered the dialog closing.
  */
 function resetContactDialog() {
@@ -77,7 +73,6 @@ function resetContactDialog() {
 
 /**
  * Closes the edit contact dialog by hiding the overlay, allowing background scrolling and resetting input fields and save button.
- * 
  * @param {Event} event - The event object that triggered the dialog closing.
  */
 function closeEditContactDialog() {
@@ -95,10 +90,10 @@ function closeEditContactDialog() {
 
 /**
  * Resets the edit contact dialog by 
- *    resetting the contactToEdit variable,
- *    removing classes to reset the slide out animation,
- *    removing the background color classes from the contact icon,
- *    and enabling the edit contact button.
+ * resetting the contactToEdit variable,
+ * removing classes to reset the slide out animation,
+ * removing the background color classes from the contact icon,
+ * and enabling the edit contact button.
  */
 function resetEditContactDialog() {
     let dialogElement = document.getElementById("edit_contact_background");
@@ -203,7 +198,6 @@ function disableEditContactButton() {
 
 /**
  * Fills the input fields in the edit contact overlay with the current data of a contact, updates the background color and enables the "Edit Contact" button.
- * 
  * @param {string} name - The name of the contact to be edited.
  * @param {string} email - The email of the contact to be edited.
  * @param {string} phone - The phone number of the contact to be edited.
@@ -222,7 +216,6 @@ function fillInputFieldsWithCurrentData(name, email, phone, backgroundcolor) {
 
 /**
  * Deletes a contact in the edit dialog and updates the contact list.
- * 
  * @param {Event} event - The event object that triggered the deletion.
  */
 async function deleteContactInEditDialog(event) { 

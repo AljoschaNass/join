@@ -1,6 +1,5 @@
 /**
  * Toggles the visibility of the password input field.
- * 
  * @param {string} inputId - The ID of the input field whose visibility is toggled.
  * @returns {void}
  */ 
@@ -21,7 +20,6 @@ function toggleSignUpPasswordVisibility(inputId) {
 
 /**
  * Changes the color of the input field and field icon when focused.
- * 
  * @param {string} inputId - The ID of the input field that is changed.
  * @returns {void}
  */
@@ -36,7 +34,6 @@ function onFocusSignUp(inputId) {
 
 /**
  * Changes the color of the input field and field icon when no longer focused.
- * 
  * @param {string} inputId - The ID of the input field that is changed.
  * @returns {void}
  */
@@ -52,9 +49,7 @@ function onBlurSignUp(inputId) {
  
 /**
  * Sends a POST request to create a new user.
- *
  * @async
- * @function postUser
  * @param {string} [path="user"] - The endpoint path to send the request to. Defaults to "user".
  * @param {string} name - The name of the user.
  * @param {string} email - The email address of the user.
@@ -83,7 +78,6 @@ async function postUser(path="user", name, email, password){
  * and sends the user data to the server. If the sign-up is successful, it displays a success message
  * and redirects the user to the index page after a short delay. If the passwords do not match,
  * it triggers an error handling function.
- *
  * @async
  * @returns {Promise<void>} A promise that resolves when the sign-up process is complete.
  * @throws {Error} Throws an error if the postUser or postContact operations fail.
@@ -103,18 +97,13 @@ async function signUp() {
 }
 
 /**
- * Saves a new user by posting user and contact information to the server.
- *
- * This asynchronous function sends the user's name, email, and password to the
- * user endpoint and also posts the contact information. It ensures that both
- * operations are completed before returning.
- *
+ * Saves a new user by posting user and contact information (user's name, email and password) to the server.
+ * It ensures that both operations are completed before returning.
  * @async
  * @param {string} name - The name of the new user.
  * @param {string} email - The email address of the new user.
  * @param {string} password - The password for the new user account.
- * @returns {Promise<void>} A promise that resolves when both the user and contact
- *                          information have been successfully saved.
+ * @returns {Promise<void>} A promise that resolves when both the user and contact information have been successfully saved.
  * @throws {Error} Throws an error if either postUser or postContact operations fail.
  */
 async function saveNewUser(name, email, password) {
@@ -134,7 +123,6 @@ function delayedRedirectToLogIn() {
 
 /**
  * Redirects the user to the login page.
- *
  * @returns {void} 
  */
 function goToLogIn() {
@@ -144,8 +132,6 @@ function goToLogIn() {
 
 /**
  * Displays an error message for the sign-up process.
- *
- * @function signUpError
  * @returns {void} 
  */
 function signUpError() {
@@ -156,8 +142,6 @@ function signUpError() {
 
 /**
  * Enables the sign-up button if all required fields are filled and the checkbox is checked.
- *
- * @function enableSignUpButton
  * @returns {void} 
  */
 function enableSignUpButton() {
@@ -177,8 +161,6 @@ function enableSignUpButton() {
 
 /**
  * Disables the sign-up button and removes the enabled class.
- *
- * @function disableSignUpButton
  * @returns {void} 
  */
 function disableSignUpButton() {

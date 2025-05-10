@@ -11,7 +11,6 @@ function initSummary() {
 
 /**
  * Changes the image source of the specified element to a light grey pencil icon.
- * 
  * @param {HTMLElement} element - The element containing the image to change.
  */
 function changeImage(element) {
@@ -57,7 +56,6 @@ function greeting() {
 
 /**
  * Loads the number of tasks with a specific status.
- * 
  * @param {Array} tasks - The array of tasks to filter.
  * @param {string} status - The status to filter tasks by.
  * @returns {number} The number of tasks with the specified status.
@@ -70,7 +68,6 @@ function loadNumberOfTasksWithStatus(tasks, status) {
 
 /**
  * Loads the number of tasks with a specific priority.
- * 
  * @param {Array} tasks - The array of tasks to filter.
  * @param {string} priority - The priority to filter tasks by.
  * @returns {number} The number of tasks with the specified priority.
@@ -83,7 +80,6 @@ function loadNumberOfTasksWithPriority(tasks, priority) {
 
 /**
  * Finds the next deadline from an array of tasks.
- * 
  * @param {Array} tasks - The array of tasks to search for deadlines.
  * @returns {Date|null} The next deadline date or null if no deadlines are found.
  */
@@ -103,7 +99,6 @@ function findNextDeadline(tasks) {
 
 /**
  * Formats a deadline date into a readable string.
- * 
  * @param {Date} deadline - The deadline date to format.
  * @returns {string} The formatted date string.
  */
@@ -115,7 +110,6 @@ function formatDate(deadline) {
 
 /**
  * Loads the number of tasks and updates the summary UI.
- * 
  * @returns {Promise<void>} A promise that resolves when the tasks are loaded and the UI is updated.
  */
 async function loadNumberOfTasks() {
@@ -132,7 +126,6 @@ async function loadNumberOfTasks() {
 
 /**
  * Sums the number of open tasks from the provided tasks array.
- * 
  * @param {Array} tasksArray - The array of tasks to sum.
  * @returns {number} The total number of open tasks (to-do, in progress and awaiting feedback).
  */
@@ -147,7 +140,6 @@ function sumOfOpenTasks(tasksArray) {
 
 /**
  * Loads the next deadline and updates the summary UI.
- * 
  * @returns {Promise<void>} A promise that resolves when the next deadline is loaded and the UI is updated.
  */
 async function loadNextDeadline() {

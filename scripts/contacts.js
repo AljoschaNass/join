@@ -229,7 +229,6 @@ function showDeleteContactSuccessMessage() {
 /**
  * Selects a contact from the list by adding a 'click' class to the selected contact
  * and removing it from all other contacts.
- * 
  * @param {Event} event - The event object that triggered the contact selection.
  */
 function selectContact(event) {
@@ -242,7 +241,6 @@ function selectContact(event) {
 
 /**
  * Generates the initials from a given contact name.
- * 
  * @param {string} name - The full name of the contact.
  * @returns {string} The initials of the contact's name in uppercase.
  */
@@ -258,7 +256,6 @@ function setContactInitials(name) {
 
 /**
  * Converts an index to its corresponding uppercase letter (A-Z).
- * 
  * @param {number} i - The index (0 for 'A', 1 for 'B', etc.).
  * @returns {string} The uppercase letter corresponding to the index.
  */
