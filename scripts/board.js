@@ -200,11 +200,14 @@ function openTaskDialogFor(columnId) {
 function createNewTask(event, status) {
     event.stopPropagation();
     let dialog = document.getElementById("overlayBoardAddTask");
+    document.body.classList.add("stopScrolling");
     dialog.classList.remove("d_none");
     dialog.classList.add("overlayBoard");
     dialog.setAttribute('status', status);
+    const dialogRef = document.getElementById("addTaskDialogBoard");
+    dialogRef.classList.remove("slide-out");
+    requestAnimationFrame(() => dialogRef?.classList.add("slide-in"));
     document.getElementById("addTaskDialogBoard").addEventListener("click", e => e.stopPropagation());
-    document.body.classList.add("stopScrolling");
 }
 
 
@@ -225,8 +228,13 @@ async function renderW3AddTaskTemplate() {
  * Closes the add task dialog.
  */
 function closeDialogAddTask() {
-    document.getElementById("overlayBoardAddTask").classList.add("d_none");
-    document.body.classList.remove("stopScrolling");
+    const dialogRef = document.getElementById("addTaskDialogBoard");
+    dialogRef.classList.remove("slide-in");
+    requestAnimationFrame(() => dialogRef?.classList.add("slide-out"));
+            setTimeout(() => {
+        document.getElementById("overlayBoardAddTask").classList.add("d_none");
+        document.body.classList.remove("stopScrolling");
+    }, 300);
 }
 
 
