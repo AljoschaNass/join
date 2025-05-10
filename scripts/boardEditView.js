@@ -9,14 +9,16 @@
  * @param {string} title - Title of the task.
  * @param {string} taskId - ID of the task.
  */
-async function openEditDialog(assignedTo, description, dueDate, priority, subtasks, title, taskId) {
+async function openEditDialog(event, assignedTo, category,  description, dueDate, priority, subtasks, title, taskId) {
+    event.stopPropagation();
     const dialog = document.getElementById("dialogBoard");
-    dialog.innerHTML = getEditDialogTemplate(description, dueDate, title, taskId);
+    dialog.innerHTML = getEditDialogTemplate(category, description, dueDate, title, taskId);
     updatePriorityButtonClasses(priority);
     setCheckedContactsFromEncoded(assignedTo);
     await loadContactListAssignedTo();
     handleClickOutsideAssignedTo();
     renderEditDialogSubtasksFromEncoded(subtasks);
+    document.getElementById("dialogBoard").addEventListener("click", e => e.stopPropagation());
 }
 
 
@@ -227,35 +229,32 @@ function renderEditDialogSubtasksFromEncoded(subtasksEncoded) {
  *
  * @param {string} taskId - The ID of the task to update.
  */
-async function saveEditTask(taskId) {
-    const title = document.getElementById("titleTask").value;
-    const description = document.getElementById("inputEditDialogBoardDescription").value;
-    const dueDate = document.getElementById("dueDate").value;
-    const assignedTo = checkedContacts;
-    let priority = "";
-    if (document.getElementById("lowPriority").classList.contains("lowPriorityButtonSelected")) priority = "low";
-    else if (document.getElementById("mediumPriority").classList.contains("mediumPriorityButtonSelected")) priority = "medium";
-    else if (document.getElementById("urgentPriority").classList.contains("urgentPriorityButtonSelected")) priority = "urgent";
-    const subtasks = collectEditedSubtasks();
-    closeDialog();
-    await reloadBoardAfterEdit(title, description, dueDate, priority, assignedTo, subtasks, taskId);
+async function saveEditTask(event, category, taskId) {
+    const { title, description, dueDate, priority, assignedTo } = collectTaskData();
+    const subtasks = collectEditedSubtasks(); 
+    const contacts = await getAllContacts(); 
+    await updateTaskAndRenderDialog(event, title, description, dueDate, priority, assignedTo, subtasks, taskId, contacts, category);
 }
 
 
 /**
- * Reloads the task board after editing a task.
- * It updates the task with new values and reloads the task board.
- * @param {string} title - Task title.
- * @param {string} description - Task description.
- * @param {string} dueDate - Due date in YYYY-MM-DD format.
- * @param {string} priority - Task priority.
- * @param {Object} assignedTo - Assigned contacts object.
- * @param {Object} subtasks - Subtask titles with status
- * @param {string} taskId - Task ID to update.
+ * Collects task values and priority.
+ *
+ * @returns {Object} - The task data including title, description, due date, priority, and assigned contacts.
  */
-async function reloadBoardAfterEdit(title, description, dueDate, priority, assignedTo, subtasks, taskId) {
-    await updateTask(title, description, dueDate, priority, assignedTo, subtasks, taskId);
-    loadTasksBoard();
+function collectTaskData() {
+    const title = document.getElementById("titleTask").value;
+    const description = document.getElementById("inputEditDialogBoardDescription").value;
+    const dueDate = document.getElementById("dueDate").value;
+    const assignedTo = checkedContacts; 
+    let priority = "";
+    if (document.getElementById("lowPriority").classList.contains("lowPriorityButtonSelected")) {
+        priority = "low";
+    } else if (document.getElementById("mediumPriority").classList.contains("mediumPriorityButtonSelected")) {
+        priority = "medium";
+    } else if (document.getElementById("urgentPriority").classList.contains("urgentPriorityButtonSelected")) {
+        priority = "urgent";}
+    return { title, description, dueDate, priority, assignedTo };
 }
 
 
@@ -293,25 +292,53 @@ function deleteSubtaskBoard(event) {
 
 
 /**
- * Updates a task with new values on the server.
+ * Updates the task and renders the updated task dialog.
  *
  * @param {string} title - Task title.
  * @param {string} description - Task description.
  * @param {string} dueDate - Due date in YYYY-MM-DD format.
  * @param {string} priority - Task priority.
  * @param {Object} assignedTo - Assigned contacts object.
- *  @param {Object} subtasks - Subtask titles with status
+ * @param {Object} subtasks - Subtask titles with status.
  * @param {string} taskId - Task ID to update.
- * @returns {Promise<Object>} Updated task as JSON.
+ * @param {Array} contacts - List of contacts to render.
+ * @param {string} category - Task category.
  */
-async function updateTask(title, description, dueDate, priority, assignedTo, subtasks, taskId) {
+async function updateTaskAndRenderDialog(event, title, description, dueDate, priority, assignedTo, subtasks, taskId, contacts, category) {
+    event.stopPropagation();
+    const updatedTask = await updateTaskOnFirebase(title, description, dueDate, priority, assignedTo, subtasks, taskId);
+    const overlayRef = document.getElementById("overlayBoard");
+    
+    overlayRef.innerHTML = ""; 
+    overlayRef.innerHTML += getDialogTemplate(updatedTask.assignedTo, category, updatedTask.description, updatedTask.dueDate, updatedTask.priority, updatedTask.subtasks, updatedTask.title, taskId,  contacts);
+    renderAssignedToIconsDetailView(updatedTask.assignedTo, `overlayTaskAssignedToContacts_${taskId}`, contacts);
+    renderSubtasksDetailView(updatedTask.subtasks, `addTask_subtask_content_${taskId}`, taskId);
+    const dialog = document.getElementById("dialogBoard");
+    dialog.setAttribute("class", "dialogBoardFix");
+    dialog.addEventListener("click", e => e.stopPropagation());
+}
+
+
+/**
+ * Sends a PATCH request to update a task on the server.
+ *
+ * @param {string} title - Task title.
+ * @param {string} description - Task description.
+ * @param {string} dueDate - Due date in YYYY-MM-DD format.
+ * @param {string} priority - Task priority.
+ * @param {Object} assignedTo - Assigned contacts object.
+ * @param {Object} subtasks - Subtask titles with status.
+ * @param {string} taskId - Task ID to update.
+ * @returns {Promise<Object>} - Updated task data.
+ */
+async function updateTaskOnFirebase(title, description, dueDate, priority, assignedTo, subtasks, taskId) {
     const task = { title, description, dueDate, priority, assignedTo, subtasks };
     const response = await fetch(`${BASE_URL}tasks/${taskId}.json`, {
         method: "PATCH",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(task)
     });
-    return await response.json();
+    return await response.json(); 
 }
 
 
@@ -371,9 +398,3 @@ function validateSaveButtonState() {
         button.classList.remove('saveEditTaskButtonDisabled');
     }
 }
-
-
-
-
-
-

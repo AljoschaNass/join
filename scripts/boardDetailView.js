@@ -17,11 +17,16 @@ function openOverlay(event, assignedToEncoded, category, description, dueDate, p
     const subtasks = (subtasksEncoded && subtasksEncoded !== 'undefined') ? JSON.parse(decodeURIComponent(subtasksEncoded)) : {};
     const contacts = (contactsObjEncoded && contactsObjEncoded !== 'undefined') ? JSON.parse(decodeURIComponent(contactsObjEncoded)) : {};
     const overlayRef = document.getElementById("overlayBoard");
+    
     document.body.classList.add("stopScrolling");
     overlayRef.classList.add("overlayBoard");
     overlayRef.innerHTML += getDialogTemplate(assignedTo, category, description, dueDate, priority, subtasks, title, taskId, contacts);
+
     renderAssignedToIconsDetailView(assignedTo, `overlayTaskAssignedToContacts_${taskId}`, contacts);
     renderSubtasksDetailView(subtasks, `addTask_subtask_content_${taskId}`, taskId);
+    const dialogRef = document.getElementById("dialogBoard");
+    dialogRef.classList.add("dialogBoard")
+    requestAnimationFrame(() => dialogRef?.classList.add("slide-in"));
     document.getElementById("dialogBoard").addEventListener("click", e => e.stopPropagation());
 }
 
@@ -89,33 +94,15 @@ function renderSubtasksDetailView(subtasksObj, containerIdS, taskId) {
 
 /**
  * Closes the dialog.
- * @param {string} taskId - The task's ID.
  */
-function closeDialog(taskId) {
+function closeDialog() {
     const overlay = document.getElementById("overlayBoard");
+    const dialog = document.getElementById("dialogBoard");
     document.body.classList.remove("stopScrolling");
+    dialog.classList.remove("visible");
     overlay.classList.remove("overlayBoard");
-    const subtasks = collectSubtasks(taskId);
-    loadTasksBoard();
     overlay.innerHTML = "";
-}
-
-
-/**
- * Reads the status of all subtasks in the overlay.
- * @param {string} taskId - he task's ID.
- * @returns {Object} - Subtasks-Object with status.
- */
-function collectSubtasks(taskId) {
-    const subtasks = {};
-    const inputs = document.querySelectorAll(
-        `#addTask_subtask_content_${taskId} .overlayTaskSubtasks input`
-    );
-    inputs.forEach(input => {
-        const title = input.nextElementSibling.nextElementSibling.textContent;
-        subtasks[title] = input.checked ? "done" : "undone";
-    });
-    return subtasks;
+    loadTasksBoard();
 }
 
 
@@ -146,7 +133,7 @@ async function updateSubtasksInDatabase(taskId, title, isChecked) {
 async function deleteTask(taskId) {
     const path = `tasks/${taskId}`;
     await fetch(BASE_URL + path + ".json", { method: "DELETE" });
-    closeDialog(taskId);
+    closeDialog();
     loadTasksBoard();
 }
 
