@@ -1,3 +1,6 @@
+/**
+ * Initializes the summary by calling necessary functions to set up the UI.
+ */
 function initSummary() {
     init();
     loadNumberOfTasks();
@@ -6,25 +9,38 @@ function initSummary() {
 }
 
 
-//Hover effect pencil
+/**
+ * Changes the image source of the specified element to a light grey pencil icon.
+ * 
+ * @param {HTMLElement} element - The element containing the image to change.
+ */
 function changeImage(element) {
     var img = element.querySelector('img');
     img.src = '../assets/img/icons/pen_lightgrey.svg';
 }
 
 
+/**
+ * Resets the image source of the specified element to a grey pencil icon.
+ * @param {HTMLElement} element - The element containing the image to reset.
+ */
 function resetImage(element) {
     var img = element.querySelector('img');
     img.src = '../assets/img/icons/pen_grey.svg';
 }
 
 
+/**
+ * Redirects the user to the board page.
+ */
 function switchToBoard() {
     window.location.href = '../html/board.html';
 }
 
 
-//greeting 
+/**
+ * Displays a greeting message based on the current time and the user's name.
+ */ 
 function greeting() {
     let d = new Date();
     let hour = d.getHours();
@@ -32,7 +48,6 @@ function greeting() {
     getCurrentUserFromLocalStorage();
     if (currentUserName === "Guest") {
         document.getElementById("summary_greeting_text").innerHTML = greetingMessage;
-
     } else {
         document.getElementById("summary_greeting_text").innerHTML = greetingMessage + ",";
         document.getElementById("summary_greeting_name").innerHTML = currentUserName;
@@ -40,20 +55,38 @@ function greeting() {
 }
 
 
-//Filter tasks for summary
+/**
+ * Loads the number of tasks with a specific status.
+ * 
+ * @param {Array} tasks - The array of tasks to filter.
+ * @param {string} status - The status to filter tasks by.
+ * @returns {number} The number of tasks with the specified status.
+ */
 function loadNumberOfTasksWithStatus(tasks, status) {
     let filteredTasks = tasks.filter(task => task.status === status);
     return filteredTasks.length;
 }
 
 
+/**
+ * Loads the number of tasks with a specific priority.
+ * 
+ * @param {Array} tasks - The array of tasks to filter.
+ * @param {string} priority - The priority to filter tasks by.
+ * @returns {number} The number of tasks with the specified priority.
+ */
 function loadNumberOfTasksWithPriority(tasks, priority) {
     let filteredTasks = tasks.filter(task => task.priority === priority);
     return filteredTasks.length;
 }
 
 
-//find next deadline
+/**
+ * Finds the next deadline from an array of tasks.
+ * 
+ * @param {Array} tasks - The array of tasks to search for deadlines.
+ * @returns {Date|null} The next deadline date or null if no deadlines are found.
+ */
 function findNextDeadline(tasks) {
     let nextDeadline = null;
     tasks.forEach(task => {
@@ -68,14 +101,23 @@ function findNextDeadline(tasks) {
 }
 
 
-//format the deadline
+/**
+ * Formats a deadline date into a readable string.
+ * 
+ * @param {Date} deadline - The deadline date to format.
+ * @returns {string} The formatted date string.
+ */
 function formatDate(deadline) {
     let options = { year: 'numeric', month: 'long', day: 'numeric' };
     return deadline.toLocaleDateString('en-US', options);
 }
 
 
-//load tasks for summary
+/**
+ * Loads the number of tasks and updates the summary UI.
+ * 
+ * @returns {Promise<void>} A promise that resolves when the tasks are loaded and the UI is updated.
+ */
 async function loadNumberOfTasks() {
     let tasks = await getAllTasks();
     let tasksArray = Object.values(tasks);
@@ -88,7 +130,12 @@ async function loadNumberOfTasks() {
 }
 
 
-//Sum of all open tasks
+/**
+ * Sums the number of open tasks from the provided tasks array.
+ * 
+ * @param {Array} tasksArray - The array of tasks to sum.
+ * @returns {number} The total number of open tasks (to-do, in progress and awaiting feedback).
+ */
 function sumOfOpenTasks(tasksArray) {
     let toDoTasks = loadNumberOfTasksWithStatus(tasksArray, 'toDoTask');
     let inProgressTasks = loadNumberOfTasksWithStatus(tasksArray, 'inProgressTask');
@@ -98,7 +145,11 @@ function sumOfOpenTasks(tasksArray) {
 }
 
 
-//load next deadline for summary
+/**
+ * Loads the next deadline and updates the summary UI.
+ * 
+ * @returns {Promise<void>} A promise that resolves when the next deadline is loaded and the UI is updated.
+ */
 async function loadNextDeadline() {
     let tasks = await getAllTasks();
     let tasksArray = Object.values(tasks);
