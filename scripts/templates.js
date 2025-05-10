@@ -249,7 +249,7 @@ function getEditDialogTemplate(category, description, dueDate, title, taskId) {
                         <div class="editDialogBoardSubtasks" id="editDialogBoardSubtasks">
                             <p class="">Subtasks</p>
                             <div class="editDialogBoardSubtasksInput">
-                                <input id="subtaskInputEditView" type="text" placeholder="Add new subtask">
+                                <input id="subtaskInputEditView" type="text" placeholder="Add new subtask" onkeydown="if(event.key === 'Enter') { event.preventDefault(); addSubtasksEditTaskView(); }">
                                 <div class="xIcon" onpointerdown="clearSubtasksInputEditTaskView(event)"></div>
                                 <div class="vectorAddSubtask"></div>
                                 <div class="addIcon" onpointerdown="addSubtasksEditTaskView()"></div>
