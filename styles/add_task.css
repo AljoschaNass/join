@@ -41,7 +41,7 @@
 }
 
 #addTaskCategoryInput::placeholder, #addTaskAssignedToInput::placeholder{
-  font-size: clamp(1rem, 1.38vw, 1.5rem);
+  font-size: 20px;
   color: black;
 }
 

@@ -13,6 +13,7 @@
 
 .dialogBoard {
     width: 525px;
+    max-height: 930px;
     border-radius: 30px;
     background-color: white;
     transform: translateX(100%);
@@ -35,6 +36,20 @@
     width: 525px;
     border-radius: 30px;
     background-color: white;
+}
+
+.editViewScrollbar {
+    max-height: calc(100vh - 376px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-right: -30px;
+}
+
+#editViewContent {
+    gap: 24px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
 }
 
 #dialogBoardFrame {
@@ -107,7 +122,6 @@
 .priorityImg {
     width: 32px;
     height: 32px;
-
 }
 
 .overlayTaskAssignedTo p {
@@ -224,8 +238,8 @@ input[type="checkbox"] {
     color: white;
     font-size: 12px;
     font-weight: 400;
-    height: 4.1vh !important;
-    width: 4.1vh !important;
+    height: 42px !important;
+    width: 42px !important;
     line-height: 1;
 }
 

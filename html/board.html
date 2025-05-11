@@ -29,22 +29,16 @@
     <script src="../scripts/remoteStorage.js"></script>
     <script src="../scripts/board.js"></script>
     <script src="../scripts/search.js"></script>
-    
+
 
 </head>
 
 <body onload="boardInit()">
     <div class="d_flex">
-        <nav
-        class="main_nav_bar"
-        w3-include-html="../assets/templates/navBar.html"
-        ></nav>
+        <nav class="main_nav_bar" w3-include-html="../assets/templates/navBar.html"></nav>
         <div class="collumn">
-        <header
-            class="main_header"
-            w3-include-html="../assets/templates/header.html"
-        ></header>
-        <div w3-include-html="../assets/templates/respMenu.html"></div>
+            <header class="main_header" w3-include-html="../assets/templates/header.html"></header>
+            <div w3-include-html="../assets/templates/respMenu.html"></div>
 
             <main class="main_content_board">
                 <div class="headBoard">
@@ -52,7 +46,8 @@
                         <h1 class="h1Board">Board</h1>
                         <div class="headBoardRight">
                             <div class="searchFieldBoard">
-                                <input onkeyup="searchTask()" type="text" placeholder="Find Task" class="searchBarBoard" id="searchInput">
+                                <input onkeyup="searchTask()" type="text" placeholder="Find Task" class="searchBarBoard"
+                                    id="searchInput">
                                 <div class="searchButton">
                                     <div class="vector"></div>
                                     <button>
@@ -71,7 +66,8 @@
                                     </button>
                                 </div>
                             </div>
-                            <button class="addTaskButton" onclick="createNewTask(event), openTaskDialogFor('toDoTask')">Add task
+                            <button class="addTaskButton"
+                                onclick="createNewTask(event), openTaskDialogFor('toDoTask')">Add task
                                 <svg width="18.67" height="18.67" viewBox="0 0 20 20" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -96,8 +92,8 @@
                                 </svg>
                             </button>
                         </div>
-                        <div id="toDoTask"  ondragover="allowDrop(event)" ondrop="drop(event)">
-                            
+                        <div id="toDoTask" ondragover="allowDrop(event)" ondrop="drop(event)">
+
                         </div>
                     </div>
                     <div id="inProgressBoard" class="baseBoard">
@@ -113,7 +109,7 @@
                                 </svg>
                             </button>
                         </div>
-                        <div id="inProgressTask"  ondragover="allowDrop(event)" ondrop="drop(event)">
+                        <div id="inProgressTask" ondragover="allowDrop(event)" ondrop="drop(event)">
 
                         </div>
                     </div>
@@ -130,21 +126,21 @@
                                 </svg>
                             </button>
                         </div>
-                        <div id="awaitFeedbackTask"  ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+                        <div id="awaitFeedbackTask" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
                     </div>
                     <div id="doneBoard" class="baseBoard">
                         <div class="headTask">
                             <p>Done</p>
                         </div>
-                        <div id="doneTask"  ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+                        <div id="doneTask" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
                     </div>
                 </div>
                 <div class="d_none" id="noTaskFoundMessage">
-                    <button class="center bShadow_blur4_opacity015" >No Task found</button>
+                    <button class="center bShadow_blur4_opacity015">No Task found</button>
                 </div>
             </main>
 
-            <section id="overlayBoard"  onclick="closeDialog()">
+            <section id="overlayBoard" onclick="closeDialog()">
             </section>
             <section id="overlayBoardAddTask" onclick="closeDialogAddTask()">
             </section>
