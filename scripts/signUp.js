@@ -46,6 +46,12 @@ function onBlurSignUp(inputId) {
     img.alt = x.value === "" ? "Password" : "Password Hidden";
 }
     
+function handleSignUpImageClick(inputId) {
+    // Manuelles Auslösen des onblur-Ereignisses des Eingabefelds
+    let input = document.getElementById(inputId);
+    input.focus(); // Dies löst das onblur-Ereignis aus
+    toggleSignUpPasswordVisibility(inputId); // Sichtbarkeit des Passworts umschalten
+}
 
 /**
  * Sends a POST request to create a new user.

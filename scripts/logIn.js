@@ -46,6 +46,12 @@ function onBlur(inputId) {
   img.alt = x.value === "" ? "Password" : "Password Hidden";
 }
 
+function handleImageClick(inputId) {
+  // Manuelles Auslösen des onblur-Ereignisses des Eingabefelds
+  let input = document.getElementById(inputId);
+  input.focus(); // Dies löst das onblur-Ereignis aus
+  togglePasswordVisibility(inputId); // Sichtbarkeit des Passworts umschalten
+}
 
 /**
  * Allows the user to log in to their personal account.

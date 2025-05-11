@@ -42,11 +42,11 @@
                     </div>
                     <div class="password_container">
                         <input onfocus="onFocusSignUp('signUpPassword')" onblur="onBlurSignUp('signUpPassword')" type="password" placeholder="Password" class="input_logIn" id="signUpPassword" required>
-                        <img onclick="toggleSignUpPasswordVisibility('signUpPassword')" src="../assets/img/icons/lock.svg" alt="Password" class="input_logIn_img" id="signUpPasswordImg">
+                        <img onclick="handleSignUpImageClick('signUpPassword')" src="../assets/img/icons/lock.svg" alt="Password" class="input_logIn_img" id="signUpPasswordImg">
                     </div>
                     <div class="password_container">
                         <input onfocus="onFocusSignUp('signUpConfirmPassword')" onblur="onBlurSignUp('signUpConfirmPassword')" type="password" placeholder="Confirm Password" class="input_logIn" id="signUpConfirmPassword" required >
-                        <img onclick="toggleSignUpPasswordVisibility('signUpConfirmPassword')" src="../assets/img/icons/lock.svg" alt="Password" class="input_logIn_img" id="signUpConfirmPasswordImg">
+                        <img onclick="handleSignUpImageClick('signUpConfirmPassword')" src="../assets/img/icons/lock.svg" alt="Password" class="input_logIn_img" id="signUpConfirmPasswordImg">
                         <div class="signUp_error d_none" id="signUp_error">Your passwords don't match. Please try again.</div>
                     </div>
                     <div class="signUpCheckbox">
