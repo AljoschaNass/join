@@ -45,13 +45,22 @@ function onBlurSignUp(inputId) {
     img.src = x.value === "" ? "../assets/img/icons/lock.svg" : "../assets/img/icons/visibility_off.svg";
     img.alt = x.value === "" ? "Password" : "Password Hidden";
 }
-    
+
+
+/**
+ * Handles the click event on the sign-up password visibility toggle image.
+ * This function manually triggers the onblur event of the input field
+ * and toggles the visibility of the password.
+ *
+ * @param {string} inputId - The ID of the input field whose password visibility is to be toggled.
+ * @returns {void}
+ */
 function handleSignUpImageClick(inputId) {
-    // Manuelles Auslösen des onblur-Ereignisses des Eingabefelds
     let input = document.getElementById(inputId);
-    input.focus(); // Dies löst das onblur-Ereignis aus
-    toggleSignUpPasswordVisibility(inputId); // Sichtbarkeit des Passworts umschalten
+    input.focus();
+    toggleSignUpPasswordVisibility(inputId); 
 }
+
 
 /**
  * Sends a POST request to create a new user.
@@ -79,7 +88,6 @@ async function postUser(path="user", name, email, password){
 
 /**
  * Handles the user sign-up process.
- *
  * Retrieves user input from the sign-up form, validates the password confirmation,
  * and sends the user data to the server. If the sign-up is successful, it displays a success message
  * and redirects the user to the index page after a short delay. If the passwords do not match,

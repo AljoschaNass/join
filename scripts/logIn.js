@@ -46,12 +46,21 @@ function onBlur(inputId) {
   img.alt = x.value === "" ? "Password" : "Password Hidden";
 }
 
+
+/**
+ * Handles the click event on the password visibility toggle image.
+ * This function manually triggers the onblur event of the input field
+ * and toggles the visibility of the password.
+ *
+ * @param {string} inputId - The ID of the input field whose password visibility is to be toggled.
+ * @returns {void}
+ */
 function handleImageClick(inputId) {
-  // Manuelles Auslösen des onblur-Ereignisses des Eingabefelds
   let input = document.getElementById(inputId);
-  input.focus(); // Dies löst das onblur-Ereignis aus
-  togglePasswordVisibility(inputId); // Sichtbarkeit des Passworts umschalten
+  input.focus(); 
+  togglePasswordVisibility(inputId); 
 }
+
 
 /**
  * Allows the user to log in to their personal account.
