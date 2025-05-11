@@ -2,8 +2,28 @@
  * Initializes the application by including HTML components and checking for non-null IDs.
  */
 function init() {
-    includeHTML();
+    include();
     checkIdNotNull();
+}
+
+
+/**
+ * This function ensures that the HTML is loaded before proceeding to apply highlights and set user
+ * profile initials.
+ *
+ * The following functions are called in sequence:
+ * - `includeHTML()`: Loads and includes HTML content dynamically.
+ * - `setHighlight()`: Applies highlighting to specific elements in the UI.
+ * - `setUserProfileInitials()`: Sets the initials for the user profile display.
+ *
+ * @async
+ * @returns {Promise<void>} A promise that resolves when the HTML is included
+ * and the UI elements are set up.
+ */
+async function include() {
+    await includeHTML();
+    setHighlight();
+    setUserProfileInitials();
 }
 
 
