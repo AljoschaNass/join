@@ -35,3 +35,10 @@
   .resp_menu_closed{
     transform: translateY(-120%);
   }
+
+@media (max-width:1024px) {
+.resp_menu_box {
+  right: 0;
+  top: 80px;
+}
+}

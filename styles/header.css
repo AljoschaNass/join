@@ -58,3 +58,46 @@
   .bg_grey{
     background-color: #cdcdcd;
   }
+
+.header_logo_resp {
+  display: none;
+}
+
+@media (max-width:1024px) {
+.main_header {
+  height: 80px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+  }
+
+#quick_link_help {
+  display: none;
+}
+
+.header_user_profile {
+    height: 40px;
+    width: 40px;
+    font-size: 16px;
+}
+
+.header_text {
+  display: none;
+}
+
+.header_logo_resp {
+  display: flex;
+  height: 39px;
+  width: 32px;
+
+}
+
+.header_right {
+  padding-right: 0;
+}
+
+}
