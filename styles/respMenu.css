@@ -10,7 +10,7 @@
     background-color: #2b3647;
     border-radius: 20px 0 20px 20px;
     position: absolute;
-    top: calc(100vh *0.09375);
+    top: 96px;
     right: 20px;
     z-index: 1;
   }

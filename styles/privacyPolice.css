@@ -2,15 +2,15 @@
     max-width: fit-content;
     min-height: calc(100vh - 96px);
     background-color: #f6f7f8;
-    margin-left: calc(100vw *0.16);
-    margin-top: calc(100vh *0.09375);
-    padding: calc((2 / 3) * (100vh *0.09375)) calc(100vh *0.09375);
+    margin-left: 232px;
+    margin-top: 96px;
+    padding: 110px 96px;
     position: relative;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 3.4vh;
+    gap: 35px;
 }
 
 .main_content_privacypolice h1{

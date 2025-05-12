@@ -1,12 +1,12 @@
     .main_nav_bar {
-    width: calc(100vw *0.16);
+    min-width: 232px;
     height: 100vh;
     background-color: #2b3647;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 6.25% 0;
+    padding: 64px 0;
     position: fixed;
   }
 
@@ -18,27 +18,27 @@
   }
   
   .nav_bar_logo {
-    width: 44%;
+    width: 100px;
   }
   
   .quick_links {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     height: 100%;
     width: 100%;
-    gap: 1.25rem;
-    margin-top: 11.3vh;
+    gap: 20px;
+    margin-top: 116px;
   }
   
   .quick_link_row {
     display: flex;
     align-items: center;
+    height: 46px;
     width: 100%;
-    height: clamp(2.5rem, 4.5vh, 3.25rem);
     gap: 8px;
-    padding-left: clamp(1.5rem, 4.2vw, 3.75rem);
+    padding-left: 60px;
     cursor: pointer;
   
     &:hover {
@@ -47,7 +47,7 @@
   }
   
   .quick_links_icons {
-    height: 65.2%;
+    height: 30px;
   }
   
   .quick_link {
@@ -64,8 +64,8 @@
   
   .footer_link {
     color: #a8a8a8 !important;
-    font-size: clamp(0.875rem, 1.11vw, 1.25rem);
-    padding-left: clamp(1.5rem, 4.2vw, 3.75rem);
+    font-size: 16px;
+    padding-left: 56px;
     padding-top: 8px;
     padding-bottom: 8px;
   }
@@ -84,11 +84,10 @@
 
   .main_content {
     max-width: fit-content;
-    min-height: calc(100vh - 96px);
     background-color: #f6f7f8;
-    margin-left: calc(100vw *0.16);
-    margin-top: calc(100vh *0.09375);
-    padding: calc((2 / 3) * (100vh *0.09375)) calc(100vh *0.09375);
+    margin-left: 232px;
+    margin-top: 96px;
+    padding: 64px 96px;
     position: relative;
     overflow-x: hidden;
     display: flex;
@@ -99,8 +98,8 @@
   .main_content_summary {
     height: calc(100vh - 96px);
     background-color: #f6f7f8;
-    margin-left: calc(100vw *0.16);
-    margin-top: calc(100vh *0.09375);
+    margin-left: 328px;
+    margin-top: 96px;
     position: relative;
     overflow-x: hidden;
     display: flex;
@@ -111,8 +110,8 @@
   .main_content_board {
     height: calc(100vh - 96px);
     background-color: #f6f7f8;
-    margin-left: calc(100vw *0.16);
-    margin-top: calc(100vh *0.09375);
+    margin-left: 232px;
+    margin-top: 96px;
     padding-left: 64px;
     padding-top: 80px;
     position: relative;
@@ -132,7 +131,6 @@
   @media (max-width: 1200px) {
     .quick_link_row, .footer_link {
 
-      padding-left: clamp(1.5rem, 3.1vw, 3.75rem);
     }
   }
 
@@ -140,6 +138,5 @@
   @media (max-width: 1000px) {
     .quick_link_row, .footer_link {
 
-      padding-left: clamp(1.5rem, 2.1vw, 3.75rem);
     }
   }

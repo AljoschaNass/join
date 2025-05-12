@@ -7,14 +7,13 @@
   justify-content: flex-start;
   flex-direction: column;
   max-width: fit-content;
-  height: 100%;
+  height: 735px;
 }
 
 .add_task_div {
   display: flex;
   flex-direction: row ;
-  gap: 2.5rem;
-  gap: clamp(1rem, 2.77vw, 3.5rem);
+  gap: 40px;
 }
 
 .seperator {
@@ -23,20 +22,20 @@
 }
 
 .add_task_input {
-  height: 4.7vh;
-  width: 30vw;
+  height: 48px;
+  width: 440px;
   border-radius: 10px;
   border: 1px solid #d1d1d1;
   padding: 8px 16px;
   margin-top: 4px;
-  font-size: clamp(1rem, 1.38vw, 1.5rem);
+  font-size: 20px;
 
   &:focus{
     border: 1px solid #29ABE2;
   }
   &::placeholder{
   color: #d1d1d1;
-  font-size: clamp(1rem, 1.38vw, 1.5rem);
+  font-size: 20px;
 }
 }
 
@@ -46,7 +45,7 @@
 }
 
 textarea {
-  width: 30vw;
+  width: 440px;
   min-height: 156px;
   resize: none;
 }
@@ -58,8 +57,8 @@ textarea {
 }
 
 .assignedToInput {
-  width: 30vw;
-  height: 4.7vh;
+  width: 440px;
+  height: 48px;
   border-radius: 10px;
   border: 1px solid rgba(209, 209, 209, 1);
   padding-top: 12px;
@@ -67,7 +66,7 @@ textarea {
   padding-bottom: 12px;
   padding-left: 16px;
   font-weight: 400;
-  font-size: clamp(1rem, 1.38vw, 1.5rem);
+  font-size: 20px;
   color: black;
 }
 
@@ -77,7 +76,7 @@ textarea {
 
 .arrowDropDownInputs{
   overflow-y: scroll;
-  width: 30vw;
+  width: 440px;
   max-height: 224px;
   background-color: white;
   box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
@@ -89,7 +88,7 @@ textarea {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  font-size: clamp(1rem, 1.38vw, 1.5rem);
+  font-size: 20px;
   padding: 7px 16px 7px 16px;
   border-radius: 10px;
   cursor: pointer;
@@ -100,7 +99,7 @@ textarea {
 }
     
 .add_task_hint_required{
-  font-size: clamp(0.875rem, 1.11vw, 1.25rem);
+  font-size: 16px;
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
@@ -120,18 +119,17 @@ textarea {
 
 .add_task_half label {
   height: 24px;
-  font-size: clamp(1rem, 1.38vw, 1.5rem);
+  font-size: 20px;
 }
 
 .add_task_priority_section{
     display: flex;
-    justify-content: space-between;
-    width: 30vw;
+    gap: 16px;
     margin-top: 4px;
 }
 
 .priority_icons{
-    width: 1.19vw;
+    width: 20px;
 }
 
 .add_task_btn_priorities{
@@ -140,10 +138,10 @@ textarea {
     align-items: center;
     cursor: pointer;
     border: unset;
-    gap: 0.55vw;
-    height: 5.5vh;
-    padding: 1vh clamp(0.5rem, 0.8vw, 1rem);
-    font-size: clamp(1rem, 1.38vw, 1.5rem);
+    gap: 8px;
+    width: 136px;
+    height: 56px;
+    font-size: 20px;
     background-color: white;
     border: 1px solid #d1d1d1;
     border-radius: 10px;
@@ -177,13 +175,16 @@ textarea {
 }
 
 .addTaskSubtasksInput {
-  width: 30vw;
-  height: 4.7vh;
+  width: 445px;
+  height: 48px;
   border-radius: 10px;
   border: 1px solid rgba(209, 209, 209, 1);
   display: flex;
   justify-content: space-between;
-  padding: 1.175vh 1.1vw;
+  padding-top: 12px;
+  padding-right: 16px;
+  padding-bottom: 12px;
+  padding-left: 16px;
   background-color: white;
 }
 
@@ -193,7 +194,7 @@ textarea {
 
 .addTaskSubtasksInput input{
   font-weight: 400;
-  font-size: clamp(1rem, 1.38vw, 1.5rem);
+  font-size: 20px;
   width: calc(100% - 25px);
 }
 
@@ -202,7 +203,7 @@ textarea {
   background-repeat: no-repeat;
   background-position-x: center;
   background-position-y: center;
-  height: 2.35vh;
+  height: 24px;
   aspect-ratio: 1 / 1;
   cursor: pointer;
   &:hover{
@@ -224,7 +225,7 @@ textarea {
   background-repeat: no-repeat;
   background-position-x: center;
   background-position-y: center;
-  height: 2.35vh;
+  height: 24px;
   width: 0px;
   opacity: 0;
   transition: width 0.2s ease-in;
@@ -233,7 +234,7 @@ textarea {
 .addTaskSubtasksInput:focus-within .xIcon {
   cursor: pointer;
   opacity: 1;
-  width: 2.35vh;
+  width: 24px;
   &:hover{
     background-color: #f0f0f0;
     border-radius: 50%;
@@ -241,7 +242,7 @@ textarea {
 }
 
 .addTaskSubtasksInput:focus-within .vectorAddSubtask {
-  height: 2.35vh;
+  height: 24px;
   width: 1px;
   background-color: rgba(209, 209, 209, 1);
   margin: 0px 4px 0px 4px;
@@ -254,10 +255,9 @@ textarea {
   align-items: flex-end;
   flex-direction: row;
   gap: 16px;
-  position: fixed;
-  left: calc(calc(100vw * 0.16) + calc(100vh * 0.09375));
-  bottom: 6.25vh;
-  width: calc(60vw + (clamp(1rem, 2.77vw, 3.5rem) * 2) + 1px);
+  position: unset;
+  right: 74px;
+  bottom: 64px;
 }
 
 .add_task_btn_section div{
@@ -268,11 +268,11 @@ textarea {
 }
 
 .btn_add_task {
-  height: 5.5vh;
+  height: 56px;
   border-radius: 10px;
-  padding: 1.55vh;
+  padding: 16px;
   border: unset;
-  font-size: clamp(1rem, 1.45vw, 1.5rem);
+  font-size: 21px;
 }
 
 .btn_clear {
@@ -299,13 +299,13 @@ textarea {
 }
 
 .btn_create_enabled:hover {
-  background-color: #2aaae2;
-  box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.22);
-  cursor: pointer;
+    background-color: #2aaae2;
+    box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.22);
+    cursor: pointer;
 }
 
 .btn_create img {
-  height: 1.17vh;
+  height: 12px;
 }
 
 .addTaskTemplate {
@@ -321,8 +321,8 @@ textarea {
   border-radius: 20px;
   box-shadow: 0px 0px 4px 0px #00000026;
   font-weight: 400;
-  font-size: clamp(1rem, 1.38vw, 1.5rem);
-  width: 22.6vw;
+  font-size: 20px;
+  width: 326px;
   height: 74px;
   display: flex;
   flex-direction: row;
@@ -336,5 +336,5 @@ textarea {
 }
 
 .taskAdded p{
-  width: 16.3vw;
+  width: 235px;
 }
