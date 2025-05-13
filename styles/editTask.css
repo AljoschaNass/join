@@ -42,7 +42,7 @@
     margin-bottom: 4px;
 }
 
-.editDialogBoardDescription{
+.editDialogBoardDescription {
     margin-bottom: 16px;
 }
 
@@ -60,11 +60,11 @@
 }
 
 .inputEditDialogBoardTitle:focus {
-    border: 1px solid #29ABE2
-    }
+    border: 1px solid #29abe2;
+}
 
 .requiredFieldDialog {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-weight: 400;
     font-size: 12px !important;
     color: rgba(255, 129, 144, 1);
@@ -85,8 +85,8 @@
 }
 
 textarea:focus {
-    border: 1px solid #29ABE2;
-    outline: none; 
+    border: 1px solid #29abe2;
+    outline: none;
 }
 
 .inputEditDialogBoardDueDate {
@@ -104,11 +104,11 @@ textarea:focus {
 }
 
 .inputEditDialogBoardDueDate:focus {
-    border: 1px solid #29ABE2;
+    border: 1px solid #29abe2;
 }
 
-.editDialogBoardPriority{
-    font-family: 'Open Sans';
+.editDialogBoardPriority {
+    font-family: "Open Sans";
     font-weight: 700;
     font-size: 19px;
     margin-bottom: 8px;
@@ -159,11 +159,11 @@ textarea:focus {
 }
 
 .urgentPriorityButtonSelected svg path {
-    fill: white; 
+    fill: white;
 }
 
 .mediumPriorityButtonSelected {
-    background-color:rgba(255, 168, 0, 1)  !important;
+    background-color: rgba(255, 168, 0, 1) !important;
     color: white !important;
     font-weight: 700;
 }
@@ -178,7 +178,7 @@ textarea:focus {
 }
 
 .lowPriorityButtonSelected {
-    background-color:rgba(122, 226, 41, 1)  !important;
+    background-color: rgba(122, 226, 41, 1) !important;
     color: white !important;
     font-weight: 700;
 }
@@ -189,7 +189,7 @@ textarea:focus {
 }
 
 .lowPriorityButtonSelected svg path {
-    fill: white; 
+    fill: white;
 }
 
 .editDialogBoardAssignedTo {
@@ -215,7 +215,7 @@ textarea:focus {
 }
 
 #editDialogBoardAssignedToInput:focus {
-    border: 1px solid #29ABE2;
+    border: 1px solid #29abe2;
 }
 
 .arrowDropDown {
@@ -313,10 +313,10 @@ textarea:focus {
 }
 
 .editDialogBoardSubtasksInput:focus-within {
-    border: 1px solid #29ABE2
+    border: 1px solid #29abe2;
 }
 
-.editDialogBoardSubtasksInput input{
+.editDialogBoardSubtasksInput input {
     font-weight: 400;
     font-size: 20px;
     width: calc(100% - 25px);
@@ -334,7 +334,7 @@ textarea:focus {
 } */
 
 .editDialogBoardSubtasksInput:focus-within .addIcon {
-    background-image: url('../assets/img/icons/addhaken.svg');
+    background-image: url("../assets/img/icons/addhaken.svg");
 }
 
 .editDialogBoardSubtasksInput:focus-within .xIcon {
@@ -432,9 +432,8 @@ textarea:focus {
 }
 
 .saveEditTaskButtonDisabled {
-    background-color: #A8A8A8 !important;
+    background-color: #a8a8a8 !important;
     cursor: not-allowed;
-
 }
 
 .addTaskDialogBoard {
@@ -452,7 +451,6 @@ textarea:focus {
     height: 100%;
     padding: 64px 74px 64px 74px;
     position: relative;
-
 }
 
 .addTaskDialogBoard.slide-in {
@@ -483,7 +481,7 @@ textarea:focus {
 }
 
 .addTaskDialogBoardClose svg:hover {
-    background-color: #EEEEEE;
+    background-color: #eeeeee;
     border-radius: 50px;
 }
 
@@ -501,7 +499,7 @@ textarea:focus {
 }
 
 .editable:focus {
-    outline: none; 
+    outline: none;
     background-color: white;
 }
 
@@ -544,14 +542,14 @@ textarea:focus {
 }
 
 .underline {
-    outline: none; 
+    outline: none;
     border-bottom: 1px solid rgba(0, 93, 255, 1);
     font-weight: 400;
     background-color: white;
 }
 
 .editDialogBoardSubtasksAdded.underline:hover {
-    background-color: transparent; 
+    background-color: transparent;
 }
 
 .editDialogBoardAssignedToIcons {
@@ -583,4 +581,75 @@ textarea:focus {
 .xIcon:hover {
     border-radius: 56px;
     background-color: rgba(238, 238, 238, 1);
+}
+
+@media (max-width: 1024px) {
+    .editDialogBoardSubtasks {
+        align-items: center;
+    }
+
+    .editDialogBoardSubtasksAdded {
+        width: 100%;
+    }
+
+    .editDialogBoardSubtasksAdded:hover {
+        background-color: inherit;
+        border-radius: 0;
+    }
+
+    .editDialogBoardSubtasksAdded.underline:hover {
+        background-color: white;
+    }
+
+    .editIcon {
+        background-image: url("../assets/img/icons/pen-transparent.svg");
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: center;
+        height: 24px;
+        width: 24px;
+        cursor: pointer;
+    }
+
+    .vectorAddSubtask {
+        height: 24px;
+        width: 1px;
+        background-color: rgba(209, 209, 209, 1);
+        margin: 0px 4px 0px 4px;
+    }
+
+    .deleteIcon {
+        background-image: url("../assets/img/icons/deleteIcon.svg");
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: center;
+        height: 24px;
+        width: 24px;
+        cursor: pointer;
+    }
+
+    .add_task_half label {
+        align-items: flex-start;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .editDialogBoardAssignedTo {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .editDialogBoardAssignedTo {
+        width: 100%;
+    }
+
+    .assignedToInput {
+        width: 100% !important;
+    }
+
+    .editDialogBoardAssignedToInputDiv {
+        width: 100%;
+    }
 }

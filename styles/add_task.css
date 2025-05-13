@@ -12,7 +12,7 @@
 
 .add_task_div {
   display: flex;
-  flex-direction: row ;
+  flex-direction: row;
   gap: 40px;
 }
 
@@ -30,16 +30,18 @@
   margin-top: 4px;
   font-size: 20px;
 
-  &:focus{
+  &:focus {
     border: 1px solid #29ABE2;
   }
-  &::placeholder{
-  color: #d1d1d1;
-  font-size: 20px;
-}
+
+  &::placeholder {
+    color: #d1d1d1;
+    font-size: 20px;
+  }
 }
 
-#addTaskCategoryInput::placeholder, #addTaskAssignedToInput::placeholder{
+#addTaskCategoryInput::placeholder,
+#addTaskAssignedToInput::placeholder {
   font-size: 20px;
   color: black;
 }
@@ -74,7 +76,7 @@ textarea {
   border: 1px solid #29ABE2;
 }
 
-.arrowDropDownInputs{
+.arrowDropDownInputs {
   overflow-y: scroll;
   width: 440px;
   max-height: 224px;
@@ -93,12 +95,12 @@ textarea {
   border-radius: 10px;
   cursor: pointer;
 
-  &:hover{
+  &:hover {
     background-color: #f6f7f8;
   }
 }
-    
-.add_task_hint_required{
+
+.add_task_hint_required {
   font-size: 16px;
   display: flex;
   justify-content: flex-start;
@@ -107,9 +109,10 @@ textarea {
   height: 100%;
 }
 
-.add_task_hint_required::before, .add_task_after_required::after{
-    content: "*";
-    color: #ff8190;
+.add_task_hint_required::before,
+.add_task_after_required::after {
+  content: "*";
+  color: #ff8190;
 }
 
 .add_task_half {
@@ -122,34 +125,34 @@ textarea {
   font-size: 20px;
 }
 
-.add_task_priority_section{
-    display: flex;
-    gap: 16px;
-    margin-top: 4px;
+.add_task_priority_section {
+  display: flex;
+  gap: 16px;
+  margin-top: 4px;
 }
 
-.priority_icons{
-    width: 20px;
+.priority_icons {
+  width: 20px;
 }
 
-.add_task_btn_priorities{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.add_task_btn_priorities {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: unset;
+  gap: 8px;
+  width: 136px;
+  height: 56px;
+  font-size: 20px;
+  background-color: white;
+  border: 1px solid #d1d1d1;
+  border-radius: 10px;
+
+  &:hover {
     cursor: pointer;
-    border: unset;
-    gap: 8px;
-    width: 136px;
-    height: 56px;
-    font-size: 20px;
-    background-color: white;
-    border: 1px solid #d1d1d1;
-    border-radius: 10px;
-
-    &:hover{
-        cursor: pointer;
-        box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.22);
-    }
+    box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.22);
+  }
 }
 
 .priority_color_urgent {
@@ -170,7 +173,9 @@ textarea {
   font-weight: 700;
 }
 
-.priority_color_urgent img, .priority_color_medium img, .priority_color_low img{
+.priority_color_urgent img,
+.priority_color_medium img,
+.priority_color_low img {
   filter: brightness(0) invert(1);
 }
 
@@ -192,7 +197,7 @@ textarea {
   border: 1px solid #29ABE2
 }
 
-.addTaskSubtasksInput input{
+.addTaskSubtasksInput input {
   font-weight: 400;
   font-size: 20px;
   width: calc(100% - 25px);
@@ -206,7 +211,8 @@ textarea {
   height: 24px;
   aspect-ratio: 1 / 1;
   cursor: pointer;
-  &:hover{
+
+  &:hover {
     background-color: #f0f0f0;
     border-radius: 50%;
   }
@@ -214,7 +220,8 @@ textarea {
 
 .addTaskSubtasksInput:focus-within .addIcon {
   background-image: url('../assets/img/icons/addhaken.svg');
-  &:hover{
+
+  &:hover {
     background-color: #f0f0f0;
     border-radius: 50%;
   }
@@ -235,7 +242,8 @@ textarea {
   cursor: pointer;
   opacity: 1;
   width: 24px;
-  &:hover{
+
+  &:hover {
     background-color: #f0f0f0;
     border-radius: 50%;
   }
@@ -260,7 +268,7 @@ textarea {
   bottom: 64px;
 }
 
-.add_task_btn_section div{
+.add_task_btn_section div {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -299,9 +307,9 @@ textarea {
 }
 
 .btn_create_enabled:hover {
-    background-color: #2aaae2;
-    box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.22);
-    cursor: pointer;
+  background-color: #2aaae2;
+  box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
 }
 
 .btn_create img {
@@ -335,6 +343,157 @@ textarea {
   transform: translate(-50%, -50%);
 }
 
-.taskAdded p{
+.taskAdded p {
   width: 235px;
+}
+
+@media (max-width:1440px) {
+  .add_task_section {
+    padding-bottom: 0;
+  }
+
+  .add_task_section h1 {
+    padding-top: 0;
+    padding-bottom: 40px;
+    background: rgba(246, 247, 248, 1);
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  .add_task_div {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .seperator {
+    display: none;
+  }
+
+  .add_task_half {
+    align-items: flex-start;
+  }
+
+  .addTaskSubtasksInput {
+    align-items: center;
+  }
+
+  .add_task_btn_section {
+    flex-direction: column;
+    padding-bottom: 0;
+    width: 100%;
+    max-width: 100vw;
+    height: 160px;
+  }
+
+  .add_task_hint_required {
+    width: 100%;
+    max-width: 100vw;
+    align-items: flex-start;
+  }
+
+  .add_task_btn_section div {
+    bottom: 80px;
+    background-color: rgba(246, 247, 248, 1);
+    width: 100%;
+    height: 80px;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 20px;
+  }
+
+}
+
+@media (max-width:1024px) {
+  .main_content {
+    padding: 0;
+    margin-top: 80px;
+    margin-left: 0;
+    align-items: center;
+    width: 100vw;
+    margin-bottom: 80px;
+  }
+
+  .add_task_section h1 {
+    padding-top: 48px;
+    padding-bottom: 24px;
+    position: fixed;
+  }
+
+  .add_task_div {
+    margin-top: 144px;
+  }
+
+  .add_task_hint_required {
+    width: 100%;
+    max-width: 100vw;
+    align-items: flex-start;
+  }
+
+  .add_task_btn_section div {
+    position: fixed;
+  }
+}
+
+@media (max-width:480px) {
+  .main_content {
+    padding: 0;
+    margin-top: 80px;
+    margin-left: 0;
+    align-items: center;
+    width: 100vw;
+  }
+
+  .add_task_div input {
+    &::placeholder{
+      font-size: 16px !important;
+  }
+}
+
+    .add_task_div textarea {
+    &::placeholder{
+      font-size: 16px !important;
+  }
+}
+
+.add_task_date {
+    &::placeholder{
+      font-size: 16px !important;
+  }
+}
+
+  .add_task_half label {
+    font-size: 16px;
+  }
+
+    .add_task_half {
+    width: 90%;
+  }
+
+  .add_task_section h1 {
+    font-size: 47px !important;
+  }
+
+  .add_task_input {
+    width: 100%;
+    height: 40px;
+  }
+
+  .add_task_priority_section {
+    flex-direction: column;
+  }
+
+  .addTaskSubtasksInput {
+    width: 100%;
+  }
+
+  .add_task_priority_section {
+    align-items: center;
+    width: 100%;
+  }
+
+  .add_task_btn_priorities {
+    width: 120px;
+    font-size: 16px;
+
+  }
 }

@@ -196,4 +196,13 @@ height: 100%;
   .quick_links {
   gap: 0;
 }
+
+}
+
+@media (max-width:1024px) {
+
+.collumn {
+  width: -webkit-fill-available;
+  align-items: center;
+}
 }
