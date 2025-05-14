@@ -86,6 +86,9 @@
 .header_LogIn_resp div{
     font-size: 20px;
 }
+.footer_logIn {
+    bottom: 20px;
+}
 }
 
 @media (max-width:767px) {

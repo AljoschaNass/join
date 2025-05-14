@@ -1,0 +1,93 @@
+@media (max-width:1024px) {
+.header_LogIn_logo {
+    width: 64px;
+    height: 78px;
+    margin: 37px 38px;
+}
+
+.signUp_content {
+    margin: 165px 16px 0 16px;
+    padding: 32px 32px 32px 32px; 
+    width: 396px;
+    height: 595px;
+}
+
+.back_to_logIn_btn  {
+    left: -150px;
+}
+
+.signUp_content h1 {
+    font-size: 47px;  
+}
+
+.blue_line_150x3 {
+    width: 88px;
+}
+
+.password_container {
+    width: 364px;
+}
+
+.input_logIn {
+    width: 364px;
+    font-size: 21px;
+}
+
+#signUpBtn {
+    font-size: 16px;
+}
+
+.footer_logIn {
+    bottom: 20px;
+}
+}
+
+@media (max-width:767px) {
+.logIn_btns {
+    flex-direction: column;
+    gap: 21px;
+    margin-top: 64px;
+}
+}
+
+@media (max-width:430px) {
+.signUp_content {
+   width: 354px;
+}
+
+.back_to_logIn_btn  {
+    left: -135px;
+}
+
+.password_container, .input_logIn {
+    width: 322px;
+}
+}
+
+@media (max-width:375px) {
+.signUp_content {
+   width: 334px;
+}
+
+.back_to_logIn_btn  {
+    left: -120px;
+}
+
+.password_container, .input_logIn {
+    width: 302px;
+}
+}
+
+@media (max-width:350px) {
+.signUp_content {
+   width: 304px;
+}
+
+.back_to_logIn_btn  {
+    left: -110px;
+}
+
+.password_container, .input_logIn {
+    width: 272px;
+}
+}
