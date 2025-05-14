@@ -16,6 +16,14 @@
     height: 282px;
 }
 
+.header_box_resp {
+    display: none; 
+}
+
+.header_LogIn_resp {
+    display: none;
+}
+
 .header_LogIn_logo {
     margin: 80px 77px;
 }

@@ -1,0 +1,62 @@
+@media (max-width:1024px) {
+.mobileHeaderIcon {
+    width: 64px;
+    height: 78px;
+}
+
+.header_LogIn_right {
+    display: none;
+}
+
+.logIn_content h1 {
+    font-size: 47px;  
+}
+
+.blue_line_150x3 {
+    width: 88px;
+}
+
+.input_logIn {
+    width: 422px;
+    font-size: 21px;
+}
+
+.logIn_btn {
+    font-size: 16px;
+}
+
+.header_box_resp {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;     
+}
+
+.header_LogIn_resp {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: fadeInContent 0.5s ease-in-out 0.5s forwards;
+    animation-delay: 0.5s;
+    gap: 35px;
+    margin-top: 67px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #000000;
+    font-family: 'Inter', sans-serif;  
+}
+
+.header_LogIn_resp div{
+    font-size: 20px;
+}
+}
+
+@media (max-width:767px) {
+.logIn_btns {
+    flex-direction: column;
+    gap: 21px;
+    margin-top: 64px;
+}
+}
