@@ -1,7 +1,29 @@
 @media (max-width:1024px) {
 .mobileHeaderIcon {
-    width: 64px;
-    height: 78px;
+    width: 100px;
+    height: 122px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: moveToTopLeft 0.5s ease-in-out forwards;
+    animation-delay: 0.5s;
+    transform-origin: top left;
+    z-index: 10;
+}
+
+@keyframes moveToTopLeft {
+    0% {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    100% {
+        top: 37px;
+        left: 38px;
+        transform: translate(0, 0) scale(0.64);
+    }
 }
 
 .header_LogIn_right {
