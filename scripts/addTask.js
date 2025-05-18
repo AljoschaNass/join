@@ -189,8 +189,8 @@ function addSubtask() {
     let subtaskValue = inputRef.value.trim();
     let id = `subtask_${subtaskId++}`;
 
-    if (subtaskValue !== "") {
-        currentSubtasks[id] = { text: subtaskValue, status: "undone" };
+    if (subtaskValue !== "" && !currentSubtasks.hasOwnProperty(subtaskValue)) {
+        currentSubtasks[subtaskValue] = "undone";
         renderSubtask(id, subtaskValue);
         inputRef.value = "";
     }
