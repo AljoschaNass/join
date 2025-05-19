@@ -42,14 +42,17 @@
 @keyframes changeTransparency {
     0% {
         opacity: 1;
+        z-index: 11;
     }
 
     50% {
         opacity: 0;
+        z-index: 11;
     }
 
     100% {
         opacity: 0;
+        z-index: -11;
     }
 }
 
