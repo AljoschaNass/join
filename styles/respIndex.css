@@ -86,6 +86,7 @@
 .header_LogIn_resp div{
     font-size: 20px;
 }
+
 .footer_logIn {
     bottom: 20px;
 }
@@ -124,4 +125,113 @@
 .password_container, .input_logIn {
     width: 272px;
 }
+}
+
+@media (max-height: 900px) {
+    .header_logIn {
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+    }
+
+    .mobileHeaderIcon {
+        margin-bottom: 32px;
+    }
+
+    .main_logIn {
+        padding-top: 160px;
+        justify-content: flex-start; 
+        height: unset; 
+    }
+
+    .logIn_content {
+        margin-top: 32px;
+    }
+
+    .header_LogIn_resp {
+        margin: 32px 0 32px 0;
+    }
+
+  @media (max-height: 775px) {
+    .logIn_btns {
+        margin-top: 48px;
+    }
+}
+}
+
+@media (max-height: 890px) {
+    .mobileHeaderIcon {
+        margin-bottom: 16px;
+    }
+
+    .main_logIn {
+        padding-top: 130px; 
+    }
+
+    .logIn_content {
+        margin-top: 32px;
+    }
+
+    .header_LogIn_resp {
+        margin: 48px 0 48px 0;
+    }
+}
+
+@media (max-height: 850px) {
+    .mobileHeaderIcon {
+        margin-bottom: 8px;
+    }
+
+    .main_logIn {
+        padding-top: 130px;
+    }
+
+    .logIn_content {
+        margin-top: 16px;
+    }
+
+    .header_LogIn_resp {
+        margin: 32px 0 32px 0;
+    }
+}
+
+@media (max-height: 810px) {
+    .main_logIn {
+        padding-top: 110px;
+    }
+
+    .logIn_content {
+        margin-top: 16px;
+    }
+
+    .header_LogIn_resp {
+        margin: 16px 0 16px 0;
+    }
+}
+
+@media (max-height: 775px) {
+    .logIn_btns {
+        margin-top: 48px;
+    }
+}
+
+@media (max-height: 760px) {
+    .logIn_content {
+        padding: 32px 16px 32px 16px;
+    }
+
+    .logIn_btns {
+        margin-top: 32px;
+    }
+}
+
+@media (max-height: 700px) {
+    .logIn_content {
+        padding: 16px;
+    }
+
+    .logIn_btns {
+        margin-top: 32px;
+    }
 }
