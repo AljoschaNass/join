@@ -6,14 +6,13 @@
 }
 
 .signUp_content {
-    margin: 165px 16px 0 16px;
+    margin: 32px 16px 32px 16px;
     padding: 32px 32px 32px 32px; 
     width: 396px;
-    height: 595px;
 }
 
 .back_to_logIn_btn  {
-    left: -150px;
+    left: -166px;
 }
 
 .signUp_content h1 {
@@ -56,7 +55,7 @@
 }
 
 .back_to_logIn_btn  {
-    left: -135px;
+    left: -140px;
 }
 
 .password_container, .input_logIn {
@@ -90,4 +89,73 @@
 .password_container, .input_logIn {
     width: 272px;
 }
+}
+
+@media (max-height: 1000px) {
+.header_logIn {
+    position: relative;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.gap_32 {
+    gap: 24px;
+}
+
+.main_logIn {
+    justify-content: flex-start; 
+    height: unset; 
+}
+
+.signUp_content {
+    padding: 0 0 32px 0;
+    margin: 0px 16px 24px 16px;
+}
+
+.input_logIn {
+    width: 100%;
+}
+
+.input_logIn_img {
+    right: 14px;
+}
+}
+
+@media (max-height: 875px) {
+.logIn_btns {
+    margin: 32px 16px;
+}
+}
+
+@media (max-height: 840px) {
+    .header_LogIn_logo {
+        margin-bottom: 16px;
+    }
+
+}
+
+@media (max-height: 790px) {
+    .header_LogIn_logo {
+        margin: 24px;
+        width: 54px;
+        height: 64px;
+    }
+     
+    .blue_line_150x3 {
+        margin-bottom: 16px;
+    }
+
+    .signUp_content {
+         margin: 0px 8x 8px 8px;
+    }
+
+    .gap_32 {
+        gap: 16px;
+    }
+    
+    .footer_signUp {
+        bottom: 10px;
+    }
 }
