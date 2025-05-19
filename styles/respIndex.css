@@ -7,7 +7,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     animation: moveToTopLeft 0.5s ease-in-out forwards;
-    animation-delay: 0.5s;
+    animation-delay: 0.2s;
     transform-origin: top left;
     z-index: 10;
 }
@@ -24,6 +24,49 @@
         left: 38px;
         transform: translate(0, 0) scale(0.64);
     }
+}
+
+.mobileStartScreen {
+    width: 100vw;
+    height: 100vh;
+    background-color: #2a3647;
+    z-index: 11;
+    animation: changeTransparency 0.8s ease-in-out forwards;
+    animation-delay: 0.2s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 1;
+}
+
+@keyframes changeTransparency {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.mobileStartScreenIcon {
+    width: 100px;
+    height: 122px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: moveToTopLeft 0.5s ease-in-out forwards;
+    animation-delay: 0.2s;
+    transform-origin: top left;
+    z-index: 11;
+    border-color: #2a3647;
+    border-width: 1px;
+    border-style: solid;
 }
 
 .header_LogIn_right {
@@ -140,13 +183,13 @@
     }
 
     .main_logIn {
-        padding-top: 160px;
+        padding-top: 150px;
         justify-content: flex-start; 
         height: unset; 
     }
 
     .logIn_content {
-        margin-top: 32px;
+        margin-top: 16px;
     }
 
     .header_LogIn_resp {
@@ -167,10 +210,6 @@
 
     .main_logIn {
         padding-top: 130px; 
-    }
-
-    .logIn_content {
-        margin-top: 32px;
     }
 
     .header_LogIn_resp {
