@@ -42,3 +42,9 @@
   top: 80px;
 }
 }
+
+@media (min-width: 1024px) {
+  #resp_menu a:first-of-type{
+    display: none;
+  }
+}

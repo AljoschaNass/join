@@ -1,10 +1,15 @@
 .main_content_help {
-    width: 100%;
     margin-left: 328px;
     margin-top: 206px;
     margin-right: 96px;
     background-color: #f6f7f8;
-    height: 928px;
+    min-height: 100vh;
+}
+
+.helpHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .helpText {
@@ -42,9 +47,6 @@
 
 .arrowLeft {
     background-color: transparent;
-    position: fixed;
-    top: 225px;
-    right: 133px;
 }
 
 .arrowLeft:hover svg{
@@ -55,4 +57,13 @@
 
 .arrowLeft:hover svg{
     pointer-events: auto;
+}
+
+@media (max-width:1024px) {
+    .main_content_help{
+        margin-left: 0;
+        margin-top: 80px;
+        margin-bottom: 80px;
+        padding: 40px 16px;
+    }
 }
