@@ -11,6 +11,7 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 35px;
+    text-wrap: auto;
 }
 
 .legalNoticeText {
@@ -32,4 +33,13 @@
 .main_content_legal_notice h3{
     font-size: 20px;
     font-weight: 700;
+}
+
+@media (max-width:1024px) {
+    .main_content_legal_notice{
+        margin-left: 0;
+        margin-top: 80px;
+        margin-bottom: 80px;
+        padding: 40px 16px;
+    }
 }

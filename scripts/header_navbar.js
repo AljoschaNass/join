@@ -93,14 +93,20 @@ function ifQuickLinkSameOrHelp(savedOldQuickLink, savedNewQuickLink) {
 
 
 /**
- * Hides the right header section and disables hover effect
- * on certain quick links related to privacy policy or legal notice.
- * @param {string} savedNewQuickLink - The ID of the newly selected quick link.
+ * Hides the right section of the header on large screens when navigating to specific pages.
+ * 
+ * If the screen width is at least 1024 pixels and the selected quick link is 
+ * either "privacy_police" or "legal_notice", the function removes the hover effect
+ * from the quick link and hides the header's right section.
+ * 
+ * @param {string} savedNewQuickLink - The ID of the currently selected quick link.
  */
 function hideHeaderRight(savedNewQuickLink) {
-    if(savedNewQuickLink == "privacy_police" || savedNewQuickLink == "legal_notice") {
-        document.getElementById("quick_link_" + savedNewQuickLink).classList.remove("footer_link_hover");
-        document.getElementById("header_right").classList.add("d_none");
+    if (window.innerWidth >= 1024) {
+        if (savedNewQuickLink === "privacy_police" || savedNewQuickLink === "legal_notice") {
+            document.getElementById("quick_link_" + savedNewQuickLink)?.classList.remove("footer_link_hover");
+            document.getElementById("header_right")?.classList.add("d_none");
+        }
     }
 }
 
