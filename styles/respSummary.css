@@ -1,0 +1,84 @@
+@media (min-width:1025px) {
+.headSummaryPositionResp {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+.main_content_summary {
+    margin: 0;
+} 
+
+  .headSummaryPosition {
+    display: none;
+  }
+
+  .headSummaryPositionResp {
+    margin: 0;
+    margin-bottom: 56px;
+    display: none;
+    justify-content: left;
+    flex-direction: column;
+    align-items: left;
+    gap: 8px;
+    animation: changeToVisible 0.8s ease-in-out forwards;
+    animation-delay: 1s;
+  }
+
+@keyframes changeTransparencyToVisible {
+    0% {
+        display: none
+    }
+    100% {
+        display: flex;
+    }
+}
+
+  .summary_cards {
+    display: none;
+   animation: changeToVisible 0.8s ease-in-out forwards;
+    animation-delay: 1.2s;*/
+  }
+
+  .h1Summary {
+    font-size: 47px;;
+  }
+
+    .h2Summary {
+        font-size: 20px;
+    }
+
+  .blueLine {
+    width: 90px;
+    height: 1px;
+    border-color: #29ABE2;
+    border-top-style: solid;
+}
+
+.summary_greeting {
+    margin: 0;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    animation: changeDisplayToNone 0.8s ease-in-out forwards;
+    animation-delay: 1s;
+}
+
+@keyframes changeDisplayToNone {
+    0% {
+        display: flex;
+    }
+    100% {
+        display: none
+    }
+    
+}
+
+.summary_greeting_text {
+    font-size: 36px;
+}
+
+.summary_greeting_name {
+    font-size: 47px;
+}
+}
