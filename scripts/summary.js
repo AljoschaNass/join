@@ -6,6 +6,7 @@ function initSummary() {
     loadNumberOfTasks();
     loadNextDeadline();
     greeting();
+    checkScreenWidth();
 }
 
 
@@ -147,3 +148,24 @@ async function loadNextDeadline() {
     let tasksArray = Object.values(tasks);
     document.getElementById("summary_next_deadline").innerHTML = findNextDeadline(tasksArray) ? formatDate(findNextDeadline(tasksArray)) : "No deadline set";
 }
+
+
+function showSummary() {
+    let summaryGreeting = document.getElementById('summary_greeting');
+    let headSummaryPositionResp = document.getElementById('headSummaryPositionResp');
+    let summaryCards = document.getElementById('summary_cards');
+    setTimeout(() => {
+        summaryGreeting.style.display = 'none'; 
+        headSummaryPositionResp.style.display = 'flex'; 
+        summaryCards.style.display = 'flex';
+    }, 1000); 
+}
+
+// Funktion, um die Breite zu überprüfen und die showSummary-Funktion aufzurufen
+function checkScreenWidth() {
+    if (window.innerWidth < 1024) {
+        showSummary();
+    }
+}
+
+

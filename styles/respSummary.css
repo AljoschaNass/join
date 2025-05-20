@@ -21,23 +21,10 @@
     flex-direction: column;
     align-items: left;
     gap: 8px;
-    animation: changeToVisible 0.8s ease-in-out forwards;
-    animation-delay: 1s;
   }
-
-@keyframes changeTransparencyToVisible {
-    0% {
-        display: none
-    }
-    100% {
-        display: flex;
-    }
-}
 
   .summary_cards {
     display: none;
-   animation: changeToVisible 0.8s ease-in-out forwards;
-    animation-delay: 1.2s;*/
   }
 
   .h1Summary {
@@ -60,18 +47,6 @@
     display: flex;
     justify-content: start;
     align-items: center;
-    animation: changeDisplayToNone 0.8s ease-in-out forwards;
-    animation-delay: 1s;
-}
-
-@keyframes changeDisplayToNone {
-    0% {
-        display: flex;
-    }
-    100% {
-        display: none
-    }
-    
 }
 
 .summary_greeting_text {

@@ -20,7 +20,7 @@
         <script src="../scripts/logIn.js"></script>
         <script src="../scripts/board.js"></script>
     </head>
-    <body onload="highlightSelectedQuickLinks('summary'), initSummary()">
+    <body onload="highlightSelectedQuickLinks('summary'), initSummary()" onresize="checkScreenWidth()">
         <div class="d_flex">
             <nav
         class="main_nav_bar"
@@ -40,13 +40,13 @@
                         <div class="blueLine"></div>
                         <div class="h2Summary">Key Metrics at a Glance</div> 
                     </div>
-                     <div class="headSummaryPositionResp">
+                     <div class="headSummaryPositionResp" id="headSummaryPositionResp">
                         <h1 class="h1Summary">Join 360</h1>
                         <div class="h2Summary">Key Metrics at a Glance</div> 
                         <div class="blueLine"></div>
                     </div>
                     <div class="summary_content">
-                        <div class="summary_cards">
+                        <div class="summary_cards" id="summary_cards">
                             <div class="summary_line">
                                 <div onclick="switchToBoard()" class="summary_card_medium bShadow_blur4_opacity01" onmouseover="changeImage(this)" onmouseout="resetImage(this)">
                                     <img class="summary_card_icon" src="../assets/img/icons/pen_grey.svg" alt="To-do" />
@@ -101,7 +101,7 @@
                             </div>
                                 
                         </div>
-                        <div class="summary_greeting">
+                        <div class="summary_greeting" id="summary_greeting">
                             <div class="summary_greeting_text" id="summary_greeting_text"></div> 
                             <div class="summary_greeting_name" id="summary_greeting_name"></div>
                         </div>
