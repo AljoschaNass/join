@@ -342,3 +342,32 @@ margin-bottom: 10px;
     padding: 25px;
     margin-top: 64px;
 }
+
+@media (max-width: 1439px) {
+    #taskBoard {
+        flex-direction: column;
+        padding-right: 0;
+}
+
+#awaitFeedbackTask {
+    display: flex;
+flex-direction: row;
+}
+
+.taskCards {
+    width: 246px !important;
+    margin-right: 16px;
+}
+
+
+#toDoTask {
+    display: flex;
+flex-direction: row;
+overflow-x: auto;
+}
+
+.baseBoard {
+    width: 100%;
+}
+
+}
