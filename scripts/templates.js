@@ -429,6 +429,7 @@ function getAssignedToContactTemplate(name, initials, index, classIfContactCheck
     `
 }
 
+
 function getNoContactAssignedTo() {
     return`
             <div id="addTask_assignedTo_no_contact" class="dropDownContacts contactUnchecked d_none">
@@ -441,6 +442,7 @@ function getNoContactAssignedTo() {
             </div>
     `
 }
+
 
 function getAssignedToContactIconTemplate(initials, index, iconClass, bgClass) {
     return`

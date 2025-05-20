@@ -1,5 +1,25 @@
+/**
+ * Stores the currently selected task priority.
+ * Possible values: "low", "medium", "high".
+ * @type {string}
+ */
 let currentPriority = "medium";
+
+
+/**
+ * Holds all subtasks of the current task as key-value pairs.
+ * The key is the subtask text, and the value is its status ("undone" or "done").
+ * Example: { "Buy groceries": "undone" }
+ * @type {{ [subtaskText: string]: string }}
+ */
 let currentSubtasks = {};
+
+
+/**
+ * Counter used to generate unique IDs for subtasks.
+ * Increments each time a new subtask is added.
+ * @type {number}
+ */
 let subtaskId = 0;
 
 

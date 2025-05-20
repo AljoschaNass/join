@@ -1,5 +1,24 @@
+/**
+ * Counts the currently selected contacts for displaying contact icons.
+ * Increments or decrements when contacts are selected or deselected.
+ * @type {number}
+ */
 let counterContactIcons = 0;
+
+
+/**
+ * Holds the currently selected contacts using their names as keys.
+ * Example: { "Max Mustermann": true }
+ * @type {{ [contactName: string]: boolean }}
+ */
 let checkedContacts = {};
+
+
+/**
+ * List of all currently loaded contacts, sorted alphabetically.
+ * Each entry is a contact object with name, background color, etc.
+ * @type {Array<Object>}
+ */
 let currentContacts = [];
 
 
