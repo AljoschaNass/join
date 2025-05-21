@@ -40,18 +40,20 @@ function switchToBoard() {
 
 /**
  * Displays a greeting message based on the current time and the user's name.
- */ 
+ * If the user is a guest and the screen width is less than 1024 pixels, 
+ * the greeting message will include an exclamation mark. 
+ * If the user is registered, their name will be displayed alongside the greeting.
+ * 
+ * @returns {void} This function does not return a value.
+ */
 function greeting() {
     let d = new Date();
     let hour = d.getHours();
     let greetingMessage = "Good " + (hour < 12 ? "morning" : hour < 18 ? "afternoon" : "evening");
     getCurrentUserFromLocalStorage();
-    if (currentUserName === "Guest") {
-        document.getElementById("summary_greeting_text").innerHTML = greetingMessage;
-    } else {
-        document.getElementById("summary_greeting_text").innerHTML = greetingMessage + ",";
-        document.getElementById("summary_greeting_name").innerHTML = currentUserName;
-    }
+    let greeting = currentUserName === "Guest" ? (window.innerWidth < 1024 ? greetingMessage + "!" : greetingMessage) : greetingMessage + ",";
+    document.getElementById("summary_greeting_text").innerHTML = greeting;
+    if (currentUserName !== "Guest") document.getElementById("summary_greeting_name").innerHTML = currentUserName;
 }
 
 
@@ -150,6 +152,11 @@ async function loadNextDeadline() {
 }
 
 
+/**
+ * Displays the summary section by hiding the greeting and showing the summary elements.
+ *
+ * @returns {void} This function does not return a value.
+ */
 function showSummary() {
     let summaryGreeting = document.getElementById('summary_greeting');
     let headSummaryPositionResp = document.getElementById('headSummaryPositionResp');
@@ -161,10 +168,24 @@ function showSummary() {
     }, 1000); 
 }
 
-// Funktion, um die Breite zu überprüfen und die showSummary-Funktion aufzurufen
+
+/**
+ * Checks the current width of the browser window and displays the summary section after hiding the greeting
+ * if the width is less than 1024 pixels.
+ * 
+ * If the window width is less than 1024 pixels, the function calls 
+ * the `showSummary` function to display the summary section. 
+ * If the width is 1024 pixels or greater, it hides the responsive 
+ * summary header by setting its display to 'none'.
+ * 
+ * @returns {void} This function does not return a value.
+ */
 function checkScreenWidth() {
     if (window.innerWidth < 1024) {
         showSummary();
+    } else {
+        let headSummaryPositionResp = document.getElementById('headSummaryPositionResp');
+        headSummaryPositionResp.style.display = 'none'; 
     }
 }
 
