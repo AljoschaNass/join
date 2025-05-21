@@ -37,7 +37,6 @@ border-radius: 56px;
 
 .headBoardPosition {
 width: 1056px;
-height: 73px;
 display: flex;
 justify-content: space-between;
 flex-direction: row;
@@ -347,7 +346,8 @@ margin-bottom: 10px;
     #taskBoard {
         flex-direction: column;
         padding-right: 0;
-}
+        overflow: hidden;
+    }
 
 #awaitFeedbackTask {
     display: flex;
@@ -355,8 +355,10 @@ flex-direction: row;
 }
 
 .taskCards {
-    width: 246px !important;
+    min-width: 246px !important;
     margin-right: 16px;
+    max-width: 246px;
+    height: fit-content;
 }
 
 
@@ -364,10 +366,85 @@ flex-direction: row;
     display: flex;
 flex-direction: row;
 overflow-x: auto;
+scrollbar-width: none;
+}
+
+#inProgressTask {
+    display: flex;
+flex-direction: row;
+overflow-x: auto;
+scrollbar-width: none;
+}
+
+#awaitFeedbackTask {
+    display: flex;
+flex-direction: row;
+overflow-x: auto;
+scrollbar-width: none;
+}
+
+#doneTask {
+    display: flex;
+flex-direction: row;
+overflow-x: auto;
+scrollbar-width: none;
 }
 
 .baseBoard {
     width: 100%;
 }
+
+.headBoardPosition {
+    width: 100%;
+}
+
+}
+
+@media (max-width:767px) {
+    .headBoard {
+        margin-bottom: 24px;
+    }
+.headBoardPosition {
+  flex-direction: column !important;
+  align-items: flex-start !important;
+
+
+}
+
+.addTaskButton {
+  display: none !important;
+}
+
+  .h1Board {
+    font-size: 47px;
+    margin-bottom: 40px !important;
+  }
+
+  .searchFieldBoard {
+    width: 100%;
+  }
+
+  .headBoardRight {
+    width: 100%;
+  }
+
+  #noTaskToDo {
+    width: 100%;
+
+  }
+
+  .headTask {
+    font-size: 27px;
+  }
+
+  .iconAdd {
+    width: 30px;
+    height: 30px;
+  }
+
+.main_content_board {
+    height: fit-content;
+}
+
 
 }
