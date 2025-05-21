@@ -38,8 +38,13 @@
 
 @media (max-width:1024px) {
 .resp_menu_box {
-  right: 0;
+  right: 8px;
   top: 80px;
+  z-index: 4;
+}
+
+.resp_menu_closed{
+  transform: translateX(120%);
 }
 }
 
