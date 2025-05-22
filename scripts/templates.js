@@ -1,9 +1,19 @@
 function renderTaskCard(assignedTo, category, description, dueDate, priority, subtasks, title, taskId, contactsObj) {
-    return`
+    return `
                                 <div id="${taskId}" class="taskCards" onclick="openOverlay(event, '${encodeURIComponent(JSON.stringify(assignedTo))}', '${category}', '${description}', '${dueDate}', '${priority}', '${encodeURIComponent(JSON.stringify(subtasks))}', '${title}', '${taskId}', '${encodeURIComponent(JSON.stringify(contactsObj))}')" draggable="true" ondragstart="dragStart(event)"  ondragend="dragEnd(event)">
                                 <div class="cardsFrame">
                                     <div class="cardsLabel">
                                         <p class="${formatCategory(category)}">${category}</p>
+                                        <button class="openOverlayMoveTo" onclick="toggleMenuMobileMoveTo(event)"></button>
+                                        <div class="menuMoveToMobile d_none">
+                                            <div class="moveToDiv">Move to</div>
+                                            <div>
+                                                <a href="">To do</a>
+                                                <a href="">Progress</a>
+                                                <a href="">Review</a>
+                                                <a href="">Done</a>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="cardsTitleAndContent">
                                         <p class="cardsTitle">${title}</p>
@@ -38,7 +48,7 @@ function createAssignedToIconHTML(initials, bgColor) {
 
 
 function getDialogTemplate(assignedTo, category, description, dueDate, priority, subtasks, title, taskId) {
-    return`
+    return `
             <div id="dialogBoard">
                 <div id="dialogBoardFrame">
                     <div class="dialogBoardTop">
@@ -138,7 +148,7 @@ function renderAssignedToSection(assignedTo, taskId) {
 
 
 function createAssignedToIconHTMLforDetailView(name, initials, bgColor) {
-    return`
+    return `
                 <div class="assignedToContact">
                     <div class="contactCircleSmallDetailView ${bgColor}">${initials}</div>
                     <p>${name}</p>
@@ -162,7 +172,7 @@ function createSubTaskHTML(title, status, taskId) {
 
 
 function getEditDialogTemplate(category, description, dueDate, title, taskId) {
-    return`
+    return `
 <div id="editDialogBoard">
                 <button onclick="closeDialog()" class="closeEditDialogBoard">
                     <img src="../assets/img/icons/X.svg" alt="">          
@@ -281,7 +291,7 @@ function getEditDialogTemplate(category, description, dueDate, title, taskId) {
 
 
 function createEditTaskSubTaskHTML(title) {
-    return`
+    return `
                                 <div class="editDialogBoardSubtasksAdded">
                                 <li>${title}</li>
                                 <div class="editDivSubtasks">
@@ -322,7 +332,7 @@ function renderNoTaskCard(status) {
     };
 
     const readableStatus = statusMap[status];
-    return`
+    return `
                             <div id="noTaskToDo">
                                 <p>No tasks ${readableStatus}</p>
                             </div>
@@ -417,7 +427,7 @@ function renderContactDetails(name, email, phone, isItMe, backgroundcolor) {
 
 
 function getAssignedToContactTemplate(name, initials, index, classIfContactChecked, classIfCheckbox, bgClass) {
-    return`
+    return `
             <div id="addTask_assignedTo_contact_${index}" class="dropDownContacts ${classIfContactChecked}" onclick="addTaskselectContactToAssignTask(event, ${index})">
                 <div class="dropDownContact">
                     <div class="contactCircleSmallDetailView ${bgClass}">${initials}</div>
@@ -431,7 +441,7 @@ function getAssignedToContactTemplate(name, initials, index, classIfContactCheck
 
 
 function getNoContactAssignedTo() {
-    return`
+    return `
             <div id="addTask_assignedTo_no_contact" class="dropDownContacts contactUnchecked d_none">
                 <div class="dropDownContact">
                     <div class="contactCircleSmallDetailView"></div>
@@ -445,14 +455,14 @@ function getNoContactAssignedTo() {
 
 
 function getAssignedToContactIconTemplate(initials, index, iconClass, bgClass) {
-    return`
+    return `
             <div id="addTask_assignedTo_contactIcon_${index}" class="contactCircleSmallDetailView ${bgClass} ${iconClass}">${initials}</div>
     `
 }
 
 
 function getSubtaskTemplate(id, input) {
-    return`
+    return `
             <div id="${id}" class="editDialogBoardSubtasksAdded">
                 <li>${input}</li>
                 <div class="editDivSubtasks">
