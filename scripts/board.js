@@ -231,7 +231,7 @@ function closeDialogAddTask() {
     const dialogRef = document.getElementById("addTaskDialogBoard");
     dialogRef.classList.remove("slide-in");
     requestAnimationFrame(() => dialogRef?.classList.add("slide-out"));
-            setTimeout(() => {
+    setTimeout(() => {
         document.getElementById("overlayBoardAddTask").classList.add("d_none");
         document.body.classList.remove("stopScrolling");
     }, 300);
@@ -319,5 +319,13 @@ async function updateTaskStatus(taskId, newStatus) {
         method: "PATCH",
         body: JSON.stringify({ status: newStatus })
     });
+}
+
+function toggleMenuMobileMoveTo(event) {
+    event.stopPropagation(); 
+    const button = event.currentTarget;
+    const container = button.closest('.cardsLabel');
+    const menu = container.querySelector('.menuMoveToMobile');
+    menu.classList.toggle('d_none');
 }
 
