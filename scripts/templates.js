@@ -7,12 +7,7 @@ function renderTaskCard(assignedTo, category, description, dueDate, priority, su
                                         <button class="openOverlayMoveTo" onclick="toggleMenuMobileMoveTo(event)"></button>
                                         <div class="menuMoveToMobile d_none">
                                             <div class="moveToDiv">Move to</div>
-                                            <div>
-                                                <a href="">To do</a>
-                                                <a href="">Progress</a>
-                                                <a href="">Review</a>
-                                                <a href="">Done</a>
-                                            </div>
+                                            <div></div>
                                         </div>
                                     </div>
                                     <div class="cardsTitleAndContent">

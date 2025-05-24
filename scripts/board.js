@@ -321,11 +321,128 @@ async function updateTaskStatus(taskId, newStatus) {
     });
 }
 
-function toggleMenuMobileMoveTo(event) {
-    event.stopPropagation(); 
-    const button = event.currentTarget;
-    const container = button.closest('.cardsLabel');
-    const menu = container.querySelector('.menuMoveToMobile');
-    menu.classList.toggle('d_none');
+
+/**
+ * Returns the ordered list of task columns.
+ * Each column has an id and a display name.
+ * @returns {Array<{id:string, name:string}>}
+ */
+function getColumnList() {
+    return [
+        { id: 'toDoTask', name: 'To do' },
+        { id: 'inProgressTask', name: 'Progress' },
+        { id: 'awaitFeedbackTask', name: 'Review' },
+        { id: 'doneTask', name: 'Done' }
+    ];
 }
+
+
+/**
+ * Creates an arrow icon element.
+ * @param {string} direction - 'up' or 'down'.
+ * @returns {HTMLElement} The img element.
+ */
+function createArrowIcon(direction) {
+    const img = document.createElement('img');
+    img.src = direction === 'up' ? '../assets/img/icons/arrowUp.svg' : '../assets/img/icons/arrowDown.svg';
+    img.alt = direction === 'up' ? 'Arrow Up' : 'Arrow Down';
+    img.style.width = '16px';
+    img.style.height = '16px';
+    return img;
+}
+
+
+/**
+ * Creates a link element for a column.
+ * @param {Object} col - Column object with id and name.
+ * @param {string} direction - 'up' or 'down' for arrow icon.
+ * @returns {HTMLElement} The anchor element.
+ */
+function createLinkElement(col, direction) {
+    const a = document.createElement('a');
+    a.href = '#';
+    a.dataset.target = col.id;
+    a.style.display = 'flex';
+    a.style.alignItems = 'center';
+    a.style.gap = '6px';
+    a.appendChild(createArrowIcon(direction));
+    a.appendChild(document.createTextNode(col.name));
+    return a;
+}
+
+
+/**
+ * Adds a neighboring column link to container with click handler.
+ * @param {Array} columns - Array of columns.
+ * @param {number} index - Index of neighbor.
+ * @param {HTMLElement} container - Container to append the link.
+ * @param {string} direction - 'up' or 'down' for icon.
+ * @param {HTMLElement} taskElement - Task being moved.
+ */
+function addNeighborLink(columns, index, container, direction, taskElement) {
+    if (index < 0 || index >= columns.length) return;
+    const col = columns[index];
+    if (container.querySelector(`a[data-target="${col.id}"]`)) return;
+    const link = createLinkElement(col, direction);
+    link.addEventListener('click', async (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        await moveTaskToColumn(taskElement, col.id);
+        container.closest('.menuMoveToMobile').classList.add('d_none');
+    });
+    container.appendChild(link);
+}
+
+
+/**
+ * Updates the move-to menu for a specific task, showing only neighboring columns.
+ * @param {HTMLElement} menu - The menu container element.
+ * @param {HTMLElement} taskElement - The task card element.
+ */
+function updateMenuLinks(menu, taskElement) {
+    const columns = getColumnList();
+    const taskColumnId = taskElement.closest('div[id$="Task"]')?.id || taskElement.id;
+    const currentIndex = columns.findIndex(col => col.id === taskColumnId);
+    if (currentIndex === -1) return;
+    const linksContainer = menu.querySelector('div:nth-child(2)');
+    if (!linksContainer) return;
+    linksContainer.innerHTML = '';
+    addNeighborLink(columns, currentIndex - 1, linksContainer, 'up', taskElement);
+    addNeighborLink(columns, currentIndex + 1, linksContainer, 'down', taskElement);
+}
+
+
+/**
+ * Toggles the mobile "Move To" menu on/off and updates its links.
+ * @param {Event} event - The click event on the toggle button.
+ */
+function toggleMenuMobileMoveTo(event) {
+    event.stopPropagation();
+    const button = event.currentTarget;
+    const cardsLabel = button.closest('.cardsLabel');
+    const menu = cardsLabel.querySelector('.menuMoveToMobile');
+    menu.classList.toggle('d_none');
+    if (!menu.classList.contains('d_none')) {
+        const taskCard = button.closest('.taskCards');
+        if (taskCard) {
+            updateMenuLinks(menu, taskCard);
+        }
+    }
+}
+
+
+/**
+ * Moves a task to a new column by updating its status and reloading the board.
+ * @param {HTMLElement} taskContainer - The task element to move.
+ * @param {string} targetStatus - The new status ID (column id).
+ */
+async function moveTaskToColumn(taskContainer, targetStatus) {
+    const taskId = taskContainer.id;
+    await updateTaskStatus(taskId, targetStatus);
+    loadTasksBoard();
+}
+
+
+
+
 

@@ -384,8 +384,6 @@
 .menuMoveToMobile a:hover {
     background-color: rgba(9, 25, 49, 1);
     border-radius: 8px;
-    padding: 4px 5px;
-
 }
 
 .moveToDiv {
