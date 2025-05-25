@@ -261,3 +261,60 @@ input[type="checkbox"] {
     display: flex;
     flex-direction: column;
 }
+
+@media (max-width:767px) {
+    .dialogBoard {
+        max-width: 396px;
+        width: 100%;
+    }
+    .dialogBoardTop p {
+        font-size: 16px;
+    }
+
+        #dialogBoardFrame {
+        margin: 32px 24px;
+        gap: 16px;
+    }
+
+    #editViewContent {
+        gap: 16px;
+    }
+
+    .editViewScrollbar {
+        margin-right: -16px;
+        max-height: calc(100vh - 160px);
+    }
+
+    #overlayTaskTitle {
+        font-size: 36px;
+    }
+
+    #overlayTaskContent {
+        font-size: 16px;
+    }
+
+    #overlayTaskDueDate {
+        font-size: 16px;
+    }
+
+    #overlayTaskPriority {
+        font-size: 16px;
+    }
+
+    .overlayTaskAssignedTo p {
+        font-size: 16px;
+    }
+
+    #subtasksDialog p {
+        font-size: 16px !important;
+    }
+}
+
+@media (max-width:396px) {
+    .dialogBoard {
+        height: 100%;
+    }
+
+
+
+}
