@@ -412,6 +412,8 @@
 
     .taskCards {
         min-width: 246px !important;
+        margin-top: 8px;
+        margin-left: 8px;
         margin-right: 16px;
         max-width: 246px;
         height: fit-content;

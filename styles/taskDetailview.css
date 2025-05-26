@@ -147,7 +147,6 @@
 }
 
 .overlayTaskSubtasks {
-    height: 32px;
     display: inline-flex;
     flex-direction: row;
     align-items: center;
@@ -312,7 +311,7 @@ input[type="checkbox"] {
 
 @media (max-width:396px) {
     .dialogBoard {
-        height: 100%;
+        max-height: 100%;
     }
 
 

@@ -16,6 +16,7 @@ window.addEventListener("resize", checkOrientation);
 checkOrientation(); 
 
 
+
 /**
  * Initializes the application by including HTML components and checking for non-null IDs.
  */
