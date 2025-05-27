@@ -18,7 +18,23 @@
         height: calc(100vh - 160px);
     }
 
-    .main_contacts,.contactsListTop, #contactDetails, #addContactSuccess, #editContactSuccess, #deleteContactSuccess{
+    .main_contacts, #contactDetails, #addContactSuccess, #editContactSuccess, #deleteContactSuccess{
+        display: none;
+    }
+
+    .contactsListTop{
+        height: unset;
+        top: unset;
+        bottom: 96px;
+        right: calc((100vw / 2) - 176px);
+    }
+
+    .addNewContactButton {
+        width: 56px;
+        border-radius: 50%;
+    }
+
+    .addNewContactButtonText {
         display: none;
     }
 }
