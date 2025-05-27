@@ -437,6 +437,13 @@ textarea {
 }
 
 @media (max-width:480px) {
+  .arrowDropDownInputs {
+    width: auto;
+  }
+.add_task_btn_section {
+  width: 100%;
+}
+
   .editDialogBoardSubtasks {
     width: 100%;
   }
@@ -445,7 +452,8 @@ textarea {
     margin-top: 80px;
     margin-left: 0;
     align-items: center;
-    width: 100vw;
+    margin-left: 16px;
+    margin-right: 16px;
   }
 
   .add_task_div input {
@@ -471,7 +479,7 @@ textarea {
   }
 
     .add_task_half {
-    width: 90%;
+    width: 100%;
   }
 
   .add_task_section h1 {

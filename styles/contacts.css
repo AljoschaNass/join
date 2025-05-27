@@ -13,7 +13,6 @@
     height: calc(100vh - 96px);
     position: sticky;
     left: 232px;
-    z-index: 3;
     box-shadow: 4px 0px 6px 0px rgba(0, 0, 0, 0.08);
     overflow-y: scroll;
     overflow-x: hidden;

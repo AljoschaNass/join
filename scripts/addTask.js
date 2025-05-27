@@ -35,6 +35,24 @@ document.addEventListener("click", function(event) {
 });
 
 
+function setColumnIdAfterInclude() {
+    const interval = setInterval(() => {
+        const btn = document.getElementById("btn_add_task_create_task");
+        if (btn) {
+            const urlParams = new URLSearchParams(window.location.search);
+            const columnId = urlParams.get("columnId");
+
+            // Nur setzen, wenn übergeben wurde
+            if (columnId) btn.dataset.columnId = columnId;
+
+            clearInterval(interval);
+        }
+    }, 50);
+}
+
+window.addEventListener("load", setColumnIdAfterInclude);
+
+
 /**
  * Clears the value of an input element by its ID.
  *

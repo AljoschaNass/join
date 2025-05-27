@@ -584,6 +584,8 @@ textarea:focus {
 }
 
 @media (max-width: 1024px) {
+
+
     .subtasksContentEditView {
         width: 100%;
     }

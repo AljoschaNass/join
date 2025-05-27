@@ -94,7 +94,7 @@
                     <div id="toDoBoard" class="baseBoard">
                         <div class="headTask">
                             <p>To do</p>
-                            <button onclick="createNewTask(event), openTaskDialogFor('toDoTask')">
+                            <button onclick="handleCreateNewTask(event, 'toDoTask')">
                                 <svg class="iconAdd" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <rect x="1" y="1" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2" />
@@ -111,7 +111,7 @@
                     <div id="inProgressBoard" class="baseBoard">
                         <div class="headTask">
                             <p>In progress</p>
-                            <button onclick="createNewTask(event), openTaskDialogFor( 'inProgressTask')">
+                            <button onclick="handleCreateNewTask(event, 'inProgressTask')">
                                 <svg class="iconAdd" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <rect x="1" y="1" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2" />
@@ -128,7 +128,7 @@
                     <div id="awaitFeedbackBoard" class="baseBoard">
                         <div class="headTask">
                             <p>Await Feedback</p>
-                            <button onclick="createNewTask(event), openTaskDialogFor('awaitFeedbackTask')">
+                            <button onclick="handleCreateNewTask(event, 'awaitFeedbackTask')">
                                 <svg class="iconAdd" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <rect x="1" y="1" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2" />

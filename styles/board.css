@@ -399,6 +399,28 @@
 }
 
 @media (max-width: 1439px) {
+        .addTaskDialogBoardFrame .addTaskTemplate {
+        padding-bottom: 116px;
+    }
+
+.addTaskDialogBoardFrame .add_task_div {
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.addTaskDialogBoardFrame .add_task_section {
+    height: 100%;
+}
+    .addTaskDialogBoard {
+        width: fit-content !important;
+    }
+    .overlayBoard h1 {
+        background: transparent !important;
+    }
+
+    .overlayBoard .add_task_btn_section div {
+        background: transparent;
+    }
     #taskBoard {
         flex-direction: column;
         padding-right: 0;
@@ -479,6 +501,9 @@
 }
 
 @media (max-width:767px) {
+    .overlayBoard {
+        display: none !important;
+    }
 
     .headBoardLeft {
         margin-bottom: 40px;

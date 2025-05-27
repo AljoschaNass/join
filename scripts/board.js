@@ -194,20 +194,27 @@ function openTaskDialogFor(columnId) {
 }
 
 
-/**
- * Opens the add task dialog for a column.
- */
-function createNewTask(event, status) {
+function handleCreateNewTask(event, status) {
     event.stopPropagation();
-    let dialog = document.getElementById("overlayBoardAddTask");
+    if (window.innerWidth < 767) {
+        window.location.href = `addTask.html?columnId=${encodeURIComponent(status)}`;
+        return;
+    }
+    document.getElementById("btn_add_task_create_task").setAttribute("data-column-id", status);
+    showAddTaskDialog(status);
+}
+
+
+function showAddTaskDialog(status) {
+    const dialog = document.getElementById("overlayBoardAddTask");
     document.body.classList.add("stopScrolling");
     dialog.classList.remove("d_none");
     dialog.classList.add("overlayBoard");
     dialog.setAttribute('status', status);
     const dialogRef = document.getElementById("addTaskDialogBoard");
     dialogRef.classList.remove("slide-out");
-    requestAnimationFrame(() => dialogRef?.classList.add("slide-in"));
-    document.getElementById("addTaskDialogBoard").addEventListener("click", e => e.stopPropagation());
+    requestAnimationFrame(() => dialogRef.classList.add("slide-in"));
+    dialogRef.addEventListener("click", e => e.stopPropagation());
 }
 
 
