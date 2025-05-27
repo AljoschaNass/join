@@ -6,7 +6,10 @@
 
 @media (max-width: 1024px) {
 .main_content_summary {
-    margin: 0 auto;
+    margin: 120px auto;
+    padding: 0;
+    overflow-x: initial;
+    display: flex;
 } 
 
   .headSummaryPosition {
@@ -42,10 +45,10 @@
     border-top-style: solid;
   }
 
-.summary_greeting {
+ .summary_greeting {
     margin: 0;
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
 }
 
@@ -76,6 +79,9 @@
 
 .summary_greeting {
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .headSummaryPositionResp {
