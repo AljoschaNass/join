@@ -38,6 +38,11 @@
     to {left: 144px;}
 }
 
+@keyframes slightFromDowntToUp {
+    from {top: 2500px;}
+    to {top: 80px;}
+}
+
 .add_contact_background.lighten {
     animation: lightenBackground 800ms forwards;
 }
@@ -54,6 +59,11 @@
 @keyframes slideOutToRight {
     from { left: 144px; }
     to { left: 2500px; }
+}
+
+@keyframes slideOutToBottom {
+    from {top: 80px;}
+    to {top: 2500px;}
 }
 
 .add_contact_left {
