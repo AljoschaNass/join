@@ -32,9 +32,15 @@
     .addNewContactButton {
         width: 56px;
         border-radius: 50%;
+        box-shadow: 2px 0px 6px 0px rgb(0, 0, 0, 0.2);
     }
 
     .addNewContactButtonText {
         display: none;
+    }
+
+    .click {
+        background: none;
+        color: black;
     }
 }
