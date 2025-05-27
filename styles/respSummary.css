@@ -8,7 +8,7 @@
 .main_content_summary {
     margin: 120px auto;
     padding: 0;
-    overflow-x: initial;
+    height: 80vh;
     display: flex;
 } 
 
@@ -46,7 +46,7 @@
   }
 
  .summary_greeting {
-    margin: 0;
+    margin: 12px auto;
     display: flex;
     justify-content: center;
     align-items: center;
