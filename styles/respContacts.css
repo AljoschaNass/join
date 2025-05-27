@@ -26,7 +26,7 @@
         height: unset;
         top: unset;
         bottom: 96px;
-        right: calc((100vw / 2) - 176px);
+        right: calc((100vw / 2) - 199px);
     }
 
     .addNewContactButton {
@@ -42,5 +42,39 @@
     .click {
         background: none;
         color: black;
+    }
+
+    .main_contacts{
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .seperator{
+        height: 1px;
+        width: 90px;
+        order: 3;
+    }
+
+    .contactName{
+        padding: 0;
+    }
+
+    .contactDetailsButtons{
+        position: absolute;
+        right: 8px;
+        bottom: 96px;
+        flex-direction: column;
+        background-color: white;
+        border-radius: 20px 20px 0 20px;
+        box-shadow: 2px 0px 6px 0px rgb(0, 0, 0, 0.2);
+        padding: 10px;
+        gap: 0;
+        z-index: 1;
+    }
+
+    .contactButton{
+        height: 40px;
+        min-width: 96px;
+        padding: 8px;
     }
 }

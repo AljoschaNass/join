@@ -80,6 +80,17 @@ function loadContactDetails(name, email, phone, backgroundcolor) {
     let contactCard = document.getElementById("contactDetails"); 
     contactCard.innerHTML = ''; 
     contactCard.innerHTML += renderContactDetails(name, email, phone, isItMyEmail(email), backgroundcolor); 
+    if (window.innerWidth < 1024) {
+        openResponsiveDetails();
+    }
+}
+
+function openResponsiveDetails() {
+    document.querySelector('.contacts').style.display = 'none';
+
+    document.querySelector('.main_contacts').style.display = 'flex';
+    document.querySelector('#contactDetails').style.display = 'flex';
+    document.querySelector('.theePointsMenu').style.display = 'flex';
 }
 
 
@@ -272,4 +283,8 @@ function letter(i) {
 function setBackgroundcolor() {
     number = Math.floor(Math.random() * 16) + 1;
     return `backgroundColor${number}`;
+}
+
+function toggleRespMenuContacts() {    
+    document.getElementById("theePointsMenu").classList.toggle("respContactEditMenuClosed");
 }

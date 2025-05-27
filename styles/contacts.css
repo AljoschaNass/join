@@ -269,4 +269,24 @@
     margin-top: 256px;
 }
 
+.theePointsMenu{
+    height: 56px;
+    width: 56px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 2px 0px 6px 0px rgb(0, 0, 0, 0.2);
+    background-color: #2b3647;
+    position: absolute;
+    bottom: 110px;
+    right: 20px;
+}
 
+.theePointsMenu img{
+    height: 32px;
+}
+
+.respContactEditMenuClosed {
+    transform: translateY(-120%);
+}
