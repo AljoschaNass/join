@@ -5,7 +5,7 @@
  * @returns {void}
  */
 function checkOrientation() {
-    if (window.innerHeight < window.innerWidth) {
+    if (window.innerHeight < window.innerWidth && window.innerWidth < 1024) {
         alert("Bitte drehen Sie Ihr Gerät in den Hochformatmodus.");
     }
 }
