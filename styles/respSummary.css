@@ -6,7 +6,7 @@
 
 @media (max-width: 1024px) {
 .main_content_summary {
-    margin: 0;
+    margin: 0 auto;
 } 
 
   .headSummaryPosition {
@@ -31,7 +31,7 @@
     font-size: 47px;;
   }
 
-    .h2Summary {
+  .h2Summary {
         font-size: 20px;
     }
 
@@ -40,7 +40,7 @@
     height: 1px;
     border-color: #29ABE2;
     border-top-style: solid;
-}
+  }
 
 .summary_greeting {
     margin: 0;
@@ -56,4 +56,89 @@
 .summary_greeting_name {
     font-size: 47px;
 }
+}
+
+@media (max-width: 630px) {
+.main_content_summary {
+    margin: 0;
+}
+
+.summary_greeting {
+    margin: 0 auto;
+}
+
+.headSummaryPositionResp {
+    margin: 0;
+    width: 396px;
+    margin-left: calc((100% - 396px)/2);
+}
+
+.summary_card_icon {
+    width: 40px;
+    height: 40px;
+  }
+
+.summary_card_number {
+    font-size: 47px;
+  }
+
+.summary_card_title {
+    font-size: 14px;
+  }
+
+.summary_card_medium {
+    width: 186px;
+    height: 110px;
+    gap: 10px;
+  }
+
+.summary_card_large {
+    width: 396px;
+    height: 110px;
+    gap: 10px; 
+  }
+
+.summary_card {
+    height: 110px;
+    width: 186px;
+    gap: 10px;
+}
+
+.summary_line {
+    width: 396px;
+    height: 110px;
+  }
+
+.summary_card_icon_urgent {
+    width: 40px;
+    height: 40px;
+  }
+
+.summary_card_content_medium {
+    margin-left: 0px;
+  }
+
+.greyLine {
+    width: 2px;
+    height: 68px;
+  }
+
+.summary_card_content_large {
+    margin-left: 25px;
+}
+
+#summary_next_deadline {
+    font-size: 16px;
+    margin-left: -20px;
+  }
+
+.summary_card_title_large {
+    font-size: 14px;
+  }
+
+.summary_card_small {
+    width: 116px;
+    height: 116px;
+    gap: 13px;
+  }
 }
