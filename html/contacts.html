@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="../styles/signUp.css" />
     <link rel="stylesheet" href="../styles/contacts_overlay.css" />
+    <link rel="stylesheet" href="../styles/respContactsOverlay.css">
     
     <script src="../scripts/templates.js"></script>
     <script src="../script.js"></script>
@@ -46,7 +47,7 @@
                 <section class="contacts">
                     <div class="contactsList">
                         <div class="contactsListTop">
-                            <button onclick="openContactDialog(event)" class="addNewContactButton">Add new contact
+                            <button onclick="openContactDialog(event)" class="addNewContactButton"><span class="addNewContactButtonText">Add new contact</span>
                                 <svg width="33" height="33" viewBox="0 0 33 33" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <mask id="mask0_298547_5190" style="mask-type:alpha" maskUnits="userSpaceOnUse"
@@ -83,6 +84,9 @@
                     </div>
                     <div class="d_none" id="deleteContactSuccess">
                         <button class="bShadow_blur4_opacity015" >Contact successfully deleted</button>
+                    </div>
+                    <div>
+                        <button id="theePointsMenu" class="theePointsMenu respContactEditMenuClosed" onclick="toggleRespMenuContacts()"><img src="../assets/img/icons/three_points_contacts_detail.svg" alt="three-points-menu"></button>
                     </div>
                 </section>
             </main>

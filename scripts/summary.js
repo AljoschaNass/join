@@ -51,7 +51,7 @@ function greeting() {
     let hour = d.getHours();
     let greetingMessage = "Good " + (hour < 12 ? "morning" : hour < 18 ? "afternoon" : "evening");
     getCurrentUserFromLocalStorage();
-    let greeting = currentUserName === "Guest" ? (window.innerWidth < 1024 ? greetingMessage + "!" : greetingMessage) : greetingMessage + ",";
+    let greeting = currentUserName === "Guest" ? (window.innerWidth < 1025 ? greetingMessage + "!" : greetingMessage) : greetingMessage + ",";
     document.getElementById("summary_greeting_text").innerHTML = greeting;
     if (currentUserName !== "Guest") document.getElementById("summary_greeting_name").innerHTML = currentUserName;
 }
@@ -181,7 +181,7 @@ function showSummary() {
  * @returns {void} This function does not return a value.
  */
 function checkScreenWidth() {
-    if (window.innerWidth < 1024) {
+    if (window.innerWidth < 1025) {
         showSummary();
     } else {
         let headSummaryPositionResp = document.getElementById('headSummaryPositionResp');
