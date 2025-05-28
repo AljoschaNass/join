@@ -28,7 +28,7 @@
 
     .add_contact_left {
         border-radius: 30px 30px 0 0;
-        height: 50%;
+        height: 40vh;
         width: 454px;
     }
 
@@ -38,6 +38,7 @@
 
     .add_contact_right{
         border-radius: 0 0 30px 30px;
+        height: 60vh;
     }
 
     .add_contact_middle {
@@ -46,9 +47,14 @@
         flex: unset;
         padding: 0;
         position: absolute;
-        top: calc(50% - 80px);;
+        top: calc(40% - 60px);
         left: calc(50% - 60px);
         z-index: 4;
+    }
+
+    .contactIcon{
+        margin-bottom: 0 !important;
+
     }
 
     .add_contact_img{
@@ -65,5 +71,30 @@
 
     .cancel_contact_btn{
         display: none;
+    }
+}
+
+@media (max-width:500px) {
+    .add_contact_left{
+        width: 320px !important;
+        padding: 36px 24px 76px 24px;
+    }
+
+    .add_contact_right{
+        width: 320px;
+        padding: 36px 24px 76px 24px;
+    }
+
+    .add_contact_form{
+        width: 320px !important;
+    }
+
+    .input_contact, .password_container{
+        width: 300px !important;
+    }
+
+    .close_overlay{
+        top: 16px;
+        right: calc(50% - 140px);
     }
 }
