@@ -54,6 +54,13 @@
     color: #cdcdcd;
     font-size: 16px;
   }
+
+  .footer_links_logout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+  }
   
   .footer_links {
     display: flex;
@@ -168,6 +175,10 @@
   display: none;
 }
 
+.footer_link {
+  padding-left: 0;
+}
+
 .nav_bar_logo {
   display: none;
 }
@@ -177,8 +188,9 @@
   margin-top: 0px;
   width: auto;
   gap: 15px;
-  justify-content: space-evenly;
+  justify-content: space-between;
   width: 100%;
+  padding-inline: 32px;
 }
 
 .quick_link_row {
@@ -206,10 +218,8 @@ height: 100%;
 
 .bg_dark_blue {
   border-radius: 16px;
-  padding: 8px 1px;
+  padding: 32px 12px;
   height: 80px;
-  width: 76px;
-
 }
 }
 

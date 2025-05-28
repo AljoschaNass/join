@@ -287,5 +287,10 @@
 }
 
 .respContactEditMenuClosed {
-    transform: translateY(-120%);
+    transform: unset;
+    transition: transform 0.3s ease-in-out;
+}
+
+.arrowLeftContact{
+    display: none;
 }
