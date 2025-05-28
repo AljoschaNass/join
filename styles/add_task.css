@@ -347,7 +347,7 @@ textarea {
   width: 235px;
 }
 
-@media (max-width:1440px) {
+@media (max-width:1439px) {
   .add_task_section {
     padding-bottom: 0;
   }
