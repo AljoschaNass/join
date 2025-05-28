@@ -1,4 +1,51 @@
 /**
+ * Stores column ID in the create task button.
+  * @param {string} columnId - ID of the target column.
+ */
+function openTaskDialogFor(columnId) {
+    document.getElementById("btn_add_task_create_task").setAttribute("data-column-id", columnId);
+}
+
+
+/**
+ * Handles the creation of a new task when the user interacts with a specific UI element.
+ * Redirects to the mobile version if the screen width is below 767px.
+ * Otherwise, it opens the "Add Task" dialog for the specified column status.
+ *
+ * @param {Event} event - The triggered event object.
+ * @param {string} status - The task status (column ID) where the new task should be added.
+ */
+function handleCreateNewTask(event, status) {
+    event.stopPropagation();
+    if (window.innerWidth < 767) {
+        window.location.href = `addTask.html?columnId=${encodeURIComponent(status)}`;
+        return;
+    }
+    document.getElementById("btn_add_task_create_task").setAttribute("data-column-id", status);
+    showAddTaskDialog(status);
+}
+
+
+/**
+ * Displays the "Add Task" dialog and applies visual transitions and status metadata.
+ * Prevents background scrolling and ensures the dialog cannot be accidentally dismissed.
+ *
+ * @param {string} status - The task status (column ID) to associate with the new task.
+ */
+function showAddTaskDialog(status) {
+    const dialog = document.getElementById("overlayBoardAddTask");
+    document.body.classList.add("stopScrolling");
+    dialog.classList.remove("d_none");
+    dialog.classList.add("overlayBoard");
+    dialog.setAttribute('status', status);
+    const dialogRef = document.getElementById("addTaskDialogBoard");
+    dialogRef.classList.remove("slide-out");
+    requestAnimationFrame(() => dialogRef.classList.add("slide-in"));
+    dialogRef.addEventListener("click", e => e.stopPropagation());
+}
+
+
+/**
  * Opens the overlay dialog with task details.
  * @param {Event} event - The event object.
  * @param {string} assignedToEncoded - Encoded assignedTo data.
@@ -18,6 +65,20 @@ function openOverlay(event, assignedToEncoded, category, description, dueDate, p
     const contacts = (contactsObjEncoded && contactsObjEncoded !== 'undefined') ? JSON.parse(decodeURIComponent(contactsObjEncoded)) : {};
     prepareOverlay(assignedTo, category, description, dueDate, priority, subtasks, title, taskId, contacts);
     prepareDialog();
+}
+
+
+/**
+ * Closes the add task dialog.
+ */
+function closeDialogAddTask() {
+    const dialogRef = document.getElementById("addTaskDialogBoard");
+    dialogRef.classList.remove("slide-in");
+    requestAnimationFrame(() => dialogRef?.classList.add("slide-out"));
+    setTimeout(() => {
+        document.getElementById("overlayBoardAddTask").classList.add("d_none");
+        document.body.classList.remove("stopScrolling");
+    }, 300);
 }
 
 
@@ -162,8 +223,3 @@ async function deleteTask(taskId) {
     closeDialog();
     loadTasksBoard();
 }
-
-
-
-
-

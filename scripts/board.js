@@ -48,6 +48,7 @@ function getTaskColumns() {
     };
 }
 
+
 /**
  * Clears all column contents.
  * @param {Object} columns - Object with column elements.
@@ -186,62 +187,15 @@ function formatPriorityImg(priority) {
 
 
 /**
- * Stores column ID in the create task button.
-  * @param {string} columnId - ID of the target column.
- */
-function openTaskDialogFor(columnId) {
-    document.getElementById("btn_add_task_create_task").setAttribute("data-column-id", columnId);
-}
-
-
-function handleCreateNewTask(event, status) {
-    event.stopPropagation();
-    if (window.innerWidth < 767) {
-        window.location.href = `addTask.html?columnId=${encodeURIComponent(status)}`;
-        return;
-    }
-    document.getElementById("btn_add_task_create_task").setAttribute("data-column-id", status);
-    showAddTaskDialog(status);
-}
-
-
-function showAddTaskDialog(status) {
-    const dialog = document.getElementById("overlayBoardAddTask");
-    document.body.classList.add("stopScrolling");
-    dialog.classList.remove("d_none");
-    dialog.classList.add("overlayBoard");
-    dialog.setAttribute('status', status);
-    const dialogRef = document.getElementById("addTaskDialogBoard");
-    dialogRef.classList.remove("slide-out");
-    requestAnimationFrame(() => dialogRef.classList.add("slide-in"));
-    dialogRef.addEventListener("click", e => e.stopPropagation());
-}
-
-
-/**
  * Loads and renders the add-task HTML template.
  */
 async function renderW3AddTaskTemplate() {
-    await w3.includeHTML(); // Sicherstellen, dass Includes geladen werden
+    await w3.includeHTML(); 
     const res = await fetch('../assets/templates/addTaskTemplate.html');
     const html = await res.text();
     const dialog = document.getElementById("overlayBoardAddTask");
     dialog.classList.add("d_none");
     dialog.innerHTML += getAddTaskDialogTemplate(html);
-}
-
-
-/**
- * Closes the add task dialog.
- */
-function closeDialogAddTask() {
-    const dialogRef = document.getElementById("addTaskDialogBoard");
-    dialogRef.classList.remove("slide-in");
-    requestAnimationFrame(() => dialogRef?.classList.add("slide-out"));
-    setTimeout(() => {
-        document.getElementById("overlayBoardAddTask").classList.add("d_none");
-        document.body.classList.remove("stopScrolling");
-    }, 300);
 }
 
 
@@ -448,8 +402,3 @@ async function moveTaskToColumn(taskContainer, targetStatus) {
     await updateTaskStatus(taskId, targetStatus);
     loadTasksBoard();
 }
-
-
-
-
-
