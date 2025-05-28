@@ -285,6 +285,28 @@ function setBackgroundcolor() {
     return `backgroundColor${number}`;
 }
 
+
 function toggleRespMenuContacts() {    
-    document.getElementById("theePointsMenu").classList.toggle("respContactEditMenuClosed");
+    document.getElementById("contactDetailsMenu").classList.toggle("respContactEditMenuClosed");
+}
+
+
+document.addEventListener('click', function(event) {
+    const menu = document.getElementById('contactDetailsMenu');
+    const button = document.getElementById('theePointsMenu');
+
+    const clickedOutside = !menu.contains(event.target) && !button.contains(event.target);
+
+    if (clickedOutside && !menu.classList.contains('respContactEditMenuClosed')) {
+        menu.classList.add('respContactEditMenuClosed');
+    }
+});
+
+
+function backToContactList() {
+    document.querySelector('.main_contacts').style.display = 'none';
+    document.querySelector('#contactDetails').style.display = 'none';
+    document.querySelector('.theePointsMenu').style.display = 'none';
+
+    document.querySelector('.contacts').style.display = 'unset';
 }
