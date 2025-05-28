@@ -501,6 +501,7 @@
 }
 
 @media (max-width:767px) {
+    
 .dialogBoardFix {
     max-width: 396px;
         width: 100% !important;
@@ -517,6 +518,14 @@
 
     .headBoardLeft a {
         display: flex;
+    }
+
+    .headBoardLeft a svg :hover {
+        fill: rgba(41, 171, 226, 1);
+    }
+
+        .headBoardLeft a svg :active {
+        fill: rgba(9, 25, 49, 1);
     }
 
     .headBoard {
