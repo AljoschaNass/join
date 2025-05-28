@@ -1,3 +1,46 @@
+@media (max-width:1248px) {
+    .main_contacts{
+        padding-left: 32px;
+        padding-right: 8px;
+        padding-top: 70px;
+    }
+
+    #contactDetails{
+        padding-left: 32px;
+        padding-right: 8px;
+    }
+
+    .contactDetailsTop{
+        gap: 32px;
+    }
+
+    .contacts{
+        min-width: 340px;
+    }
+
+    .contactsList{
+        padding-left: 0;
+    }
+
+    .addNewContactButton{
+        width: 300px;
+    }
+
+    .alphabetInContactList{
+        width: 300px;
+    }
+
+    .seperatorContactList{
+        width: 300px;
+    }
+
+    .contactInList{
+        width: 300px;
+        padding: 10px 20px;
+        gap: 20px;
+    }
+}
+
 @media (max-width:1024px) {
     .main_content_contacts{
         margin: 80px 0;
@@ -89,5 +132,29 @@
 
     .respContactEditMenuClosed {
         transform: translateX(120%);
+    }
+}
+
+@media (max-width:420px) {
+    .contacts{
+        min-width: 320px;
+    }
+
+    .contactsListTop{
+        right: 16px;
+    }
+
+    .alphabetInContactList{
+        width: 280px;
+    }
+
+    .seperatorContactList{
+        width: 280px;
+    }
+
+    .contactInList{
+        width: 280px;
+        padding: 8px 16px;
+        gap: 16px;
     }
 }
