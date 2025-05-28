@@ -1,5 +1,5 @@
     .main_nav_bar {
-    min-width: 232px;
+    width: 232px;
     height: 100vh;
     background-color: #2b3647;
     display: flex;
@@ -147,6 +147,14 @@
 }
 
 @media (max-width:1024px) {
+    .footer_link_hover:hover {
+      color: #a8a8a8 !important;
+      font-weight: 400;
+  }
+
+  .quick_link_row:hover {
+    background-color: transparent;
+  }
     .main_content_board {
     padding-right: 16px;
     padding-left: 16px;
@@ -157,6 +165,7 @@
   }
 
 .main_nav_bar {
+  width: 100vw;
     z-index: 2;
     height: 80px;
     background-color: #2b3647;

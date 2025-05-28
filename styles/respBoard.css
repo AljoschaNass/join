@@ -1,0 +1,398 @@
+@media (max-width: 1439px) {
+    .addTaskDialogBoardFrame .addTaskTemplate {
+        padding-bottom: 116px;
+    }
+
+    .addTaskDialogBoardFrame .add_task_div {
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+
+    .addTaskDialogBoardFrame .add_task_section {
+        height: 100%;
+    }
+
+    .addTaskDialogBoard {
+        width: fit-content !important;
+    }
+
+    .overlayBoard h1 {
+        background: transparent !important;
+    }
+
+    .overlayBoard .add_task_btn_section div {
+        background: transparent;
+    }
+
+    #taskBoard {
+        flex-direction: column;
+        padding-right: 0;
+        overflow: hidden;
+    }
+
+    #awaitFeedbackTask {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .taskCards {
+        min-width: 246px !important;
+        margin-top: 8px;
+        margin-left: 8px;
+        margin-right: 16px;
+        max-width: 246px;
+        height: fit-content;
+    }
+
+    #toDoTask {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    #inProgressTask {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    #awaitFeedbackTask {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    #doneTask {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .baseBoard {
+        width: 100%;
+    }
+
+    .headBoardPosition {
+        width: 100%;
+    }
+}
+
+@media (max-width:1023px) {
+    .subtasksContentEditView {
+        width: 100%;
+    }
+
+    .editDialogBoardSubtasks {
+        align-items: start;
+    }
+
+    .editDialogBoardSubtasksAdded {
+        width: 100%;
+    }
+
+    .editDialogBoardSubtasksAdded:hover {
+        background-color: inherit;
+        border-radius: 0;
+    }
+
+    .editDialogBoardSubtasksAdded.underline:hover {
+        background-color: white;
+    }
+
+    .editIcon {
+        background-image: url("../assets/img/icons/pen-transparent.svg");
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: center;
+        height: 24px;
+        width: 24px;
+        cursor: pointer;
+    }
+
+    .vectorAddSubtask {
+        height: 24px;
+        width: 1px;
+        background-color: rgba(209, 209, 209, 1);
+        margin: 0px 4px 0px 4px;
+    }
+
+    .deleteIcon {
+        background-image: url("../assets/img/icons/deleteIcon.svg");
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: center;
+        height: 24px;
+        width: 24px;
+        cursor: pointer;
+    }
+
+    .add_task_half label {
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .taskCards {
+        position: relative;
+    }
+
+    .cardsLabel {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .openOverlayMoveTo {
+        display: flex;
+        width: 26px;
+        height: 26px;
+        background-image: url("../assets/img/icons/moveToButtonResp.svg");
+        background-repeat: no-repeat;
+        background-color: transparent;
+    }
+}
+
+@media (max-width:767px) {
+    .dialogBoard {
+        max-width: 396px;
+        width: 100%;
+    }
+
+    .dialogBoardTop p {
+        font-size: 16px;
+    }
+
+    #dialogBoardFrame {
+        margin: 32px 24px;
+        gap: 16px;
+    }
+
+    #editViewContent {
+        gap: 16px;
+    }
+
+    .editViewScrollbar {
+        margin-right: -16px;
+        max-height: calc(100vh - 160px);
+    }
+
+    #overlayTaskTitle {
+        font-size: 36px;
+    }
+
+    #overlayTaskContent {
+        font-size: 16px;
+    }
+
+    #overlayTaskDueDate {
+        font-size: 16px;
+    }
+
+    #overlayTaskPriority {
+        font-size: 16px;
+    }
+
+    .overlayTaskAssignedTo p {
+        font-size: 16px;
+    }
+
+    #subtasksDialog p {
+        font-size: 16px !important;
+    }
+
+    .editDialogBoardSubtasks li {
+        height: auto;
+    }
+
+    #editDialogBoardAssignedToDropDown {
+        width: 100%;
+    }
+
+    .saveEditTaskButton {
+        margin-bottom: 32px !important;
+    }
+
+    #editDialogBoardSubtasks {
+        font-size: 16px;
+        align-items: start;
+    }
+
+    .editDialogBoardSubtasksInput {
+        width: 100%;
+    }
+
+    .editDialogBoardAssignedToInput {
+        width: 100%;
+        font-size: 16px !important;
+    }
+
+    .editDialogBoardPriority {
+        margin-bottom: 0;
+    }
+
+    .editDialogBoardDueDate {
+        height: auto;
+    }
+
+    #editDialogBoard button {
+        margin-top: 32px;
+        margin-right: 24px;
+    }
+
+    #editDialogBoard {
+        max-width: 396px;
+        width: 100%;
+    }
+
+    .editDialogBoardFrameWithScrollbar {
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+
+    #editDialogBoardFrame {
+        margin: 0px 0px 32px 24px;
+        max-width: 348px;
+        width: auto;
+        padding-right: 4px;
+    }
+
+    .editDialogBoardTop p {
+        font-size: 16px;
+    }
+
+    .inputEditDialogBoardTitle {
+        height: 40px;
+        font-size: 16px;
+        width: 100%;
+    }
+
+    .inputEditDialogBoardDescription {
+        min-height: 88px !important;
+        font-size: 16px;
+        width: 100%;
+    }
+
+    .inputEditDialogBoardDueDate {
+        height: 40px;
+        font-size: 16px;
+        width: 100%;
+    }
+
+    .editDialogBoardAssignedTo {
+        font-size: 16px;
+    }
+
+    .editDialogBoardPriority p {
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    .editDialogBoardPriorityButtons {
+        width: 100%;
+        height: auto;
+        gap: 16px;
+    }
+
+    .editDialogBoardPriorityButton {
+        width: 104px;
+        height: 41px;
+    }
+
+    .dialogBoardFix {
+        max-width: 396px;
+        width: 100% !important;
+    }
+
+    #overlayBoardAddTask {
+        display: none !important;
+    }
+
+    .headBoardLeft {
+        margin-bottom: 40px;
+    }
+
+    .headBoardLeft a {
+        display: flex;
+    }
+
+    .headBoardLeft a svg :hover {
+        fill: rgba(41, 171, 226, 1);
+    }
+
+    .headBoardLeft a svg :active {
+        fill: rgba(9, 25, 49, 1);
+    }
+
+    .headBoard {
+        margin-bottom: 24px;
+    }
+
+    .headBoardPosition {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+
+    .addTaskButton {
+        display: none !important;
+    }
+
+    .h1Board {
+        font-size: 47px;
+    }
+
+    .searchFieldBoard {
+        width: 100%;
+    }
+
+    .headBoardRight {
+        width: 100%;
+    }
+
+    #noTaskToDo {
+        width: 100%;
+    }
+
+    .headTask {
+        font-size: 27px;
+    }
+
+    .iconAdd {
+        width: 30px;
+        height: 30px;
+    }
+
+    .main_content_board {
+        height: fit-content;
+    }
+}
+
+
+
+@media (max-width: 480px) {
+    .editDialogBoardAssignedTo {
+        width: 100%;
+    }
+
+    .assignedToInput {
+        width: 100% !important;
+    }
+
+    .editDialogBoardAssignedToInputDiv {
+        width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    .editDialogBoardPriorityButtons {
+        flex-direction: column;
+    }
+}
+
+@media (max-width:396px) {
+    .dialogBoard {
+        max-height: 100%;
+    }
+}
