@@ -4,6 +4,7 @@
  */
 async function boardInit() {
     init();
+    checkUserLogIn();
     highlightSelectedQuickLinks('board');
     await renderW3AddTaskTemplate();
     loadContactListAssignedTo();

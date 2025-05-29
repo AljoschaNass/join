@@ -25,7 +25,6 @@ function checkOrientation() {
 function init() {
     include();
     checkIdNotNull();
-    checkUserLogIn();
 }
 
 

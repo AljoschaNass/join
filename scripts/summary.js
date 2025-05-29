@@ -7,6 +7,7 @@ function initSummary() {
     loadNextDeadline();
     greeting();
     checkScreenWidth();
+    checkUserLogIn();
 }
 
 

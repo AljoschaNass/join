@@ -1,4 +1,19 @@
 /**
+ * Initializes the contact page by performing the following actions:
+ * 1. Highlights the selected quick link for contacts.
+ * 2. Loads the contact list.
+ * 3. Checks if the user is logged in and redirects if not.
+ *
+ * @returns {void} This function does not return a value.
+ */
+function contactInit() {
+    highlightSelectedQuickLinks('contacts');
+    loadContactList();
+    checkUserLogIn();
+}
+
+
+/**
  * Creates a new contact resource in the database.
  * This operation is non-idempotent, meaning multiple executions can create multiple entries.
  * @param {string} [path="contacts"] - The path to the contacts endpoint.
