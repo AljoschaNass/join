@@ -7,6 +7,7 @@
  * @returns {void} This function does not return a value.
  */
 function contactInit() {
+    init();
     highlightSelectedQuickLinks('contacts');
     loadContactList();
     checkUserLogIn();
