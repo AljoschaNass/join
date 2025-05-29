@@ -6,8 +6,8 @@
  *
  * @returns {void} This function does not return a value.
  */
-async function contactInit() {
-    await init();
+function contactInit() {
+    init();
     highlightSelectedQuickLinks('contacts');
     loadContactList();
     checkUserLogIn();
