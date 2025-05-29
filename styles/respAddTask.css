@@ -127,7 +127,8 @@
         }
     }
 
-    .add_task_half label {
+    .add_task_half label,
+    .task-label  {
         font-size: 16px;
     }
 

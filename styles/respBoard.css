@@ -130,7 +130,8 @@
         cursor: pointer;
     }
 
-    .add_task_half label {
+    .add_task_half label,
+    .task-label  {
         align-items: flex-start;
         width: 100%;
     }

@@ -160,8 +160,9 @@ function showNavbarIfLoggedIn(){
 }
 
 /**
- * Sets the user profile initials in the header based on the current user's name
- * stored in localStorage. Extracts the first letter of each name part and displays them in uppercase.
+ * Sets the user's initials in the header profile element.
+ * Retrieves the user's name from localStorage, extracts initials, and displays them.
+ * If no user is found, it hides the header element.
  */
 function setUserProfileInitials() {
     if(JSON.parse(localStorage.getItem(`currentUserName`)) != null) {
