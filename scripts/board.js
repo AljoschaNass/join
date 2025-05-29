@@ -3,10 +3,10 @@
  * Executes highlighting, template rendering, and data loading.
  */
 async function boardInit() {
+    await renderW3AddTaskTemplate();
     init();
     checkUserLogIn();
     highlightSelectedQuickLinks('board');
-    await renderW3AddTaskTemplate();
     loadContactListAssignedTo();
     loadTasksBoard();
 }
