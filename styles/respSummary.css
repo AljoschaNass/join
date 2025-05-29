@@ -109,6 +109,12 @@
   .summary_greeting_name {
     font-size: 47px;
   }
+
+  @media (max-height: 1200px) {
+    .main_content_summary {
+      height: calc(100vh - 320px);
+    }
+  } 
 }
 
 @media(max-width: 770px) {
