@@ -25,6 +25,7 @@ function checkOrientation() {
 function init() {
     include();
     checkIdNotNull();
+    checkUserLogIn();
 }
 
 
@@ -125,4 +126,12 @@ function getCurrentUserFromLocalStorage() {
  */
 function backToPreviousPage() {
     history.back();
+}
+
+function checkUserLogIn() {
+    currentUserEmail = localStorage.getItem("currentUserEmail"); 
+    currentUserName = localStorage.getItem("currentUserName"); 
+    if(currentUserEmail === null && currentUserName === null) {
+       window.location.href = "../index.html";
+    }
 }
