@@ -66,12 +66,54 @@ function resetContactSelections() {
 
 
 /**
+ * Loads all HTML fragments marked with the `w3-include-html` attribute using W3Schools-style includes.
+ * Waits until all external HTML files are fully loaded and inserted into the DOM.
+ *
+ * This function replicates the behavior of `w3.includeHTML()` but returns a Promise,
+ * allowing it to be awaited in async functions for precise control of execution order.
+ *
+ * @returns {Promise<void>} A Promise that resolves once all includes are fully loaded into the DOM.
+ *
+ * @example
+ * await renderW3TemplateIncludes();
+ */
+async function renderW3TemplateIncludes() {
+    return new Promise((resolve) => {
+        function include() {
+            const elements = document.getElementsByTagName("*");
+            for (let i = 0; i < elements.length; i++) {
+                const elmnt = elements[i];
+                const file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                    const xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = function () {
+                        if (this.readyState === 4) {
+                            if (this.status === 200) elmnt.innerHTML = this.responseText;
+                            if (this.status === 404) elmnt.innerHTML = "Page not found.";
+                            elmnt.removeAttribute("w3-include-html");
+                            include(); 
+                        }
+                    };
+                    xhr.open("GET", file, true);
+                    xhr.send();
+                    return;
+                }
+            }
+            resolve(); 
+        }
+        include();
+    });
+}
+
+
+/**
  * Loads all contacts asynchronously, sorts them alphabetically,
  * renders them in the assigned-to contacts UI,
  * and stores them in the currentContacts variable.
  * @returns {Promise<void>}
  */
 async function loadContactListAssignedTo() {
+    await renderW3TemplateIncludes();
     let contacts = await getAllContacts(); 
     let sortedContacts = sortContactsAlphabetically(contacts);
     renderContactsToAssignedTo(sortedContacts);
