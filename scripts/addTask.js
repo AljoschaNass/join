@@ -23,6 +23,14 @@ let currentSubtasks = {};
 let subtaskId = 0;
 
 
+async function initAddTask() {
+    await includeHTML();      
+    highlightSelectedQuickLinks('add_task')   
+    await renderW3TemplateIncludes(); 
+    await loadContactListAssignedTo(); 
+}
+
+
 /**
  * Adds a global click event listener to the document.
  * Closes the "Assigned To" and "Category" dropdowns if the user clicks outside of them.

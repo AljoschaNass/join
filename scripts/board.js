@@ -190,12 +190,11 @@ function formatPriorityImg(priority) {
  * Loads and renders the add-task HTML template.
  */
 async function renderW3AddTaskTemplate() {
-    await w3.includeHTML(); 
     const res = await fetch('../assets/templates/addTaskTemplate.html');
     const html = await res.text();
     const dialog = document.getElementById("overlayBoardAddTask");
     dialog.classList.add("d_none");
-    dialog.innerHTML += getAddTaskDialogTemplate(html);
+    dialog.innerHTML = getAddTaskDialogTemplate(html);
 }
 
 
