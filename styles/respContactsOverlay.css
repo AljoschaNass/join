@@ -20,8 +20,7 @@
 
 @media (max-width:1024px) {
     #closeOverlayButton:hover {
-    background-color: rgba(41, 171, 226, 1);
-;
+        background-color: rgba(41, 171, 226, 1);
     }
 
     .close_overlay{
