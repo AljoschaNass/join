@@ -71,6 +71,11 @@ async function getAllUsersToContacts(){
 
 /**
  * Loads the details of a contact into the contact details card.
+ *
+ * This function clears the existing contact details and inserts the selected contact's
+ * information. If the screen width is below 1024 pixels, it adjusts the layout for
+ * responsive view.
+ *
  * @param {string} name - The name of the contact.
  * @param {string} email - The email of the contact.
  * @param {string} phone - The phone number of the contact.
@@ -85,9 +90,16 @@ function loadContactDetails(name, email, phone, backgroundcolor) {
     }
 }
 
+
+/**
+ * Opens the responsive contact details view.
+ *
+ * Hides the general contacts list and shows the main contact section,
+ * the contact details panel, and the three-dots menu (options menu)
+ * for responsive layouts.
+ */
 function openResponsiveDetails() {
     document.querySelector('.contacts').style.display = 'none';
-
     document.querySelector('.main_contacts').style.display = 'flex';
     document.querySelector('#contactDetails').style.display = 'flex';
     document.querySelector('.theePointsMenu').style.display = 'flex';
@@ -286,11 +298,27 @@ function setBackgroundcolor() {
 }
 
 
+/**
+ * Toggles the visibility of the responsive contact details menu.
+ *
+ * Adds or removes the 'respContactEditMenuClosed' class from the contact details menu
+ * to show or hide it based on its current state.
+ */
 function toggleRespMenuContacts() {    
     document.getElementById("contactDetailsMenu").classList.toggle("respContactEditMenuClosed");
 }
 
 
+/**
+ * Closes the contact details menu when clicking outside of it.
+ *
+ * This event listener is attached to the entire document and checks
+ * if a click occurred outside of both the menu and the button that toggles it.
+ * If the menu is open (i.e., does not have the 'respContactEditMenuClosed' class),
+ * it adds this class to close it.
+ *
+ * @listens document#click
+ */
 document.addEventListener('click', function(event) {
     const menu = document.getElementById('contactDetailsMenu');
     const button = document.getElementById('theePointsMenu');
@@ -305,10 +333,14 @@ document.addEventListener('click', function(event) {
 });
 
 
+/**
+ * Resets the contact view to show the contact list.
+ * Hides the contact detail view, main contact section, and the menu,
+ * and displays the full contact list container again.
+ */
 function backToContactList() {
     document.querySelector('.main_contacts').style.display = 'none';
     document.querySelector('#contactDetails').style.display = 'none';
     document.querySelector('.theePointsMenu').style.display = 'none';
-
     document.querySelector('.contacts').style.display = 'unset';
 }
