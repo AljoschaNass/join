@@ -90,7 +90,7 @@
     display: flex;
     flex-direction: column;
     height: 360px;
-    width: 660px;
+    width: 560px;
     animation: slightDetailsFromRightToCenter 800ms forwards; 
 }
 
@@ -137,7 +137,7 @@
 }
 
 .contactButton:hover svg path {
-    fill: #29ABE2;  /* Die SVG-Farbe beim Hover ändern */
+    fill: #29ABE2; 
 }
 
 .contactDetailsMiddle{
