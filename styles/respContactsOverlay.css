@@ -1,3 +1,23 @@
+@media (min-width:1025px) {
+    .add_contact_container{
+        width: unset;
+        left: calc(50vw - 450px);
+    }
+    .add_contact_left{
+    padding: 66px 24px 132px 24px;
+    width: 300px;
+    }
+
+    .add_contact_middle{
+        flex: unset;
+        padding: 100px 16px 100px 16px;
+    }
+
+    .add_contact_right{
+        padding: 66px 24px 66px 0px;
+    }
+}
+
 @media (max-width:1024px) {
     .close_overlay{
         right: calc(50% - 198px);
