@@ -85,7 +85,14 @@
     gap: 21px;
     display: flex;
     flex-direction: column;
+    animation: slightFromRightToCenter 800ms; 
 }
+
+@keyframes slightFromRightToCenter {
+    from {left: 2500px;}
+    to {left: 144px;}
+}
+
 
 .contactDetailsTop {
     display: flex;

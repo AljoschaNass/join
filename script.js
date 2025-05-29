@@ -22,8 +22,8 @@ function checkOrientation() {
 /**
  * Initializes the application by including HTML components and checking for non-null IDs.
  */
-function init() {
-    include();
+async function init() {
+    await include();
     checkIdNotNull();
 }
 
