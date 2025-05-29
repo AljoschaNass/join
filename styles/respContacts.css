@@ -132,6 +132,7 @@
 
     .respContactEditMenuClosed {
         transform: translateX(120%);
+        display: none;
     }
 }
 
