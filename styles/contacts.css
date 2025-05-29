@@ -90,7 +90,6 @@
     display: flex;
     flex-direction: column;
     height: 360px;
-    width: 660px;
     animation: slightDetailsFromRightToCenter 800ms forwards; 
 }
 
