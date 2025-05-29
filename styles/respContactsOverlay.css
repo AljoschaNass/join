@@ -47,14 +47,13 @@
         flex: unset;
         padding: 0;
         position: absolute;
-        top: calc(40% - 60px);
+        top: calc(40% - 45px);
         left: calc(50% - 60px);
         z-index: 4;
     }
 
     .contactIcon{
         margin-bottom: 0 !important;
-
     }
 
     .add_contact_img{
@@ -69,9 +68,34 @@
         justify-content: center;
     }
 
+    .add_contact_btn {
+        font-size: 21px;
+        padding: 18px 10px;
+    }
+
+    .delete_contact_btn {
+        font-size: 20px;
+        font-weight: 400;
+        padding: 18px 10px;
+        gap: 10px;
+    }
+
     .cancel_contact_btn{
         display: none;
     }
+
+    .gap_32 {
+        gap: 16px;
+    }
+
+    .add_contact_title {
+        font-size: 47px;
+    }
+
+    .add_contact_subtitle {
+        font-size: 20px;
+    }
+
 }
 
 @media (max-width:500px) {
