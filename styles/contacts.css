@@ -80,17 +80,23 @@
 }
 
 #contactDetails {
+    position: relative;
+    top: 0px;
     padding-left: 62px;
     padding-top: 32px;
     gap: 21px;
     display: flex;
+    left: 2500px; 
+    display: flex;
     flex-direction: column;
-    animation: slightFromRightToCenter 800ms; 
+    height: 360px;
+    width: 560px;
+    animation: slightDetailsFromRightToCenter 800ms forwards; 
 }
 
-@keyframes slightFromRightToCenter {
+@keyframes slightDetailsFromRightToCenter {
     from {left: 2500px;}
-    to {left: 144px;}
+    to {left: 0px;}
 }
 
 
