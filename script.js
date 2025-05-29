@@ -56,17 +56,30 @@ async function include() {
  * @async
  */
 async function includeHTML() {
-    let includeElements = document.querySelectorAll('[w3-include-html]');
+    const includeElements = document.querySelectorAll('[w3-include-html]');
+    
     for (let i = 0; i < includeElements.length; i++) {
         const element = includeElements[i];
-        file = element.getAttribute("w3-include-html"); 
-        let resp = await fetch(file);
-        if (resp.ok) {
-            element.innerHTML = await resp.text();            
-        } else {
-            element.innerHTML = 'Page not found';            
+        const file = element.getAttribute("w3-include-html");
+
+        if (!file) {
+            console.warn('Kein gültiger Pfad im Attribut "w3-include-html"', element);
+            continue; // gehe zum nächsten Element
+        }
+
+        try {
+            const resp = await fetch(file);
+            if (resp.ok) {
+                element.innerHTML = await resp.text();
+            } else {
+                element.innerHTML = 'Seite nicht gefunden';
+            }
+        } catch (err) {
+            console.error('Fehler beim Laden der Datei:', file, err);
+            element.innerHTML = 'Fehler beim Laden';
         }
     }
+
     setUserProfileInitials();
 }
 
@@ -82,7 +95,7 @@ async function getAllUsers(){
     let response = await fetch(BASE_URL + path + ".json");
     return responseToJson = await response.json();
 }
-  
+
 
 /**
  * Saves the current user's email and name to local storage.
