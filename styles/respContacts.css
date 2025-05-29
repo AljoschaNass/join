@@ -1,40 +1,40 @@
 @media (max-width:1248px) {
-    .main_contacts{
+    .main_contacts {
         padding-left: 32px;
         padding-right: 8px;
         padding-top: 70px;
     }
 
-    #contactDetails{
+    #contactDetails {
         padding-left: 32px;
         padding-right: 8px;
     }
 
-    .contactDetailsTop{
+    .contactDetailsTop {
         gap: 32px;
     }
 
-    .contacts{
+    .contacts {
         min-width: 340px;
     }
 
-    .contactsList{
+    .contactsList {
         padding-left: 0;
     }
 
-    .addNewContactButton{
+    .addNewContactButton {
         width: 300px;
     }
 
-    .alphabetInContactList{
+    .alphabetInContactList {
         width: 300px;
     }
 
-    .seperatorContactList{
+    .seperatorContactList {
         width: 300px;
     }
 
-    .contactInList{
+    .contactInList {
         width: 300px;
         padding: 10px 20px;
         gap: 20px;
@@ -49,13 +49,13 @@
         max-width: 100vw;
     }
 
-    .contacts{
+    .contacts {
         height: calc(100vh - 160px);
         left: 0;
         width: 100vw;
     }
 
-    #contactList > :first-child {
+    #contactList> :first-child {
         display: none;
     }
 
@@ -69,14 +69,18 @@
         gap: 21px;
         display: flex;
         flex-direction: column;
-        animation: slightDetailsFromRightToCenter 1ms forwards; 
+        animation: slightDetailsFromRightToCenter 1ms forwards;
     }
 
-    .main_contacts, #contactDetails, #addContactSuccess, #editContactSuccess, #deleteContactSuccess{
+    .main_contacts,
+    #contactDetails,
+    #addContactSuccess,
+    #editContactSuccess,
+    #deleteContactSuccess {
         display: none;
     }
 
-    .contactsListTop{
+    .contactsListTop {
         height: unset;
         top: unset;
         bottom: 96px;
@@ -93,28 +97,28 @@
         display: none;
     }
 
-    .click {
+    .contactClick {
         background: none;
         color: black;
     }
 
-    .main_contacts{
+    .main_contacts {
         flex-direction: column;
         align-items: start;
     }
 
-    .seperator{
+    .seperator {
         height: 1px;
         width: 90px;
         order: 3;
     }
 
-    .contactName{
+    .contactName {
         padding: 0;
     }
 
     .contactDetailsButtons{
-        position: fixed;
+        position: absolute;
         right: 8px;
         bottom: 96px;
         flex-direction: column;
@@ -126,17 +130,24 @@
         z-index: 1;
     }
 
-    .contactButton{
+    .contactButton {
         height: 40px;
         min-width: 96px;
         padding: 8px;
     }
 
-    .arrowLeftContact{
+    .arrowLeftContact {
         display: flex;
         position: absolute;
         top: 180px;
         right: 20px;
+        background-color: transparent;
+    }
+
+    .arrowLeftContact:hover {
+        background: #EEEEEE;
+        border-radius: 42px;
+        transform: scale(1.20);
     }
 
     .respContactEditMenuClosed {
@@ -146,23 +157,23 @@
 }
 
 @media (max-width:420px) {
-    .contacts{
+    .contacts {
         min-width: 320px;
     }
 
-    .contactsListTop{
+    .contactsListTop {
         right: 16px;
     }
 
-    .alphabetInContactList{
+    .alphabetInContactList {
         width: 280px;
     }
 
-    .seperatorContactList{
+    .seperatorContactList {
         width: 280px;
     }
 
-    .contactInList{
+    .contactInList {
         width: 280px;
         padding: 8px 16px;
         gap: 16px;
@@ -173,26 +184,26 @@
         padding-top: 32px;
     }
 
-    #contactDetails{
+    #contactDetails {
         padding-left: 12px;
     }
 
-    .arrowLeftContact{
+    .arrowLeftContact {
         top: 112px;
         right: 8px;
     }
 
-    .contactDetailsTop{
+    .contactDetailsTop {
         height: 80px;
         gap: 16px;
     }
 
-    .contactCircleBig{
+    .contactCircleBig {
         width: 80px;
         height: 80px;
     }
 
-    .contactName{
+    .contactName {
         font-size: 36px;
     }
 }
