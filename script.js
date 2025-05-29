@@ -108,8 +108,8 @@ function saveCurrentUserToLocalStorage(email, name) {
     localStorage.setItem(`currentUserEmail`, JSON.stringify(email));
 }
 
-  
- /**
+
+/**
  * Retrieves the current user's name and email from local storage.
  *
  * @returns {Object} An object containing the current user's name and email.
@@ -139,6 +139,6 @@ function checkUserLogIn() {
     currentUserEmail = localStorage.getItem("currentUserEmail"); 
     currentUserName = localStorage.getItem("currentUserName"); 
     if(currentUserEmail === null && currentUserName === null) {
-       window.location.href = "../index.html";
+        window.location.href = "../index.html";
     }
 }
