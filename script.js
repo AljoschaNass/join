@@ -128,6 +128,14 @@ function backToPreviousPage() {
     history.back();
 }
 
+
+/**
+ * Checks if the user is logged in by verifying the presence of
+ * the current user's email and name in local storage.
+ * If both are not found, the user is redirected to the index page.
+ *
+ * @returns {void} This function does not return a value.
+ */
 function checkUserLogIn() {
     currentUserEmail = localStorage.getItem("currentUserEmail"); 
     currentUserName = localStorage.getItem("currentUserName"); 
