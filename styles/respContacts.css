@@ -97,7 +97,7 @@
         display: none;
     }
 
-    .click {
+    .contactClick {
         background: none;
         color: black;
     }
@@ -117,7 +117,7 @@
         padding: 0;
     }
 
-    .contactDetailsButtons {
+    .contactDetailsButtons{
         position: absolute;
         right: 8px;
         bottom: 96px;
@@ -152,7 +152,7 @@
 
     .respContactEditMenuClosed {
         transform: translateX(120%);
-        display: none;
+        
     }
 }
 
