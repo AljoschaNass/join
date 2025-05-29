@@ -42,7 +42,7 @@
 }
 
 @media (max-width:1024px) {
-    .main_content_contacts{
+    .main_content_contacts {
         margin: 80px 0;
         height: calc(100vh - 160px);
         overflow-x: hidden;
