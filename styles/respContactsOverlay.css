@@ -66,11 +66,14 @@
 
     .add_contact_btns{
         justify-content: center;
+        margin-top: 48px;
     }
 
     .add_contact_btn {
         font-size: 21px;
-        padding: 18px 10px;
+        padding: 18px 34px 18px 10px;
+        background-repeat: no-repeat;
+        background-position: calc(100% - 10px) center;
     }
 
     .delete_contact_btn {
@@ -96,6 +99,38 @@
         font-size: 20px;
     }
 
+     @media (min-height: 950px) { 
+        .add_contact_container {
+            height: 790px !important;
+        }
+
+         .add_contact_middle {
+            top: calc(40% - 30px);
+            left: calc(50% - 60px);
+        }
+     }
+
+     @media (max-height: 920px) { 
+        .add_contact_btns {
+            margin-top: 36px;
+        }
+
+        .add_contact_middle {
+            top: calc(40% - 55px);
+            left: calc(50% - 60px);
+        }
+     }
+     
+     @media (max-height: 825px) {  
+        .close_overlay {
+            top: calc(0px - 5%);
+        }
+
+    
+        .add_contact_btns {
+            margin-top: 24px;
+        }        
+    }
 }
 
 @media (max-width:500px) {
@@ -121,4 +156,22 @@
         top: 16px;
         right: calc(50% - 140px);
     }
+
+     @media (max-height: 815px) {  
+        .close_overlay {
+            top: calc(0px - 5%);
+            right: calc(50% - 140px);
+        }
+
+        .add_contact_btns {
+            margin-top: 24px;
+        }        
+    }
+
+    @media (max-height: 670px) {  
+        .close_overlay {
+            top: calc(0px - 10%);
+            right: calc(50% - 140px);
+        }
+    } 
 }
