@@ -252,8 +252,23 @@
         transform: translateX(300%); 
     }
 }
-    
-#addContactSuccess button, #editContactSuccess button, #deleteContactSuccess button {
+
+#addContactSuccess button {
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #2A3647;
+    background-color: #2A3647;
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    padding: 25px;
+    margin-top: 128px;
+}
+
+#editContactSuccess button, #deleteContactSuccess button {
     border-radius: 20px;
     border-style: solid;
     border-width: 1px;
