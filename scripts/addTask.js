@@ -24,10 +24,10 @@ let subtaskId = 0;
 
 
 async function initAddTask() {
+    await renderW3TemplateIncludes(); 
     await includeHTML();    
     checkUserLogIn();  
     highlightSelectedQuickLinks('add_task')   
-    await renderW3TemplateIncludes(); 
     await loadContactListAssignedTo(); 
 }
 
