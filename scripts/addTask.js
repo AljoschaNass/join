@@ -27,7 +27,8 @@ async function initAddTask() {
     await renderW3TemplateIncludes(); 
     await includeHTML();    
     checkUserLogIn();  
-    highlightSelectedQuickLinks('add_task')   
+    highlightSelectedQuickLinks('add_task');
+    setHighlight();
     await loadContactListAssignedTo(); 
 }
 
