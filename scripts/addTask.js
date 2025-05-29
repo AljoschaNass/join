@@ -23,6 +23,18 @@ let currentSubtasks = {};
 let subtaskId = 0;
 
 
+/**
+ * Initializes the Add Task page.
+ * - Loads and renders template includes (e.g., task form).
+ * - Checks if a user is logged in.
+ * - Highlights the "Add Task" link in the navigation.
+ * - Loads and displays the contact list for assigning tasks.
+ * - Calls the page-specific initialization logic.
+ * 
+ * @async
+ * @function initAddTask
+ * @returns {Promise<void>} Resolves when all initializations are complete.
+ */
 async function initAddTask() {
     await renderW3TemplateIncludes(); 
     checkUserLogIn();  
@@ -44,20 +56,26 @@ document.addEventListener("click", function(event) {
 });
 
 
+/**
+ * Sets the `data-column-id` attribute on the "Create Task" button based on the `columnId` URL parameter. 
+ * Waits until the button is available in the DOM (e.g. after template inclusion).
+ * 
+ * Uses a polling interval to check for the button, then stops once found.
+ * 
+ * @function setColumnIdAfterInclude
+ */
 function setColumnIdAfterInclude() {
     const interval = setInterval(() => {
         const btn = document.getElementById("btn_add_task_create_task");
         if (btn) {
             const urlParams = new URLSearchParams(window.location.search);
             const columnId = urlParams.get("columnId");
-
-            // Nur setzen, wenn übergeben wurde
             if (columnId) btn.dataset.columnId = columnId;
-
             clearInterval(interval);
         }
     }, 50);
 }
+
 
 window.addEventListener("load", setColumnIdAfterInclude);
 
@@ -88,8 +106,7 @@ function setBtnPriority(priority) {
         currentPriority = "";
     } else{
         removeAllPriosityBg();
-        let priorityRef = document.getElementById("add_task_btn_priority_" + priority);
-        priorityRef.classList.add("priority_color_" + priority);
+        document.getElementById("add_task_btn_priority_" + priority).classList.add("priority_color_" + priority);
         currentPriority = priority;
     }
 }
@@ -102,8 +119,7 @@ function setBtnPriority(priority) {
 function resetBtnPriority() {
     removeAllPriosityBg();
     currentPriority = "medium";
-    let priorityRef = document.getElementById("add_task_btn_priority_medium");
-    priorityRef.classList.add("priority_color_medium");
+    document.getElementById("add_task_btn_priority_medium").classList.add("priority_color_medium");
 }
 
 
@@ -119,8 +135,7 @@ function removeAllPriosityBg() {
 
 
 /**
- * Triggers validation checks for all required input fields
- * before allowing the task to be added.
+ * Triggers validation checks for all required input fields before allowing the task to be added.
  * Checks title, date, and category fields.
  */
 function checkRequiredBtnAddTask() {
@@ -131,17 +146,12 @@ function checkRequiredBtnAddTask() {
 
 
 /**
- * Resets the error messages for all required input fields.
- * Clears the validation text for title, date, and category.
+ * Resets the error messages for all required input fields. Clears the validation text for title, date, and category.
  */
 function resetRequiredIputs() {
-    let titleRequiredRef = document.getElementById("add_task_required_title");
-    let dateRequiredRef = document.getElementById("add_task_required_date");
-    let categoryRequiredRef = document.getElementById("add_task_required_category");
-
-    titleRequiredRef.innerText = "";
-    dateRequiredRef.innerText = "";
-    categoryRequiredRef.innerText = "";
+    document.getElementById("add_task_required_title").innerText = "";
+    document.getElementById("add_task_required_date").innerText = "";
+    document.getElementById("add_task_required_category").innerText = "";
 }
 
 
@@ -153,7 +163,6 @@ function resetRequiredIputs() {
 function checkRequiredTitel() {
     let titleRef = document.getElementById("add_task_title").value;
     let titleRequiredRef = document.getElementById("add_task_required_title");
-
     if (titleRef == "") {
         titleRequiredRef.innerText = "This field is required";
     } else {
@@ -170,7 +179,6 @@ function checkRequiredTitel() {
 function checkRequiredDate() {
     let dateRef = document.getElementById("add_task_date").value;
     let dateRequiredRef = document.getElementById("add_task_required_date");
-
     if (dateRef == "") {
         dateRequiredRef.innerText = "This field is required";
     } else {
@@ -187,7 +195,6 @@ function checkRequiredDate() {
 function checkRequiredCategory() {
     let categoryRef = document.getElementById("addTaskCategoryInput").value;
     let categoryRequiredRef = document.getElementById("add_task_required_category");
-
     if (categoryRef == "") {
         categoryRequiredRef.innerText = "This field is required";
     } else {
@@ -207,8 +214,7 @@ function arrowDropDownSelection(id) {
 
 
 /**
- * Sets the selected category value in the category input field,
- * checks if the category field is valid, and toggles the dropdown menu.
+ * Sets the selected category value in the category input field, checks if the category field is valid, and toggles the dropdown menu.
  * @param {string} category - The category to set as selected.
  */
 function addTaskselectCategory(category) {
@@ -265,7 +271,6 @@ async function addTask(status) {
     let category = document.getElementById("addTaskCategoryInput").value;
     let subtasks = currentSubtasks;
     document.getElementById("taskAdded").classList.remove("d_none");
-
     if(title != "" && dueDate != "" && category != "") {
         await postTask("tasks", title, description, dueDate, priority, assignedTo, category, subtasks, status); 
         setTimeout(() => {
@@ -277,10 +282,7 @@ async function addTask(status) {
 
 
 /**
- * Clears all input fields in the add task form,
- * resets priority buttons, assigned contacts,
- * subtasks, required field indicators,
- * and disables the create task button.
+ * Clears all input fields in the add task form, resets priority buttons, assigned contacts, subtasks, required field indicators, and disables the create task button.
  */
 function clearAddTaskForm() {
     document.getElementById("add_task_title").value = "";
@@ -325,14 +327,12 @@ function diableCreateTaskButton(createTaskBtn) {
 
 /**
  * Adds a new subtask if the input is not empty and does not already exist.
- * Generates a unique ID for the subtask, stores it with status "undone",
- * renders it in the UI, and clears the input field.
+ * Generates a unique ID for the subtask, stores it with status "undone", renders it in the UI, and clears the input field.
  */
 function addSubtask() {
     let inputRef = document.getElementById("add_task_subtask");   
     let subtaskValue = inputRef.value.trim();
     let id = `subtask_${subtaskId++}`;
-
     if (subtaskValue !== "" && !currentSubtasks.hasOwnProperty(subtaskValue)) {
         currentSubtasks[subtaskValue] = "undone";
         renderSubtask(id, subtaskValue);

@@ -9,7 +9,7 @@ async function searchTask() {
     let allTasksArray = Object.values(allTasks);
     let filteredTasks = allTasksArray.filter(task => task.title.toLowerCase().includes(searchInput) || task.description.toLowerCase().includes(searchInput));
     if (filteredTasks.length > 0) {
-         loadTasksBoardAfterSearch(filteredTasks);
+        loadTasksBoardAfterSearch(filteredTasks);
     } else {
         loadTasksBoardAfterSearch(filteredTasks);
         showNoTaskFoundMessage();
@@ -22,7 +22,7 @@ async function searchTask() {
  * Clears existing columns and populates them with the filtered tasks.
  * @param {Array} tasks - The array of tasks to display on the board.
  */
-function loadTasksBoardAfterSearch(tasks){
+function loadTasksBoardAfterSearch(tasks) {
     let columns = getColumns();
     clearColumns(columns);
     loadColumns(columns, tasks);
@@ -88,7 +88,7 @@ function checkEmptyColumns(columns) {
 function showNoTaskFoundMessage() {
     let message = document.getElementById("noTaskFoundMessage");
     message.classList.add("d_none");
-    void message.offsetWidth; 
+    void message.offsetWidth;
     message.classList.remove("d_none");
-    setTimeout(() => {message.classList.add("d_none");}, 2000);
+    setTimeout(() => { message.classList.add("d_none"); }, 2000);
 }

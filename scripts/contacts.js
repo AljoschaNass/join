@@ -338,11 +338,8 @@ function toggleRespMenuContacts() {
 document.addEventListener('click', function(event) {
     const menu = document.getElementById('contactDetailsMenu');
     const button = document.getElementById('theePointsMenu');
-
     if (!menu || !button) return;
-
     const clickedOutside = !menu.contains(event.target) && !button.contains(event.target);
-
     if (clickedOutside && !menu.classList.contains('respContactEditMenuClosed')) {
         menu.classList.add('respContactEditMenuClosed');
     }

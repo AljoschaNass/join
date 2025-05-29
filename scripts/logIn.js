@@ -5,16 +5,16 @@
  */
 function togglePasswordVisibility(inputId) {
   var x = document.getElementById(inputId);
-    let img = document.getElementById(inputId + "Img");
-    if (x.type === "password") {
-        x.type = "text";
-        img.src = "./assets/img/icons/visibility.svg"; 
-        img.alt = "Password Visible";
-    } else {
-        x.type = "password";
-        img.src = "./assets/img/icons/visibility_off.svg";
-        img.alt = "Password Hidden";
-    }
+  let img = document.getElementById(inputId + "Img");
+  if (x.type === "password") {
+    x.type = "text";
+    img.src = "./assets/img/icons/visibility.svg";
+    img.alt = "Password Visible";
+  } else {
+    x.type = "password";
+    img.src = "./assets/img/icons/visibility_off.svg";
+    img.alt = "Password Hidden";
+  }
 }
 
 
@@ -57,8 +57,8 @@ function onBlur(inputId) {
  */
 function handleImageClick(inputId) {
   let input = document.getElementById(inputId);
-  input.focus(); 
-  togglePasswordVisibility(inputId); 
+  input.focus();
+  togglePasswordVisibility(inputId);
 }
 
 
@@ -86,7 +86,7 @@ function checkUser(user) {
     window.location.href = "./html/summary.html";
   } else {
     logInError();
-  } 
+  }
 }
 
 
