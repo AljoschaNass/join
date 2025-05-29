@@ -1,6 +1,5 @@
 /**
- * Initializes the board.
- * Executes highlighting, template rendering, and data loading.
+ * Initializes the board. Executes highlighting, template rendering, and data loading.
  */
 async function boardInit() {
     await renderW3AddTaskTemplate();
@@ -284,8 +283,7 @@ async function updateTaskStatus(taskId, newStatus) {
 
 
 /**
- * Returns the ordered list of task columns.
- * Each column has an id and a display name.
+ * Returns the ordered list of task columns. Each column has an id and a display name.
  * @returns {Array<{id:string, name:string}>}
  */
 function getColumnList() {
@@ -379,15 +377,11 @@ function updateMenuLinks(menu, taskElement) {
  */
 function toggleMenuMobileMoveTo(event) {
     event.stopPropagation();
-    const button = event.currentTarget;
-    const cardsLabel = button.closest('.cardsLabel');
-    const menu = cardsLabel.querySelector('.menuMoveToMobile');
+    const menu = event.currentTarget.closest('.cardsLabel').querySelector('.menuMoveToMobile');
     menu.classList.toggle('d_none');
     if (!menu.classList.contains('d_none')) {
-        const taskCard = button.closest('.taskCards');
-        if (taskCard) {
-            updateMenuLinks(menu, taskCard);
-        }
+        const taskCard = event.currentTarget.closest('.taskCards');
+        taskCard && updateMenuLinks(menu, taskCard);
     }
 }
 
