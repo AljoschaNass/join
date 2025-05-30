@@ -233,12 +233,15 @@ async function saveEditedContact(event) {
 
 
 /**
- * Deletes a contact by its email.
+ * Deletes a contact by its email in the contactlist and in all tasks where the contact is assigned.
  * @param {string} email - The email of the contact to delete.
  */
 async function deleteContact(email) {
+    let position = await findContactPositionByEmail(email); 
+    let contacts = await getAllContacts();
+    let name = contacts[position].name;
     await deleteContactInList(email);
-    await deleteContactInTask(email);
+    await deleteContactInTask(name);
 }
 
 
