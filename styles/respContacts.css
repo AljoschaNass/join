@@ -124,6 +124,8 @@
         padding: 10px;
         gap: 0;
         z-index: 1;
+        transform: translateX(0); 
+        transition: transform 0.3s ease-in-out;
     }
 
     .contactButton {
@@ -148,7 +150,6 @@
 
     .respContactEditMenuClosed {
         transform: translateX(120%);
-        
     }
 }
 

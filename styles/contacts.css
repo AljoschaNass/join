@@ -310,6 +310,14 @@
     right: 20px;
 }
 
+.theePointsMenu:hover {
+    background: rgba(41, 171, 226, 1);
+}
+
+.theePointsMenu:active {
+    background: rgba(9, 25, 49, 1);
+}
+
 .theePointsMenu img{
     height: 32px;
 }
