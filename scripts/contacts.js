@@ -242,6 +242,18 @@ async function deleteContact(email) {
 }
 
 
+/**
+ * Deletes a contact from the contact list based on the provided email.
+ *
+ * This asynchronous function first finds the position of the contact in the list using the email.
+ * If the contact is found, it sends a DELETE request to the server to remove the contact.
+ * Upon successful deletion, it reloads the contact list and clears the contact details displayed on the page.
+ * It also shows a success message to the user.
+ *
+ * @async
+ * @param {string} email - The email address of the contact to be deleted.
+ * @returns {Promise<void>} A promise that resolves when the contact has been deleted or if the contact is not found.
+ */
 async function deleteContactInList(email) {
     let path = "contacts";
     let position = await findContactPositionByEmail(email); 
@@ -257,10 +269,10 @@ async function deleteContactInList(email) {
 }
 
 
-async function deleteContactInTask(email) {
+async function deleteContactInTask(name) {
     let path = "tasks";
     for (let i = 0; i < tasks.length; i++) {
-        if (tasks[i].assignedTo === email) {
+        if (tasks[i].assignedTo === name) {
             await deleteAssignedToInTask(path, email);
         }
     }
