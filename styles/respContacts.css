@@ -64,12 +64,14 @@
     }
 
     #contactDetails {
+        position: relative;
         width: 100vw;
         padding-right: 32px;
         padding-top: 32px;
         gap: 21px;
         display: flex;
         flex-direction: column;
+        z-index: 10;
     }
 
     .main_contacts, #contactDetails, #addContactSuccess, #editContactSuccess, #deleteContactSuccess {

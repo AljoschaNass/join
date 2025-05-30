@@ -22,7 +22,6 @@ function contactInit() {
  *  @returns {void} This function does not return a value.
  */
 function resetAnimationSlightDetailsFromRightToCenter() {
-    let contactDetailsDiv = document.getElementById('contactDetails');
     document.getElementById("contactDetails").classList.remove("slightFromRightToCenter");
     if (screen.width > 1024) {
         document.getElementById("contactDetails").classList.add("slightFromRightToCenter");
