@@ -3,6 +3,7 @@
  * 1. Highlights the selected quick link for contacts.
  * 2. Loads the contact list.
  * 3. Checks if the user is logged in and redirects if not.
+ * 4. Resets the animation of the contact details section.
  *
  * @returns {void} This function does not return a value.
  */
@@ -11,6 +12,24 @@ function contactInit() {
     highlightSelectedQuickLinks('contacts');
     loadContactList();
     checkUserLogIn();
+    resetAnimationSlightDetailsFromRightToCenter();
+}
+
+
+/**
+ * Resets the animation of the contact details div and re-applies the animation
+ * to create a sliding effect from the right to the center of the screen.
+ * 
+ *  @returns {void} This function does not return a value.
+ */
+function resetAnimationSlightDetailsFromRightToCenter() {
+    let contactDetailsDiv = document.getElementById('contactDetails');
+    contactDetailsDiv.style.animation = 'none';
+    if (screen.width < 1024) {
+        contactDetailsDiv.style.animation = 'slightDetailsFromRightToCenter 1ms forwards !important';
+    } else {
+        contactDetailsDiv.style.animation = 'slightDetailsFromRightToCenter 1600ms forwards';
+    }
 }
 
 

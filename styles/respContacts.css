@@ -69,14 +69,10 @@
         gap: 21px;
         display: flex;
         flex-direction: column;
-        animation: slightDetailsFromRightToCenter 1ms forwards;
+        animation: slightDetailsFromRightToCenter 1ms forwards !important;
     }
 
-    .main_contacts,
-    #contactDetails,
-    #addContactSuccess,
-    #editContactSuccess,
-    #deleteContactSuccess {
+    .main_contacts, #contactDetails, #addContactSuccess, #editContactSuccess, #deleteContactSuccess {
         display: none;
     }
 
