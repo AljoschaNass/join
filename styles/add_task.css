@@ -305,7 +305,6 @@ textarea {
   justify-content: center;
   align-items: center;
   gap: 4px;
-  cursor: default;
 }
 
 .btn_create_enabled{
