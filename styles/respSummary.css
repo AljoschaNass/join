@@ -1,7 +1,4 @@
 @media (max-width: 1248px) {
-  .main_content_summary {
-    padding: 64px 32px;
-  }
 
   .summary_greeting {
       margin-left: 30px;
@@ -112,7 +109,7 @@
 
   @media (max-height: 1200px) {
     .main_content_summary {
-      height: calc(100vh - 320px);
+      margin-top: 80px !important;
     }
   } 
 }
@@ -145,6 +142,7 @@
 @media (max-width: 630px) {
   .main_content_summary {
     margin: 0;
+    margin-top: 0 !important;
   }
 
   .summary_cards {
@@ -350,37 +348,3 @@
     border-radius: 20px;
   }
 }
-
-  @media (max-height: 940px) { 
-    .main_content_summary {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .headSummaryPositionResp {
-      margin-top: 0px;
-      margin-left: calc((100% - 396px) / 2);
-      width: 396px;
-      }
-  } 
-
-  @media(max-height: 915px) { 
-    .main_content_summary {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .headSummaryPositionResp {
-      margin-top: 0px;
-      margin-left: calc((100% - 310px) / 2);
-      width: 310px;
-      }
-  } 

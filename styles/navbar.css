@@ -105,10 +105,9 @@
   .main_content_summary {
     margin-left: 232px;
     margin-top: 96px;
-    padding: 64px 96px;
+    padding: 64px 0 0 96px;
     background-color: #f6f7f8;
     position: relative;
-    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
