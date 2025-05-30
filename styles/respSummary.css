@@ -146,7 +146,7 @@
 } 
 
 
-@media (max-width: 630px) {
+@media(max-width: 630px) {
   .main_content_summary {
     margin: 0;
     margin-top: 0 !important;
@@ -280,7 +280,6 @@
     margin: 0;
     width: 290px;
     margin-top: 120px;
-    margin-left: calc((100% - 290px)/2);
   }
 
   .summary_card_number {
@@ -353,5 +352,11 @@
     gap: 6px;
     padding: 12px;
     border-radius: 20px;
+  }
+
+  @media (max-height: 670px) {
+    .headSummaryPositionResp {
+      margin-top: 15px;
+    }
   }
 }
