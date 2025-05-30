@@ -240,6 +240,7 @@ async function deleteContact(email) {
     let position = await findContactPositionByEmail(email); 
     let contacts = await getAllContacts();
     let name = contacts[position].name;
+console.log(name);
     await deleteContactInList(email);
     await deleteContactInTask(name);
 }
@@ -272,13 +273,45 @@ async function deleteContactInList(email) {
 }
 
 
+/**
+ * Deletes a contact from tasks if the contact is assigned to any of the tasks.
+ *
+ * This function iterates through all tasks and checks if the specified contact
+ * is assigned to any of them. If found, it sends a DELETE request to remove
+ * the contact from that task.
+ *
+ * @async
+ * @param {string} name - The name of the contact to be deleted from tasks.
+ * @returns {Promise<void>} A promise that resolves when the contact is successfully deleted.
+ * @throws {Error} Throws an error if the fetch request fails.
+ */
 async function deleteContactInTask(name) {
-    let path = "tasks";
-    for (let i = 0; i < tasks.length; i++) {
-        if (tasks[i].assignedTo === name) {
-            await deleteAssignedToInTask(path, email);
+    let tasks = getAllTasks();
+
+console.log(tasks);
+
+    for (let i in tasks) {
+        for (j in tasks[i].assignedTo) {
+
+console.log(tasks[i].assignedTo);
+
+            if (tasks[i].assignedTo[j] === name) {
+                try {
+                    let path = "tasks";
+
+console.log(BASE_URL + path + "/"  + i + "/"  + j + ".json");
+
+                    let response = await fetch(BASE_URL + path + "/"  + i + "/"  + j + ".json", { method: "DELETE" });
+                    if (response.ok) {
+
+console.log(tasks[i].assignedTo);
+
+                        return;
+                    } 
+                } catch (error) {}
+            }
         }
-    }
+    } 
 }
 
 
