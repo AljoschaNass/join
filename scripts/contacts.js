@@ -12,7 +12,6 @@ function contactInit() {
     highlightSelectedQuickLinks('contacts');
     loadContactList();
     checkUserLogIn();
-    resetAnimationSlightDetailsFromRightToCenter();
 }
 
 
@@ -24,12 +23,10 @@ function contactInit() {
  */
 function resetAnimationSlightDetailsFromRightToCenter() {
     let contactDetailsDiv = document.getElementById('contactDetails');
-    contactDetailsDiv.style.animation = 'none';
-    if (screen.width < 1024) {
-        contactDetailsDiv.style.animation = 'slightDetailsFromRightToCenter 1ms forwards !important';
-    } else {
-        contactDetailsDiv.style.animation = 'slightDetailsFromRightToCenter 1600ms forwards';
-    }
+    document.getElementById("contactDetails").classList.remove("slightFromRightToCenter");
+    if (screen.width > 1024) {
+        document.getElementById("contactDetails").classList.add("slightFromRightToCenter");
+    } 
 }
 
 

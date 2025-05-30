@@ -80,10 +80,10 @@
 }
 
 #contactDetails {
-    position: relative;
-    top: 0px;
+    position: fixed;
+    top: auto;
     left: 2500px; 
-    padding-left: 62px;
+    padding-left: 750px;
     padding-top: 32px;
     gap: 21px;
     display: flex;
@@ -92,7 +92,10 @@
     flex-direction: column;
     height: 360px;
     width: 600px;
-    animation: slightDetailsFromRightToCenter 1600ms forwards; 
+}
+
+.slightFromRightToCenter {
+    animation: slightDetailsFromRightToCenter 1000ms forwards;
 }
 
 @keyframes slightDetailsFromRightToCenter {
