@@ -65,13 +65,15 @@
 
     #contactDetails {
         position: relative;
+        top: 0px;
+        left: 0px;
         width: 100vw;
+        padding-left: 62px;
         padding-right: 32px;
         padding-top: 32px;
         gap: 21px;
         display: flex;
         flex-direction: column;
-        z-index: 10;
     }
 
     .main_contacts, #contactDetails, #addContactSuccess, #editContactSuccess, #deleteContactSuccess {
