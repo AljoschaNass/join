@@ -237,6 +237,12 @@ async function saveEditedContact(event) {
  * @param {string} email - The email of the contact to delete.
  */
 async function deleteContact(email) {
+    await deleteContactInList(email);
+    await deleteContactInTask(email);
+}
+
+
+async function deleteContactInList(email) {
     let path = "contacts";
     let position = await findContactPositionByEmail(email); 
     if (position === null) return; 
@@ -248,6 +254,16 @@ async function deleteContact(email) {
             showDeleteContactSuccessMessage();
         } 
     } catch (error) {}
+}
+
+
+async function deleteContactInTask(email) {
+    let path = "tasks";
+    for (let i = 0; i < tasks.length; i++) {
+        if (tasks[i].assignedTo === email) {
+            await deleteAssignedToInTask(path, email);
+        }
+    }
 }
 
 
