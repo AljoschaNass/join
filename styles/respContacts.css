@@ -10,6 +10,11 @@
         padding-right: 8px;
     }
 
+    @keyframes slightDetailsFromRightToCenter {
+        from {left: 2500px;}
+        to {left: 572px;}
+    }
+
     .contactDetailsTop {
         gap: 32px;
     }
