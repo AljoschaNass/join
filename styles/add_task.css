@@ -297,7 +297,8 @@ textarea {
 }
 
 .btn_create {
-  background-color: #2b3647;
+  background-color: #A8A8A8;
+  cursor: not-allowed;
   border: unset;
   color: white;
   display: flex;
@@ -305,6 +306,10 @@ textarea {
   align-items: center;
   gap: 4px;
   cursor: default;
+}
+
+.btn_create_enabled{
+  background-color: #2b3647;
 }
 
 .btn_create_enabled:hover {
