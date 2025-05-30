@@ -114,7 +114,7 @@
     }
 
     .contactDetailsButtons{
-        position: absolute;
+        position: fixed;
         right: 8px;
         bottom: 96px;
         flex-direction: column;
