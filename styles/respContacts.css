@@ -85,6 +85,22 @@
         display: none;
     }
 
+    #addContactSuccess, #editContactSuccess, #deleteContactSuccess {
+        display: flex;
+        margin: 0px;
+        z-index: 10;
+        position: absolute;
+        top: 2500px;
+        left: calc((100vw - 300px)/2);
+        animation: slightFromDowntToCenter 800ms forwards;
+        translate: -300% 0;
+    }
+
+    @keyframes slightFromDowntToCenter {
+        from {top: 2500px;}
+        to {top: 100px;}
+    }
+
     .contactsListTop {
         height: unset;
         top: unset;
