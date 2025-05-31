@@ -338,7 +338,7 @@ function renderNoTaskCard(status) {
 
 function renderContactInList(name, email, phone, isItMe, backgroundcolor) {
     return `
-            <div class="contactInList" onclick="selectContact(event); loadContactDetails('${name}', '${email}', '${phone}', '${backgroundcolor}'); resetAnimationSlightDetailsFromRightToCenter();">
+            <div class="contactInList" id="${email}" onclick="selectContact(event); loadContactDetails('${name}', '${email}', '${phone}', '${backgroundcolor}'); resetAnimationSlightDetailsFromRightToCenter();">
                 <div class="contactCircleSmall ${backgroundcolor}">
                     ${setContactInitials(name)}
                 </div>

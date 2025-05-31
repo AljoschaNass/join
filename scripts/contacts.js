@@ -194,7 +194,8 @@ async function addContact(event) {
     await postContact("contacts", name, email, phone, backgroundcolor); 
     closeContactDialog(event);
     await loadContactList(); 
-    loadContactDetails(name, email, phone, backgroundcolor)
+    document.getElementById(email).classList.add("click");
+    loadContactDetails(name, email, phone, backgroundcolor);
     showAddContactSuccessMessage(); 
 }
 
