@@ -4,7 +4,6 @@
  * 2. Loads the contact list.
  * 3. Checks if the user is logged in and redirects if not.
  * 4. Resets the animation of the contact details section.
- *
  * @returns {void} This function does not return a value.
  */
 function contactInit() {
@@ -16,9 +15,7 @@ function contactInit() {
 
 
 /**
- * Resets the animation of the contact details div and re-applies the animation
- * to create a sliding effect from the right to the center of the screen.
- * 
+ * Resets the animation of the contact details div and re-applies the animation to create a sliding effect from the right to the center of the screen.
  *  @returns {void} This function does not return a value.
  */
 function resetAnimationSlightDetailsFromRightToCenter() {
@@ -53,8 +50,7 @@ async function postContact(path="contacts", name, email, phone, backgroundcolor)
 
 
 /**
- * Updates an existing contact resource in the database.
- * This operation uses PATCH to only overwrite parts of the contact.
+ * Updates an existing contact resource in the database. This operation uses PATCH to only overwrite parts of the contact.
  * @param {string} path - The path to the contact endpoint.
  * @param {string} name - The name of the contact.
  * @param {string} email - The email of the contact.
@@ -102,11 +98,7 @@ async function getAllUsersToContacts(){
 
 /**
  * Loads the details of a contact into the contact details card.
- *
- * This function clears the existing contact details and inserts the selected contact's
- * information. If the screen width is below 1024 pixels, it adjusts the layout for
- * responsive view.
- *
+ * This function clears the existing contact details and inserts the selected contact's information. If the screen width is below 1024 pixels, it adjusts the layout for responsive view.
  * @param {string} name - The name of the contact.
  * @param {string} email - The email of the contact.
  * @param {string} phone - The phone number of the contact.
@@ -124,10 +116,7 @@ function loadContactDetails(name, email, phone, backgroundcolor) {
 
 /**
  * Opens the responsive contact details view.
- *
- * Hides the general contacts list and shows the main contact section,
- * the contact details panel, and the three-dots menu (options menu)
- * for responsive layouts.
+ * Hides the general contacts list and shows the main contact section, the contact details panel, and the three-dots menu (options menu) for responsive layouts.
  */
 function openResponsiveDetails() {
     document.querySelector('.contacts').style.display = 'none';
@@ -240,21 +229,15 @@ async function deleteContact(email) {
     let position = await findContactPositionByEmail(email); 
     let contacts = await getAllContacts();
     let name = contacts[position].name;
-console.log(name);
     await deleteContactInList(email);
     await deleteContactInTask(name);
 }
 
 
 /**
- * Deletes a contact from the contact list based on the provided email.
- *
- * This asynchronous function first finds the position of the contact in the list using the email.
- * If the contact is found, it sends a DELETE request to the server to remove the contact.
- * Upon successful deletion, it reloads the contact list and clears the contact details displayed on the page.
+ * Deletes a contact from the contact list based on the provided email. This asynchronous function first finds the position of the contact in the list using the email.
+ * If the contact is found, it sends a DELETE request to the server to remove the contact. Upon successful deletion, it reloads the contact list and clears the contact details displayed on the page.
  * It also shows a success message to the user.
- *
- * @async
  * @param {string} email - The email address of the contact to be deleted.
  * @returns {Promise<void>} A promise that resolves when the contact has been deleted or if the contact is not found.
  */
@@ -290,19 +273,17 @@ async function deleteContactInTask(name) {
 
 
 /**
- * Sends a DELETE request to remove a contact from a specific task.
- * @param {string} taskId - The ID of the task.
- * @param {string} name - The contact name to remove from assignedTo.
+ * Deletes a contact from the assignedTo field in a task without logging errors.
+ * @param {string} taskId - The task ID.
+ * @param {string} name - The contact name to remove.
  */
 async function deleteAssignedContact(taskId, name) {
     const path = `tasks/${taskId}/assignedTo/${encodeURIComponent(name)}.json`;
     try {
         const response = await fetch(BASE_URL + path, { method: "DELETE" });
-        if (!response.ok) {
-            console.error(`Failed to delete ${name} in task ${taskId}`);
-        }
+        if (!response.ok) return;
     } catch (error) {
-        console.error(`Error deleting ${name} in task ${taskId}:`, error);
+        return;
     }
 }
 
@@ -387,9 +368,7 @@ function setBackgroundcolor() {
 
 /**
  * Toggles the visibility of the responsive contact details menu.
- *
- * Adds or removes the 'respContactEditMenuClosed' class from the contact details menu
- * to show or hide it based on its current state.
+ * Adds or removes the 'respContactEditMenuClosed' class from the contact details menu to show or hide it based on its current state.
  */
 function toggleRespMenuContacts() {    
     document.getElementById("contactDetailsMenu").classList.toggle("respContactEditMenuClosed");
@@ -398,12 +377,8 @@ function toggleRespMenuContacts() {
 
 /**
  * Closes the contact details menu when clicking outside of it.
- *
- * This event listener is attached to the entire document and checks
- * if a click occurred outside of both the menu and the button that toggles it.
- * If the menu is open (i.e., does not have the 'respContactEditMenuClosed' class),
- * it adds this class to close it.
- *
+ * This event listener is attached to the entire document and checks if a click occurred outside of both the menu and the button that toggles it.
+ * If the menu is open (i.e., does not have the 'respContactEditMenuClosed' class), it adds this class to close it.
  * @listens document#click
  */
 document.addEventListener('click', function(event) {
@@ -418,9 +393,7 @@ document.addEventListener('click', function(event) {
 
 
 /**
- * Resets the contact view to show the contact list.
- * Hides the contact detail view, main contact section, and the menu,
- * and displays the full contact list container again.
+ * Resets the contact view to show the contact list. Hides the contact detail view, main contact section, and the menu, and displays the full contact list container again.
  */
 function backToContactList() {
     document.querySelector('.main_contacts').style.display = 'none';
