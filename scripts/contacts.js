@@ -27,8 +27,7 @@ function resetAnimationSlightDetailsFromRightToCenter() {
 
 
 /**
- * Creates a new contact resource in the database.
- * This operation is non-idempotent, meaning multiple executions can create multiple entries.
+ * Creates a new contact resource in the database. This operation is non-idempotent, meaning multiple executions can create multiple entries.
  * @param {string} [path="contacts"] - The path to the contacts endpoint.
  * @param {string} name - The name of the contact.
  * @param {string} email - The email of the contact.
@@ -97,8 +96,7 @@ async function getAllUsersToContacts(){
 
 
 /**
- * Loads the details of a contact into the contact details card.
- * This function clears the existing contact details and inserts the selected contact's information. If the screen width is below 1024 pixels, it adjusts the layout for responsive view.
+ * Loads the details of a contact into the contact details card. This function clears the existing contact details and inserts the selected contact's information. If the screen width is below 1024 pixels, it adjusts the layout for responsive view.
  * @param {string} name - The name of the contact.
  * @param {string} email - The email of the contact.
  * @param {string} phone - The phone number of the contact.
@@ -115,8 +113,7 @@ function loadContactDetails(name, email, phone, backgroundcolor) {
 
 
 /**
- * Opens the responsive contact details view.
- * Hides the general contacts list and shows the main contact section, the contact details panel, and the three-dots menu (options menu) for responsive layouts.
+ * Opens the responsive contact details view. Hides the general contacts list and shows the main contact section, the contact details panel, and the three-dots menu (options menu) for responsive layouts.
  */
 function openResponsiveDetails() {
     document.querySelector('.contacts').style.display = 'none';
