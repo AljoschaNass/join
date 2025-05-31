@@ -93,13 +93,18 @@
         position: absolute;
         top: 2500px;
         left: calc((100vw - 300px)/2);
-        animation: slightFromDowntToCenter 800ms forwards;
+        animation: slightFromDowntToCenter 1000ms forwards, pause 3000ms 1000ms forwards; ;
         translate: -300% 0;
     }
 
     @keyframes slightFromDowntToCenter {
         from {top: 2500px;}
         to {top: 100px;}
+    }
+
+    @keyframes pause {
+        from {top: 100px;}
+        to {top: 2500px;}
     }
 
     .contactsListTop {
