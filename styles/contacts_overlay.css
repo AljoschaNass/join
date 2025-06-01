@@ -9,7 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: darkenBackground 800ms;
+    animation: darkenBackground 250ms;
 }
 
 @keyframes darkenBackground {
@@ -25,17 +25,17 @@
     z-index: 5;
     position: absolute;
     top: 17%;
-    left: 144px;
+    left: calc((100vw - 1212px) / 2);
     height: 592px; 
     width: 1212px;
     border-radius: 30px;
     flex: 1;
-    animation: slightFromRightToCenter 800ms; 
+    animation: slightFromRightToCenter 250ms; 
 }
 
 @keyframes slightFromRightToCenter {
     from {left: 2500px;}
-    to {left: 144px;}
+    to {left: calc((100vw - 1212px) / 2);}
 }
 
 @keyframes slightFromDowntToUp {
@@ -44,7 +44,7 @@
 }
 
 .add_contact_background.lighten {
-    animation: lightenBackground 800ms forwards;
+    animation: lightenBackground 250ms forwards;
 }
 
 @keyframes lightenBackground {
@@ -53,11 +53,11 @@
 }
 
 .add_contact_container.slide-out {
-    animation: slideOutToRight 800ms forwards;
+    animation: slideOutToRight 250ms forwards;
 }
 
 @keyframes slideOutToRight {
-    from { left: 144px; }
+    from { left: calc((100vw - 1212px) / 2); }
     to { left: 2500px; }
 }
 

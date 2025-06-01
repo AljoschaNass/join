@@ -93,7 +93,7 @@
 }
 
 .slightFromRightToCenter {
-    animation: slightDetailsFromRightToCenter 1000ms forwards;
+    animation: slightDetailsFromRightToCenter 250ms forwards;
 }
 
 @keyframes slightDetailsFromRightToCenter {
