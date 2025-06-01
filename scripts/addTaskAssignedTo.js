@@ -137,7 +137,71 @@ function renderContactsToAssignedTo(contacts) {
         dropDown.innerHTML += getAssignedToContactTemplate(contact.name, data.initials, index, data.contactClass, data.checkboxClass, data.bgColor);
         icons.innerHTML += getAssignedToContactIconTemplate(data.initials, index, data.iconClass, data.bgColor);
     });
+    renderCheckedContactIcons();
     renderNoContactsToAssignedTo();
+}
+
+
+/**
+ * Updates the display of contact icons based on selected contacts.
+ * 
+ * Hides all icons, then shows up to five or handles overflow if more.
+ * Uses helper functions to manage icon rendering.
+ */
+function renderCheckedContactIcons() {
+    const selectedNames = Object.keys(checkedContacts);
+    const total = selectedNames.length;
+    Object.keys(currentContacts).forEach((_, index) => {
+        const icon = document.getElementById(`addTask_assignedTo_contactIcon_${index}`);
+        if (icon) icon.classList.add("d_none");
+    });    
+    if (total <= 5) {   
+        showFiveOrLessContactIcons(selectedNames);
+    } else {
+        showMoreThanFiveContactIcons(selectedNames);
+        renderExtraAssignedToIcon(total);
+    }
+}
+
+
+/**
+ * Displays up to five contact icons based on the selected names.
+ * Removes the 'd_none' class from each icon corresponding to a selected contact, making it visible in the UI.
+ * 
+ * @param {string[]} selectedNames - Array of selected contact names.
+ */
+function showFiveOrLessContactIcons(selectedNames) {
+    selectedNames.forEach((_, index) => {
+        const icon = document.getElementById(`addTask_assignedTo_contactIcon_${index}`);
+        if (icon) icon.classList.remove("d_none");
+    });
+}
+
+
+/**
+ * Displays the first four contact icons when more than five contacts are selected.
+ * Used to limit the visible icons and prepare for showing an overflow indicator.
+ * 
+ * @param {string[]} selectedNames - Array of selected contact names.
+ */
+function showMoreThanFiveContactIcons(selectedNames) {
+    selectedNames.slice(0, 4).forEach((_, index) => {
+        const icon = document.getElementById(`addTask_assignedTo_contactIcon_${index}`);
+        if (icon) icon.classList.remove("d_none");
+    });
+}
+
+
+/**
+ * Renders an additional icon to indicate how many more contacts are selected beyond the first four.
+ * Adds an overflow indicator (e.g., "+2") to the icon container.
+ * 
+ * @param {string[]} selectedNames - Array of selected contact names.
+ */
+function renderExtraAssignedToIcon(total) {
+    let remaining = total - 4;
+    const iconContainer = document.getElementById("addTask_assignedToIcons");
+    iconContainer.innerHTML += getAssignedToContactIconExtraTemplate(remaining);
 }
 
 
