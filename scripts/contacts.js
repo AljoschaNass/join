@@ -204,6 +204,7 @@ async function addContact(event) {
  * @param {Event} event - The event triggered by the form submission.
  */
 async function saveEditedContact(event) { 
+    event.preventDefault();
     let name = document.getElementById("editContactName").value;
     let email = document.getElementById("editContactEmail").value;
     let phone = document.getElementById("editContactPhone").value;

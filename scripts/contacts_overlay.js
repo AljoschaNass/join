@@ -161,7 +161,7 @@ function enableEditContactButton() {
     let email = document.getElementById("editContactEmail");
     let phone= document.getElementById("editContactPhone");
     let createContactBtn = document.getElementById("saveContactBtn");
-    if (name.value && email.value && phone.value && name.checkValidity() && email.checkValidity() && phone.checkValidity()) {
+    if (name.value && email.value && phone.value ) {
         createContactBtn.disabled = false; 
         createContactBtn.classList.add("saveContactBtn_enabled"); 
         createContactBtn.classList.remove("saveContactBtn_disabled");
