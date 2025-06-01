@@ -39,7 +39,8 @@
 }
 
 .editViewScrollbar {
-    max-height: calc(100vh - 376px);
+    height: calc(100vh - 376px);
+    max-height: 730px;
     overflow-y: auto;
     overflow-x: hidden;
     margin-right: -30px;

@@ -210,7 +210,7 @@
   height: fit-content;
   justify-content: center;
   padding-left: 0;
-  width: auto;
+  width: 80px;
   height: 80px;
 }
 
@@ -229,7 +229,6 @@ height: 100%;
 
 .bg_dark_blue {
   border-radius: 16px;
-  padding: 32px 12px;
   height: 80px;
 }
 }
