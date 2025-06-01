@@ -264,9 +264,10 @@ textarea {
   align-items: flex-end;
   flex-direction: row;
   gap: 16px;
-  position: relative;
-  right: 0px;
-  bottom: 180px;
+  position: absolute;
+  right: 74px;
+  bottom: 64px;
+  width: 970px;
   z-index: -1;
 }
 

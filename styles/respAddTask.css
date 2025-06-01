@@ -85,6 +85,13 @@
         max-width: 100vw;
         align-items: flex-start;
     }
+
+    .add_task_btns {
+        position: fixed;
+        right: auto;
+        bottom: 112px !important;
+        z-index: 1;
+    }
 }
 
 @media (max-width:480px) {
@@ -97,8 +104,8 @@
     }
 
     .add_task_btns {
-            position: fixed;
-        right: 16px;
+        position: fixed;
+        right: 32px;
         bottom: 92px;
         z-index: 1
     }
