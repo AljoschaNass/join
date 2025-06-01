@@ -266,8 +266,6 @@ textarea {
   gap: 16px;
   position: relative;
   right: 0px;
-  bottom: 180px;
-  z-index: -1;
 }
 
 .add_task_btn_section div {
