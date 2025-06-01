@@ -456,6 +456,13 @@ function getAssignedToContactIconTemplate(initials, index, iconClass, bgClass) {
 }
 
 
+function getAssignedToContactIconExtraTemplate(num) {
+    return `
+            <div id="contact_icon_counter" class="contactCircleSmallDetailView bg_grey">+${num}</div>
+    `
+}
+
+
 function getSubtaskTemplate(id, input) {
     return `
             <div id="${id}" class="editDialogBoardSubtasksAdded">
