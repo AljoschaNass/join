@@ -150,6 +150,7 @@ function renderContactsToAssignedTo(contacts) {
  */
 function renderCheckedContactIcons() {
     const selectedNames = Object.keys(checkedContacts);
+    const total = selectedNames.length;
     Object.keys(currentContacts).forEach((_, index) => {
         const icon = document.getElementById(`addTask_assignedTo_contactIcon_${index}`);
         if (icon) icon.classList.add("d_none");
@@ -158,7 +159,7 @@ function renderCheckedContactIcons() {
         showFiveOrLessContactIcons(selectedNames);
     } else {
         showMoreThanFiveContactIcons(selectedNames);
-        renderExtraAssignedToIcon(selectedNames);
+        renderExtraAssignedToIcon(total);
     }
 }
 
@@ -197,8 +198,7 @@ function showMoreThanFiveContactIcons(selectedNames) {
  * 
  * @param {string[]} selectedNames - Array of selected contact names.
  */
-function renderExtraAssignedToIcon(selectedNames) {
-    const total = selectedNames.length;
+function renderExtraAssignedToIcon(total) {
     let remaining = total - 4;
     const iconContainer = document.getElementById("addTask_assignedToIcons");
     iconContainer.innerHTML += getAssignedToContactIconExtraTemplate(remaining);
