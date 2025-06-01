@@ -144,18 +144,36 @@ function updateProgressBar(subtasksObj, container) {
 
 
 /**
- * Renders contact icons for assigned users.
+ * Renders contact icons for assigned users, showing up to 4 and a "+X" if needed.
+ * @param {Object} assignedToObj - Object of assigned contacts.
+ * @param {string} containerId - ID of the container element.
+ * @param {Object} contactsObj - Object with all contact information.
  */
 function renderAssignedToIcons(assignedToObj, containerId, contactsObj) {
     const container = document.getElementById(containerId);
     container.innerHTML = '';
     if (!assignedToObj || Object.keys(assignedToObj).length === 0) return;
-    for (let name in assignedToObj) {
-        if (assignedToObj[name]) {
-            const bgColor = getContactBackgroundColor(name, contactsObj);
-            const initials = setContactInitials(name);
-            container.innerHTML += createAssignedToIconHTML(initials, bgColor);
-        }
+    const assignedNames = Object.keys(assignedToObj).filter(name => assignedToObj[name]);
+    renderContactIcons(assignedNames, container, contactsObj);
+}
+
+
+/**
+ * Renders up to 4 contact icons and a "+X" indicator if more exist.
+ * @param {string[]} names - List of contact names.
+ * @param {HTMLElement} container - Container element to render into.
+ * @param {Object} contactsObj - Object with contact information.
+ */
+function renderContactIcons(names, container, contactsObj) {
+    const maxIcons = 4;
+    names.slice(0, maxIcons).forEach(name => {
+        const bgColorClass = getContactBackgroundColor(name, contactsObj);
+        const initials = setContactInitials(name);
+        container.innerHTML += createAssignedToIconHTML(initials, bgColorClass);
+    });
+    const remaining = names.length - maxIcons;
+    if (remaining > 0) {
+        container.innerHTML += createAssignedToIconHTML(`+${remaining}`, 'bg-gray');
     }
 }
 

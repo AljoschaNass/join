@@ -317,3 +317,7 @@ input[type="checkbox"]:checked + label .customCheckbox:hover {
 .backgroundColorDarkBlue {
   background-color: var(--dark-blue);
 }
+
+.bg-gray {
+    background-color: #D1D1D1;
+}
