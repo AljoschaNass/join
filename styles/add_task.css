@@ -264,9 +264,10 @@ textarea {
   align-items: flex-end;
   flex-direction: row;
   gap: 16px;
-  position: unset;
-  right: 74px;
-  bottom: 64px;
+  position: relative;
+  right: 0px;
+  bottom: 180px;
+  z-index: -1;
 }
 
 .add_task_btn_section div {
