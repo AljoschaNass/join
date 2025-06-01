@@ -135,16 +135,17 @@ function showEditContactSuccessMessage() {
 
 
 /**
- * Enables the "Create Contact" button if all required fields are filled.
+ * Enables the "Create Contact" button if all required fields are filled and valid.
  * Otherwise, it disables the button.
+ * @returns {void}
  */
 function enableCreateContactButton() {
-    let name = document.getElementById("addContactName");
-    let email = document.getElementById("addContactEmail");
-    let phone= document.getElementById("addContactPhone");
+    let nameInput = document.getElementById("addContactName"); 
+    let emailInput = document.getElementById("addContactEmail");
+    let phoneInput = document.getElementById("addContactPhone"); 
     let createContactBtn = document.getElementById("addContactBtn");
-    disableCreateContactButton();
-    if (name.value && email.value && phone.value) {
+    disableCreateContactButton(); 
+    if (nameInput.value && emailInput.value && phoneInput.value && nameInput.checkValidity() && emailInput.checkValidity() && phoneInput.checkValidity()) {
         createContactBtn.disabled = false; 
         createContactBtn.classList.add("addContactBtn_enabled"); 
     } 
@@ -160,7 +161,7 @@ function enableEditContactButton() {
     let email = document.getElementById("editContactEmail");
     let phone= document.getElementById("editContactPhone");
     let createContactBtn = document.getElementById("saveContactBtn");
-    if (name.value && email.value && phone.value) {
+    if (name.value && email.value && phone.value && name.checkValidity() && email.checkValidity() && phone.checkValidity()) {
         createContactBtn.disabled = false; 
         createContactBtn.classList.add("saveContactBtn_enabled"); 
         createContactBtn.classList.remove("saveContactBtn_disabled");

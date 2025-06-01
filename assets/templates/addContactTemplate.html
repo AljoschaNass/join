@@ -20,11 +20,11 @@
                 <img src="../assets/img/icons/person.svg" alt="name" class="input_contact_img">
             </div>
             <div class="password_container">
-                <input type="email" placeholder="Email" class="input_contact" id="addContactEmail" name="Email" required>
+                <input type="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" placeholder="Email" class="input_contact" id="addContactEmail" name="Email" required>
                 <img src="../assets/img/icons/mail.svg" alt="Email" class="input_contact_img">
             </div>
             <div class="password_container">
-                <input type="tel" pattern="[\+0-9 ]*" placeholder="Phone" class="input_contact" id="addContactPhone" name="Phone" required>
+                <input type="tel" pattern="^(0|\+49)[\d\s\-]{7,20}$" placeholder="Phone" class="input_contact" id="addContactPhone" name="Phone" required>
                 <img  src="../assets/img/icons/call.svg" alt="Phone" class="input_contact_img">
             </div>
         </div>
