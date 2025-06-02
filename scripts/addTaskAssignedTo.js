@@ -166,28 +166,34 @@ function renderCheckedContactIcons() {
 
 /**
  * Displays up to five contact icons based on the selected names.
- * Removes the 'd_none' class from each icon corresponding to a selected contact, making it visible in the UI.
- * 
+ * Matches names with currentContacts to find correct indices.
+ *
  * @param {string[]} selectedNames - Array of selected contact names.
  */
 function showFiveOrLessContactIcons(selectedNames) {
-    selectedNames.forEach((_, index) => {
-        const icon = document.getElementById(`addTask_assignedTo_contactIcon_${index}`);
-        if (icon) icon.classList.remove("d_none");
+    selectedNames.slice(0, 5).forEach(name => {
+        const index = Object.values(currentContacts).findIndex(contact => contact.name === name);
+        if (index !== -1) {
+            const icon = document.getElementById(`addTask_assignedTo_contactIcon_${index}`);
+            if (icon) icon.classList.remove("d_none");
+        }
     });
 }
 
 
 /**
  * Displays the first four contact icons when more than five contacts are selected.
- * Used to limit the visible icons and prepare for showing an overflow indicator.
- * 
+ * Matches names with currentContacts to find correct indices.
+ *
  * @param {string[]} selectedNames - Array of selected contact names.
  */
 function showMoreThanFiveContactIcons(selectedNames) {
-    selectedNames.slice(0, 4).forEach((_, index) => {
-        const icon = document.getElementById(`addTask_assignedTo_contactIcon_${index}`);
-        if (icon) icon.classList.remove("d_none");
+    selectedNames.slice(0, 4).forEach(name => {
+        const index = Object.values(currentContacts).findIndex(contact => contact.name === name);
+        if (index !== -1) {
+            const icon = document.getElementById(`addTask_assignedTo_contactIcon_${index}`);
+            if (icon) icon.classList.remove("d_none");
+        }
     });
 }
 
@@ -343,6 +349,7 @@ function checkIfContactChecked(event, index) {
     } else {
         contactIsNotChecked(iconRef, contactRef);
     }       
+    renderCheckedContactIcons()
 }
 
 

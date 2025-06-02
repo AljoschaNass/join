@@ -42,6 +42,7 @@ function showAddTaskDialog(status) {
     dialogRef.classList.remove("slide-out");
     requestAnimationFrame(() => dialogRef.classList.add("slide-in"));
     dialogRef.addEventListener("click", e => e.stopPropagation());
+    checkedContacts = "";
 }
 
 
