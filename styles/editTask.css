@@ -440,6 +440,7 @@ textarea:focus {
     height: 100%;
     padding: 64px 74px 64px 74px;
     position: relative;
+    overflow-y: hidden;
 }
 
 .addTaskDialogBoard.slide-in {

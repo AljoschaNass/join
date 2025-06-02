@@ -258,7 +258,19 @@ textarea {
   transition: opacity 0.2s ease;
 }
 
-.add_task_btn_section {
+.main_content .add_task_btn_section{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-direction: row;
+  gap: 16px;
+  position: fixed;
+  left: 328px;
+  bottom: 64px;
+  width: calc(100% - 480px);
+}
+
+.addTaskTemplate .add_task_btn_section{
   display: flex;
   justify-content: space-between;
   align-items: flex-end;

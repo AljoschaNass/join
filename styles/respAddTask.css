@@ -28,7 +28,7 @@
         align-items: center;
     }
 
-    .add_task_btn_section {
+    .addTaskTemplate .add_task_btn_section, .main_content .add_task_btn_section {
         flex-direction: column;
         padding-bottom: 0;
         width: 445px;
@@ -38,6 +38,7 @@
         right: 0px;
         bottom: 0px;
         z-index: 1;
+        left: unset;
     }
 
     .add_task_hint_required {
@@ -74,6 +75,7 @@
         padding-top: 48px;
         padding-bottom: 24px;
         position: fixed;
+        z-index: 1;
     }
 
     .add_task_div {
@@ -89,8 +91,9 @@
     .add_task_btns {
         position: fixed;
         right: auto;
-        bottom: 112px !important;
+        bottom: 80px !important;
         z-index: 1;
+        padding-bottom: 32px;
     }
 }
 
