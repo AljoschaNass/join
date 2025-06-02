@@ -42,7 +42,20 @@ function showAddTaskDialog(status) {
     dialogRef.classList.remove("slide-out");
     requestAnimationFrame(() => dialogRef.classList.add("slide-in"));
     dialogRef.addEventListener("click", e => e.stopPropagation());
-    checkedContacts = "";
+    handleClickOutsideAssignedToOverlay();
+    resetAssignedToContacts();
+}
+
+
+/**
+ * Handles click outside the "Assigned To" menu.
+ */
+function handleClickOutsideAssignedToOverlay() {
+    const editDialog = document.getElementById('addTaskDialogBoard');
+    editDialog.addEventListener('click', (event) => {
+        if (event.target.closest('.editDialogBoardAssignedToInputDiv')) return;
+        closeAssignedContactToTaskMenu();
+    });
 }
 
 
