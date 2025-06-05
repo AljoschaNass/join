@@ -255,11 +255,11 @@ function closeAssignedToByClickNextToIt(event) {
 
 
 /**
- * Opens the assigned-to contacts dropdown menu,
- * shows the input field with an upward arrow,
+ * Opens the assigned-to contacts dropdown menu, shows the input field with an upward arrow,
  * and hides the assigned-to icons.
  */
 function openAssignedContactToTaskMenu() {
+    document.getElementById("addTaskAssignedToInput").value = "";
     document.getElementById("editDialogBoardAssignedToDropDown").classList.remove("d_none");
     document.getElementById("addTaskAssignedToInput").classList.add("arrowDropUp");
     document.getElementById("addTask_assignedToIcons").classList.add("d_none");
@@ -267,10 +267,8 @@ function openAssignedContactToTaskMenu() {
 
 
 /**
- * Closes the assigned-to contacts dropdown menu,
- * clears the input field, triggers a search reset,
- * shows the assigned-to icons,
- * and removes the upward arrow from the input.
+ * Closes the assigned-to contacts dropdown menu, clears the input field, triggers a search reset,
+ * shows the assigned-to icons, and removes the upward arrow from the input.
  */
 function closeAssignedContactToTaskMenu() {
     document.getElementById("addTaskAssignedToInput").value = "";
@@ -282,23 +280,22 @@ function closeAssignedContactToTaskMenu() {
 
 
 /**
- * Toggles the assigned-to contacts dropdown menu,
- * clears the input field,
- * toggles the arrow icon on the input,
- * and toggles visibility of the assigned-to icons.
+ * Opens or closes the assigned-to dropdown based on its current state.
  */
-function toggleAssignedContactToTaskMenu() {
-    document.getElementById("addTaskAssignedToInput").value = "";
-    document.getElementById("editDialogBoardAssignedToDropDown").classList.toggle("d_none");
-    document.getElementById("addTaskAssignedToInput").classList.toggle("arrowDropUp");
-    document.getElementById("addTask_assignedToIcons").classList.toggle("d_none");
+function handleAssignedToMenu() {
+    const dropdown = document.getElementById("editDialogBoardAssignedToDropDown");
+
+    if (dropdown.classList.contains("d_none")) {
+        openAssignedContactToTaskMenu();
+    } else {
+        closeAssignedContactToTaskMenu();
+    }
 }
 
 
 /**
- * Handles the selection of a contact to assign to a task by
- * changing the background color, toggling the checkbox,
- * and updating the checked status.
+ * Handles the selection of a contact to assign to a task by changing the background color, 
+ * toggling the checkbox, and updating the checked status.
  * @param {Event} event - The click event triggered by selecting a contact.
  * @param {number} index - The index of the contact in the list.
  */
@@ -354,8 +351,7 @@ function checkIfContactChecked(event, index) {
 
 
 /**
- * Marks a contact as checked by showing its icon,
- * adding it to the checkedContacts object,
+ * Marks a contact as checked by showing its icon, adding it to the checkedContacts object,
  * and incrementing the selected contacts counter.
  * @param {HTMLElement} iconRef - The icon element associated with the contact.
  * @param {string} contactRef - The name of the contact.
@@ -368,8 +364,7 @@ function contactIsChecked(iconRef, contactRef){
 
 
 /**
- * Marks a contact as not checked by hiding its icon,
- * removing it from the checkedContacts object,
+ * Marks a contact as not checked by hiding its icon, removing it from the checkedContacts object,
  * and decrementing the selected contacts counter.
  * @param {HTMLElement} iconRef - The icon element associated with the contact.
  * @param {string} contactRef - The name of the contact.
@@ -382,10 +377,8 @@ function contactIsNotChecked(iconRef, contactRef){
 
 
 /**
- * Filters the currentContacts list based on the search input,
- * renders the filtered contacts in the assigned-to dropdown,
- * opens the assigned-to menu,
- * and shows or hides a "no contacts found" message accordingly.
+ * Filters the currentContacts list based on the search input, renders the filtered contacts in the assigned-to dropdown,
+ * opens the assigned-to menu, and shows or hides a "no contacts found" message accordingly.
  */
 function searchContactAssignedTo() {
     let searchInputRef = document.getElementById("addTaskAssignedToInput").value.toLowerCase();

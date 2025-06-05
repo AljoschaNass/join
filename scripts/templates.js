@@ -257,7 +257,7 @@ function getEditDialogTemplate(category, description, dueDate, title, taskId) {
                             <div class="editDialogBoardAssignedToInputDiv">
                                 <input type="text" placeholder="Select contacts to assign"
                                     id="addTaskAssignedToInput" class="editDialogBoardAssignedToInput arrowDropDown"
-                                    onclick="toggleAssignedContactToTaskMenu()" onkeyup="searchContactAssignedTo()">
+                                    onclick="handleAssignedToMenu()" onkeyup="searchContactAssignedTo()">
                                 <div id="editDialogBoardAssignedToDropDown" class="editDialogBoardAssignedToDropDown d_none">
                                 </div>
                             </div>
