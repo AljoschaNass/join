@@ -193,6 +193,11 @@
     height: 110px;
     gap: 10px;
     border-radius: 20px;
+
+     &:hover {
+      width: 192px;
+      height: 116px;
+    }
   }
 
   .summary_card_large {
@@ -200,6 +205,11 @@
     height: 110px;
     gap: 10px; 
     border-radius: 20px;
+
+     &:hover {
+      width: 402px;
+      height: 116px;
+    }
   }
 
   .summary_card {
@@ -248,6 +258,11 @@
     width: 116px;
     height: 116px;
     gap: 13px;
+
+     &:hover {
+      width: 222px;
+      height: 222px;
+    }
   }
 
   @media(max-height: 730px) { 
@@ -280,6 +295,7 @@
     margin: 0;
     width: 290px;
     margin-top: 120px;
+    margin-left: calc((100% - 290px) / 2)
   }
 
   .summary_card_number {
@@ -295,6 +311,11 @@
     height: 83px;
     gap: 10px;
     border-radius: 20px;
+
+    &:hover {
+      width: 146px;
+      height: 89px;
+    }
   }
 
   .summary_card_large {
@@ -302,6 +323,11 @@
     height: 83px;
     gap: 10px; 
     border-radius: 20px;
+
+    &:hover {
+      width: 146px;
+      height: 89px;
+    }
   }
 
   .summary_card {
@@ -346,6 +372,11 @@
     height: 87px;
     gap: 6px;
     border-radius: 20px;
+
+    &:hover {
+      width: 93px;
+      height: 93px;
+    }
   }
 
   .summary_card_content_small {
