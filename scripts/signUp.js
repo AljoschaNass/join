@@ -184,3 +184,36 @@ function disableSignUpButton() {
     signUpBtn.disabled = true; 
     signUpBtn.classList.remove("signUpBtn_enabled"); 
 }
+
+
+function signUpNameError() {
+  let name = document.getElementById("signUpName").value;
+  if (!name) {
+    document.getElementById("signUpName_error").classList.remove("d_none");
+    document.getElementById("signUpName").style.borderColor = "#ff001f";
+  } else {
+    document.getElementById("signUpName_error").classList.add("d_none");
+    document.getElementById("signUpName").style.borderColor = "#D9D9D9";
+  }
+}
+
+
+/**
+ * Validates the email input in the login form.
+ * If the email is invalid, an error message is displayed, 
+ * and the border color of the input field is changed to red.
+ * If the email is valid, the error message is hidden, 
+ * and the original border color is restored.
+ * 
+ */
+function signUpEmailError() {
+  let email = document.getElementById("signUpEmail").value;
+  let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
+  if (!emailPattern.test(email)) {
+    document.getElementById("signUpEmail_error").classList.remove("d_none");
+    document.getElementById("signUpEmail").style.borderColor = "#ff001f";
+  } else {
+    document.getElementById("signUpEmail_error").classList.add("d_none");
+    document.getElementById("signUpEmail").style.borderColor = "#D9D9D9";
+  }
+}

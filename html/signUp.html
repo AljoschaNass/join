@@ -34,17 +34,18 @@
             <form onchange="enableSignUpButton()" onsubmit="signUp(); return false;" class="signUp_form">
                 <div class="gap_32 center">
                     <div class="password_container">
-                        <input type="text" placeholder="Name" class="input_logIn" id="signUpName" required>
+                        <input type="text" placeholder="Name" class="input_logIn" id="signUpName" onblur="signUpNameError()" required>
                         <img src="../assets/img/icons/person.svg" alt="Password" class="input_logIn_img">
+                        <div class="signUp_error d_none" id="signUpName_error">Please enter your Name.</div>
                     </div>
                     <div class="password_container">
-                        <input type="email" placeholder="Email" class="input_logIn" id="signUpEmail" required>
+                        <input type="email" placeholder="Email" class="input_logIn" id="signUpEmail" onblur="signUpEmailError()" required>
                         <img src="../assets/img/icons/mail.svg" alt="Password" class="input_logIn_img">
+                        <div class="signUp_error d_none" id="signUpEmail_error">The email address entered is not valid. Please try again.</div>
                     </div>
                     <div class="password_container">
                         <input onfocus="onFocusSignUp('signUpPassword')" onblur="onBlurSignUp('signUpPassword')" type="password" placeholder="Password" class="input_logIn" id="signUpPassword" required>
                         <img onclick="handleSignUpImageClick('signUpPassword')" src="../assets/img/icons/lock.svg" alt="Password" class="input_logIn_img" id="signUpPasswordImg">
-                        <div class="signUp_error d_none" id="signUpEmail_error">The email address entered is not valid. Please try again.</div>
                     </div>
                     <div class="password_container">
                         <input onfocus="onFocusSignUp('signUpConfirmPassword')" onblur="onBlurSignUp('signUpConfirmPassword')" type="password" placeholder="Confirm Password" class="input_logIn" id="signUpConfirmPassword" required >
