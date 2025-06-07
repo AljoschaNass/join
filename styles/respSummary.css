@@ -119,8 +119,6 @@
 @media(max-width: 770px) {
   @media( max-height: 1030px) {
   .main_content_summary {
-    padding: 48px 0 0 0;
-    height: calc(100vh - 120px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -140,10 +138,6 @@
 
 
 @media(max-width: 630px) {
-  .main_content_summary {
-    padding: 48px 0 0 0;
-  }
-
   .summary_cards {
     margin-top: 20px;
     height: 370px;
@@ -259,8 +253,6 @@
 
   @media(max-height: 730px) { 
     .main_content_summary {
-      margin: 0;
-      height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
