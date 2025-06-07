@@ -101,11 +101,12 @@
   }
 
  .summary_greeting {
-    margin: 12px auto;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-  }
+    justify-content: center;
+    height: calc(100vh - 288px);
+}
 
   .summary_greeting_text {
     font-size: 36px;
