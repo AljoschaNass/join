@@ -13,7 +13,7 @@ checkOrientation();
 function checkOrientation() {
     let orientationMessage = document.getElementById("orientationMessage");
     let isLandscape = window.innerWidth > window.innerHeight;
-    let isSmallScreen = window.innerWidth <= 1024 && window.innerHeight <= 800;
+    let isSmallScreen = window.innerWidth <= 1024 && window.innerHeight <= 850;
     if (isSmallScreen && isLandscape) {
         orientationMessage.classList.remove("d_none");
         orientationMessage.classList.add("d_flex");

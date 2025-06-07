@@ -58,12 +58,13 @@
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .main_content_summary {
-    margin: 120px auto;
-    padding: 0;
-    height: 80vh;
+    margin: 0 auto;
+    padding: 128px 0 96px 0;
+    height: fit-content;
     display: flex;
+    justify-content: unset;
   } 
 
   .headSummaryPosition {
@@ -89,7 +90,7 @@
   }
 
   .h2Summary {
-        font-size: 20px;
+    font-size: 20px;
   }
 
   .blueLine {
@@ -113,22 +114,15 @@
   .summary_greeting_name {
     font-size: 47px;
   }
-
-  @media (max-height: 1200px) {
-    .main_content_summary {
-      margin-top: 80px !important;
-    }
-  } 
 }
 
 @media(max-width: 770px) {
   @media( max-height: 1030px) {
   .main_content_summary {
-    margin: 20px auto;
+    padding: 48px 0 0 0;
     height: calc(100vh - 120px);
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     }
 
@@ -147,8 +141,7 @@
 
 @media(max-width: 630px) {
   .main_content_summary {
-    margin: 0;
-    margin-top: 0 !important;
+    padding: 48px 0 0 0;
   }
 
   .summary_cards {
@@ -170,7 +163,6 @@
   .headSummaryPositionResp {
     margin: 0;
     width: 396px;
-    margin-top: 100px;
     justify-self: center;
     align-self: center;
   }
@@ -292,7 +284,6 @@
   .headSummaryPositionResp {
     margin: 0;
     width: 290px;
-    margin-top: 120px;
   }
 
   .summary_card_number {
@@ -380,11 +371,5 @@
     gap: 6px;
     padding: 12px;
     border-radius: 20px;
-  }
-
-  @media (max-height: 670px) {
-    .headSummaryPositionResp {
-      margin-top: 15px;
-    }
   }
 }
