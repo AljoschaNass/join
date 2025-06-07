@@ -12,10 +12,14 @@ checkOrientation();
  */
 function checkOrientation() {
     let orientationMessage = document.getElementById("orientationMessage");
-    if ((window.innerWidth < 1025 || window.innerHeight < 801) && window.innerHeight < window.innerWidth) {
-        orientationMessage.style.display = "flex";
+    let isLandscape = window.innerWidth > window.innerHeight;
+    let isSmallScreen = window.innerWidth <= 1024 && window.innerHeight <= 800;
+    if (isSmallScreen && isLandscape) {
+        orientationMessage.classList.remove("d_none");
+        orientationMessage.classList.add("d_flex");
     } else {
-        orientationMessage.style.display = "none";
+        orientationMessage.classList.remove("d_flex");
+        orientationMessage.classList.add("d_none");
     }
 }
 
