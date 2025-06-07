@@ -77,6 +77,14 @@
     padding-bottom: 8px;
   }
 
+   .footer_link_logged_out {
+    color: #a8a8a8 !important;
+    font-size: 16px;
+    padding-left: 56px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
   .footer_link_hover{
     &:hover {
       color: #2aaae2 !important;
@@ -228,6 +236,13 @@ height: 100%;
 
 .bg_dark_blue {
   border-radius: 16px;
+}
+
+.footer_link {
+  height: 80px;
+}
+
+.footer_link_logged_out {
   padding: 30px 8px;
   height: fit-content;
 }
@@ -239,6 +254,5 @@ height: 100%;
   gap: 0;
   padding-inline: 16px;
 }
-
 }
 

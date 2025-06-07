@@ -1,7 +1,16 @@
-// Add an event listener to check the orientation on window resize
-window.addEventListener("resize", checkOrientation);
-// Initial check for orientation when the script loads
-checkOrientation();
+/**
+ * Waits for the entire DOM to be fully loaded before executing orientation-related logic.
+ * - Adds an event listener to monitor window resize events.
+ * - Performs an initial check of the device's orientation to display a message
+ *   if the device is in landscape mode on a small screen.
+ * @event DOMContentLoaded
+ * @event resize
+ */
+document.addEventListener("DOMContentLoaded", () => {
+    window.addEventListener("resize", checkOrientation);
+    checkOrientation();
+});
+
 
 /**
  * Checks the current orientation of the window.
@@ -22,7 +31,6 @@ function checkOrientation() {
         orientationMessage.classList.add("d_none");
     }
 }
-
 
 
 /**
