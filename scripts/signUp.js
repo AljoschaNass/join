@@ -186,6 +186,14 @@ function disableSignUpButton() {
 }
 
 
+/**
+ * Validates the name input field in the sign-up form.
+ * If the input is empty, an error message is displayed, 
+ * and the border color of the input field is changed to red.
+ * If the input contains text, the error message is hidden, 
+ * and the original border color is restored.
+ * @returns {void} 
+ */
 function signUpNameError() {
   let name = document.getElementById("signUpName").value;
   if (!name) {
@@ -204,7 +212,7 @@ function signUpNameError() {
  * and the border color of the input field is changed to red.
  * If the email is valid, the error message is hidden, 
  * and the original border color is restored.
- * 
+ * @returns {void}
  */
 function signUpEmailError() {
   let email = document.getElementById("signUpEmail").value;
