@@ -228,7 +228,8 @@ height: 100%;
 
 .bg_dark_blue {
   border-radius: 16px;
-  height: 80px;
+  padding: 30px 8px;
+  height: fit-content;
 }
 }
 
