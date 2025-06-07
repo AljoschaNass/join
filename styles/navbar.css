@@ -256,3 +256,28 @@ height: 100%;
 }
 }
 
+@media (max-width:355px) {
+  .quick_links {
+    padding-inline: 8px;
+  }
+
+  .quick_link_row {
+    width: 60px;
+    height: 60px;
+  }
+
+  .quick_links_icons {
+    width: 20px;
+    height: 20px;
+  }
+
+  .quick_link {
+    font-size: 12px;
+  }
+}
+
+@media (max-width:320px) {
+  .quick_links {
+    padding-inline: 4px;
+  }
+}
