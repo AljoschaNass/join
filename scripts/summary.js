@@ -16,7 +16,7 @@ function initSummary() {
  * @param {HTMLElement} element - The element containing the image to change.
  */
 function changeImage(element) {
-    var img = element.querySelector('img');
+    let img = element.querySelector('img');
     img.src = '../assets/img/icons/pen_lightgrey.svg';
 }
 
@@ -26,7 +26,7 @@ function changeImage(element) {
  * @param {HTMLElement} element - The element containing the image to reset.
  */
 function resetImage(element) {
-    var img = element.querySelector('img');
+    let img = element.querySelector('img');
     img.src = '../assets/img/icons/pen_grey.svg';
 }
 
