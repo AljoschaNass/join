@@ -3,7 +3,6 @@ window.addEventListener("resize", checkOrientation);
 // Initial check for orientation when the script loads
 checkOrientation();
 
-
 /**
  * Checks the current orientation of the window.
  * If the window is in landscape mode, a visual message is displayed,
@@ -13,12 +12,13 @@ checkOrientation();
  */
 function checkOrientation() {
     let orientationMessage = document.getElementById("orientationMessage");
-    if ((window.innerWidth < 1025 || window.innerHeight < 900) && window.innerHeight < window.innerWidth) {
+    if ((window.innerWidth < 1025 || window.innerHeight < 801) && window.innerHeight < window.innerWidth) {
         orientationMessage.style.display = "flex";
     } else {
         orientationMessage.style.display = "none";
     }
 }
+
 
 
 /**
