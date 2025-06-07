@@ -4,14 +4,14 @@
  * @returns {void}
  */ 
 function toggleSignUpPasswordVisibility(inputId) {
-    var x = document.getElementById(inputId);
+    let inputFiled = document.getElementById(inputId);
     let img = document.getElementById(inputId + "Img");
-    if (x.type === "password") {
-        x.type = "text";
+    if (inputFiled.type === "password") {
+        inputFiled.type = "text";
         img.src = "../assets/img/icons/visibility.svg"; 
         img.alt = "Password Visible";
     } else {
-        x.type = "password";
+        inputFiled.type = "password";
         img.src = "../assets/img/icons/visibility_off.svg";
         img.alt = "Password Hidden";
     }
@@ -24,8 +24,8 @@ function toggleSignUpPasswordVisibility(inputId) {
  * @returns {void}
  */
 function onFocusSignUp(inputId) {
-    let x = document.getElementById(inputId);
-    x.style.borderColor = "#29ABE2";
+    let inputFiled = document.getElementById(inputId);
+    inputFiled.style.borderColor = "#29ABE2";
     let img = document.getElementById(inputId + "Img");
     img.src = "../assets/img/icons/visibility_off.svg";// Icon für Passwort versteckt 
     img.alt = "Password Hidden";
@@ -38,12 +38,12 @@ function onFocusSignUp(inputId) {
  * @returns {void}
  */
 function onBlurSignUp(inputId) {
-    let x = document.getElementById(inputId);
-    x.style.borderColor = "#D9D9D9";
-    x.type = "password";
+    let inputFiled = document.getElementById(inputId);
+    inputFiled.style.borderColor = "#D9D9D9";
+    inputFiled.type = "password";
     let img = document.getElementById(inputId + "Img");
-    img.src = x.value === "" ? "../assets/img/icons/lock.svg" : "../assets/img/icons/visibility_off.svg";
-    img.alt = x.value === "" ? "Password" : "Password Hidden";
+    img.src = inputFiled.value === "" ? "../assets/img/icons/lock.svg" : "../assets/img/icons/visibility_off.svg";
+    img.alt = inputFiled.value === "" ? "Password" : "Password Hidden";
 }
 
 
