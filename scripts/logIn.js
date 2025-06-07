@@ -103,6 +103,27 @@ function logInError() {
 
 
 /**
+ * Validates the email input in the login form.
+ * If the email is invalid, an error message is displayed, 
+ * and the border color of the input field is changed to red.
+ * If the email is valid, the error message is hidden, 
+ * and the original border color is restored.
+ * 
+ */
+function logInEmailError() {
+  let email = document.getElementById("logInEmail").value;
+  let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
+  if (!emailPattern.test(email)) {
+    document.getElementById("logInEmail_error").classList.remove("d_none");
+    document.getElementById("logInEmail").style.borderColor = "#ff001f";
+  } else {
+    document.getElementById("logInEmail_error").classList.add("d_none");
+    document.getElementById("logInEmail").style.borderColor = "#D9D9D9";
+  }
+}
+
+
+/**
  * Logs in as a guest user.
  * @returns {void}
  */

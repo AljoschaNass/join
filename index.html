@@ -34,10 +34,11 @@
             <form class="logIn_form">
                 <div class="gap_32 center">
                     <div class="password_container">
-                        <input type="email" placeholder="Email" class="input_logIn" id="logInEmail" required>
+                        <input type="email" placeholder="Email" class="input_logIn" id="logInEmail" onfocus="removeLogInEmailError()" onblur="logInEmailError()" required>
                         <div class="toggle_password">
                             <img src="./assets/img/icons/mail.svg" alt="Password" class="input_logIn_img">
                         </div>
+                        <div class="logIn_error d_none" id="logInEmail_error">The email address entered is not valid. Please try again.</div>
                     </div>
                     <div class="password_container">
                         <input onfocus="onFocus('logInPassword')" onblur="onBlur('logInPassword')" type="password" placeholder="Password" class="input_logIn" id="logInPassword" required>
