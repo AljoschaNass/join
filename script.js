@@ -1,22 +1,24 @@
 // Add an event listener to check the orientation on window resize
 window.addEventListener("resize", checkOrientation);
 // Initial check for orientation when the script loads
-checkOrientation(); 
-
+checkOrientation();
 
 /**
  * Checks the current orientation of the window.
- * If the window is in landscape mode, it alerts the user to switch to portrait mode.
+ * If the window is in landscape mode, a visual message is displayed,
+ * otherwise it is hidden.
  * 
  * @returns {void}
  */
 function checkOrientation() {
-    if (window.innerWidth < 1025) {
-        if (window.innerHeight < window.innerWidth) {
-            alert("Bitte drehen Sie Ihr Gerät in den Hochformatmodus.");
-        }
+    let orientationMessage = document.getElementById("orientationMessage");
+    if ((window.innerWidth < 1025 || window.innerHeight < 900) && window.innerHeight < window.innerWidth) {
+        orientationMessage.style.display = "flex";
+    } else {
+        orientationMessage.style.display = "none";
     }
 }
+
 
 
 /**
