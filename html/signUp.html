@@ -36,7 +36,7 @@
                     <div class="password_container">
                         <input type="text" placeholder="Name" class="input_logIn" id="signUpName" onblur="signUpNameError()" required>
                         <img src="../assets/img/icons/person.svg" alt="Password" class="input_logIn_img">
-                        <div class="signUp_error d_none" id="signUpName_error">Please enter your Name.</div>
+                        <div class="signUp_error d_none" id="signUpName_error">Please enter your name.</div>
                     </div>
                     <div class="password_container">
                         <input type="email" placeholder="Email" class="input_logIn" id="signUpEmail" onblur="signUpEmailError()" required>
@@ -44,24 +44,29 @@
                         <div class="signUp_error d_none" id="signUpEmail_error">The email address entered is not valid. Please try again.</div>
                     </div>
                     <div class="password_container">
-                        <input onfocus="onFocusSignUp('signUpPassword')" onblur="onBlurSignUp('signUpPassword')" type="password" placeholder="Password" class="input_logIn" id="signUpPassword" required>
+                        <input onfocus="onFocusSignUp('signUpPassword')" onblur="onBlurSignUp('signUpPassword'); signUpPasswordError()" type="password" placeholder="Password" class="input_logIn" id="signUpPassword" required>
                         <img onclick="handleSignUpImageClick('signUpPassword')" src="../assets/img/icons/lock.svg" alt="Password" class="input_logIn_img" id="signUpPasswordImg">
+                        <div class="signUp_error d_none" id="signUpPassword_error">Please enter a password.</div>
                     </div>
                     <div class="password_container">
-                        <input onfocus="onFocusSignUp('signUpConfirmPassword')" onblur="onBlurSignUp('signUpConfirmPassword')" type="password" placeholder="Confirm Password" class="input_logIn" id="signUpConfirmPassword" required >
+                        <input onfocus="onFocusSignUp('signUpConfirmPassword')" onblur="onBlurSignUp('signUpConfirmPassword'); signUpConfirmPasswordError()" type="password" placeholder="Confirm Password" class="input_logIn" id="signUpConfirmPassword" required >
                         <img onclick="handleSignUpImageClick('signUpConfirmPassword')" src="../assets/img/icons/lock.svg" alt="Password" class="input_logIn_img" id="signUpConfirmPasswordImg">
                         <div class="signUp_error d_none" id="signUp_error">Your passwords don't match. Please try again.</div>
                     </div>
                     <div class="signUpCheckbox">
-                        <input type="checkbox" id="signUpCheckbox" required>
+                        <input type="checkbox" id="signUpCheckbox" onclick="signUpCheckboxError()" required>
                         <label for="signUpCheckbox"><span class="customCheckbox"></span></label>
                         <p>I accept the <a href="../html/privacyPolice.html" class="lightBlue">Privacy Policy</a></p>
+                    </div>
+                    <div class="signUp_error d_none" id="signUpCheckbox_error">
+                        Please accept the Privacy Policy to continue.
                     </div>
                     <div class="signUp_btn">
                         <button class="center" type="submit" id="signUpBtn">Sign up</button>
                     </div>
                 </div>
             </form>
+            <button class="center" type="button" id="signUpBtn_overlay" onclick="checkForSignUpErrors()"></button>
         </div>
         <div class="d_none" onclick="goToLogIn()" id="signUpSuccess">
             <button class="center bShadow_blur4_opacity015" >You Signed Up successfully</button>

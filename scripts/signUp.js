@@ -171,6 +171,7 @@ function enableSignUpButton() {
     if (name.value && email.value && password.value && passwordCheck.value && checkbox.checked) {
         signUpBtn.disabled = false; 
         signUpBtn.classList.add("signUpBtn_enabled"); 
+        document.getElementById("signUpBtn_overlay").classList.add("d_none");
     } 
 }
 
@@ -183,6 +184,7 @@ function disableSignUpButton() {
     let signUpBtn = document.getElementById("signUpBtn");
     signUpBtn.disabled = true; 
     signUpBtn.classList.remove("signUpBtn_enabled"); 
+    document.getElementById("signUpBtn_overlay").classList.remove("d_none");
 }
 
 
@@ -207,7 +209,7 @@ function signUpNameError() {
 
 
 /**
- * Validates the email input in the login form.
+ * Validates the email input in the sign-up form.
  * If the email is invalid, an error message is displayed, 
  * and the border color of the input field is changed to red.
  * If the email is valid, the error message is hidden, 
@@ -224,4 +226,77 @@ function signUpEmailError() {
     document.getElementById("signUpEmail_error").classList.add("d_none");
     document.getElementById("signUpEmail").style.borderColor = "#D9D9D9";
   }
+}
+
+
+/**
+ * Validates the password input in the sign-up form.
+ * If the password is empty, an error message is displayed,
+ * and the border color of the input field is changed to red.
+ * If the password is provided, the error message is hidden,
+ * and the original border color is restored.
+ * * @returns {void}
+ */
+function signUpPasswordError() {
+  let password = document.getElementById("signUpPassword").value;
+  if (!password) {
+    document.getElementById("signUpPassword_error").classList.remove("d_none");
+    document.getElementById("signUpPassword").style.borderColor = "#ff001f";
+  } else {
+    document.getElementById("signUpPassword_error").classList.add("d_none");
+    document.getElementById("signUpPassword").style.borderColor = "#D9D9D9";
+  }
+}
+
+
+/**
+ * Validates the confirm password input in the sign-up form.
+ * If the confirm password does not match the original password,
+ * an error message is displayed, and the border color of the input field is changed to red.
+ * If the confirm password matches the original password, the error message is hidden,
+ * and the original border color is restored.
+ * @returns {void}
+ */
+function signUpConfirmPasswordError() {
+    let passwordCheck = document.getElementById("signUpConfirmPassword").value;
+    let password = document.getElementById("signUpPassword").value;                                     
+    if (passwordCheck !== password) {
+        document.getElementById("signUp_error").classList.remove("d_none");
+        document.getElementById("signUpConfirmPassword").style.borderColor = "#ff001f";
+    } else {
+        document.getElementById("signUp_error").classList.add("d_none");
+        document.getElementById("signUpConfirmPassword").style.borderColor = "#D9D9D9";
+    }
+}
+   
+
+/**
+ * Checks if the sign-up checkbox is checked.
+ * If the checkbox is not checked, an error message is displayed.
+ * If the checkbox is checked, the error message is hidden.
+ * * @returns {void}
+ */
+function signUpCheckboxError() {
+    let checkbox = document.getElementById("signUpCheckbox");
+    if (!checkbox.checked) {
+        document.getElementById("signUpCheckbox_error").classList.remove("d_none");  
+    } else {
+        document.getElementById("signUpCheckbox_error").classList.add("d_none");
+    }
+}
+
+
+/**
+ * Checks the sign-up form for errors and displays appropriate error messages.
+ * This function validates the name, email, password, confirm password fields,
+ * and the checkbox for terms and conditions.
+ * If any field is invalid, it displays the corresponding error message.
+ * @returns {void}
+ */
+function checkForSignUpErrors() {
+    signUpNameError();
+    signUpEmailError();
+    signUpPasswordError();
+    signUpConfirmPasswordError();
+    signUpCheckboxError();
 }

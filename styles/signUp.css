@@ -139,3 +139,19 @@
     text-align: center;
     padding: 25px;
 }
+
+#signUpCheckbox_error {
+    margin-top: -22px !important;
+}
+
+#signUpBtn_overlay {
+    position: absolute;
+    bottom: 30px;
+    left: calc(50% - 63px);
+    width: 126px;
+    height: 70px;
+    border: unset;
+    background-color: transparent;
+    padding: 15px 24px 15px 24px;
+    z-index: 2;
+}
