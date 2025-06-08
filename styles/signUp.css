@@ -154,4 +154,5 @@
     background-color: transparent;
     padding: 15px 24px 15px 24px;
     z-index: 2;
+    cursor: not-allowed;
 }
