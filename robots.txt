@@ -1,0 +1,5 @@
+User-Agent: *
+
+Disallow: /privacyPolice.html
+Disallow: /legalNotice.html
+Disallow: /help.html
